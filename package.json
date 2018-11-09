@@ -1,0 +1,38 @@
+{
+  "name": "x-js-toolkit",
+  "version": "1.0.0",
+  "description": "This is my javascript toolkit.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack  --mode=development --progress && tsc --emitDeclarationOnly",
+    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xucongli1989/x-js-toolkit.git"
+  },
+  "keywords": [
+    "javascript",
+    "toolkit",
+    "js",
+    "helper",
+    "library"
+  ],
+  "author": "XCL",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/xucongli1989/x-js-toolkit/issues"
+  },
+  "homepage": "https://github.com/xucongli1989/x-js-toolkit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
