@@ -1,6 +1,4 @@
-export interface test {
-    name: string,
-    age: number
+import Cache from "./cache/index"
+export default {
+    Cache
 }
-
-export default test

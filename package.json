@@ -4,7 +4,7 @@
   "description": "This is my javascript toolkit.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack  --mode=development --progress && tsc --emitDeclarationOnly",
+    "dev": "webpack  --mode=development --progress",
     "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly"
   },
   "repository": {

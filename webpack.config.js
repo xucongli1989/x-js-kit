@@ -6,10 +6,13 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
+    },
     module: {
         rules: [
             {
-                test: /\.(j|t)sx?$/,
+                test: /\.[jt]sx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             }
