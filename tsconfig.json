@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "Classic",
+    "allowJs": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "./dist/"
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": []
+}
