@@ -1,5 +1,6 @@
-export interface test {
-    name: string;
-    age: number;
-}
-export default test;
+declare const _default: {
+    Cache: {
+        LocalStorage: typeof import("./cache/localStorage").default;
+    };
+};
+export default _default;
