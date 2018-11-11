@@ -1,5 +1,5 @@
 let globalCacheName = "x-js-toolkit-localcache"
-interface ItemContentType {
+export interface ItemContentType {
     /**
      * 具体的缓存值
      */
@@ -7,43 +7,20 @@ interface ItemContentType {
     /**
      * 过期时间，若不指定，则无过期时间
      */
-    expire?: Date
+    expire?: number
 }
-interface GlobalCacheType {
+export interface GlobalCacheType {
     /**
      * 时间
      */
-    time: Date,
+    time: number,
     /**
      * 所有缓存项
      */
     items: { [key: string]: ItemContentType }
 }
 
-(() => {
-    //设置默认缓存值
-    const defaultGlobalLocalStorage: GlobalCacheType = {
-        time: new Date(),
-        items: {}
-    }
-    if (!localStorage.getItem(globalCacheName)) {
-        localStorage.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
-    }
-    //清理过期缓存
-    const ch = Lib.getGlobalCache()
-    if (!ch) return
-    Object.keys(ch.items).forEach(key => {
-        const item = ch.items[key]
-        if (!item || !item.expire) {
-            return
-        }
-        if (item.expire.valueOf() < new Date().valueOf()) {
-            Lib.remove(key)
-        }
-    })
-})()
-
-export default class Lib {
+class Lib {
     /**
      * 返回全局缓存对象
      */
@@ -86,7 +63,7 @@ export default class Lib {
         if (!item) {
             return null
         }
-        if (item.expire && item.expire.valueOf() < new Date().valueOf()) {
+        if (item.expire && item.expire < new Date().valueOf()) {
             Lib.remove(key)
             return null
         }
@@ -104,3 +81,28 @@ export default class Lib {
         localStorage.setItem(globalCacheName, JSON.stringify(cache))
     }
 }
+
+(() => {
+    //设置默认缓存值
+    const defaultGlobalLocalStorage: GlobalCacheType = {
+        time: new Date().valueOf(),
+        items: {}
+    }
+    if (!localStorage.getItem(globalCacheName)) {
+        localStorage.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
+    }
+    //清理过期缓存
+    const ch = Lib.getGlobalCache()
+    if (!ch) return
+    Object.keys(ch.items).forEach(key => {
+        const item = ch.items[key]
+        if (!item || !item.expire) {
+            return
+        }
+        if (item.expire < new Date().valueOf()) {
+            Lib.remove(key)
+        }
+    })
+})()
+
+export default Lib

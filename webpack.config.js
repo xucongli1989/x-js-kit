@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack")
 const config = {
     entry: "./src/index.ts",
     output: {
@@ -9,6 +10,7 @@ const config = {
     resolve: {
         extensions: ['.ts', '.js', '.json']
     },
+    devtool: "source-map",
     module: {
         rules: [
             {
@@ -21,7 +23,13 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
-    ]
+        }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        inline: true,
+        open: true,
+        contentBase: path.join(__dirname, "./dist")
+    }
 }
 module.exports = config;
