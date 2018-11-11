@@ -1,5 +1,5 @@
-import cache from "../cache/index"
-import { ItemContentType } from "../cache/localStorage"
+import cache from "../src/cache/index"
+import { ItemContentType } from "../src/cache/localStorage"
 
 test('cache.localStorage', () => {
     const itemContent: ItemContentType = {
