@@ -1,4 +1,4 @@
-interface ItemContentType {
+export interface ItemContentType {
     /**
      * 具体的缓存值
      */
@@ -6,13 +6,13 @@ interface ItemContentType {
     /**
      * 过期时间，若不指定，则无过期时间
      */
-    expire?: Date;
+    expire?: number;
 }
-interface GlobalCacheType {
+export interface GlobalCacheType {
     /**
      * 时间
      */
-    time: Date;
+    time: number;
     /**
      * 所有缓存项
      */
@@ -20,7 +20,7 @@ interface GlobalCacheType {
         [key: string]: ItemContentType;
     };
 }
-export default class Lib {
+declare class Lib {
     /**
      * 返回全局缓存对象
      */
@@ -42,4 +42,4 @@ export default class Lib {
      */
     static remove(key: string): null | undefined;
 }
-export {};
+export default Lib;

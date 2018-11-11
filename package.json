@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack  --mode=development --progress",
-    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly"
+    "dist": "npm run test && webpack  --mode=production --progress && tsc --emitDeclarationOnly",
+    "test": "jest",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -30,9 +32,14 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-typescript": "^7.1.0",
+    "@types/jest": "^23.3.9",
     "babel-loader": "^8.0.4",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.6",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
