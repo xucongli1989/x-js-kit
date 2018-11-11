@@ -1,5 +1,5 @@
-import LocalStorage from "./localStorage";
+import localStorage from "./localStorage";
 declare const _default: {
-    LocalStorage: typeof LocalStorage;
+    localStorage: typeof localStorage;
 };
 export default _default;

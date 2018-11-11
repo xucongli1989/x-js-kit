@@ -1,6 +1,6 @@
-import Cache from "./cache/index"
-import Date from "./date/index"
+import cache from "./cache/index"
+import date from "./date/index"
 export default {
-    Cache,
-    Date
+    cache,
+    date
 }
