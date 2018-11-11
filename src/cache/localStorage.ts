@@ -34,7 +34,7 @@ interface GlobalCacheType {
     if (!ch) return
     Object.keys(ch.items).forEach(key => {
         const item = ch.items[key]
-        if (!item.expire) {
+        if (!item || !item.expire) {
             return
         }
         if (item.expire.valueOf() < new Date().valueOf()) {
@@ -82,15 +82,15 @@ export default class Lib {
         if (!cache) {
             return null
         }
-        const value = cache.items[key]
-        if (!value) {
+        const item = cache.items[key]
+        if (!item) {
             return null
         }
-        if (value.expire && value.expire.valueOf() < new Date().valueOf()) {
+        if (item.expire && item.expire.valueOf() < new Date().valueOf()) {
             Lib.remove(key)
             return null
         }
-        return value
+        return item
     }
     /**
      * 删除指定缓存
