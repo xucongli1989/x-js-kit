@@ -1,2 +1,2 @@
-# x-js-toolkit
+# x-js-kit
 This is my javascript toolkit.
