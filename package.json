@@ -1,5 +1,5 @@
 {
-  "name": "x-js-toolkit",
+  "name": "x-js-kit",
   "version": "1.0.0",
   "description": "This is my javascript toolkit.",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xucongli1989/x-js-toolkit.git"
+    "url": "git+https://github.com/xucongli1989/x-js-kit.git"
   },
   "keywords": [
     "javascript",
@@ -23,9 +23,9 @@
   "author": "XCL",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/xucongli1989/x-js-toolkit/issues"
+    "url": "https://github.com/xucongli1989/x-js-kit/issues"
   },
-  "homepage": "https://github.com/xucongli1989/x-js-toolkit#readme",
+  "homepage": "https://github.com/xucongli1989/x-js-kit#readme",
   "browserslistrc": [
     "last 3 version",
     "> 1%",

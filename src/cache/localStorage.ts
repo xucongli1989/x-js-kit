@@ -1,4 +1,4 @@
-let globalCacheName = "x-js-toolkit-localcache"
+let globalCacheName = "x-js-kit-localcache"
 export interface ItemContentType {
     /**
      * 具体的缓存值
