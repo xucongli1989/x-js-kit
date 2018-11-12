@@ -20,66 +20,64 @@ export interface GlobalCacheType {
     items: { [key: string]: ItemContentType }
 }
 
-class Lib {
-    /**
-     * 返回全局缓存对象
-     */
-    static getGlobalCache(): GlobalCacheType | null {
-        const cacheValue = localStorage.getItem(globalCacheName) as string
-        if (!cacheValue) {
-            return null;
-        }
-        return JSON.parse(cacheValue) as GlobalCacheType
+/**
+ * 返回全局缓存对象
+ */
+export const getGlobalCache = (): (GlobalCacheType | null) => {
+    const cacheValue = localStorage.getItem(globalCacheName) as string
+    if (!cacheValue) {
+        return null;
     }
-    /**
-     * 修改localStorage缓存的默认名称
-     */
-    static setGlobalCacheName(name: string) {
-        const oldValue = localStorage.getItem(globalCacheName) as string;
-        localStorage.removeItem(globalCacheName)
-        globalCacheName = name
-        localStorage.setItem(globalCacheName, oldValue);
+    return JSON.parse(cacheValue) as GlobalCacheType
+}
+/**
+ * 修改localStorage缓存的默认名称
+ */
+export const setGlobalCacheName = (name: string) => {
+    const oldValue = localStorage.getItem(globalCacheName) as string;
+    localStorage.removeItem(globalCacheName)
+    globalCacheName = name
+    localStorage.setItem(globalCacheName, oldValue);
+}
+/**
+ * 添加数据至缓存
+ */
+export const add = (key: string, value: ItemContentType) => {
+    const cache = getGlobalCache()
+    if (!cache) {
+        return
     }
-    /**
-     * 添加数据至缓存
-     */
-    static add(key: string, value: ItemContentType) {
-        const cache = Lib.getGlobalCache()
-        if (!cache) {
-            return
-        }
-        cache.items[key] = value
-        localStorage.setItem(globalCacheName, JSON.stringify(cache))
+    cache.items[key] = value
+    localStorage.setItem(globalCacheName, JSON.stringify(cache))
+}
+/**
+ * 读取指定缓存
+ */
+export const get = (key: string): ItemContentType | null => {
+    const cache = getGlobalCache()
+    if (!cache) {
+        return null
     }
-    /**
-     * 读取指定缓存
-     */
-    static get(key: string): ItemContentType | null {
-        const cache = Lib.getGlobalCache()
-        if (!cache) {
-            return null
-        }
-        const item = cache.items[key]
-        if (!item) {
-            return null
-        }
-        if (item.expire && item.expire < new Date().valueOf()) {
-            Lib.remove(key)
-            return null
-        }
-        return item
+    const item = cache.items[key]
+    if (!item) {
+        return null
     }
-    /**
-     * 删除指定缓存
-     */
-    static remove(key: string) {
-        const cache = Lib.getGlobalCache()
-        if (!cache) {
-            return null
-        }
-        delete cache.items[key]
-        localStorage.setItem(globalCacheName, JSON.stringify(cache))
+    if (item.expire && item.expire < new Date().valueOf()) {
+        remove(key)
+        return null
     }
+    return item
+}
+/**
+ * 删除指定缓存
+ */
+export const remove = (key: string) => {
+    const cache = getGlobalCache()
+    if (!cache) {
+        return null
+    }
+    delete cache.items[key]
+    localStorage.setItem(globalCacheName, JSON.stringify(cache))
 }
 
 (() => {
@@ -92,7 +90,7 @@ class Lib {
         localStorage.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
     }
     //清理过期缓存
-    const ch = Lib.getGlobalCache()
+    const ch = getGlobalCache()
     if (!ch) return
     Object.keys(ch.items).forEach(key => {
         const item = ch.items[key]
@@ -100,9 +98,7 @@ class Lib {
             return
         }
         if (item.expire < new Date().valueOf()) {
-            Lib.remove(key)
+            remove(key)
         }
     })
 })()
-
-export default Lib

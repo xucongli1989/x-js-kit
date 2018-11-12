@@ -1,4 +1,4 @@
-import localStorage from "./localStorage";
+import * as localStorage from "./localStorage";
 declare const _default: {
     localStorage: typeof localStorage;
 };

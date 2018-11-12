@@ -1,8 +1,9 @@
-import date from "./date/index";
 declare const _default: {
     cache: {
-        localStorage: typeof import("./cache/localStorage").default;
+        localStorage: typeof import("./cache/localStorage");
     };
-    date: typeof date;
+    date: {
+        format: typeof import("./date/format");
+    };
 };
 export default _default;
