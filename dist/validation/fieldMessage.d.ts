@@ -2,19 +2,19 @@ export interface ValidationInitOpsType {
     /**
      * 是否显示所有提示语
      */
-    isShowAllMsg?: boolean;
+    isShowAll?: boolean;
     /**
-     * 上一次的验证对象
+     * 上一次的字段提示对象
      */
-    oldFieldMessageItem?: FieldMessageItem;
+    oldItem?: FieldMessageItem;
     /**
      * 需要显示提示语的字段
      */
-    needShowMsgFields?: string[];
+    needShowFields?: string[];
     /**
      * 不需要显示提示语的字段
      */
-    unNeedShowMsgFields?: string[];
+    unNeedShowFields?: string[];
 }
 export interface FieldItemType {
     /**
@@ -42,30 +42,24 @@ export declare class FieldMessageItem {
         [name: string]: FieldItemType;
     };
     /**
-     * 自定义扩展信息
-     */
-    extend: {
-        [name: string]: any;
-    };
-    /**
-     * 初始化，重新设置fieldItems的信息
+     * 初始化，重新设置fieldItems中的属性
      */
     init(ops: ValidationInitOpsType): this;
 }
 /**
- * 表单验证类
+ * 字段信息提示类
  */
 export declare class FieldMessageModel {
     /**
-     * 是否所有验证列表均已验证通过
+     * 是否itemList中的所有的字段提示列表均已验证通过
      */
     readonly isPassed: boolean;
     /**
-     * 验证列表
+     * 字段提示列表
      */
-    fieldMessageItemList: FieldMessageItem[];
+    itemList: FieldMessageItem[];
     /**
-     * 根据id返回指定的验证项
+     * 根据id返回指定的字段提示项
      */
-    getFieldMessageItem(id: string): FieldMessageItem | null;
+    getItem(id: string): FieldMessageItem | null;
 }
