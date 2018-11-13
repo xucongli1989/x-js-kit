@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "dev": "webpack  --mode=development --progress",
-    "dist": "npm run test && webpack  --mode=production --progress && tsc --emitDeclarationOnly",
+    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
     "test": "jest",
     "start": "webpack-dev-server"
   },
