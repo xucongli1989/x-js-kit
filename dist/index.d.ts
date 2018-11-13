@@ -5,5 +5,8 @@ declare const _default: {
     date: {
         format: typeof import("./date/format");
     };
+    validation: {
+        fieldMessage: typeof import("./validation/fieldMessage");
+    };
 };
 export default _default;
