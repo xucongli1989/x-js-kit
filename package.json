@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack  --mode=development --progress",
     "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
-    "test": "jest",
+    "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server"
   },
   "repository": {
