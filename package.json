@@ -26,13 +26,6 @@
     "url": "https://github.com/xucongli1989/x-js-kit/issues"
   },
   "homepage": "https://github.com/xucongli1989/x-js-kit#readme",
-  "browserslistrc": [
-    "last 3 version",
-    "> 1%",
-    "maintained node versions",
-    "not dead",
-    "not ie <= 8"
-  ],
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
