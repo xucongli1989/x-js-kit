@@ -63,3 +63,4 @@ export declare class FieldMessageModel {
      */
     getItem(id: string): FieldMessageItem | null;
 }
+//# sourceMappingURL=fieldMessage.d.ts.map
