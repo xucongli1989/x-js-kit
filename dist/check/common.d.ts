@@ -10,3 +10,4 @@ export declare const isAllEnglish: (val: string) => boolean;
  * 判断是否全为数字字符（0-9）
  */
 export declare const isAllNumber: (val: string) => boolean;
+//# sourceMappingURL=common.d.ts.map

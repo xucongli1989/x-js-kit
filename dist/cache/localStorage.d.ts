@@ -40,3 +40,4 @@ export declare const get: (key: string) => ItemContentType | null;
  * 删除指定缓存
  */
 export declare const remove: (key: string) => null | undefined;
+//# sourceMappingURL=localStorage.d.ts.map

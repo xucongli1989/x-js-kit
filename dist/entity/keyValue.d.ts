@@ -9,3 +9,4 @@ export declare class KeyNameValue {
     name: string;
     value: any;
 }
+//# sourceMappingURL=keyValue.d.ts.map

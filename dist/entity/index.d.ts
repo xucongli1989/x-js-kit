@@ -3,3 +3,4 @@ declare const _default: {
     keyValue: typeof keyValue;
 };
 export default _default;
+//# sourceMappingURL=index.d.ts.map

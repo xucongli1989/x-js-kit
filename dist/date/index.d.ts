@@ -3,3 +3,4 @@ declare const _default: {
     format: typeof format;
 };
 export default _default;
+//# sourceMappingURL=index.d.ts.map
