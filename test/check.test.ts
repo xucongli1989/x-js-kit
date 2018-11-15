@@ -11,8 +11,8 @@ test("check.common", () => {
     expect(check.common.isEmail(".com")).toBeFalsy()
     expect(check.common.isEmail("a.com")).toBeFalsy()
 
-    expect(check.common.isNumber("123456")).toBeTruthy()
-    expect(check.common.isNumber("123456-")).toBeFalsy()
-    expect(check.common.isNumber("abc")).toBeFalsy()
-    expect(check.common.isNumber("")).toBeFalsy()
+    expect(check.common.isAllNumber("123456")).toBeTruthy()
+    expect(check.common.isAllNumber("123456-")).toBeFalsy()
+    expect(check.common.isAllNumber("abc")).toBeFalsy()
+    expect(check.common.isAllNumber("")).toBeFalsy()
 })

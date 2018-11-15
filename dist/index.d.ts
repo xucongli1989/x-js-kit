@@ -11,5 +11,8 @@ declare const _default: {
     declaration: {
         common: typeof import("./declaration/common");
     };
+    constant: {
+        regexConst: typeof import("./constant/regex");
+    };
 };
 export default _default;
