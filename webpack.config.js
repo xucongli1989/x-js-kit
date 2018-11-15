@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack")
+const cleanWebpackPlugin = require('clean-webpack-plugin');
 const config = {
     entry: "./src/index.ts",
     output: {
@@ -22,6 +23,7 @@ const config = {
         ]
     },
     plugins: [
+        new cleanWebpackPlugin(["dist"]),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),

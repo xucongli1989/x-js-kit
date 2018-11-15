@@ -8,5 +8,8 @@ declare const _default: {
     validation: {
         fieldMessage: typeof import("./validation/fieldMessage");
     };
+    declaration: {
+        common: typeof import("./declaration/common");
+    };
 };
 export default _default;
