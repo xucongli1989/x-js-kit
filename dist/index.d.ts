@@ -14,6 +14,9 @@ declare const _default: {
     constant: {
         regexConst: typeof import("./constant/regex");
     };
+    pattern: {
+        strategy: typeof import("./pattern/strategy");
+    };
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
