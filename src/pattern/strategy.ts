@@ -9,7 +9,7 @@ class StrategyItem {
     }
     name: string = ""
     context: any
-    handler(item: StrategyItem): void { }
+    handler: (item: StrategyItem) => void
 }
 
 /**

@@ -16,3 +16,17 @@ test("check.common", () => {
     expect(check.common.isAllNumber("abc")).toBeFalsy()
     expect(check.common.isAllNumber("")).toBeFalsy()
 })
+
+test("check.url", () => {
+    expect(check.url.isHttp("https://www.google.com")).toBeFalsy()
+    expect(check.url.isHttp("http//www.google.com")).toBeFalsy()
+    expect(check.url.isHttp("")).toBeFalsy()
+    expect(check.url.isHttp("http://www.google.com")).toBeTruthy()
+    expect(check.url.isHttp("hTTp://www.google.com")).toBeTruthy()
+
+    expect(check.url.isHttps("http://www.google.com")).toBeFalsy()
+    expect(check.url.isHttps("https//www.google.com")).toBeFalsy()
+    expect(check.url.isHttps("")).toBeFalsy()
+    expect(check.url.isHttps("https://www.google.com")).toBeTruthy()
+    expect(check.url.isHttps("hTTps://www.google.com")).toBeTruthy()
+})
