@@ -9,6 +9,6 @@ test("pattern.strategy", () => {
         item.context.idx++
     }).add("item2", item => {
         item.context.idx++
-    }).process()
+    }).execute()
     expect(strategy.context.idx).toBe(2)
 })
