@@ -27,7 +27,7 @@ export class Strategy {
     /**
      * 添加一个策略项 
      */
-    add(name: string, handler: (item: StrategyItem) => void) {
+    add(handler: (item: StrategyItem) => void, name: string = "") {
         this._strategyList.push(new StrategyItem(name, this.context, handler))
         return this
     }
