@@ -5,10 +5,12 @@ test("pattern.strategy", () => {
     strategy.context = {
         idx: 0
     }
-    strategy.add("item1", item => {
+    strategy.add(item => {
         item.context.idx++
-    }).add("item2", item => {
+    }).add(item => {
+        item.context.idx++
+    }, "item").add(item => {
         item.context.idx++
     }).execute()
-    expect(strategy.context.idx).toBe(2)
+    expect(strategy.context.idx).toBe(3)
 })

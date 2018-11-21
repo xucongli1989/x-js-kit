@@ -22,7 +22,7 @@ export declare class Strategy {
     /**
      * 添加一个策略项
      */
-    add(name: string, handler: (item: StrategyItem) => void): this;
+    add(handler: (item: StrategyItem) => void, name?: string): this;
     /**
      * 执行策略列表
      */
