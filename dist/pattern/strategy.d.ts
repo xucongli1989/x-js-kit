@@ -5,7 +5,7 @@ declare class StrategyItem {
     constructor(name: string, context: any, handler: (item: StrategyItem) => void);
     name: string;
     context: any;
-    handler(item: StrategyItem): void;
+    handler: (item: StrategyItem) => void;
 }
 /**
  * 策略管理类
