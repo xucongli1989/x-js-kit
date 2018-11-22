@@ -4,6 +4,7 @@ import validation from "./validation/index"
 import declaration from "./declaration/index"
 import constant from "./constant/index"
 import pattern from "./pattern/index"
+import timer from "./timer/index"
 
 export default {
     cache,
@@ -11,5 +12,6 @@ export default {
     validation,
     declaration,
     constant,
-    pattern
+    pattern,
+    timer
 }

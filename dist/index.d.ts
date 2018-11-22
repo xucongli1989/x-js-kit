@@ -17,6 +17,9 @@ declare const _default: {
     pattern: {
         strategy: typeof import("./pattern/strategy");
     };
+    timer: {
+        StopWatch: typeof import("./timer/stopWatch").default;
+    };
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
