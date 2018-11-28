@@ -20,6 +20,9 @@ declare const _default: {
     timer: {
         StopWatch: typeof import("./timer/stopWatch").default;
     };
+    common: {
+        stringHelper: typeof import("./common/stringHelper");
+    };
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map

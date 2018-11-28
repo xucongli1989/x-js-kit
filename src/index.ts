@@ -5,6 +5,7 @@ import declaration from "./declaration/index"
 import constant from "./constant/index"
 import pattern from "./pattern/index"
 import timer from "./timer/index"
+import common from "./common/index"
 
 export default {
     cache,
@@ -13,5 +14,6 @@ export default {
     declaration,
     constant,
     pattern,
-    timer
+    timer,
+    common
 }
