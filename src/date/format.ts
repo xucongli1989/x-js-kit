@@ -3,7 +3,10 @@
  */
 export const toHourStringFromMins = (mins: number): string => {
     if (mins < 0) {
-        return "";
+        return ""
+    }
+    if (mins == 0) {
+        return "0分钟"
     }
     let h = parseInt((mins / 60).toString());
     let m = parseInt((mins % 60).toString());
