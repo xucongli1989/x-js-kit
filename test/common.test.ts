@@ -1,6 +1,6 @@
 import common from "../src/common/index"
 
-test("common-stringHelper", () => {
+test("common.stringHelper", () => {
     const str = "1234567890"
     expect(common.stringHelper.splitString("", 0)).toEqual([])
     expect(common.stringHelper.splitString("", -1)).toEqual([])

@@ -22,5 +22,5 @@ test("timer.stopWatch", async () => {
     stopWatch.start()
     expect(() => {
         stopWatch.stop().start()
-    }).toThrowError(/has been stopt/)
+    }).toThrowError(/You cannot/)
 })

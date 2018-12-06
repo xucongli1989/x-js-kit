@@ -17,7 +17,7 @@ export default class StopWatch {
      */
     start() {
         if (this._startFlag || this._stopFlag) {
-            throw new Error("You cannot call 'start' because of this object has been stopt!")
+            throw new Error("You cannot call 'start' because this object has been started or stopt!")
         }
         this._startFlag = true
         this._date = new Date()
@@ -28,7 +28,7 @@ export default class StopWatch {
      */
     stop() {
         if (this._stopFlag) {
-            throw new Error("You cannot call 'stop' because of this object has been stopt!")
+            throw new Error("You cannot call 'stop' because this object has been stopt!")
         }
         this._stopFlag = true
         this._value = new Date().valueOf() - this._date.valueOf()
