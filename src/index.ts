@@ -1,4 +1,5 @@
 import cache from "./cache/index"
+import check from "./check/index"
 import date from "./date/index"
 import validation from "./validation/index"
 import declaration from "./declaration/index"
@@ -9,6 +10,7 @@ import common from "./common/index"
 
 export default {
     cache,
+    check,
     date,
     validation,
     declaration,

@@ -19,3 +19,13 @@ export const isHttps = (url: string) => {
     }
     return regexConst.https.test(url.toLowerCase())
 }
+
+/**
+ * url是否为http或https的地址
+ */
+export const isHttpOrHttpsUrl = (url: string) => {
+    if (!url) {
+        return false
+    }
+    return regexConst.httpOrHttps.test(url.toLowerCase())
+}
