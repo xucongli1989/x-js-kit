@@ -29,4 +29,9 @@ test("check.url", () => {
     expect(check.url.isHttps("")).toBeFalsy()
     expect(check.url.isHttps("https://www.google.com")).toBeTruthy()
     expect(check.url.isHttps("hTTps://www.google.com")).toBeTruthy()
+
+    expect(check.url.isHttpOrHttpsUrl("")).toBeFalsy()
+    expect(check.url.isHttpOrHttpsUrl("ftp://")).toBeFalsy()
+    expect(check.url.isHttpOrHttpsUrl("Http://a.com")).toBeTruthy()
+    expect(check.url.isHttpOrHttpsUrl("httPs://a.com")).toBeTruthy()
 })

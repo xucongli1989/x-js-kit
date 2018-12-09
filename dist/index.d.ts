@@ -2,6 +2,10 @@ declare const _default: {
     cache: {
         localStorage: typeof import("./cache/localStorage");
     };
+    check: {
+        common: typeof import("./check/common");
+        url: typeof import("./check/url");
+    };
     date: {
         format: typeof import("./date/format");
     };
