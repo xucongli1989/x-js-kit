@@ -1,7 +1,6 @@
 import * as  Lib from "../common/lib"
 
 let globalCacheName = "x-js-kit-localcache"
-const localStorage = Lib.getLocalStorage()
 
 export interface ItemContentType {
     /**
@@ -85,7 +84,7 @@ export const remove = (key: string) => {
 }
 
 (() => {
-    if (!localStorage) {
+    if (!Lib.getLocalStorage()) {
         return
     }
     //设置默认缓存值
