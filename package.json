@@ -1,6 +1,6 @@
 {
   "name": "x-js-kit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This is my javascript toolkit.",
   "main": "./dist/index.js",
   "scripts": {
@@ -33,10 +33,12 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-typescript": "^7.1.0",
     "@types/jest": "^23.3.9",
+    "@types/node": "^10.12.12",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
+    "localStorage": "^1.0.4",
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.6",
     "webpack": "^4.25.1",

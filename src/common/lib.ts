@@ -19,5 +19,5 @@ export const getLocalStorage = (): Storage => {
     if (isBowser()) {
         return window.localStorage
     }
-    return null as any
+    return localStorage
 }
