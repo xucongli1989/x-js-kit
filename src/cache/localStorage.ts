@@ -1,4 +1,8 @@
+import * as  Lib from "../common/lib"
+
 let globalCacheName = "x-js-kit-localcache"
+const localStorage = Lib.getLocalStorage()
+
 export interface ItemContentType {
     /**
      * 具体的缓存值
@@ -81,6 +85,9 @@ export const remove = (key: string) => {
 }
 
 (() => {
+    if (!localStorage) {
+        return
+    }
     //设置默认缓存值
     const defaultGlobalLocalStorage: GlobalCacheType = {
         time: new Date().valueOf(),
