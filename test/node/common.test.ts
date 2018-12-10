@@ -3,12 +3,16 @@
  * @jest-environment node
  */
 
-Object.assign(global, {
-    localStorage: require("localStorage")
+test("common.lib-无localStorage", () => {
+    const kit = require("../../dist/index").default
+    expect(kit.common.lib.getLocalStorage()).toBeNull()
 })
-const kit = require("../../dist/index").default
 
-test("common.lib", () => {
+test("common.lib-有localStorage", () => {
+    Object.assign(global, {
+        localStorage: require("localStorage")
+    })
+    const kit = require("../../dist/index").default
     expect(kit.common.lib.getLocalStorage()).toBeDefined()
     expect(kit.common.lib.isBowser()).toBeFalsy()
     expect(kit.common.lib.isServer()).toBeTruthy()
