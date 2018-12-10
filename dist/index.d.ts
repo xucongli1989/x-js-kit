@@ -26,6 +26,7 @@ declare const _default: {
     };
     common: {
         stringHelper: typeof import("./common/stringHelper");
+        lib: typeof import("./common/lib");
     };
 };
 export default _default;
