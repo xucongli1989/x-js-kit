@@ -13,11 +13,19 @@ export const isBowser = () => {
 }
 
 /**
+ * 获取全局对象
+ */
+export const getGlobalObject = () => {
+    if (isBowser()) {
+        return window
+    }
+    return global
+}
+
+/**
  * 获取localStorage对象
  */
 export const getLocalStorage = (): Storage => {
-    if (isBowser()) {
-        return window.localStorage
-    }
-    return ((global as any).localStorage || null) as Storage
+    const g: any = getGlobalObject()
+    return (g.localStorage || null) as Storage
 }
