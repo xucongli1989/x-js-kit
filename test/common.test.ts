@@ -14,6 +14,7 @@ test("common.stringHelper", () => {
 })
 
 test("common.lib", () => {
+    expect(common.lib.getGlobalObject()).toBe(window)
     expect(common.lib.getLocalStorage()).toBeDefined()
     expect(common.lib.isBowser()).toBeTruthy()
     expect(common.lib.isServer()).toBeFalsy()

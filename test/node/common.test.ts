@@ -6,6 +6,7 @@
 test("common.lib-无localStorage", () => {
     const kit = require("../../dist/index").default
     expect(kit.common.lib.getLocalStorage()).toBeNull()
+    expect(kit.common.lib.getGlobalObject()).toBe(global)
 })
 
 test("common.lib-有localStorage", () => {
