@@ -11,6 +11,14 @@ test("common.stringHelper", () => {
     expect(common.stringHelper.splitString(str, 1)).toEqual(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
     expect(common.stringHelper.splitString(str, 9)).toEqual(["123456789", "0"])
     expect(common.stringHelper.splitString(str, 3)).toEqual(["123", "456", "789", "0"])
+
+    expect(common.stringHelper.ellipsis(null as any, 1)).toBe("")
+    expect(common.stringHelper.ellipsis(str, 0)).toBe("")
+    expect(common.stringHelper.ellipsis(str, 5)).toBe("12345...")
+    expect(common.stringHelper.ellipsis(str, 9)).toBe("123456789...")
+    expect(common.stringHelper.ellipsis(str, 10)).toBe(str)
+    expect(common.stringHelper.ellipsis(str, 11)).toBe(str)
+    expect(common.stringHelper.ellipsis(str, 6, "###")).toBe("123456###")
 })
 
 test("common.lib", () => {

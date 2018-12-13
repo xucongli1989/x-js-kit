@@ -17,3 +17,19 @@ export const splitString = (str: string, stepCharCount: number): string[] => {
     }
     return result
 }
+
+/**
+ * 截取字符串并以省略符号显示字符串
+ * @param str 原字符串
+ * @param len 要保留的字符长度
+ * @param ellipsisChars 被截断的字符显示的符号
+ */
+export const ellipsis = (str: string, len: number, ellipsisChars = "..."): string => {
+    if (!str || len <= 0) {
+        return ""
+    }
+    if (str.length <= len) {
+        return str
+    }
+    return str.substring(0, len) + ellipsisChars
+}
