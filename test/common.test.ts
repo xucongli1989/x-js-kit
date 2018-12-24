@@ -19,6 +19,13 @@ test("common.stringHelper", () => {
     expect(common.stringHelper.ellipsis(str, 10)).toBe(str)
     expect(common.stringHelper.ellipsis(str, 11)).toBe(str)
     expect(common.stringHelper.ellipsis(str, 6, "###")).toBe("123456###")
+
+    expect(common.stringHelper.getNumber(null as any)).toBeNull()
+    expect(common.stringHelper.getNumber("")).toBeNull()
+    expect(common.stringHelper.getNumber("abc")).toBeNull()
+    expect(common.stringHelper.getNumber("123abc")).toBe(123)
+    expect(common.stringHelper.getNumber("123.00abc")).toBe(123.00)
+    expect(common.stringHelper.getNumber("aaa123.456abc")).toBe(123.456)
 })
 
 test("common.lib", () => {

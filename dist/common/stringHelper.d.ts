@@ -9,4 +9,8 @@ export declare const splitString: (str: string, stepCharCount: number) => string
  * @param ellipsisChars 被截断的字符显示的符号
  */
 export declare const ellipsis: (str: string, len: number, ellipsisChars?: string) => string;
+/**
+ * 从字符串中提取数字（可带小数点）。如："abc123.01cde"->123.01
+ */
+export declare const getNumber: (str: string) => number | null;
 //# sourceMappingURL=stringHelper.d.ts.map
