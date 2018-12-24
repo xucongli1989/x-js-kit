@@ -1,3 +1,5 @@
+import { partNumber } from "../constant/regex"
+
 /**
  * 将字符串按一定字符数拆分成字符串数组
  */
@@ -32,4 +34,18 @@ export const ellipsis = (str: string, len: number, ellipsisChars = "..."): strin
         return str
     }
     return str.substring(0, len) + ellipsisChars
+}
+
+/**
+ * 从字符串中提取数字（可带小数点）。如："abc123.01cde"->123.01
+ */
+export const getNumber = (str: string): number | null => {
+    if (!str) {
+        return null
+    }
+    const mt = str.match(partNumber)
+    if (!mt || !mt.length) {
+        return null
+    }
+    return parseFloat(mt[0])
 }
