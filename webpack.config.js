@@ -30,6 +30,9 @@ const config = {
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
+    optimization: {
+        minimize: true
+    },
     devServer: {
         inline: true,
         open: true,
