@@ -28,7 +28,7 @@ test("common.stringHelper", () => {
     expect(common.stringHelper.getNumber("aaa123.456abc")).toBe(123.456)
 })
 
-test("common.stringHelper", () => {
+test("common.arrayHelper", () => {
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     expect(common.arrayHelper.splitArray(arr, 0)).toEqual([])
     expect(common.arrayHelper.splitArray(arr, -1)).toEqual([])
