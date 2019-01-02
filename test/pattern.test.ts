@@ -14,3 +14,24 @@ test("pattern.strategy", () => {
     }).execute()
     expect(strategy.context.idx).toBe(3)
 })
+
+test("pattern.singleton", () => {
+    class App {
+        constructor() {
+            this.index++
+        }
+        index = 0
+    }
+    const app1 = pattern.singleton.getInstance(App)
+    app1.index++
+    expect(app1.index).toBe(2)
+
+    let app2 = pattern.singleton.getInstance(App)
+    app2.index++
+    let app3 = pattern.singleton.getInstance(App)
+    app3.index++
+    let app4 = pattern.singleton.getInstance(App)
+    app4.index++
+
+    expect(app1.index).toBe(5)
+})

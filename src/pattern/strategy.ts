@@ -1,7 +1,7 @@
 /**
  * 策略项
  */
-class StrategyItem {
+export class StrategyItem {
     constructor(name: string, context: any, handler: (item: StrategyItem) => void) {
         this.name = name
         this.context = context
