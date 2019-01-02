@@ -26,6 +26,7 @@ declare const _default: {
     };
     common: {
         stringHelper: typeof import("./common/stringHelper");
+        arrayHelper: typeof import("./common/arrayHelper");
         lib: typeof import("./common/lib");
     };
 };
