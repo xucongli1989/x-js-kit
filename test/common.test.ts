@@ -4,8 +4,8 @@ test("common.stringHelper", () => {
     const str = "1234567890"
     expect(common.stringHelper.splitString("", 0)).toEqual([])
     expect(common.stringHelper.splitString("", -1)).toEqual([])
-    expect(common.stringHelper.splitString(str, 0)).toEqual([str])
-    expect(common.stringHelper.splitString(str, -1)).toEqual([str])
+    expect(common.stringHelper.splitString(str, 0)).toEqual([])
+    expect(common.stringHelper.splitString(str, -1)).toEqual([])
     expect(common.stringHelper.splitString(str, 10)).toEqual([str])
     expect(common.stringHelper.splitString(str, 11)).toEqual([str])
     expect(common.stringHelper.splitString(str, 1)).toEqual(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
@@ -26,6 +26,19 @@ test("common.stringHelper", () => {
     expect(common.stringHelper.getNumber("123abc")).toBe(123)
     expect(common.stringHelper.getNumber("123.00abc")).toBe(123.00)
     expect(common.stringHelper.getNumber("aaa123.456abc")).toBe(123.456)
+})
+
+test("common.stringHelper", () => {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    expect(common.arrayHelper.splitArray(arr, 0)).toEqual([])
+    expect(common.arrayHelper.splitArray(arr, -1)).toEqual([])
+    expect(common.arrayHelper.splitArray([], 0)).toEqual([])
+    expect(common.arrayHelper.splitArray([], -1)).toEqual([])
+    expect(common.arrayHelper.splitArray(arr, 1)).toEqual([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12]])
+    expect(common.arrayHelper.splitArray(arr, 6)).toEqual([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12]])
+    expect(common.arrayHelper.splitArray(arr, 10)).toEqual([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12]])
+    expect(common.arrayHelper.splitArray(arr, 12)).toEqual([arr])
+    expect(common.arrayHelper.splitArray(arr, 13)).toEqual([arr])
 })
 
 test("common.lib", () => {
