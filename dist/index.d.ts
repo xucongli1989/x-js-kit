@@ -20,6 +20,7 @@ declare const _default: {
     };
     pattern: {
         strategy: typeof import("./pattern/strategy");
+        singleton: typeof import("./pattern/singleton");
     };
     timer: {
         StopWatch: typeof import("./timer/stopWatch").default;

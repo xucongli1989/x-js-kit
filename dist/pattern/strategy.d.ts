@@ -1,7 +1,7 @@
 /**
  * 策略项
  */
-declare class StrategyItem {
+export declare class StrategyItem {
     constructor(name: string, context: any, handler: (item: StrategyItem) => void);
     name: string;
     context: any;
@@ -28,5 +28,4 @@ export declare class Strategy {
      */
     execute(): void;
 }
-export {};
 //# sourceMappingURL=strategy.d.ts.map
