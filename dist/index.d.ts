@@ -26,8 +26,10 @@ declare const _default: {
         StopWatch: typeof import("./timer/stopWatch").default;
     };
     common: {
-        stringHelper: typeof import("./common/stringHelper");
-        arrayHelper: typeof import("./common/arrayHelper");
+        string: typeof import("./common/string");
+        array: typeof import("./common/array");
+        json: typeof import("./common/json");
+        data: typeof import("./common/data");
         lib: typeof import("./common/lib");
     };
 };
