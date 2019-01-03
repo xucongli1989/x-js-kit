@@ -1,6 +1,6 @@
 {
   "name": "x-js-kit",
-  "version": "0.0.14",
+  "version": "1.0.0",
   "description": "This is my javascript toolkit.",
   "main": "./dist/index.js",
   "scripts": {

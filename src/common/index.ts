@@ -1,9 +1,13 @@
-import * as stringHelper from "./stringHelper"
-import * as arrayHelper from "./arrayHelper"
+import * as string from "./string"
+import * as array from "./array"
+import * as json from "./json"
+import * as data from "./data"
 import * as lib from "./lib"
 
 export default {
-    stringHelper,
-    arrayHelper,
+    string,
+    array,
+    json,
+    data,
     lib
 }
