@@ -1,11 +1,11 @@
 {
   "name": "x-js-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This is my javascript toolkit. ",
   "main": "./dist/index.js",
   "scripts": {
     "dev": "webpack  --mode=development --progress",
-    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
+    "dist": "npm shrinkwrap && webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server"
   },
@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/xucongli1989/x-js-kit.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "javascript",
     "toolkit",
