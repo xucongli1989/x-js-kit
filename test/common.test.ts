@@ -25,6 +25,52 @@ test("common.data", () => {
     expect(common.data.isArray("[]")).toBeFalsy()
     expect(common.data.isArray([])).toBeTruthy()
     expect(common.data.isArray([1])).toBeTruthy()
+
+    expect(common.data.isBoolean("")).toBeFalsy()
+    expect(common.data.isBoolean("123")).toBeFalsy()
+    expect(common.data.isBoolean("true")).toBeTruthy()
+    expect(common.data.isBoolean("false")).toBeTruthy()
+
+    expect(common.data.isFunction(null)).toBeFalsy()
+    expect(common.data.isFunction(() => { })).toBeTruthy()
+
+    expect(common.data.isLower("")).toBeFalsy()
+    expect(common.data.isLower("aBc")).toBeFalsy()
+    expect(common.data.isLower("abc")).toBeTruthy()
+
+    expect(common.data.isNullOrEmpty("                  ")).toBeFalsy()
+    expect(common.data.isNullOrEmpty("123")).toBeFalsy()
+    expect(common.data.isNullOrEmpty(null)).toBeTruthy()
+    expect(common.data.isNullOrEmpty("")).toBeTruthy()
+
+    expect(common.data.isNullOrWhiteSpace("123")).toBeFalsy()
+    expect(common.data.isNullOrWhiteSpace(null)).toBeTruthy()
+    expect(common.data.isNullOrWhiteSpace("")).toBeTruthy()
+    expect(common.data.isNullOrWhiteSpace("            ")).toBeTruthy()
+
+    expect(common.data.isNumber("")).toBeFalsy()
+    expect(common.data.isNumber("abc")).toBeFalsy()
+    expect(common.data.isNumber("123")).toBeTruthy()
+    expect(common.data.isNumber(123)).toBeTruthy()
+
+    expect(common.data.isObject(null)).toBeFalsy()
+    expect(common.data.isObject(undefined)).toBeFalsy()
+    expect(common.data.isObject("123")).toBeFalsy()
+    expect(common.data.isObject({})).toBeTruthy()
+
+    expect(common.data.isString(null)).toBeFalsy()
+    expect(common.data.isString(undefined)).toBeFalsy()
+    expect(common.data.isString(123)).toBeFalsy()
+    expect(common.data.isString("123")).toBeTruthy()
+
+    expect(common.data.isUndefined(null)).toBeFalsy()
+    expect(common.data.isUndefined("")).toBeFalsy()
+    expect(common.data.isUndefined("123")).toBeFalsy()
+    expect(common.data.isUndefined(undefined)).toBeTruthy()
+
+    expect(common.data.isUpper("")).toBeFalsy()
+    expect(common.data.isUpper("aBc")).toBeFalsy()
+    expect(common.data.isUpper("ABC")).toBeTruthy()
 })
 
 test("common.json", () => {
