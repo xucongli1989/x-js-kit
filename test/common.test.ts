@@ -115,6 +115,7 @@ test("common.lib", () => {
     expect(common.lib.getValue(obj, "b.c.d")).toEqual({ e: "2" })
     expect(common.lib.getValue(obj, "b.c.d.e")).toBe("2")
     expect(common.lib.getValue(obj, "b.c.d.e.f")).toBeNull()
+    expect(common.lib.getValue(obj, "b.c.d.e.f.g.h")).toBeNull()
 })
 
 test("common.string", () => {
