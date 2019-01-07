@@ -99,6 +99,22 @@ test("common.lib", () => {
     expect(common.lib.isServer()).toBeFalsy()
     expect(common.lib.createNamespace("")).toBeNull()
     expect(common.lib.createNamespace("A.B.C.D")).toEqual((window as any).A.B.C.D)
+
+    const obj = {
+        a: "1",
+        b: {
+            c: {
+                d: {
+                    e: "2"
+                }
+            }
+        }
+    }
+    expect(common.lib.getValue(obj, "")).toBeNull()
+    expect(common.lib.getValue(obj, "a")).toBe("1")
+    expect(common.lib.getValue(obj, "b.c.d")).toEqual({ e: "2" })
+    expect(common.lib.getValue(obj, "b.c.d.e")).toBe("2")
+    expect(common.lib.getValue(obj, "b.c.d.e.f")).toBeNull()
 })
 
 test("common.string", () => {

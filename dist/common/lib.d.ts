@@ -1,4 +1,5 @@
 /// <reference types="node" />
+import { AnyKeyValueType } from "../declaration/common";
 /**
  * 是否为服务器环境
  */
@@ -21,4 +22,11 @@ export declare const getLocalStorage: () => Storage;
  * @returns 全局对象，如：window.A.B.C
  */
 export declare const createNamespace: (name: string) => object;
+/**
+ * 获取指定对象的指定属性
+ * @param obj 对象
+ * @param path 属性路径，如：a.b.c
+ * @returns 返回obj.a.b.c，如果获取失败，则返回null
+ */
+export declare const getValue: <T>(obj: AnyKeyValueType, path: string) => T | null;
 //# sourceMappingURL=lib.d.ts.map

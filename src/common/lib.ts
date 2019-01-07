@@ -1,3 +1,5 @@
+import { AnyKeyValueType } from "../declaration/common"
+
 /**
  * 是否为服务器环境
  */
@@ -48,4 +50,28 @@ export const createNamespace = (name: string): object => {
         obj = obj[token]
     }
     return obj
+}
+
+/**
+ * 获取指定对象的指定属性
+ * @param obj 对象
+ * @param path 属性路径，如：a.b.c
+ * @returns 返回obj.a.b.c，如果获取失败，则返回null
+ */
+export const getValue = <T>(obj: AnyKeyValueType, path: string): T | null => {
+    if (!obj || !path) {
+        return null
+    }
+    let temp = obj
+    try {
+        path.split(".").forEach(keyName => {
+            temp = temp[keyName]
+        })
+        if (typeof (temp) == 'undefined') {
+            return null
+        }
+        return temp as T
+    } catch (e) {
+        return null
+    }
 }
