@@ -12,7 +12,7 @@ test("timer.stopWatch", async () => {
         }, 2000)
     })
     const val = stopWatch.value
-    expect(val - 2000).toBeLessThan(10)
+    expect(val - 2000).toBeLessThan(100)
     await new Promise(res => {
         setTimeout(res, 500)
     })

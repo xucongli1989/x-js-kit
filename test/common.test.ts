@@ -171,4 +171,10 @@ test("common.string", () => {
     expect(common.string.repeat("abc", 5)).toBe("abcabcabcabcabc")
 })
 
-
+test("common.url", () => {
+    const url = "http://www.abc.com"
+    expect(common.url.appendQueryString(null as any, null as any)).toBe("")
+    expect(common.url.appendQueryString(url, null as any)).toBe(url)
+    expect(common.url.appendQueryString(url, "a=1&b=2")).toBe(url + "?a=1&b=2")
+    expect(common.url.appendQueryString(url + "?x=100", "a=1&b=2")).toBe(url + "?x=100&a=1&b=2")
+})

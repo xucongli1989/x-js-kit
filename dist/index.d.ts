@@ -31,6 +31,7 @@ declare const _default: {
         json: typeof import("./common/json");
         data: typeof import("./common/data");
         lib: typeof import("./common/lib");
+        url: typeof import("./common/url");
     };
 };
 export default _default;

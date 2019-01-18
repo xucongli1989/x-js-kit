@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "dev": "webpack  --mode=development --progress",
-    "dist": "npm shrinkwrap && webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
+    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server"
   },
