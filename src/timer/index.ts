@@ -1,5 +1,8 @@
-import  StopWatch from "./stopWatch"
+import stopWatch from "./stopWatch"
 
 export default {
-    StopWatch
+    /**
+     * 计时器
+     */
+    stopWatch
 }

@@ -4,7 +4,7 @@ export interface ItemContentType {
      */
     value: any;
     /**
-     * 过期时间，若不指定，则无过期时间
+     * 过期时间，若不指定，则无过期时间（此时间为：从1970年1月1日0时0分0秒（UTC，即协调世界时）到该日期的毫秒数。如：new Date().valueOf()）
      */
     expire?: number;
 }

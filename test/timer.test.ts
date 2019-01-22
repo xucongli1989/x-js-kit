@@ -1,7 +1,7 @@
 import timer from "../src/timer/index"
 
 test("timer.stopWatch", async () => {
-    let stopWatch = new timer.StopWatch()
+    let stopWatch = new timer.stopWatch()
     expect(stopWatch.value).toBe(0)
     //正常情况
     await new Promise(res => {
@@ -18,7 +18,7 @@ test("timer.stopWatch", async () => {
     })
     expect(stopWatch.value).toBe(val)
     //重复调用
-    stopWatch = new timer.StopWatch()
+    stopWatch = new timer.stopWatch()
     stopWatch.start()
     expect(() => {
         stopWatch.stop().start()

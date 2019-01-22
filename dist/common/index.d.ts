@@ -5,11 +5,29 @@ import * as data from "./data";
 import * as lib from "./lib";
 import * as url from "./url";
 declare const _default: {
+    /**
+     * 字符串操作
+     */
     string: typeof string;
+    /**
+     * 数组操作
+     */
     array: typeof array;
+    /**
+     * json操作
+     */
     json: typeof json;
+    /**
+     * 数据类型判断
+     */
     data: typeof data;
+    /**
+     * 其它常用方法
+     */
     lib: typeof lib;
+    /**
+     * url操作
+     */
     url: typeof url;
 };
 export default _default;

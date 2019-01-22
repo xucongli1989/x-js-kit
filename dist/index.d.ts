@@ -17,13 +17,14 @@ declare const _default: {
     };
     constant: {
         regexConst: typeof import("./constant/regex");
+        map: typeof import("./constant/map");
     };
     pattern: {
         strategy: typeof import("./pattern/strategy");
         singleton: typeof import("./pattern/singleton");
     };
     timer: {
-        StopWatch: typeof import("./timer/stopWatch").default;
+        stopWatch: typeof import("./timer/stopWatch").default;
     };
     common: {
         string: typeof import("./common/string");
