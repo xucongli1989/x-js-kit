@@ -1,4 +1,5 @@
-import { AnyKeyValueType } from "../declaration/common"
+import { AnyKeyValueType, AnyFunctionType } from "../declaration/common"
+import { getTryRunErrorHandler } from "../config/common"
 
 /**
  * 是否为服务器环境
@@ -72,6 +73,35 @@ export const getValue = <T>(obj: AnyKeyValueType, path: string): T | null => {
         }
         return temp as T
     } catch (e) {
+        return null
+    }
+}
+
+/**
+ * 深度clone
+ */
+export const deepClone = <T>(obj: T): T | null => {
+    try {
+        return JSON.parse(JSON.stringify(obj))
+    } catch (e) {
+        return null
+    }
+}
+
+/**
+ * 尝试运行指定function；若异常，则执行全局配置的异常处理函数tryRunErrorHandler，并返回null
+ * @param fn  函数名
+ * @param args 参数
+ */
+export const tryRun = <T>(fn: AnyFunctionType, ...args: any[]): T | null => {
+    if (!fn) {
+        return null
+    }
+    try {
+        return fn(...args) as T
+    } catch (e) {
+        const errFn = getTryRunErrorHandler()
+        errFn && errFn(e)
         return null
     }
 }

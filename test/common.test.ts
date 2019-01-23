@@ -116,6 +116,22 @@ test("common.lib", () => {
     expect(common.lib.getValue(obj, "b.c.d.e")).toBe("2")
     expect(common.lib.getValue(obj, "b.c.d.e.f")).toBeNull()
     expect(common.lib.getValue(obj, "b.c.d.e.f.g.h")).toBeNull()
+
+    const obj1 = {
+        name: "1",
+        age: 20
+    }
+    expect(common.lib.deepClone(null)).toBeNull()
+    expect(common.lib.deepClone(obj1)).not.toBe(obj1)
+    expect(common.lib.deepClone(obj1)).toEqual(obj1)
+
+    expect(common.lib.tryRun(null as any)).toBeNull()
+    expect(common.lib.tryRun((a, b, c) => { return a + b + c }, 1, 2, 3)).toBe(6)
+    expect(common.lib.tryRun(() => {
+        const obj = {} as any
+        console.log(obj.a.b)
+    })).toBeNull()
+    expect(common.lib.tryRun(() => { throw new Error("error!") })).toBeNull()
 })
 
 test("common.string", () => {

@@ -7,6 +7,7 @@ import constant from "./constant/index"
 import pattern from "./pattern/index"
 import timer from "./timer/index"
 import common from "./common/index"
+import config from "./config/index"
 
 export default {
     cache,
@@ -17,5 +18,6 @@ export default {
     constant,
     pattern,
     timer,
-    common
+    common,
+    config
 }

@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { AnyKeyValueType } from "../declaration/common";
+import { AnyKeyValueType, AnyFunctionType } from "../declaration/common";
 /**
  * 是否为服务器环境
  */
@@ -29,4 +29,14 @@ export declare const createNamespace: (name: string) => object;
  * @returns 返回obj.a.b.c，如果获取失败，则返回null
  */
 export declare const getValue: <T>(obj: AnyKeyValueType, path: string) => T | null;
+/**
+ * 深度clone
+ */
+export declare const deepClone: <T>(obj: T) => T | null;
+/**
+ * 尝试运行指定function；若异常，则执行全局配置的异常处理函数tryRunErrorHandler，并返回null
+ * @param fn  函数名
+ * @param args 参数
+ */
+export declare const tryRun: <T>(fn: AnyFunctionType, ...args: any[]) => T | null;
 //# sourceMappingURL=lib.d.ts.map

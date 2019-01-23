@@ -34,6 +34,9 @@ declare const _default: {
         lib: typeof import("./common/lib");
         url: typeof import("./common/url");
     };
+    config: {
+        common: typeof import("./config/common");
+    };
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
