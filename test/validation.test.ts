@@ -30,6 +30,7 @@ test("validation.fieldMessage", () => {
     expect(model.isPassed).toBeFalsy()
     expect(model.getItem("name")).toEqual(model.itemList[0])
     expect(model.getItem("")).toBeNull()
+    expect(model.itemList[0].extend).toBeUndefined()
 
     model = getData()
     model.itemList.forEach(item => {
@@ -65,10 +66,12 @@ test("validation.fieldMessage", () => {
     //更新测试
     model = getData()
     model.itemList[0].fieldItems["name"].isShow = true
+    model.itemList[0].extend = "test"
     const oldItem = JSON.parse(JSON.stringify(model.itemList[0])) as FieldMessageItem
     model.itemList[0].fieldItems["name"].isShow = false
     model.itemList[0].init({
         oldItem: oldItem
     })
+    expect(model.itemList[0].extend).toBe("test")
     expect(model.itemList[0].fieldItems["name"].isShow).toBeTruthy()
 })

@@ -4,7 +4,7 @@ export interface ValidationInitOpsType {
      */
     isShowAll?: boolean
     /**
-     * 上一次的字段提示对象
+     * 上一次的字段提示对象（主要用于初始化时合并对象）
      */
     oldItem?: FieldMessageItem
     /**
@@ -16,6 +16,7 @@ export interface ValidationInitOpsType {
      */
     unNeedShowFields?: string[]
 }
+
 export interface FieldItemType {
     /**
      * 提示语
@@ -27,7 +28,9 @@ export interface FieldItemType {
     isShow: boolean
 }
 
-
+/**
+ * 每一项的具体提示类
+ */
 export class FieldMessageItem {
     /**
      * 唯一id标识
@@ -41,6 +44,10 @@ export class FieldMessageItem {
      * 需要验证的具体字段信息
      */
     fieldItems: { [name: string]: FieldItemType } = {}
+    /**
+     * 扩展字段
+     */
+    extend: any
     /**
      * 初始化，重新设置fieldItems中的属性
      */
