@@ -6,26 +6,6 @@ declare const _default: {
         common: typeof import("./check/common");
         url: typeof import("./check/url");
     };
-    date: {
-        format: typeof import("./date/format");
-    };
-    validation: {
-        fieldMessage: typeof import("./validation/fieldMessage");
-    };
-    declaration: {
-        common: typeof import("./declaration/common");
-    };
-    constant: {
-        regexConst: typeof import("./constant/regex");
-        map: typeof import("./constant/map");
-    };
-    pattern: {
-        strategy: typeof import("./pattern/strategy");
-        singleton: typeof import("./pattern/singleton");
-    };
-    timer: {
-        stopWatch: typeof import("./timer/stopWatch").default;
-    };
     common: {
         string: typeof import("./common/string");
         array: typeof import("./common/array");
@@ -36,6 +16,30 @@ declare const _default: {
     };
     config: {
         common: typeof import("./config/common");
+    };
+    constant: {
+        regexConst: typeof import("./constant/regex");
+        map: typeof import("./constant/map");
+    };
+    date: {
+        format: typeof import("./date/format");
+    };
+    declaration: {
+        common: typeof import("./declaration/common");
+    };
+    entity: {
+        keyValue: typeof import("./entity/keyValue");
+        select: typeof import("./entity/select");
+    };
+    pattern: {
+        strategy: typeof import("./pattern/strategy");
+        singleton: typeof import("./pattern/singleton");
+    };
+    timer: {
+        stopWatch: typeof import("./timer/stopWatch").default;
+    };
+    validation: {
+        fieldMessage: typeof import("./validation/fieldMessage");
     };
 };
 export default _default;
