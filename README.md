@@ -1,21 +1,33 @@
 # Introduction
 
-This is my javascript toolkit.It will be very useful when you are coding via NodeJs or Web.
-
-# Install
-
-```javascript
-npm install --save x-js-kit
-```
+This is a common js tool library, which contains a lot of public methods, it can save you from repeating trivia, and most of its methods support nodejs and browser environment, I hope you will like it!
 
 # Run
 
-- If you need rebuild,the NodeJs must use 8.0+
+- If you need rebuild it,keep nodejs >= 8.0
 
 ```javascript
 npm run dev//To build files in development environment
 npm run dist//To build files in production environment
 npm run test//To run unit test
+```
+
+# Usage
+
+```bash
+npm install --save x-js-kit
+```
+
+```javascript
+//Import the whole module
+import JsKit from "x-js-kit"
+...your code...
+```
+
+```javascript
+//Import part of module
+import stopWatch from "x-js-kit/lib/timer/stopWatch"
+...your code...
 ```
 
 # Notice

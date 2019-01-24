@@ -4,8 +4,9 @@
   "description": "This is my javascript toolkit. ",
   "main": "./dist/index.js",
   "scripts": {
+    "build_ts": "tsc --emitDeclarationOnly && tsc --outDir ./lib/ --declarationDir ./lib/",
     "dev": "webpack  --mode=development --progress",
-    "dist": "webpack  --mode=production --progress && tsc --emitDeclarationOnly && npm run test",
+    "dist": "webpack  --mode=production --progress && npm run build_ts && npm run test",
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server",
     "release": "standard-version",
@@ -16,7 +17,8 @@
     "url": "git+https://github.com/xucongli1989/x-js-kit.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "config": {
     "commitizen": {

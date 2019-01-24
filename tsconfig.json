@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "Classic",
+    "module": "esnext",
     "allowJs": false,
     "strict": true,
     "esModuleInterop": true,

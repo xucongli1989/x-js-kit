@@ -24,7 +24,7 @@ const config = {
         ]
     },
     plugins: [
-        new cleanWebpackPlugin(["dist"]),
+        new cleanWebpackPlugin(["dist", "lib"]),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
