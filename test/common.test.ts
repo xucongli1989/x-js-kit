@@ -217,4 +217,8 @@ test("common.url", () => {
     expect(common.url.appendQueryString(url, null as any)).toBe(url)
     expect(common.url.appendQueryString(url, "a=1&b=2")).toBe(url + "?a=1&b=2")
     expect(common.url.appendQueryString(url + "?x=100", "a=1&b=2")).toBe(url + "?x=100&a=1&b=2")
+
+    const search = "http://www.abc.com?a=1,2,3&b=test"
+    expect(common.url.getUrlParameter(search, "a")).toBe("1,2,3")
+    expect(common.url.getUrlParameter(search, "b")).toBe("test")
 })
