@@ -18,6 +18,30 @@ test("common.array", () => {
     expect(common.array.unique([1, 1, 2, 2, 3])).toEqual([1, 2, 3])
 })
 
+test("common.convert", () => {
+    const num = "123.123", str = "abc", numAndStr = "abc123abc"
+    expect(common.convert.toInt("")).toBe(0)
+    expect(common.convert.toInt(num)).toBe(123)
+    expect(common.convert.toInt(str)).toBe(0)
+    expect(common.convert.toInt(numAndStr)).toBe(0)
+    expect(common.convert.toIntDefault(num, 100)).toBe(123)
+    expect(common.convert.toIntDefault(str, 100)).toBe(100)
+    expect(common.convert.toIntDefault(numAndStr, 100)).toBe(100)
+    expect(common.convert.toIntNull(num)).toBe(123)
+    expect(common.convert.toIntNull(str)).toBeNull()
+    expect(common.convert.toIntNull(numAndStr)).toBeNull()
+    expect(common.convert.toFloat("")).toBe(0)
+    expect(common.convert.toFloat(num)).toBe(123.123)
+    expect(common.convert.toFloat(str)).toBe(0)
+    expect(common.convert.toFloat(numAndStr)).toBe(0)
+    expect(common.convert.toFloatDefault(num, 100)).toBe(123.123)
+    expect(common.convert.toFloatDefault(str, 100)).toBe(100)
+    expect(common.convert.toFloatDefault(numAndStr, 100)).toBe(100)
+    expect(common.convert.toFloatNull(num)).toBe(123.123)
+    expect(common.convert.toFloatNull(str)).toBeNull()
+    expect(common.convert.toFloatNull(numAndStr)).toBeNull()
+})
+
 test("common.data", () => {
     expect(common.data.isArray(null)).toBeFalsy()
     expect(common.data.isArray(1)).toBeFalsy()

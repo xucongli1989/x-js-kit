@@ -1,5 +1,6 @@
 import * as string from "./string"
 import * as array from "./array"
+import * as convert from "./convert"
 import * as json from "./json"
 import * as data from "./data"
 import * as lib from "./lib"
@@ -14,6 +15,10 @@ export default {
      * 数组操作
      */
     array,
+    /**
+     * 数据类型转换操作
+     */
+    convert,
     /**
      * json操作
      */

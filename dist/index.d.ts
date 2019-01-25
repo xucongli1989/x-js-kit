@@ -9,6 +9,7 @@ declare const _default: {
     common: {
         string: typeof import("./common/string");
         array: typeof import("./common/array");
+        convert: typeof import("./common/convert");
         json: typeof import("./common/json");
         data: typeof import("./common/data");
         lib: typeof import("./common/lib");

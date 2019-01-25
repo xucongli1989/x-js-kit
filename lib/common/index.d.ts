@@ -1,5 +1,6 @@
 import * as string from "./string";
 import * as array from "./array";
+import * as convert from "./convert";
 import * as json from "./json";
 import * as data from "./data";
 import * as lib from "./lib";
@@ -13,6 +14,10 @@ declare const _default: {
      * 数组操作
      */
     array: typeof array;
+    /**
+     * 数据类型转换操作
+     */
+    convert: typeof convert;
     /**
      * json操作
      */
