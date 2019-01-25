@@ -26,4 +26,8 @@ export declare const httpOrHttps: RegExp;
  * 包含整数或浮点数
  */
 export declare const partNumber: RegExp;
+/**
+ * 中国大陆手机号
+ */
+export declare const cnMobile: RegExp;
 //# sourceMappingURL=regex.d.ts.map

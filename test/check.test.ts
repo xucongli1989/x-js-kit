@@ -15,6 +15,11 @@ test("check.common", () => {
     expect(check.common.isAllNumber("123456-")).toBeFalsy()
     expect(check.common.isAllNumber("abc")).toBeFalsy()
     expect(check.common.isAllNumber("")).toBeFalsy()
+
+    expect(check.common.isCNMobile("")).toBeFalsy()
+    expect(check.common.isCNMobile("1301231231")).toBeFalsy()
+    expect(check.common.isCNMobile("130123123120")).toBeFalsy()
+    expect(check.common.isCNMobile("13012312312")).toBeTruthy()
 })
 
 test("check.url", () => {

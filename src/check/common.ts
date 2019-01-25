@@ -18,3 +18,9 @@ export const isAllEnglish = (val: string) => {
 export const isAllNumber = (val: string) => {
     return regexConst.allNumber.test(val);
 }
+/**
+ * 判断是否为中国大陆手机号（只考虑以1开头的11位数字即可）
+ */
+export const isCNMobile = (val: string) => {
+    return regexConst.cnMobile.test(val)
+}

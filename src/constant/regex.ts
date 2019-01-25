@@ -26,3 +26,7 @@ export const httpOrHttps = /^https?:\/\//
  * 包含整数或浮点数
  */
 export const partNumber = /\d+(\.\d+)?/
+/**
+ * 中国大陆手机号
+ */
+export const cnMobile = /^1\d{10}$/
