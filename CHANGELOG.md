@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.5.0"></a>
+# [2.5.0](https://github.com/xucongli1989/x-js-kit/compare/v2.4.0...v2.5.0) (2019-01-25)
+
+
+### Features
+
+* **check:** add cnMobile check ([dfdf899](https://github.com/xucongli1989/x-js-kit/commit/dfdf899))
+* **common:** add 'common.convert' to convert int and float ([5456a7c](https://github.com/xucongli1989/x-js-kit/commit/5456a7c))
+* **date:** add date.convert.toEntity ([f14f1c7](https://github.com/xucongli1989/x-js-kit/commit/f14f1c7))
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/xucongli1989/x-js-kit/compare/v2.3.0...v2.4.0) (2019-01-25)
 
