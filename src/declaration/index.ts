@@ -1,7 +1,7 @@
-import * as common from "./common";
+import * as common from "./common"
+import * as date from "./date"
+
 export default {
-    /**
-     * 公共类型定义
-     */
-    common
+    common,
+    date
 }

@@ -23,9 +23,11 @@ declare const _default: {
     };
     date: {
         format: typeof import("./date/format");
+        convert: typeof import("./date/convert");
     };
     declaration: {
         common: typeof import("./declaration/common");
+        date: typeof import("./declaration/date");
     };
     entity: {
         keyValue: typeof import("./entity/keyValue");
