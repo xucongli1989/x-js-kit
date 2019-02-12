@@ -1,12 +1,12 @@
 /**
  * 星期几的类型
  */
-export type WeekValueType = 0 & 1 & 2 & 3 & 4 & 5 & 6
+export type WeekValueType = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
 /**
  * 月份类型
  */
-export type MonthValueType = 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12
+export type MonthValueType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 /**
  * 时间实体类型
