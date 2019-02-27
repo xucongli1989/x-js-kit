@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.0"></a>
+# [2.6.0](https://github.com/xucongli1989/x-js-kit/compare/v2.5.0...v2.6.0) (2019-02-27)
+
+
+### Features
+
+* **common:** add common.url.getUrlParameter ([851f12d](https://github.com/xucongli1989/x-js-kit/commit/851f12d))
+
+
+
 <a name="2.5.0"></a>
 # [2.5.0](https://github.com/xucongli1989/x-js-kit/compare/v2.4.0...v2.5.0) (2019-01-25)
 
