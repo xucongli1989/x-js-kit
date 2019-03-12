@@ -13,15 +13,15 @@ export const allNumber = /^[0-9]+$/
 /**
  * 以【http://】开头
  */
-export const http = /^http:\/\//
+export const http = /^http:\/\//i
 /**
  * 以【https://】开头
  */
-export const https = /^https:\/\//
+export const https = /^https:\/\//i
 /**
  * 以【http://】或【https://】开头
  */
-export const httpOrHttps = /^https?:\/\//
+export const httpOrHttps = /^https?:\/\//i
 /**
  * 包含整数或浮点数
  */
@@ -30,3 +30,7 @@ export const partNumber = /\d+(\.\d+)?/
  * 中国大陆手机号
  */
 export const cnMobile = /^1\d{10}$/
+/**
+ * html左右空白字符
+ */
+export const htmlLeftRightBlank = /^((\s+)|((<br\/?>)+)|((nbsp;)+))|((\s+)|((<br\/?>)+)|((nbsp;)+))$/gi

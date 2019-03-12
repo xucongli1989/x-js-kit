@@ -32,6 +32,36 @@ export declare const lTrim: (str: string) => string;
  */
 export declare const rTrim: (str: string) => string;
 /**
+ * 去掉左边的指定字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export declare const lTrimString: (str: string, strToRemove: string, isIgnoreCase?: boolean) => string;
+/**
+ * 去掉右边的指定字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export declare const rTrimString: (str: string, strToRemove: string, isIgnoreCase?: boolean) => string;
+/**
+ * 去左右指定的字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export declare const trimString: (str: string, strToRemove: string, isIgnoreCase?: boolean) => string;
+/**
+ * 从html字符串中移除左右空白占位符
+ * @param str 待处理的字符串
+ * @returns 处理结果
+ */
+export declare const trimHTML: (str: string) => string;
+/**
  * 指定源字符串sourceStr中是否包含str字符串
  * @param  sourceStr 源字符串
  * @param  str 要查找的字符串

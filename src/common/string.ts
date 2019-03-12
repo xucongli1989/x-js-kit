@@ -1,4 +1,4 @@
-import { partNumber } from "../constant/regex"
+import { partNumber, htmlLeftRightBlank } from "../constant/regex"
 import { htmlEntityMap } from "../constant/map"
 
 /**
@@ -85,6 +85,72 @@ export const rTrim = (str: string) => {
         return ""
     }
     return str.replace(/\s+$/, "")
+}
+
+/**
+ * 去掉左边的指定字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export const lTrimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+    if (!str) {
+        return ""
+    }
+    if (!strToRemove) {
+        return str
+    }
+    return str.replace(new RegExp(`^(${strToRemove})*`, isIgnoreCase ? "gi" : "g"), "")
+}
+
+/**
+ * 去掉右边的指定字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export const rTrimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+    if (!str) {
+        return ""
+    }
+    if (!strToRemove) {
+        return str
+    }
+    return str.replace(new RegExp(`(${strToRemove})*$`, isIgnoreCase ? "gi" : "g"), "")
+}
+
+/**
+ * 去左右指定的字符串
+ * @param str 待处理的字符串
+ * @param strToRemove 需要移除的字符串
+ * @param isIgnoreCase 是否忽略大小写
+ * @returns 处理结果
+ */
+export const trimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+    if (!str) {
+        return ""
+    }
+    if (!strToRemove) {
+        return str
+    }
+    return str.replace(new RegExp(`(^(${strToRemove})*)|((${strToRemove})*$)`, isIgnoreCase ? "gi" : "g"), "")
+}
+
+/**
+ * 从html字符串中移除左右空白占位符
+ * @param str 待处理的字符串
+ * @returns 处理结果
+ */
+export const trimHTML = (str: string) => {
+    if (!str) {
+        return ""
+    }
+    while (htmlLeftRightBlank.test(str)) {
+        str = str.replace(htmlLeftRightBlank, "")
+    }
+    return str
 }
 
 /**

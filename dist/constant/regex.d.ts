@@ -30,4 +30,8 @@ export declare const partNumber: RegExp;
  * 中国大陆手机号
  */
 export declare const cnMobile: RegExp;
+/**
+ * html左右空白字符
+ */
+export declare const htmlLeftRightBlank: RegExp;
 //# sourceMappingURL=regex.d.ts.map
