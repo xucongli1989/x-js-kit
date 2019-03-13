@@ -1,7 +1,7 @@
 /**
  * 将分钟数转为带小时的字符串，如：10小时20分钟
  */
-export const toHourStringFromMins = (mins: number): string => {
+export function toHourStringFromMins(mins: number): string {
     if (mins < 0) {
         return ""
     }

@@ -26,7 +26,7 @@ export interface GlobalCacheType {
 /**
  * 返回全局缓存对象
  */
-export const getGlobalCache = (): (GlobalCacheType | null) => {
+export function getGlobalCache(): (GlobalCacheType | null) {
     const cacheValue = localStorage.getItem(globalCacheName) as string
     if (!cacheValue) {
         return null;
@@ -36,7 +36,7 @@ export const getGlobalCache = (): (GlobalCacheType | null) => {
 /**
  * 修改localStorage缓存的默认名称
  */
-export const setGlobalCacheName = (name: string) => {
+export function setGlobalCacheName(name: string) {
     const oldValue = localStorage.getItem(globalCacheName) as string;
     localStorage.removeItem(globalCacheName)
     globalCacheName = name
@@ -45,7 +45,7 @@ export const setGlobalCacheName = (name: string) => {
 /**
  * 添加数据至缓存
  */
-export const add = (key: string, value: ItemContentType) => {
+export function add(key: string, value: ItemContentType) {
     const cache = getGlobalCache()
     if (!cache) {
         return
@@ -56,7 +56,7 @@ export const add = (key: string, value: ItemContentType) => {
 /**
  * 读取指定缓存
  */
-export const get = (key: string): ItemContentType | null => {
+export function get(key: string): ItemContentType | null {
     const cache = getGlobalCache()
     if (!cache) {
         return null
@@ -74,7 +74,7 @@ export const get = (key: string): ItemContentType | null => {
 /**
  * 删除指定缓存
  */
-export const remove = (key: string) => {
+export function remove(key: string) {
     const cache = getGlobalCache()
     if (!cache) {
         return null

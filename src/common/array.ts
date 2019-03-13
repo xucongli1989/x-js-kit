@@ -3,7 +3,7 @@
  * @param arr 原数组
  * @param stepCount 拆分后，每个数组最多包含的项数量
  */
-export const splitArray = <T>(arr: T[], stepCount: number): T[][] => {
+export function splitArray<T>(arr: T[], stepCount: number): T[][] {
     if (!arr || !arr.length || stepCount <= 0) {
         return []
     }
@@ -25,7 +25,7 @@ export const splitArray = <T>(arr: T[], stepCount: number): T[][] => {
  * 去掉array中的重复项
  * @param arr 需要去重的数组
  */
-export const unique = <T>(arr: T[]): T[] => {
+export function unique<T>(arr: T[]): T[] {
     if (!arr || arr.length <= 1) {
         return arr;
     }

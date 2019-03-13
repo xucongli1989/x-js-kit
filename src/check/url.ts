@@ -3,7 +3,7 @@ import * as regexConst from "../constant/regex"
 /**
  * url是否以【http://】开头
  */
-export const isHttp = (url: string) => {
+export function isHttp(url: string) {
     if (!url) {
         return false
     }
@@ -13,7 +13,7 @@ export const isHttp = (url: string) => {
 /**
  * url是否以【https://】开头
  */
-export const isHttps = (url: string) => {
+export function isHttps(url: string) {
     if (!url) {
         return false
     }
@@ -23,7 +23,7 @@ export const isHttps = (url: string) => {
 /**
  * url是否为http或https的地址
  */
-export const isHttpOrHttpsUrl = (url: string) => {
+export function isHttpOrHttpsUrl(url: string) {
     if (!url) {
         return false
     }

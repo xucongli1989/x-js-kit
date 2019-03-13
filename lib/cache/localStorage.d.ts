@@ -23,21 +23,21 @@ export interface GlobalCacheType {
 /**
  * 返回全局缓存对象
  */
-export declare const getGlobalCache: () => GlobalCacheType | null;
+export declare function getGlobalCache(): (GlobalCacheType | null);
 /**
  * 修改localStorage缓存的默认名称
  */
-export declare const setGlobalCacheName: (name: string) => void;
+export declare function setGlobalCacheName(name: string): void;
 /**
  * 添加数据至缓存
  */
-export declare const add: (key: string, value: ItemContentType) => void;
+export declare function add(key: string, value: ItemContentType): void;
 /**
  * 读取指定缓存
  */
-export declare const get: (key: string) => ItemContentType | null;
+export declare function get(key: string): ItemContentType | null;
 /**
  * 删除指定缓存
  */
-export declare const remove: (key: string) => null | undefined;
+export declare function remove(key: string): null | undefined;
 //# sourceMappingURL=localStorage.d.ts.map

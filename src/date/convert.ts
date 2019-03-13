@@ -3,7 +3,7 @@ import { DateTimeEntityType, MonthValueType, WeekValueType } from "../declaratio
 /**
  * 返回时间实体对象
  */
-export const toEntity = (dt: Date): DateTimeEntityType => {
+export function toEntity(dt: Date): DateTimeEntityType {
     const model = {} as DateTimeEntityType
     model.year = dt.getFullYear()
     model.month = dt.getMonth() + 1 as MonthValueType

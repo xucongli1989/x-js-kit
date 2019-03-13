@@ -3,7 +3,7 @@ import { trim } from "./string"
 /**
  * 判断obj是否为数组
  */
-export const isArray = (obj: any) => {
+export function isArray(obj: any) {
     if (!obj) {
         return false
     }
@@ -15,7 +15,7 @@ export const isArray = (obj: any) => {
   * @param val 要判断的值
   * @returns  判断结果
   */
-export const isNumber = (val: number | string) => {
+export function isNumber(val: number | string) {
     return (typeof (val) === 'number' || typeof (val) === 'string') && val !== '' && !isNaN(val as any)
 }
 
@@ -24,7 +24,7 @@ export const isNumber = (val: number | string) => {
  * @param  val 要判断的值
  * @returns  判断结果
  */
-export const isObject = (val: any) => {
+export function isObject(val: any) {
     return val && typeof val === 'object'
 }
 
@@ -33,7 +33,7 @@ export const isObject = (val: any) => {
 * @param  val 要判断的值
 * @returns 判断结果
 */
-export const isNullOrEmpty = (val: null | string) => {
+export function isNullOrEmpty(val: null | string) {
     return null === val || val === ""
 }
 
@@ -42,7 +42,7 @@ export const isNullOrEmpty = (val: null | string) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isNullOrWhiteSpace = (val: null | string) => {
+export function isNullOrWhiteSpace(val: null | string) {
     if (val === null) {
         return true
     }
@@ -54,7 +54,7 @@ export const isNullOrWhiteSpace = (val: null | string) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isFunction = (val: any) => {
+export function isFunction(val: any) {
     return val && Object.prototype.toString.call(val) == '[object Function]'
 }
 
@@ -63,7 +63,7 @@ export const isFunction = (val: any) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isString = (val: any) => {
+export function isString(val: any) {
     return typeof val == 'string' || val instanceof String
 }
 
@@ -72,7 +72,7 @@ export const isString = (val: any) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isBoolean = (val: string) => {
+export function isBoolean(val: string) {
     return /^true|false$/i.test(val)
 }
 
@@ -81,7 +81,7 @@ export const isBoolean = (val: string) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isUndefined = (val: any) => {
+export function isUndefined(val: any) {
     return val === undefined || typeof (val) === "undefined"
 }
 
@@ -90,7 +90,7 @@ export const isUndefined = (val: any) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isUpper = (val: string) => {
+export function isUpper(val: string) {
     return val && val.toUpperCase() === val
 }
 
@@ -99,6 +99,6 @@ export const isUpper = (val: string) => {
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export const isLower = (val: string) => {
+export function isLower(val: string) {
     return val && val.toLowerCase() === val
 }

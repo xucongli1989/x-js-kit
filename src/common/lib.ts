@@ -4,21 +4,21 @@ import { getTryRunErrorHandler } from "../config/common"
 /**
  * 是否为服务器环境
  */
-export const isServer = () => {
+export function isServer() {
     return typeof (window) === 'undefined'
 }
 
 /**
  * 是否为浏览器环境
  */
-export const isBowser = () => {
+export function isBowser() {
     return !isServer()
 }
 
 /**
  * 获取全局对象
  */
-export const getGlobalObject = () => {
+export function getGlobalObject() {
     if (isBowser()) {
         return window
     }
@@ -28,7 +28,7 @@ export const getGlobalObject = () => {
 /**
  * 获取localStorage对象
  */
-export const getLocalStorage = (): Storage => {
+export function getLocalStorage(): Storage {
     const g: any = getGlobalObject()
     return (g.localStorage || null) as Storage
 }
@@ -38,7 +38,7 @@ export const getLocalStorage = (): Storage => {
  * @param name 名称，如"A.B.C"
  * @returns 全局对象，如：window.A.B.C
  */
-export const createNamespace = (name: string): object => {
+export function createNamespace(name: string): object {
     if (!name) {
         return null as any
     }
@@ -59,7 +59,7 @@ export const createNamespace = (name: string): object => {
  * @param path 属性路径，如：a.b.c
  * @returns 返回obj.a.b.c，如果获取失败，则返回null
  */
-export const getValue = <T>(obj: AnyKeyValueType, path: string): T | null => {
+export function getValue<T>(obj: AnyKeyValueType, path: string): T | null {
     if (!obj || !path) {
         return null
     }
@@ -80,7 +80,7 @@ export const getValue = <T>(obj: AnyKeyValueType, path: string): T | null => {
 /**
  * 深度clone
  */
-export const deepClone = <T>(obj: T): T | null => {
+export function deepClone<T>(obj: T): T | null {
     try {
         return JSON.parse(JSON.stringify(obj))
     } catch (e) {
@@ -93,7 +93,7 @@ export const deepClone = <T>(obj: T): T | null => {
  * @param fn  函数名
  * @param args 参数
  */
-export const tryRun = <T>(fn: AnyFunctionType, ...args: any[]): T | null => {
+export function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null {
     if (!fn) {
         return null
     }

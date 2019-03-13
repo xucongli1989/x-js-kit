@@ -4,7 +4,7 @@ import { htmlEntityMap } from "../constant/map"
 /**
  * 将字符串按一定字符数拆分成字符串数组
  */
-export const splitString = (str: string, stepCharCount: number): string[] => {
+export function splitString(str: string, stepCharCount: number): string[] {
     if (!str || stepCharCount <= 0) {
         return []
     }
@@ -27,7 +27,7 @@ export const splitString = (str: string, stepCharCount: number): string[] => {
  * @param len 要保留的字符长度
  * @param ellipsisChars 被截断的字符显示的符号
  */
-export const ellipsis = (str: string, len: number, ellipsisChars = "..."): string => {
+export function ellipsis(str: string, len: number, ellipsisChars = "..."): string {
     if (!str || len <= 0) {
         return ""
     }
@@ -40,7 +40,7 @@ export const ellipsis = (str: string, len: number, ellipsisChars = "..."): strin
 /**
  * 从字符串中提取数字（可带小数点）。如："abc123.01cde"->123.01
  */
-export const getNumber = (str: string): number | null => {
+export function getNumber(str: string): number | null {
     if (!str) {
         return null
     }
@@ -56,7 +56,7 @@ export const getNumber = (str: string): number | null => {
  * @param  str 待处理字符串
  * @returns  处理后的字符串
  */
-export const trim = (str: string) => {
+export function trim(str: string) {
     if (!str) {
         return ""
     }
@@ -68,7 +68,7 @@ export const trim = (str: string) => {
  * @param  str 待处理字符串
  * @returns  处理后的字符串
  */
-export const lTrim = (str: string) => {
+export function lTrim(str: string) {
     if (!str) {
         return ""
     }
@@ -80,7 +80,7 @@ export const lTrim = (str: string) => {
  * @param  str 待处理字符串
  * @returns  处理后的值
  */
-export const rTrim = (str: string) => {
+export function rTrim(str: string) {
     if (!str) {
         return ""
     }
@@ -94,7 +94,7 @@ export const rTrim = (str: string) => {
  * @param isIgnoreCase 是否忽略大小写
  * @returns 处理结果
  */
-export const lTrimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+export function lTrimString(str: string, strToRemove: string, isIgnoreCase: boolean = false) {
     if (!str) {
         return ""
     }
@@ -111,7 +111,7 @@ export const lTrimString = (str: string, strToRemove: string, isIgnoreCase: bool
  * @param isIgnoreCase 是否忽略大小写
  * @returns 处理结果
  */
-export const rTrimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+export function rTrimString(str: string, strToRemove: string, isIgnoreCase: boolean = false) {
     if (!str) {
         return ""
     }
@@ -128,7 +128,7 @@ export const rTrimString = (str: string, strToRemove: string, isIgnoreCase: bool
  * @param isIgnoreCase 是否忽略大小写
  * @returns 处理结果
  */
-export const trimString = (str: string, strToRemove: string, isIgnoreCase: boolean = false) => {
+export function trimString(str: string, strToRemove: string, isIgnoreCase: boolean = false) {
     if (!str) {
         return ""
     }
@@ -143,7 +143,7 @@ export const trimString = (str: string, strToRemove: string, isIgnoreCase: boole
  * @param str 待处理的字符串
  * @returns 处理结果
  */
-export const trimHTML = (str: string) => {
+export function trimHTML(str: string) {
     if (!str) {
         return ""
     }
@@ -160,7 +160,7 @@ export const trimHTML = (str: string) => {
  * @param  isIgnoreCase 是否忽略大小写(默认为false)
  * @returns  结果
  */
-export const contains = (sourceStr: string, str: string, isIgnoreCase: boolean = false) => {
+export function contains(sourceStr: string, str: string, isIgnoreCase: boolean = false) {
     if (!sourceStr) {
         return false
     }
@@ -182,7 +182,7 @@ export const contains = (sourceStr: string, str: string, isIgnoreCase: boolean =
 * @param  html 需要被替换的html
 * @returns  转换后的值
 */
-export const escapeHtml = (html: string) => {
+export function escapeHtml(html: string) {
     if (!html) {
         return ""
     }
@@ -196,7 +196,7 @@ export const escapeHtml = (html: string) => {
  * @param   count 重复次数
  * @returns  新的字符串
  */
-export const repeat = (str: string, count: number) => {
+export function repeat(str: string, count: number) {
     if (!str || count <= 0) {
         return ""
     }

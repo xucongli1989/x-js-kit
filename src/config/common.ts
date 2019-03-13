@@ -8,13 +8,13 @@ let tryRunErrorHandler: AnyFunctionType = () => { }
 /**
  * 读取全局异常处理函数tryRunErrorHandler
  */
-export const getTryRunErrorHandler = () => {
+export function getTryRunErrorHandler() {
     return tryRunErrorHandler
 }
 
 /**
  * 重新设置全局异常处理函数tryRunErrorHandler
  */
-export const setTryRunErrorHandler = (fn: AnyFunctionType) => {
+export function setTryRunErrorHandler(fn: AnyFunctionType) {
     tryRunErrorHandler = fn
 }
