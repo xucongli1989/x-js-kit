@@ -20,6 +20,7 @@ npm install --save x-js-kit
 
 ```javascript
 //Import the whole module
+//Or import "./dist/index.polyfill" with polyfill
 import JsKit from "x-js-kit"
 ...your code...
 ```
