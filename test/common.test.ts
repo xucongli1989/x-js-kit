@@ -1,7 +1,7 @@
 import common from "../src/common/index"
 
 test("common.array", () => {
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     expect(common.array.splitArray(arr, 0)).toEqual([])
     expect(common.array.splitArray(arr, -1)).toEqual([])
     expect(common.array.splitArray([], 0)).toEqual([])
@@ -16,6 +16,14 @@ test("common.array", () => {
     expect(common.array.unique([1])).toEqual([1])
     expect(common.array.unique([1, 1, 1])).toEqual([1])
     expect(common.array.unique([1, 1, 2, 2, 3])).toEqual([1, 2, 3])
+
+    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    expect(arr.map(k => k % 2 == 0 ? k : null)).toEqual([null, 2, null, 4, null, 6, null, 8, null])
+    expect(common.array.map<number>([], (k => k))).toEqual([])
+    expect(common.array.map<number>(arr, ((k, i) => i))).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : null))).toEqual([2, 4, 6, 8])
+    expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : undefined))).toEqual([2, 4, 6, 8])
+    expect(common.array.map<number>(arr, (k => k + 10))).toEqual([11, 12, 13, 14, 15, 16, 17, 18, 19])
 })
 
 test("common.convert", () => {

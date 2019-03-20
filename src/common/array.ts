@@ -42,3 +42,23 @@ export function unique<T>(arr: T[]): T[] {
     }
     return newArr
 }
+
+/**
+ * 遍历指定数组并返回一个新数组（与原生map不一样的地方是：原生map中未过滤null和undefined，而此方法会过滤）
+ * @param arr 需要遍历的数组
+ * @param fn 处理函数
+ */
+export function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | undefined): T[] {
+    if (!arr || !fn) {
+        return []
+    }
+    let result: T[] = [], temp: T | null | undefined
+    for (let i = 0; i < arr.length; i++) {
+        temp = fn(arr[i], i)
+        if (temp == null || typeof (temp) == 'undefined') {
+            continue
+        }
+        result.push(temp)
+    }
+    return result
+}
