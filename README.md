@@ -2,6 +2,12 @@
 
 This is a common js tool library, which contains a lot of public methods, it can save you from repeating trivia, and most of its methods support nodejs and browser environment, I hope you will like it!
 
+# Principle
+
+The library doesn't contains very ordinary common methods.
+
+So you can use `moment`,`jQuery`,`underscore` and more with the library.
+
 # Run
 
 - If you need rebuild it,keep nodejs >= 8.0
