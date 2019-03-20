@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.8.0"></a>
+# [2.8.0](https://github.com/xucongli1989/x-js-kit/compare/v2.7.0...v2.8.0) (2019-03-20)
+
+
+### Bug Fixes
+
+* **common.url:** let 'appendQueryString' supports hash ([e7fd224](https://github.com/xucongli1989/x-js-kit/commit/e7fd224))
+
+
+### Features
+
+* **check.browser:** add 'isIE' method ([f5bfc59](https://github.com/xucongli1989/x-js-kit/commit/f5bfc59))
+* **check.browser:** add 'isIE' method ([3200b2a](https://github.com/xucongli1989/x-js-kit/commit/3200b2a))
+
+
+
 <a name="2.7.0"></a>
 # [2.7.0](https://github.com/xucongli1989/x-js-kit/compare/v2.6.0...v2.7.0) (2019-03-12)
 
