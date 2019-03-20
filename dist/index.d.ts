@@ -5,6 +5,7 @@ declare const _default: {
     check: {
         common: typeof import("./check/common");
         url: typeof import("./check/url");
+        browser: typeof import("./check/browser");
     };
     common: {
         string: typeof import("./common/string");

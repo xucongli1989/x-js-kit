@@ -2,13 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome",
-            "url": "http://localhost:8082/index.html",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
             "name": "Debug Jest Tests",
             "type": "node",
             "request": "launch",
