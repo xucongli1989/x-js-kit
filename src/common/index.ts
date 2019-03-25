@@ -3,6 +3,7 @@ import * as array from "./array"
 import * as convert from "./convert"
 import * as json from "./json"
 import * as data from "./data"
+import * as idCard from "./idCard"
 import * as lib from "./lib"
 import * as url from "./url"
 
@@ -27,6 +28,10 @@ export default {
      * 数据类型判断
      */
     data,
+    /**
+     * 证件相关
+     */
+    idCard,
     /**
      * 其它常用方法
      */

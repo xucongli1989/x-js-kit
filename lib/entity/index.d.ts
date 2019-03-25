@@ -1,6 +1,11 @@
+import * as idCard from "./idCard";
 import * as keyValue from "./keyValue";
 import * as select from "./select";
 declare const _default: {
+    /**
+     * 证件实体
+     */
+    idCard: typeof idCard;
     /**
      * key/value实体
      */

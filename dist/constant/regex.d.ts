@@ -34,4 +34,8 @@ export declare const cnMobile: RegExp;
  * html左右空白字符
  */
 export declare const htmlLeftRightBlank: RegExp;
+/**
+ * 中国大陆身份证（18、15位）
+ */
+export declare const chinaIDCard: RegExp;
 //# sourceMappingURL=regex.d.ts.map

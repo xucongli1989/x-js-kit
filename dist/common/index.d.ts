@@ -3,6 +3,7 @@ import * as array from "./array";
 import * as convert from "./convert";
 import * as json from "./json";
 import * as data from "./data";
+import * as idCard from "./idCard";
 import * as lib from "./lib";
 import * as url from "./url";
 declare const _default: {
@@ -26,6 +27,10 @@ declare const _default: {
      * 数据类型判断
      */
     data: typeof data;
+    /**
+     * 证件相关
+     */
+    idCard: typeof idCard;
     /**
      * 其它常用方法
      */

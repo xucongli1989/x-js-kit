@@ -105,6 +105,20 @@ test("common.data", () => {
     expect(common.data.isUpper("ABC")).toBeTruthy()
 })
 
+test("common.idCard", () => {
+    const cnIdCard15 = "320000881213110"
+    const cnIdCard18 = "301111198812134588"
+    expect(common.idCard.toCNIDCardEntity("")).toBeNull()
+    expect(common.idCard.toCNIDCardEntity("123456")).toBeNull()
+    let model = common.idCard.toCNIDCardEntity(cnIdCard15)
+    expect(model).not.toBeNull()
+    expect(model!.birthday).toBe("1988-12-13")
+    expect(model!.len).toBe(15)
+    model = common.idCard.toCNIDCardEntity(cnIdCard18)
+    expect(model!.birthday).toBe("1988-12-13")
+    expect(model!.len).toBe(18)
+})
+
 test("common.json", () => {
     const obj = {
         name: "abc",

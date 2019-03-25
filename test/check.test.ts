@@ -45,6 +45,12 @@ test("check.common", () => {
     expect(check.common.isCNMobile("1301231231")).toBeFalsy()
     expect(check.common.isCNMobile("130123123120")).toBeFalsy()
     expect(check.common.isCNMobile("13012312312")).toBeTruthy()
+
+    expect(check.common.isChinaIDCard("")).toBeFalsy()
+    expect(check.common.isChinaIDCard("123456")).toBeFalsy()
+    expect(check.common.isChinaIDCard("320000881214101")).toBeTruthy()
+    expect(check.common.isChinaIDCard("320000198812141111")).toBeTruthy()
+    expect(check.common.isChinaIDCard("32000019881214123X")).toBeTruthy()
 })
 
 test("check.url", () => {

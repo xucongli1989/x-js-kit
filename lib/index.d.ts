@@ -13,6 +13,7 @@ declare const _default: {
         convert: typeof import("./common/convert");
         json: typeof import("./common/json");
         data: typeof import("./common/data");
+        idCard: typeof import("./common/idCard");
         lib: typeof import("./common/lib");
         url: typeof import("./common/url");
     };
@@ -32,6 +33,7 @@ declare const _default: {
         date: typeof import("./declaration/date");
     };
     entity: {
+        idCard: typeof import("./entity/idCard");
         keyValue: typeof import("./entity/keyValue");
         select: typeof import("./entity/select");
     };

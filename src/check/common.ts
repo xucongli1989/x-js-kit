@@ -24,3 +24,9 @@ export function isAllNumber(val: string) {
 export function isCNMobile(val: string) {
     return regexConst.cnMobile.test(val)
 }
+/**
+ * 判断是否为中国大陆身份证号码
+ */
+export function isChinaIDCard(val: string) {
+    return regexConst.chinaIDCard.test(val)
+}
