@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
-const webpack = require("webpack")
-const cleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require("webpack");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const config = {
     entry: {
@@ -29,7 +29,7 @@ const config = {
         ]
     },
     plugins: [
-        new cleanWebpackPlugin(["dist", "lib"]),
+        new CleanWebpackPlugin(["dist", "lib"]),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             excludeAssets: [/index.js/]
@@ -45,5 +45,5 @@ const config = {
         open: true,
         contentBase: path.join(__dirname, "./dist")
     }
-}
+};
 module.exports = config;

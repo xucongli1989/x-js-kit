@@ -1,0 +1,35 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "google",
+    "globals": {},
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "linebreak-style": "off",
+        "indent": "off",
+        "max-len": "off",
+        "quotes": "off",
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "eol-last": "off"
+    },
+    "overrides": [
+        {
+            "files": [
+                "test/**/*"
+            ],
+            "env": {
+                "jest": true
+            }
+        }
+    ]
+}

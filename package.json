@@ -4,7 +4,7 @@
   "description": "This is my javascript toolkit. ",
   "main": "./dist/index.js",
   "scripts": {
-    "check": "x-package-version-strict-check",
+    "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./",
     "build_ts": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline && tsc --emitDeclarationOnly --declarationDir lib",
     "dev": "npm run check && webpack  --mode=development --progress",
     "dist": "npm run check && webpack  --mode=production --progress && npm run build_ts && npm run test",
@@ -48,9 +48,12 @@
     "@babel/preset-typescript": "7.1.0",
     "@types/jest": "23.3.13",
     "@types/node": "10.12.18",
+    "@typescript-eslint/parser": "1.6.0",
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "1.0.1",
     "commitizen": "3.0.5",
+    "eslint": "5.16.0",
+    "eslint-config-google": "0.12.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "3.2.0",
     "jest": "23.6.0",
@@ -65,5 +68,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.2.5"
+  },
+  "engines": {
+    "node": ">=8.12.0"
   }
 }
