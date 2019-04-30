@@ -26,6 +26,36 @@ export interface LogType {
      * @param content 日志内容
      */
     writeAsync(level: LevelTypeEnum, content: Promise<object | string>): Promise<void>;
+    /**
+     *  写一般日志
+     * @param content 日志内容
+     */
+    info(content: ContentType): void;
+    /**
+     *  写一般日志（异步）
+     * @param content 日志内容
+     */
+    infoAsync(content: Promise<object | string>): Promise<void>;
+    /**
+     *  写警告日志
+     * @param content 日志内容
+     */
+    warn(content: ContentType): void;
+    /**
+     *  写警告日志（异步）
+     * @param content 日志内容
+     */
+    warnAsync(content: Promise<object | string>): Promise<void>;
+    /**
+     *  写错误日志
+     * @param content 日志内容
+     */
+    error(content: ContentType): void;
+    /**
+     *  写错误日志（异步）
+     * @param content 日志内容
+     */
+    errorAsync(content: Promise<object | string>): Promise<void>;
 }
 /**
  * 当前日志记录器
