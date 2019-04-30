@@ -1,4 +1,4 @@
-import * as  Lib from "../common/lib"
+import { getLocalStorage } from "../common/lib"
 
 let globalCacheName = "x-js-kit-localcache"
 
@@ -84,7 +84,7 @@ export function remove(key: string) {
 }
 
 (() => {
-    if (!Lib.getLocalStorage()) {
+    if (!getLocalStorage()) {
         return
     }
     //设置默认缓存值

@@ -1,5 +1,5 @@
 import { AnyKeyValueType } from "../declaration/common"
-import * as data from "./data"
+import {isArray} from "./data"
 
 /**
    * 是否包含名key
@@ -43,7 +43,7 @@ export function toParams(json: AnyKeyValueType) {
     if (!json) return "";
     let arr = [], temp = "";
     for (let m in json) {
-        if (data.isArray(json[m])) {
+        if (isArray(json[m])) {
             temp = json[m].join("&" + m + "=");
         } else {
             temp = json[m];
