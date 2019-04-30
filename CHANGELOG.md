@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.9.0](https://github.com/xucongli1989/x-js-kit/compare/v2.8.0...v2.9.0) (2019-04-30)
+
+
+### Features
+
+* **common.array:** add 'map' method ([77f43fa](https://github.com/xucongli1989/x-js-kit/commit/77f43fa))
+* **common.idCard:** add 'Chinese idCard checker and converter' ([d4bc26e](https://github.com/xucongli1989/x-js-kit/commit/d4bc26e))
+* **logger:** add logger module ([6e02c61](https://github.com/xucongli1989/x-js-kit/commit/6e02c61))
+
+
+
 <a name="2.8.0"></a>
 # [2.8.0](https://github.com/xucongli1989/x-js-kit/compare/v2.7.0...v2.8.0) (2019-03-20)
 
