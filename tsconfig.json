@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "moduleResolution": "Classic",
+    "moduleResolution": "node",
     "module": "esnext",
     "allowJs": false,
     "strict": true,

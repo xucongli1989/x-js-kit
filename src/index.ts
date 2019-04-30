@@ -6,6 +6,7 @@ import constant from "./constant/index"
 import date from "./date/index"
 import declaration from "./declaration/index"
 import entity from "./entity/index"
+import log from "./logger/index"
 import pattern from "./pattern/index"
 import timer from "./timer/index"
 import validation from "./validation/index"
@@ -19,6 +20,7 @@ export default {
     date,
     declaration,
     entity,
+    log,
     pattern,
     timer,
     validation

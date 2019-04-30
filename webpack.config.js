@@ -29,7 +29,9 @@ const config = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(["dist", "lib"]),
+        new CleanWebpackPlugin({
+            cleanAfterEveryBuildPatterns: ["dist", "lib"]
+        }),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             excludeAssets: [/index.js/]

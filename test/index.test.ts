@@ -1,3 +1,4 @@
+import "@babel/polyfill"
 import JsKit from "../dist/index"
 import JsKitLib from "../lib/index"
 import stopWatch from "../lib/timer/stopWatch"
