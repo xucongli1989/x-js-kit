@@ -6,8 +6,9 @@
   "scripts": {
     "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./",
     "build_ts": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline && tsc --emitDeclarationOnly --declarationDir lib",
+    "copy": "cpy --cwd=dist index.d.ts ./ --rename=index.polyfill.d.ts && cpy --cwd=dist index.d.ts.map ./ --rename=index.polyfill.d.ts.map",
     "dev": "npm run check && webpack  --mode=development --progress",
-    "dist": "npm run check && webpack  --mode=production --progress && npm run build_ts && npm run test",
+    "dist": "npm run check && webpack  --mode=production --progress && npm run build_ts && npm run copy && npm run test",
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server",
     "release": "standard-version",
@@ -53,6 +54,7 @@
     "babel-loader": "8.0.5",
     "clean-webpack-plugin": "2.0.1",
     "commitizen": "3.1.1",
+    "cpy-cli": "2.0.0",
     "eslint": "5.16.0",
     "eslint-config-google": "0.12.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
