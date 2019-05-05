@@ -11,103 +11,181 @@ export enum LevelTypeEnum { "info", "warn", "error" }
 export type ContentType = object | string
 
 /**
+ * 异步日志返回类型
+ */
+export type PromiseType = Promise<void> | Promise<{}>
+
+/**
  * 日志记录器接口
  */
-export interface LogType {
+export interface LogRecorderType {
+    /**
+     * 一般日志
+     */
+    log(str: string): void
+    /**
+     * 一般日志（异步）
+     */
+    logAsync(str: string): PromiseType
+    /**
+     * 警告日志
+     */
+    warn(str: string): void
+    /**
+     * 警告日志（异步）
+     */
+    warnAsync(str: string): PromiseType
+    /**
+     * 错误日志
+     */
+    error(str: string): void
+    /**
+     * 错误日志（异步）
+     */
+    errorAsync(str: string): PromiseType
+}
+
+/**
+ * 当前默认的日志记录器（默认为window.console）
+ */
+let defaultLogRecorder: LogRecorderType = new class {
+    log(str: string) {
+        console.log(str)
+    }
+    logAsync(str: string) {
+        console.log(str)
+        return Promise.resolve()
+    }
+    warn(str: string) {
+        console.warn(str)
+    }
+    warnAsync(str: string) {
+        console.warn(str)
+        return Promise.resolve()
+    }
+    error(str: string) {
+        console.error(str)
+    }
+    errorAsync(str: string) {
+        console.error(str)
+        return Promise.resolve()
+    }
+}
+
+/**
+ * 根据日志级别返回对应的日志记录函数
+ */
+function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (str: string) => void | ((str: string) => PromiseType) {
+    if (isAsync) {
+        let fun = defaultLogRecorder.logAsync
+        switch (level) {
+            case LevelTypeEnum.info:
+                fun = defaultLogRecorder.logAsync
+                break;
+            case LevelTypeEnum.warn:
+                fun = defaultLogRecorder.warnAsync
+                break;
+            case LevelTypeEnum.error:
+                fun = defaultLogRecorder.errorAsync
+                break;
+        }
+        return fun as any
+    }
+    let fun = defaultLogRecorder.log
+    switch (level) {
+        case LevelTypeEnum.info:
+            fun = defaultLogRecorder.log
+            break;
+        case LevelTypeEnum.warn:
+            fun = defaultLogRecorder.warn
+            break;
+        case LevelTypeEnum.error:
+            fun = defaultLogRecorder.error
+            break;
+    }
+    return fun as any
+}
+
+class LoggerHelper {
     /**
      * 写日志
      * @param level 日志级别
      * @param content 日志内容
      */
-    write(level: LevelTypeEnum, content: ContentType): void
+    write(level: LevelTypeEnum, content: ContentType) {
+        if (!content) {
+            return
+        }
+        const str = (isString(content) ? content : JSON.stringify(content)) as string
+        const logFunc = getLogRecorder(level, false)
+        logFunc(str)
+    }
     /**
      * 写日志（异步）
      * @param level 日志级别
      * @param content 日志内容
      */
-    writeAsync(level: LevelTypeEnum, content: Promise<object | string>): Promise<void>
+    writeAsync(level: LevelTypeEnum, content: ContentType) {
+        if (!content) {
+            return Promise.resolve()
+        }
+        const str = (isString(content) ? content : JSON.stringify(content)) as string
+        const logFunc = getLogRecorder(level, true)
+        return <PromiseType>(logFunc(str) as any)
+    }
     /**
      *  写一般日志
      * @param content 日志内容
      */
-    info(content: ContentType): void
+    info(content: ContentType) {
+        this.write(LevelTypeEnum.info, content)
+    }
     /**
      *  写一般日志（异步）
      * @param content 日志内容
      */
-    infoAsync(content: Promise<object | string>): Promise<void>
+    infoAsync(content: ContentType) {
+        return this.writeAsync(LevelTypeEnum.info, content)
+    }
     /**
      *  写警告日志
      * @param content 日志内容
      */
-    warn(content: ContentType): void
+    warn(content: ContentType) {
+        this.write(LevelTypeEnum.warn, content)
+    }
     /**
      *  写警告日志（异步）
      * @param content 日志内容
      */
-    warnAsync(content: Promise<object | string>): Promise<void>
+    warnAsync(content: ContentType) {
+        return this.writeAsync(LevelTypeEnum.warn, content)
+    }
     /**
      *  写错误日志
      * @param content 日志内容
      */
-    error(content: ContentType): void
+    error(content: ContentType) {
+        this.write(LevelTypeEnum.error, content)
+    }
     /**
      *  写错误日志（异步）
      * @param content 日志内容
      */
-    errorAsync(content: Promise<object | string>): Promise<void>
-}
-
-/**
- * 默认的日志记录器
- */
-class ConsoleLogger implements LogType {
-    write(level: LevelTypeEnum, content: ContentType) {
-        const str = isString(content) ? content : JSON.stringify(content)
-        switch (level) {
-            case LevelTypeEnum.info:
-                console.log(str)
-                break;
-            case LevelTypeEnum.warn:
-                console.warn(str)
-                break;
-            case LevelTypeEnum.error:
-                console.error(str)
-                break;
-        }
-    }
-    async writeAsync(level: LevelTypeEnum, content: Promise<object | string>) {
-        this.write(level, await content)
-    }
-    info(content: ContentType) {
-        this.write(LevelTypeEnum.info, content)
-    }
-    async infoAsync(content: Promise<object | string>) {
-        return this.writeAsync(LevelTypeEnum.info, content)
-    }
-    warn(content: ContentType) {
-        this.write(LevelTypeEnum.warn, content)
-    }
-    async warnAsync(content: Promise<object | string>) {
-        return this.writeAsync(LevelTypeEnum.warn, content)
-    }
-    error(content: ContentType) {
-        this.write(LevelTypeEnum.error, content)
-    }
-    async errorAsync(content: Promise<object | string>) {
+    errorAsync(content: ContentType) {
         return this.writeAsync(LevelTypeEnum.error, content)
     }
 }
 
 /**
- * 当前日志记录器
+ * 当前日志工具类
  */
-export let logger: LogType = new ConsoleLogger()
+export let logger: LoggerHelper = new LoggerHelper()
 
 /**
- * 设置日志记录器
- * @param log 自定义的日志记录器
+ * 重新设置默认的日志记录器
+ * @param logRecorder 新的日志记录器（默认的日志记录器为window.console）
  */
-export function setLogger(log: LogType) {
-    logger = log
+export function setLoggerRecorder(logRecorder: LogRecorderType) {
+    defaultLogRecorder = logRecorder
 }

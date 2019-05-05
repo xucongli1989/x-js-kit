@@ -11,9 +11,39 @@ export declare enum LevelTypeEnum {
  */
 export declare type ContentType = object | string;
 /**
+ * 异步日志返回类型
+ */
+export declare type PromiseType = Promise<void> | Promise<{}>;
+/**
  * 日志记录器接口
  */
-export interface LogType {
+export interface LogRecorderType {
+    /**
+     * 一般日志
+     */
+    log(str: string): void;
+    /**
+     * 一般日志（异步）
+     */
+    logAsync(str: string): PromiseType;
+    /**
+     * 警告日志
+     */
+    warn(str: string): void;
+    /**
+     * 警告日志（异步）
+     */
+    warnAsync(str: string): PromiseType;
+    /**
+     * 错误日志
+     */
+    error(str: string): void;
+    /**
+     * 错误日志（异步）
+     */
+    errorAsync(str: string): PromiseType;
+}
+declare class LoggerHelper {
     /**
      * 写日志
      * @param level 日志级别
@@ -25,7 +55,7 @@ export interface LogType {
      * @param level 日志级别
      * @param content 日志内容
      */
-    writeAsync(level: LevelTypeEnum, content: Promise<object | string>): Promise<void>;
+    writeAsync(level: LevelTypeEnum, content: ContentType): PromiseType;
     /**
      *  写一般日志
      * @param content 日志内容
@@ -35,7 +65,7 @@ export interface LogType {
      *  写一般日志（异步）
      * @param content 日志内容
      */
-    infoAsync(content: Promise<object | string>): Promise<void>;
+    infoAsync(content: ContentType): PromiseType;
     /**
      *  写警告日志
      * @param content 日志内容
@@ -45,7 +75,7 @@ export interface LogType {
      *  写警告日志（异步）
      * @param content 日志内容
      */
-    warnAsync(content: Promise<object | string>): Promise<void>;
+    warnAsync(content: ContentType): PromiseType;
     /**
      *  写错误日志
      * @param content 日志内容
@@ -55,15 +85,16 @@ export interface LogType {
      *  写错误日志（异步）
      * @param content 日志内容
      */
-    errorAsync(content: Promise<object | string>): Promise<void>;
+    errorAsync(content: ContentType): PromiseType;
 }
 /**
- * 当前日志记录器
+ * 当前日志工具类
  */
-export declare let logger: LogType;
+export declare let logger: LoggerHelper;
 /**
- * 设置日志记录器
- * @param log 自定义的日志记录器
+ * 重新设置默认的日志记录器
+ * @param logRecorder 新的日志记录器（默认的日志记录器为window.console）
  */
-export declare function setLogger(log: LogType): void;
+export declare function setLoggerRecorder(logRecorder: LogRecorderType): void;
+export {};
 //# sourceMappingURL=log.d.ts.map
