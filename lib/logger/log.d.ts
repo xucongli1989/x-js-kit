@@ -21,11 +21,11 @@ export interface LogRecorderType {
     /**
      * 一般日志
      */
-    log(str: string): void;
+    info(str: string): void;
     /**
      * 一般日志（异步）
      */
-    logAsync(str: string): PromiseType;
+    infoAsync(str: string): PromiseType;
     /**
      * 警告日志
      */

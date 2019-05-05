@@ -180,6 +180,11 @@ test("common.lib", () => {
     expect(common.lib.tryRun(() => { throw new Error("error!") })).toBeNull()
 })
 
+test("common.random", () => {
+    expect(common.random.create() == common.random.create()).toBeFalsy()
+    expect(common.random.create().length).toBe(22)
+})
+
 test("common.string", () => {
     const str = "1234567890"
     expect(common.string.splitString("", 0)).toEqual([])

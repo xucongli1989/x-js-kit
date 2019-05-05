@@ -22,11 +22,11 @@ export interface LogRecorderType {
     /**
      * 一般日志
      */
-    log(str: string): void
+    info(str: string): void
     /**
      * 一般日志（异步）
      */
-    logAsync(str: string): PromiseType
+    infoAsync(str: string): PromiseType
     /**
      * 警告日志
      */
@@ -49,11 +49,11 @@ export interface LogRecorderType {
  * 当前默认的日志记录器（默认为window.console）
  */
 let defaultLogRecorder: LogRecorderType = new class {
-    log(str: string) {
-        console.log(str)
+    info(str: string) {
+        console.info(str)
     }
-    logAsync(str: string) {
-        console.log(str)
+    infoAsync(str: string) {
+        console.info(str)
         return Promise.resolve()
     }
     warn(str: string) {
@@ -77,10 +77,10 @@ let defaultLogRecorder: LogRecorderType = new class {
  */
 function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (str: string) => void | ((str: string) => PromiseType) {
     if (isAsync) {
-        let fun = defaultLogRecorder.logAsync
+        let fun = defaultLogRecorder.infoAsync
         switch (level) {
             case LevelTypeEnum.info:
-                fun = defaultLogRecorder.logAsync
+                fun = defaultLogRecorder.infoAsync
                 break;
             case LevelTypeEnum.warn:
                 fun = defaultLogRecorder.warnAsync
@@ -91,10 +91,10 @@ function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (str: string) =
         }
         return fun as any
     }
-    let fun = defaultLogRecorder.log
+    let fun = defaultLogRecorder.info
     switch (level) {
         case LevelTypeEnum.info:
-            fun = defaultLogRecorder.log
+            fun = defaultLogRecorder.info
             break;
         case LevelTypeEnum.warn:
             fun = defaultLogRecorder.warn

@@ -2,13 +2,13 @@ import log from "../src/logger/index"
 import { LevelTypeEnum, LogRecorderType } from "../src/logger/log"
 
 class CustomLogRecorder implements LogRecorderType {
-    log(str: string) {
-        console.log(str + "custom-log")
+    info(str: string) {
+        console.info(str + "custom-log")
     }
-    logAsync(str: string) {
+    infoAsync(str: string) {
         return new Promise((res, rej) => {
             setTimeout(() => {
-                console.log(str + "custom-log")
+                console.info(str + "custom-log")
                 res()
             }, 1000)
         })
@@ -38,15 +38,15 @@ class CustomLogRecorder implements LogRecorderType {
 }
 
 test("logger", async () => {
-    console.log = jest.fn()
+    console.info = jest.fn()
     log.logger.write(LevelTypeEnum.info, "一般日志")
-    expect(console.log).toHaveBeenCalledWith("一般日志")
+    expect(console.info).toHaveBeenCalledWith("一般日志")
     log.logger.write(LevelTypeEnum.info, { name: "test" })
-    expect(console.log).toHaveBeenCalledWith(JSON.stringify({ name: "test" }))
+    expect(console.info).toHaveBeenCalledWith(JSON.stringify({ name: "test" }))
 
-    console.log = jest.fn()
+    console.info = jest.fn()
     expect(await log.logger.writeAsync(LevelTypeEnum.info, "一般日志异步测试"))
-    expect(console.log).toHaveBeenCalledWith("一般日志异步测试")
+    expect(console.info).toHaveBeenCalledWith("一般日志异步测试")
 
     console.warn = jest.fn()
     log.logger.write(LevelTypeEnum.warn, "警告日志")
@@ -69,9 +69,9 @@ test("logger", async () => {
     expect(console.error).toHaveBeenCalledWith("错误日志异步测试")
 
     //其它
-    console.log = jest.fn()
+    console.info = jest.fn()
     log.logger.info("一般日志")
-    expect(console.log).toHaveBeenCalledWith("一般日志")
+    expect(console.info).toHaveBeenCalledWith("一般日志")
 
     console.warn = jest.fn()
     log.logger.warn("警告日志")
@@ -81,9 +81,9 @@ test("logger", async () => {
     log.logger.error("错误日志")
     expect(console.error).toHaveBeenCalledWith("错误日志")
 
-    console.log = jest.fn()
+    console.info = jest.fn()
     expect(await log.logger.infoAsync("一般日志异步测试"))
-    expect(console.log).toHaveBeenCalledWith("一般日志异步测试")
+    expect(console.info).toHaveBeenCalledWith("一般日志异步测试")
 
     console.warn = jest.fn()
     expect(await log.logger.warnAsync("警告日志异步测试"))
@@ -95,11 +95,11 @@ test("logger", async () => {
 
     //自定义日志记录器
     log.setLoggerRecorder(new CustomLogRecorder())
-    console.log = jest.fn()
+    console.info = jest.fn()
     log.logger.info("一般日志")
-    expect(console.log).toHaveBeenCalledWith("一般日志custom-log")
+    expect(console.info).toHaveBeenCalledWith("一般日志custom-log")
 
-    console.log = jest.fn()
+    console.info = jest.fn()
     expect(await log.logger.infoAsync("一般日志异步测试"))
-    expect(console.log).toHaveBeenCalledWith("一般日志异步测试custom-log")
+    expect(console.info).toHaveBeenCalledWith("一般日志异步测试custom-log")
 })
