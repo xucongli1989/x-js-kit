@@ -26,21 +26,42 @@ export function splitArray<T>(arr: T[], stepCount: number): T[][] {
  * @param arr 需要去重的数组
  */
 export function unique<T>(arr: T[]): T[] {
-    if (!arr || arr.length <= 1) {
-        return arr;
+    if (!arr) {
+        return []
     }
-    let newArr = [...arr], duplicateIdx = [], idxLength = 0;
-    for (let i = 1; i < newArr.length; i++) {
-        if (newArr[i] === newArr[i - 1]) {
-            idxLength = duplicateIdx.push(i);
-        }
-    }
-    if (idxLength > 0) {
-        while (idxLength--) {
-            newArr.splice(duplicateIdx[idxLength], 1);
-        }
-    }
-    return newArr
+    return Array.from(new Set(arr))
+}
+
+/**
+ * 合并两个数组（未去重）
+ * @param arr1 数组1
+ * @param arr2 数组2
+ */
+export function union<T>(arr1: T[], arr2: T[]): T[] {
+    const a1 = arr1 || [], a2 = arr2 || []
+    return [...a1, ...a2]
+}
+
+/**
+ * 获取两个数组的交集（已去重）
+ * @param arr1 数组1
+ * @param arr2 数组2
+ */
+export function intersect<T>(arr1: T[], arr2: T[]): T[] {
+    const a1 = arr1 || [], a2 = arr2 || []
+    return unique(a1.filter(x => a2.includes(x)))
+}
+
+/**
+ * 获取两个数组的差集（已去重）
+ * @param arr1 数组1
+ * @param arr2 数组2
+ */
+export function diff<T>(arr1: T[], arr2: T[]): T[] {
+    const a1 = arr1 || [], a2 = arr2 || []
+    const diff1 = a1.filter(x => !a2.includes(x))
+    const diff2 = a2.filter(x => !a1.includes(x))
+    return unique([...diff1, ...diff2])
 }
 
 /**

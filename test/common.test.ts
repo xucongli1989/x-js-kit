@@ -17,6 +17,23 @@ test("common.array", () => {
     expect(common.array.unique([1, 1, 1])).toEqual([1])
     expect(common.array.unique([1, 1, 2, 2, 3])).toEqual([1, 2, 3])
 
+    expect(common.array.union([], [])).toEqual([])
+    expect(common.array.union([1, 2, 3], [1, 2, 3])).toEqual([1, 2, 3, 1, 2, 3])
+
+    expect(common.array.intersect([1, 2, 3, 3, 4], [])).toEqual([])
+    expect(common.array.intersect([1, 2, 3, 3, 4], [9])).toEqual([])
+    expect(common.array.intersect([1, 2, 3, 3, 4], [2])).toEqual([2])
+    expect(common.array.intersect([1, 2, 3, 3, 4], [3])).toEqual([3])
+
+    expect(common.array.diff([], [])).toEqual([])
+    expect(common.array.diff([1, 2, 3], [])).toEqual([1, 2, 3])
+    expect(common.array.diff([], [1, 2, 3])).toEqual([1, 2, 3])
+    expect(common.array.diff([1, 2, 3], [1, 2, 3, 4, 5])).toEqual([4, 5])
+    expect(common.array.diff([1, 2, 3, 4, 5], [1, 2, 3])).toEqual([4, 5])
+    expect(common.array.diff([1, 2, 3, 4, 5], [1, 2, 3, 9, 9, 9])).toEqual([4, 5, 9])
+
+
+
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     expect(arr.map(k => k % 2 == 0 ? k : null)).toEqual([null, 2, null, 4, null, 6, null, 8, null])
     expect(common.array.map<number>([], (k => k))).toEqual([])
