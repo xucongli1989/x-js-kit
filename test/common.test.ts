@@ -200,6 +200,7 @@ test("common.lib", () => {
 test("common.random", () => {
     expect(common.random.create() == common.random.create()).toBeFalsy()
     expect(common.random.create().length).toBe(22)
+    expect(common.random.uuid().length).toBe(36)
 })
 
 test("common.string", () => {
