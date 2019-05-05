@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.0.0](https://github.com/xucongli1989/x-js-kit/compare/v2.10.0...v3.0.0) (2019-05-05)
+
+
+### Features
+
+* **logger:** rewrite logger module ([7787513](https://github.com/xucongli1989/x-js-kit/commit/7787513))
+
+
+### BREAKING CHANGES
+
+* **logger:** the logic of logger has been rewritten. Please use the latest version
+
+
+
 # [2.10.0](https://github.com/xucongli1989/x-js-kit/compare/v2.9.0...v2.10.0) (2019-05-01)
 
 
