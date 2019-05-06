@@ -1,6 +1,7 @@
 import * as string from "./string";
 import * as array from "./array";
 import * as convert from "./convert";
+import * as cookie from "./cookie";
 import * as json from "./json";
 import * as data from "./data";
 import * as idCard from "./idCard";
@@ -20,6 +21,10 @@ declare const _default: {
      * 数据类型转换操作
      */
     convert: typeof convert;
+    /**
+     * cookie操作相关
+     */
+    cookie: typeof cookie;
     /**
      * json操作
      */

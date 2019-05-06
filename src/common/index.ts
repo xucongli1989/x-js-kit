@@ -1,6 +1,7 @@
 import * as string from "./string"
 import * as array from "./array"
 import * as convert from "./convert"
+import * as cookie from "./cookie"
 import * as json from "./json"
 import * as data from "./data"
 import * as idCard from "./idCard"
@@ -21,6 +22,10 @@ export default {
      * 数据类型转换操作
      */
     convert,
+    /**
+     * cookie操作相关
+     */
+    cookie,
     /**
      * json操作
      */

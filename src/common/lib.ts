@@ -34,6 +34,19 @@ export function getLocalStorage(): Storage {
 }
 
 /**
+ * 获取document对象
+ */
+export function getDocument(): Document {
+    const g: any = getGlobalObject()
+    return (g.document || null) as Document
+}
+
+/**
+ * 当前环境中的document对象，若没有，则为null
+ */
+export const document = getDocument()
+
+/**
  * 创建全局命名空间
  * @param name 名称，如"A.B.C"
  * @returns 全局对象，如：window.A.B.C

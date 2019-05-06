@@ -67,6 +67,25 @@ test("common.convert", () => {
     expect(common.convert.toFloatNull(numAndStr)).toBeNull()
 })
 
+test("common.cookie", async () => {
+    Object.defineProperty(document, 'cookie', {
+        writable: true,
+        value: 'a=1; b=2; c=3'
+    });
+    expect(common.cookie.getItem("a")).toBe("1")
+    expect(common.cookie.getItem("z")).toBeNull()
+    expect(common.cookie.hasItem("a")).toBeTruthy()
+    expect(common.cookie.hasItem("z")).toBeFalsy()
+    expect(common.cookie.keys()).toEqual(["a", "b", "c"])
+    expect(common.cookie.removeItem("a")).toBeTruthy()
+    expect(common.cookie.getItem("a")).toBeNull()
+    // expect(common.cookie.setItem("new1", "1", 1000)).toBeTruthy()
+    // await new Promise(res => {
+    //     setTimeout(res, 1100)
+    // })
+    // expect(common.cookie.getItem("new1")).toBeNull()
+})
+
 test("common.data", () => {
     expect(common.data.isArray(null)).toBeFalsy()
     expect(common.data.isArray(1)).toBeFalsy()

@@ -12,6 +12,7 @@ declare const _default: {
         string: typeof import("./common/string");
         array: typeof import("./common/array");
         convert: typeof import("./common/convert");
+        cookie: typeof import("./common/cookie");
         json: typeof import("./common/json");
         data: typeof import("./common/data");
         idCard: typeof import("./common/idCard");

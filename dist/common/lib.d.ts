@@ -17,6 +17,14 @@ export declare function getGlobalObject(): Window | NodeJS.Global;
  */
 export declare function getLocalStorage(): Storage;
 /**
+ * 获取document对象
+ */
+export declare function getDocument(): Document;
+/**
+ * 当前环境中的document对象，若没有，则为null
+ */
+export declare const document: Document;
+/**
  * 创建全局命名空间
  * @param name 名称，如"A.B.C"
  * @returns 全局对象，如：window.A.B.C
