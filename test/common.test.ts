@@ -202,6 +202,10 @@ test("common.random", () => {
     expect(common.random.create().length).toBe(22)
     expect(common.random.uuid() == common.random.uuid()).toBeFalsy()
     expect(common.random.uuid().length).toBe(36)
+    for (let i = 0; i < 100; i++) {
+        const num = common.random.range(5, 10)
+        expect(num >= 5 && num <= 10).toBeTruthy()
+    }
 })
 
 test("common.string", () => {

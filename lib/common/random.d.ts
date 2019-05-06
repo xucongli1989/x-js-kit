@@ -6,4 +6,10 @@ export declare function create(): string;
  * 生成UUID（如：24ff0a46-81c1-431b-a3de-68440bbc3045）
  */
 export declare function uuid(): string;
+/**
+ * 在min（含）与max（含）之间生成一个随机整数
+ * @param min 最小值
+ * @param max 最大值
+ */
+export declare function range(min: number, max: number): number;
 //# sourceMappingURL=random.d.ts.map
