@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [3.1.0](https://github.com/xucongli1989/x-js-kit/compare/v3.0.0...v3.1.0) (2019-05-06)
+
+
+### Features
+
+* **common.array:** add union,intersect,diff method ([c97d881](https://github.com/xucongli1989/x-js-kit/commit/c97d881))
+* **common.cookie:** add cookie module ([fac4a2d](https://github.com/xucongli1989/x-js-kit/commit/fac4a2d))
+* **common.random:** add range method ([ac4ac3b](https://github.com/xucongli1989/x-js-kit/commit/ac4ac3b))
+* **common.random:** add uuid method ([0fe68dc](https://github.com/xucongli1989/x-js-kit/commit/0fe68dc))
+* **random:** add random method ([b6ea993](https://github.com/xucongli1989/x-js-kit/commit/b6ea993))
+
+
+
 # [3.0.0](https://github.com/xucongli1989/x-js-kit/compare/v2.10.0...v3.0.0) (2019-05-05)
 
 
