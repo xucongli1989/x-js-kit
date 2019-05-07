@@ -1,3 +1,5 @@
+let _id = 0
+
 /**
  * 生成字符长度为22的随机字符串（如：i8ejoqjq3khibr89soi31t）
  */
@@ -30,4 +32,11 @@ export function uuid() {
  */
 export function range(min: number, max: number) {
     return Math.floor(Math.random() * (max - min) + min)
+}
+
+/**
+ * 返回一个自增加1的数字（第一次调用时返回1，往后每调用一次加1）
+ */
+export function id() {
+    return ++_id
 }

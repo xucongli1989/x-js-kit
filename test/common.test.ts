@@ -139,6 +139,11 @@ test("common.data", () => {
     expect(common.data.isUpper("")).toBeFalsy()
     expect(common.data.isUpper("aBc")).toBeFalsy()
     expect(common.data.isUpper("ABC")).toBeTruthy()
+
+    expect(common.data.isDate("")).toBeFalsy()
+    expect(common.data.isDate(123)).toBeFalsy()
+    expect(common.data.isDate(new Date("abc"))).toBeFalsy()
+    expect(common.data.isDate(new Date())).toBeTruthy()
 })
 
 test("common.idCard", () => {
@@ -225,6 +230,9 @@ test("common.random", () => {
         const num = common.random.range(5, 10)
         expect(num >= 5 && num <= 10).toBeTruthy()
     }
+    expect(common.random.id()).toBe(1)
+    expect(common.random.id()).toBe(2)
+    expect(common.random.id()).toBe(3)
 })
 
 test("common.string", () => {

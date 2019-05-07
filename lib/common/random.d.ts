@@ -12,4 +12,8 @@ export declare function uuid(): string;
  * @param max 最大值
  */
 export declare function range(min: number, max: number): number;
+/**
+ * 返回一个自增加1的数字（第一次调用时返回1，往后每调用一次加1）
+ */
+export declare function id(): number;
 //# sourceMappingURL=random.d.ts.map

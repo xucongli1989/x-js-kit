@@ -102,3 +102,12 @@ export function isUpper(val: string) {
 export function isLower(val: string) {
     return val && val.toLowerCase() === val
 }
+
+/**
+ * 指定值是否为Date对象
+ * @param val 要判断的值
+ * @returns 判断结果
+ */
+export function isDate(val: any) {
+    return val && Object.prototype.toString.call(val) === "[object Date]" && !isNaN(val)
+}
