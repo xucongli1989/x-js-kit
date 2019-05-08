@@ -11,3 +11,7 @@ test("config.common", () => {
         console.log(obj.a.b)
     })
 })
+
+test("config.logger", () => {
+    expect(config.logger.setLoggerRecorder).toBeDefined()
+})

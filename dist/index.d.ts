@@ -22,6 +22,7 @@ declare const _default: {
     };
     config: {
         common: typeof import("./config/common");
+        logger: typeof import("./config/logger");
     };
     constant: {
         regexConst: typeof import("./constant/regex");
