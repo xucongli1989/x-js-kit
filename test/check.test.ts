@@ -23,6 +23,12 @@ test("check.browser", () => {
     expect(check.browser.isIE(10, ie10UA)).toBeTruthy()
     expect(check.browser.isIE(11, ie11UA)).toBeTruthy()
     expect(check.browser.isIE(100, ie11UA)).toBeFalsy()
+
+    expect(check.browser.isExtraLarge()).toBeFalsy()
+    expect(check.browser.isExtraSmall()).toBeFalsy()
+    expect(check.browser.isLarge()).toBeTruthy()
+    expect(check.browser.isMedium()).toBeFalsy()
+    expect(check.browser.isSmall()).toBeFalsy()
 })
 
 test("check.common", () => {

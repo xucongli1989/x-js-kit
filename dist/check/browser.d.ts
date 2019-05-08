@@ -4,4 +4,24 @@
  * @param userAgent 浏览器代理字符串，若不指定，则取navigator.userAgent
  */
 export declare function isIE(version?: number, userAgent?: string): boolean;
+/**
+ * 是否非常小的宽度
+ */
+export declare function isExtraSmall(): boolean;
+/**
+ * 是否小的宽度
+ */
+export declare function isSmall(): boolean;
+/**
+ * 是否中等宽度
+ */
+export declare function isMedium(): boolean;
+/**
+ * 是否大的宽度
+ */
+export declare function isLarge(): boolean;
+/**
+ * 是否非常大的宽度
+ */
+export declare function isExtraLarge(): boolean;
 //# sourceMappingURL=browser.d.ts.map

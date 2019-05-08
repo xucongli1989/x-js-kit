@@ -3,7 +3,11 @@ import { isString } from "../common/data"
 /**
  * 日志级别类型
  */
-export enum LevelTypeEnum { "info", "warn", "error" }
+export enum LevelTypeEnum {
+    "info" = "info",
+    "warn" = "warn",
+    "error" = "error"
+}
 
 /**
  * 日志内容类型

@@ -2,9 +2,9 @@
  * 日志级别类型
  */
 export declare enum LevelTypeEnum {
-    "info" = 0,
-    "warn" = 1,
-    "error" = 2
+    "info" = "info",
+    "warn" = "warn",
+    "error" = "error"
 }
 /**
  * 日志内容类型
