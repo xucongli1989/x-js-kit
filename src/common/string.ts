@@ -206,3 +206,39 @@ export function repeat(str: string, count: number) {
     }
     return s.join('')
 }
+
+/**
+ * 字符串批量构建器（无需使用"+"进行字符串的拼接，直接使用此对象的append方法后，再toString即可得到拼好的字符串）
+ */
+export class builder<T> {
+    private _arr: T[] = []
+    /**
+     * 追加项
+     * @param items 待追加的项
+     * @returns this 
+     */
+    append(...items: T[]) {
+        this._arr.push(...items)
+        return this
+    }
+    /**
+     * 返回已合并的所有项的字符串
+     */
+    toString() {
+        return this._arr.join("")
+    }
+    /**
+     * 清空当前的构建器中的所有项
+     * @returns this
+     */
+    clear() {
+        this._arr = []
+        return this
+    }
+    /**
+     * 返回构建器中所有项的字符串总的字符长度
+     */
+    length() {
+        return this.toString().length
+    }
+}

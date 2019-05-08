@@ -81,4 +81,29 @@ export declare function escapeHtml(html: string): string;
  * @returns  新的字符串
  */
 export declare function repeat(str: string, count: number): string;
+/**
+ * 字符串批量构建器（无需使用"+"进行字符串的拼接，直接使用此对象的append方法后，再toString即可得到拼好的字符串）
+ */
+export declare class builder<T> {
+    private _arr;
+    /**
+     * 追加项
+     * @param items 待追加的项
+     * @returns this
+     */
+    append(...items: T[]): this;
+    /**
+     * 返回已合并的所有项的字符串
+     */
+    toString(): string;
+    /**
+     * 清空当前的构建器中的所有项
+     * @returns this
+     */
+    clear(): this;
+    /**
+     * 返回构建器中所有项的字符串总的字符长度
+     */
+    length(): number;
+}
 //# sourceMappingURL=string.d.ts.map

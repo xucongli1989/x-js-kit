@@ -318,6 +318,16 @@ test("common.string", () => {
     expect(common.string.repeat("", 100)).toBe("")
     expect(common.string.repeat("abc", 3)).toBe("abcabcabc")
     expect(common.string.repeat("abc", 5)).toBe("abcabcabcabcabc")
+
+    const builder = new common.string.builder<number>()
+    expect(builder.toString()).toBe("")
+    expect(builder.length()).toBe(0)
+    expect(builder.append(1, 2, 3).toString()).toBe("123")
+    expect(builder.clear().length() == 0 && builder.toString() == "").toBeTruthy()
+    builder.append(100).append(200).append(300)
+    expect(builder.toString()).toBe("100200300")
+    builder.clear()
+    expect(builder.length() == 0 && builder.toString() == "").toBeTruthy()
 })
 
 test("common.url", () => {
