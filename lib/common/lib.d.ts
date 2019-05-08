@@ -51,4 +51,8 @@ export declare function deepClone<T>(obj: T): T | null;
  * @param args 参数
  */
 export declare function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null;
+/**
+ * 重新设置全局异常处理函数
+ */
+export declare function setTryRunErrorHandler(fn: AnyFunctionType): void;
 //# sourceMappingURL=lib.d.ts.map

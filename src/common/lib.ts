@@ -1,5 +1,9 @@
 import { AnyKeyValueType, AnyFunctionType } from "../declaration/common"
-import { getTryRunErrorHandler } from "../config/common"
+
+/**
+ * tryRun在调用异常时执行的函数
+ */
+let defaultTryRunErrorHandler: AnyFunctionType = () => { }
 
 /**
  * 当前环境中的全局对象
@@ -116,8 +120,14 @@ export function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null {
     try {
         return fn(...args) as T
     } catch (e) {
-        const errFn = getTryRunErrorHandler()
-        errFn && errFn(e)
+        defaultTryRunErrorHandler && defaultTryRunErrorHandler(e)
         return null
     }
+}
+
+/**
+ * 重新设置全局异常处理函数
+ */
+export function setTryRunErrorHandler(fn: AnyFunctionType) {
+    defaultTryRunErrorHandler = fn
 }
