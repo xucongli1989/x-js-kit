@@ -2,6 +2,16 @@ import { AnyKeyValueType, AnyFunctionType } from "../declaration/common"
 import { getTryRunErrorHandler } from "../config/common"
 
 /**
+ * 当前环境中的全局对象
+ */
+export const globalObject = getGlobalObject()
+
+/**
+ * 当前环境中的document对象，若没有，则为null
+ */
+export const document = getDocument()
+
+/**
  * 是否为服务器环境
  */
 export function isServer() {
@@ -18,7 +28,7 @@ export function isBowser() {
 /**
  * 获取全局对象
  */
-export function getGlobalObject() {
+export function getGlobalObject(): Window | NodeJS.Global {
     if (isBowser()) {
         return window
     }
@@ -29,22 +39,15 @@ export function getGlobalObject() {
  * 获取localStorage对象
  */
 export function getLocalStorage(): Storage {
-    const g: any = getGlobalObject()
-    return (g.localStorage || null) as Storage
+    return ((globalObject as any).localStorage || null) as Storage
 }
 
 /**
  * 获取document对象
  */
 export function getDocument(): Document {
-    const g: any = getGlobalObject()
-    return (g.document || null) as Document
+    return ((globalObject as any).document || null) as Document
 }
-
-/**
- * 当前环境中的document对象，若没有，则为null
- */
-export const document = getDocument()
 
 /**
  * 创建全局命名空间
@@ -55,7 +58,7 @@ export function createNamespace(name: string): object {
     if (!name) {
         return null as any
     }
-    let obj: any = getGlobalObject(), tokens = name.split("."), token = ""
+    let obj: any = globalObject, tokens = name.split("."), token = ""
     while (tokens.length > 0) {
         token = tokens.shift() as string
         if (typeof obj[token] === "undefined") {
