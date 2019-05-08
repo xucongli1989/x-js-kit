@@ -1,6 +1,18 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [3.2.0](https://github.com/xucongli1989/x-js-kit/compare/v3.1.0...v3.2.0) (2019-05-08)
+
+
+### Features
+
+* **check.browser:** add check browser width type ([5df2d56](https://github.com/xucongli1989/x-js-kit/commit/5df2d56))
+* **common.string:** add string builder to build long string ([520a0e0](https://github.com/xucongli1989/x-js-kit/commit/520a0e0))
+* **date.format:** add some date format methods ([83e511b](https://github.com/xucongli1989/x-js-kit/commit/83e511b))
+* **device.browser:** add get browser size method ([e959e10](https://github.com/xucongli1989/x-js-kit/commit/e959e10))
+
+
 
 # [3.1.0](https://github.com/xucongli1989/x-js-kit/compare/v3.0.0...v3.1.0) (2019-05-06)
 
