@@ -1,5 +1,5 @@
 /**
- * 完整的电子邮箱地址
+ * 完整的电子邮箱地址（不区分大小写）
  */
 export declare const email: RegExp;
 /**
@@ -11,15 +11,15 @@ export declare const allEnglish: RegExp;
  */
 export declare const allNumber: RegExp;
 /**
- * 以【http://】开头
+ * 以【http://】开头（不区分大小写）
  */
 export declare const http: RegExp;
 /**
- * 以【https://】开头
+ * 以【https://】开头（不区分大小写）
  */
 export declare const https: RegExp;
 /**
- * 以【http://】或【https://】开头
+ * 以【http://】或【https://】开头（不区分大小写）
  */
 export declare const httpOrHttps: RegExp;
 /**
@@ -31,7 +31,7 @@ export declare const partNumber: RegExp;
  */
 export declare const cnMobile: RegExp;
 /**
- * html左右空白字符
+ * html左右空白字符（不区分大小写）
  */
 export declare const htmlLeftRightBlank: RegExp;
 /**

@@ -1,7 +1,7 @@
 /**
- * 完整的电子邮箱地址
+ * 完整的电子邮箱地址（不区分大小写）
  */
-export const email = /^\w+((-\w+)|(\.\w+))*\@[a-z0-9]+((\.|-)[a-z0-9]+)*\.[a-z0-9]+$/
+export const email = /^\w+((-\w+)|(\.\w+))*\@[a-z0-9]+((\.|-)[a-z0-9]+)*\.[a-z0-9]+$/i
 /**
  * 全部是英文字母
  */
@@ -11,15 +11,15 @@ export const allEnglish = /^[a-zA-Z]+$/
  */
 export const allNumber = /^[0-9]+$/
 /**
- * 以【http://】开头
+ * 以【http://】开头（不区分大小写）
  */
 export const http = /^http:\/\//i
 /**
- * 以【https://】开头
+ * 以【https://】开头（不区分大小写）
  */
 export const https = /^https:\/\//i
 /**
- * 以【http://】或【https://】开头
+ * 以【http://】或【https://】开头（不区分大小写）
  */
 export const httpOrHttps = /^https?:\/\//i
 /**
@@ -31,7 +31,7 @@ export const partNumber = /\d+(\.\d+)?/
  */
 export const cnMobile = /^1\d{10}$/
 /**
- * html左右空白字符
+ * html左右空白字符（不区分大小写）
  */
 export const htmlLeftRightBlank = /^((\s+)|((<br\/?>)+)|((nbsp;)+))|((\s+)|((<br\/?>)+)|((nbsp;)+))$/gi
 /**
