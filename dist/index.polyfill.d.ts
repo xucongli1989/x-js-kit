@@ -36,6 +36,9 @@ declare const _default: {
         common: typeof import("./declaration/common");
         date: typeof import("./declaration/date");
     };
+    device: {
+        browser: typeof import("./device/browser");
+    };
     entity: {
         idCard: typeof import("./entity/idCard");
         keyValue: typeof import("./entity/keyValue");

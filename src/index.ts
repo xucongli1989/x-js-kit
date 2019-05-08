@@ -5,6 +5,7 @@ import config from "./config/index"
 import constant from "./constant/index"
 import date from "./date/index"
 import declaration from "./declaration/index"
+import device from "./device/index"
 import entity from "./entity/index"
 import log from "./logger/index"
 import pattern from "./pattern/index"
@@ -19,6 +20,7 @@ export default {
     constant,
     date,
     declaration,
+    device,
     entity,
     log,
     pattern,
