@@ -1,4 +1,3 @@
-import log from "./logger/index";
 declare const _default: {
     cache: {
         localStorage: typeof import("./cache/localStorage");
@@ -22,7 +21,7 @@ declare const _default: {
     };
     config: {
         common: typeof import("./config/common");
-        logger: typeof import("./config/logger");
+        recorder: typeof import("./config/recorder");
     };
     constant: {
         regexConst: typeof import("./constant/regex");
@@ -44,7 +43,9 @@ declare const _default: {
         keyValue: typeof import("./entity/keyValue");
         select: typeof import("./entity/select");
     };
-    log: typeof log;
+    recorder: {
+        log: typeof import("./recorder/log");
+    };
     pattern: {
         strategy: typeof import("./pattern/strategy");
         singleton: typeof import("./pattern/singleton");

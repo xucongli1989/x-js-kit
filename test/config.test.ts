@@ -13,5 +13,5 @@ test("config.common", () => {
 })
 
 test("config.logger", () => {
-    expect(config.logger.setLoggerRecorder).toBeDefined()
+    expect(config.recorder.setLoggerRecorder).toBeDefined()
 })

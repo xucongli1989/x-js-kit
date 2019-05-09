@@ -1,3 +1,5 @@
 import * as log from "./log"
 
-export default log
+export default {
+    log
+}

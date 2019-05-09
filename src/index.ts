@@ -7,7 +7,7 @@ import date from "./date/index"
 import declaration from "./declaration/index"
 import device from "./device/index"
 import entity from "./entity/index"
-import log from "./logger/index"
+import recorder from "./recorder/index"
 import pattern from "./pattern/index"
 import timer from "./timer/index"
 import validation from "./validation/index"
@@ -22,7 +22,7 @@ export default {
     declaration,
     device,
     entity,
-    log,
+    recorder,
     pattern,
     timer,
     validation

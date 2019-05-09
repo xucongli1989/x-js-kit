@@ -1,5 +1,5 @@
 import * as common from "./common"
-import * as logger from "./logger"
+import * as recorder from "./recorder"
 
 export default {
     /**
@@ -7,7 +7,7 @@ export default {
      */
     common,
     /**
-     * 日志记录相关配置
+     * 记录器相关配置
      */
-    logger
+    recorder
 }
