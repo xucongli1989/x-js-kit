@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/xucongli1989/x-js-kit/compare/v3.2.0...v4.0.0) (2019-05-09)
+
+
+### Features
+
+* **recorder.log:** rename logger to recorder ([971e316](https://github.com/xucongli1989/x-js-kit/commit/971e316))
+
+
+### BREAKING CHANGES
+
+* **recorder.log:** 'logger' path has been renamed,please use 'recorder'
+
+
+
 ## [3.2.0](https://github.com/xucongli1989/x-js-kit/compare/v3.1.0...v3.2.0) (2019-05-08)
 
 
