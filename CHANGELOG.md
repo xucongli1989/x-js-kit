@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/xucongli1989/x-js-kit/compare/v4.0.0...v4.1.0) (2019-05-13)
+
+
+### Features
+
+* **check.browser:** add check page is refresh ([3c8b1aa](https://github.com/xucongli1989/x-js-kit/commit/3c8b1aa))
+* **validation.fieldMessage:** add method to get passed or item model ([251cb32](https://github.com/xucongli1989/x-js-kit/commit/251cb32))
+
+
+
 ## [4.0.0](https://github.com/xucongli1989/x-js-kit/compare/v3.2.0...v4.0.0) (2019-05-09)
 
 
