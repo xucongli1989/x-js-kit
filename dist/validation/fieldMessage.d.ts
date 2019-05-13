@@ -70,4 +70,12 @@ export declare class FieldMessageModel {
      */
     getItem(id: string): FieldMessageItem | null;
 }
+/**
+ * 判断FieldMessageModel是否验证通过
+ */
+export declare function isPassed(model: FieldMessageModel): boolean;
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export declare function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null;
 //# sourceMappingURL=fieldMessage.d.ts.map

@@ -83,10 +83,7 @@ export class FieldMessageModel {
      * 是否itemList中的所有的字段提示列表均已验证通过
      */
     get isPassed(): boolean {
-        if (!this.itemList.length) {
-            return true
-        }
-        return !this.itemList.find(k => !k.isPassed)
+        return isPassed(this)
     }
     /**
      * 字段提示列表
@@ -96,6 +93,23 @@ export class FieldMessageModel {
      * 根据id返回指定的字段提示项
      */
     getItem(id: string): FieldMessageItem | null {
-        return this.itemList.find(k => k.id == id) || null
+        return getItem(this, id)
     }
+}
+
+/**
+ * 判断FieldMessageModel是否验证通过
+ */
+export function isPassed(model: FieldMessageModel) {
+    if (!model.itemList.length) {
+        return true
+    }
+    return !model.itemList.find(k => !k.isPassed)
+}
+
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null {
+    return model.itemList.find(k => k.id == id) || null
 }
