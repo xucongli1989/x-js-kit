@@ -29,6 +29,21 @@ test("check.browser", () => {
     expect(check.browser.isLarge()).toBeTruthy()
     expect(check.browser.isMedium()).toBeFalsy()
     expect(check.browser.isSmall()).toBeFalsy()
+
+    Object.defineProperty(window.performance, "navigation", {
+        value: {
+            type: 1
+        },
+        writable: true
+    })
+    expect(check.browser.isReload()).toBeTruthy()
+    Object.defineProperty(window.performance, "navigation", {
+        value: {
+            type: 2
+        },
+        writable: true
+    })
+    expect(check.browser.isReload()).toBeFalsy()
 })
 
 test("check.common", () => {
