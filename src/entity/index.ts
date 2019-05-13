@@ -1,7 +1,7 @@
 import * as idCard from "./idCard"
 import * as keyValue from "./keyValue"
 import * as select from "./select"
-
+import * as serialize from "./serialize"
 
 export default {
     /**
@@ -15,5 +15,9 @@ export default {
     /**
      * 下拉框相关实体
      */
-    select
+    select,
+    /**
+     * 序列化相关
+     */
+    serialize
 }

@@ -1,3 +1,5 @@
+import { BaseClass } from "../entity/serialize"
+
 export interface ValidationInitOpsType {
     /**
      * 是否显示所有提示语
@@ -78,7 +80,7 @@ export class FieldMessageItem {
 /**
  * 字段信息提示类
  */
-export class FieldMessageModel {
+export class FieldMessageModel extends BaseClass {
     /**
      * 是否itemList中的所有的字段提示列表均已验证通过
      */
@@ -94,6 +96,12 @@ export class FieldMessageModel {
      */
     getItem(id: string): FieldMessageItem | null {
         return getItem(this, id)
+    }
+    toJSON() {
+        return {
+            isPassed: this.isPassed,
+            itemList: this.itemList
+        }
     }
 }
 

@@ -42,6 +42,7 @@ declare const _default: {
         idCard: typeof import("./entity/idCard");
         keyValue: typeof import("./entity/keyValue");
         select: typeof import("./entity/select");
+        serialize: typeof import("./entity/serialize");
     };
     recorder: {
         log: typeof import("./recorder/log");

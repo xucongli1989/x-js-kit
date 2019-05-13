@@ -34,3 +34,19 @@ test("entity.select", () => {
     expect(model.text).toBe("优惠券")
     expect(model.value).toBe("123")
 })
+
+test("entity.serialize", () => {
+    class Test1 {
+        get id() {
+            return 123
+        }
+    }
+    expect(JSON.stringify(new Test1())).toBe("{}")
+
+    class Test2 extends entity.serialize.BaseClass {
+        get id() {
+            return 123
+        }
+    }
+    expect(JSON.stringify(new Test2())).toBe('{"id":123}')
+})
