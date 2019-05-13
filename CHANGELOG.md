@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/xucongli1989/x-js-kit/compare/v4.1.0...v4.2.0) (2019-05-13)
+
+
+### Features
+
+* **entity.serialize:** add serialize base class ([70c42cc](https://github.com/xucongli1989/x-js-kit/commit/70c42cc))
+
+
+
 ## [4.1.0](https://github.com/xucongli1989/x-js-kit/compare/v4.0.0...v4.1.0) (2019-05-13)
 
 
