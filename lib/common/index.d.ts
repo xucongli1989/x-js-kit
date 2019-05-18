@@ -5,6 +5,7 @@ import * as cookie from "./cookie";
 import * as json from "./json";
 import * as data from "./data";
 import * as idCard from "./idCard";
+import * as image from "./image";
 import * as lib from "./lib";
 import * as random from "./random";
 import * as url from "./url";
@@ -37,6 +38,10 @@ declare const _default: {
      * 证件相关
      */
     idCard: typeof idCard;
+    /**
+     * 图片操作相关
+     */
+    image: typeof image;
     /**
      * 其它常用方法
      */

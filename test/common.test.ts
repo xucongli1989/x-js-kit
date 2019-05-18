@@ -160,6 +160,13 @@ test("common.idCard", () => {
     expect(model!.len).toBe(18)
 })
 
+test("common.image", () => {
+    expect(common.image.replaceImgSrc("")).toBe("")
+    expect(common.image.replaceImgSrc("<div><img src='a.jpg'/><img src='b.jpg'/></div>")).toBe("<div><img data-src='a.jpg'/><img data-src='b.jpg'/></div>")
+    expect(common.image.replaceImgSrc("<div><img src='a.jpg'/><img src='b.jpg'/></div>", "test")).toBe("<div><img test='a.jpg'/><img test='b.jpg'/></div>")
+    expect(common.image.replaceImgSrc("<div><img src='a.jpg'/><img src='b.jpg'/></div>", "newAttr='abc' test")).toBe("<div><img newAttr='abc' test='a.jpg'/><img newAttr='abc' test='b.jpg'/></div>")
+})
+
 test("common.json", () => {
     const obj = {
         name: "abc",

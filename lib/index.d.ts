@@ -15,6 +15,7 @@ declare const _default: {
         json: typeof import("./common/json");
         data: typeof import("./common/data");
         idCard: typeof import("./common/idCard");
+        image: typeof import("./common/image");
         lib: typeof import("./common/lib");
         random: typeof import("./common/random");
         url: typeof import("./common/url");

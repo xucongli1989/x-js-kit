@@ -5,6 +5,7 @@ import * as cookie from "./cookie"
 import * as json from "./json"
 import * as data from "./data"
 import * as idCard from "./idCard"
+import * as image from "./image"
 import * as lib from "./lib"
 import * as random from "./random"
 import * as url from "./url"
@@ -38,6 +39,10 @@ export default {
      * 证件相关
      */
     idCard,
+    /**
+     * 图片操作相关
+     */
+    image,
     /**
      * 其它常用方法
      */
