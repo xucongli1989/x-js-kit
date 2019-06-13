@@ -68,4 +68,10 @@ export declare function isLower(val: string): boolean | "";
  * @returns 判断结果
  */
 export declare function isDate(val: any): boolean;
+/**
+ * 指定值是否为Error对象
+ * @param val 要判断的值
+ * @returns 判断结果
+ */
+export declare function isError(val: any): boolean;
 //# sourceMappingURL=data.d.ts.map

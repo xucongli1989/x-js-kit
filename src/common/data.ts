@@ -111,3 +111,12 @@ export function isLower(val: string) {
 export function isDate(val: any) {
     return val && Object.prototype.toString.call(val) === "[object Date]" && !isNaN(val)
 }
+
+/**
+ * 指定值是否为Error对象
+ * @param val 要判断的值
+ * @returns 判断结果
+ */
+export function isError(val: any) {
+    return val && val instanceof Error
+}

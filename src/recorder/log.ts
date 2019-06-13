@@ -1,4 +1,3 @@
-import { isString } from "../common/data"
 import { AnyKeyValueType } from "../declaration/common"
 
 /**
@@ -9,11 +8,6 @@ export enum LevelTypeEnum {
     "warn" = "warn",
     "error" = "error"
 }
-
-/**
- * 日志内容类型
- */
-export type ContentType = object | string
 
 /**
  * 异步日志返回类型
@@ -27,52 +21,52 @@ export interface LogRecorderType {
     /**
      * 一般日志
      */
-    info(str: string, option: AnyKeyValueType): void
+    info(content: any, option: AnyKeyValueType): void
     /**
      * 一般日志（异步）
      */
-    infoAsync(str: string, option: AnyKeyValueType): PromiseType
+    infoAsync(content: any, option: AnyKeyValueType): PromiseType
     /**
      * 警告日志
      */
-    warn(str: string, option: AnyKeyValueType): void
+    warn(content: any, option: AnyKeyValueType): void
     /**
      * 警告日志（异步）
      */
-    warnAsync(str: string, option: AnyKeyValueType): PromiseType
+    warnAsync(content: any, option: AnyKeyValueType): PromiseType
     /**
      * 错误日志
      */
-    error(str: string, option: AnyKeyValueType): void
+    error(content: any, option: AnyKeyValueType): void
     /**
      * 错误日志（异步）
      */
-    errorAsync(str: string, option: AnyKeyValueType): PromiseType
+    errorAsync(content: any, option: AnyKeyValueType): PromiseType
 }
 
 /**
  * 当前默认的日志记录器（默认为window.console）
  */
 let defaultLogRecorder: LogRecorderType = new class {
-    info(str: string, option: AnyKeyValueType) {
-        console.info(str, option)
+    info(content: any, option: AnyKeyValueType) {
+        console.info(content, option)
     }
-    infoAsync(str: string, option: AnyKeyValueType) {
-        console.info(str, option)
+    infoAsync(content: any, option: AnyKeyValueType) {
+        console.info(content, option)
         return Promise.resolve()
     }
-    warn(str: string, option: AnyKeyValueType) {
-        console.warn(str, option)
+    warn(content: any, option: AnyKeyValueType) {
+        console.warn(content, option)
     }
-    warnAsync(str: string, option: AnyKeyValueType) {
-        console.warn(str, option)
+    warnAsync(content: any, option: AnyKeyValueType) {
+        console.warn(content, option)
         return Promise.resolve()
     }
-    error(str: string, option: AnyKeyValueType) {
-        console.error(str, option)
+    error(content: any, option: AnyKeyValueType) {
+        console.error(content, option)
     }
-    errorAsync(str: string, option: AnyKeyValueType) {
-        console.error(str, option)
+    errorAsync(content: any, option: AnyKeyValueType) {
+        console.error(content, option)
         return Promise.resolve()
     }
 }
@@ -80,7 +74,7 @@ let defaultLogRecorder: LogRecorderType = new class {
 /**
  * 根据日志级别返回对应的日志记录函数
  */
-function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (str: string, option: AnyKeyValueType) => void | ((str: string, option: AnyKeyValueType) => PromiseType) {
+function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (obj: any, option: AnyKeyValueType) => void | ((obj: any, option: AnyKeyValueType) => PromiseType) {
     if (isAsync) {
         let fun = defaultLogRecorder.infoAsync
         switch (level) {
@@ -118,13 +112,9 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    write(level: LevelTypeEnum, content: ContentType, option: AnyKeyValueType = {}) {
-        if (!content) {
-            return
-        }
-        const str = (isString(content) ? content : JSON.stringify(content)) as string
+    write(level: LevelTypeEnum, content: any, option: AnyKeyValueType = {}) {
         const logFunc = getLogRecorder(level, false)
-        logFunc(str, option)
+        logFunc(content, option)
     }
     /**
      * 写日志（异步）
@@ -132,20 +122,16 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    writeAsync(level: LevelTypeEnum, content: ContentType, option: AnyKeyValueType = {}) {
-        if (!content) {
-            return Promise.resolve()
-        }
-        const str = (isString(content) ? content : JSON.stringify(content)) as string
+    writeAsync(level: LevelTypeEnum, content: any, option: AnyKeyValueType = {}) {
         const logFunc = getLogRecorder(level, true)
-        return <PromiseType>(logFunc(str, option) as any)
+        return <PromiseType>(logFunc(content, option) as any)
     }
     /**
      *  写一般日志
      * @param content 日志内容
      * @param option 自定义选项
      */
-    info(content: ContentType, option: AnyKeyValueType = {}) {
+    info(content: any, option: AnyKeyValueType = {}) {
         this.write(LevelTypeEnum.info, content, option)
     }
     /**
@@ -153,7 +139,7 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    infoAsync(content: ContentType, option: AnyKeyValueType = {}) {
+    infoAsync(content: any, option: AnyKeyValueType = {}) {
         return this.writeAsync(LevelTypeEnum.info, content, option)
     }
     /**
@@ -161,7 +147,7 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    warn(content: ContentType, option: AnyKeyValueType = {}) {
+    warn(content: any, option: AnyKeyValueType = {}) {
         this.write(LevelTypeEnum.warn, content, option)
     }
     /**
@@ -169,7 +155,7 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    warnAsync(content: ContentType, option: AnyKeyValueType = {}) {
+    warnAsync(content: any, option: AnyKeyValueType = {}) {
         return this.writeAsync(LevelTypeEnum.warn, content, option)
     }
     /**
@@ -177,7 +163,7 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    error(content: ContentType, option: AnyKeyValueType = {}) {
+    error(content: any, option: AnyKeyValueType = {}) {
         this.write(LevelTypeEnum.error, content, option)
     }
     /**
@@ -185,7 +171,7 @@ class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    errorAsync(content: ContentType, option: AnyKeyValueType = {}) {
+    errorAsync(content: any, option: AnyKeyValueType = {}) {
         return this.writeAsync(LevelTypeEnum.error, content, option)
     }
 }

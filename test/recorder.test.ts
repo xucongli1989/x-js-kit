@@ -43,7 +43,7 @@ test("recorder.logger", async () => {
     recorder.log.logger.write(LevelTypeEnum.info, "一般日志", {})
     expect(console.info).toHaveBeenCalledWith("一般日志", {})
     recorder.log.logger.write(LevelTypeEnum.info, { name: "test" }, {})
-    expect(console.info).toHaveBeenCalledWith(JSON.stringify({ name: "test" }), {})
+    expect(console.info).toHaveBeenCalledWith({ name: "test" }, {})
 
     console.info = jest.fn()
     expect(await recorder.log.logger.writeAsync(LevelTypeEnum.info, "一般日志异步测试", {}))
@@ -53,7 +53,7 @@ test("recorder.logger", async () => {
     recorder.log.logger.write(LevelTypeEnum.warn, "警告日志", {})
     expect(console.warn).toHaveBeenCalledWith("警告日志", {})
     recorder.log.logger.write(LevelTypeEnum.warn, { name: "test" }, {})
-    expect(console.warn).toHaveBeenCalledWith(JSON.stringify({ name: "test" }), {})
+    expect(console.warn).toHaveBeenCalledWith({ name: "test" }, {})
 
     console.warn = jest.fn()
     expect(await recorder.log.logger.writeAsync(LevelTypeEnum.warn, "警告日志异步测试", {}))
@@ -63,7 +63,7 @@ test("recorder.logger", async () => {
     recorder.log.logger.write(LevelTypeEnum.error, "错误日志", {})
     expect(console.error).toHaveBeenCalledWith("错误日志", {})
     recorder.log.logger.write(LevelTypeEnum.error, { name: "test" }, {})
-    expect(console.error).toHaveBeenCalledWith(JSON.stringify({ name: "test" }), {})
+    expect(console.error).toHaveBeenCalledWith({ name: "test" }, {})
 
     console.error = jest.fn()
     expect(await recorder.log.logger.writeAsync(LevelTypeEnum.error, "错误日志异步测试", {}))

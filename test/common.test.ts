@@ -144,6 +144,8 @@ test("common.data", () => {
     expect(common.data.isDate(123)).toBeFalsy()
     expect(common.data.isDate(new Date("abc"))).toBeFalsy()
     expect(common.data.isDate(new Date())).toBeTruthy()
+
+    expect(common.data.isError(new Error("test"))).toBeTruthy()
 })
 
 test("common.idCard", () => {

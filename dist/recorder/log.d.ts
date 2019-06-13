@@ -8,10 +8,6 @@ export declare enum LevelTypeEnum {
     "error" = "error"
 }
 /**
- * 日志内容类型
- */
-export declare type ContentType = object | string;
-/**
  * 异步日志返回类型
  */
 export declare type PromiseType = Promise<void> | Promise<{}>;
@@ -22,27 +18,27 @@ export interface LogRecorderType {
     /**
      * 一般日志
      */
-    info(str: string, option: AnyKeyValueType): void;
+    info(content: any, option: AnyKeyValueType): void;
     /**
      * 一般日志（异步）
      */
-    infoAsync(str: string, option: AnyKeyValueType): PromiseType;
+    infoAsync(content: any, option: AnyKeyValueType): PromiseType;
     /**
      * 警告日志
      */
-    warn(str: string, option: AnyKeyValueType): void;
+    warn(content: any, option: AnyKeyValueType): void;
     /**
      * 警告日志（异步）
      */
-    warnAsync(str: string, option: AnyKeyValueType): PromiseType;
+    warnAsync(content: any, option: AnyKeyValueType): PromiseType;
     /**
      * 错误日志
      */
-    error(str: string, option: AnyKeyValueType): void;
+    error(content: any, option: AnyKeyValueType): void;
     /**
      * 错误日志（异步）
      */
-    errorAsync(str: string, option: AnyKeyValueType): PromiseType;
+    errorAsync(content: any, option: AnyKeyValueType): PromiseType;
 }
 declare class LoggerHelper {
     /**
@@ -51,50 +47,50 @@ declare class LoggerHelper {
      * @param content 日志内容
      * @param option 自定义选项
      */
-    write(level: LevelTypeEnum, content: ContentType, option?: AnyKeyValueType): void;
+    write(level: LevelTypeEnum, content: any, option?: AnyKeyValueType): void;
     /**
      * 写日志（异步）
      * @param level 日志级别
      * @param content 日志内容
      * @param option 自定义选项
      */
-    writeAsync(level: LevelTypeEnum, content: ContentType, option?: AnyKeyValueType): PromiseType;
+    writeAsync(level: LevelTypeEnum, content: any, option?: AnyKeyValueType): PromiseType;
     /**
      *  写一般日志
      * @param content 日志内容
      * @param option 自定义选项
      */
-    info(content: ContentType, option?: AnyKeyValueType): void;
+    info(content: any, option?: AnyKeyValueType): void;
     /**
      *  写一般日志（异步）
      * @param content 日志内容
      * @param option 自定义选项
      */
-    infoAsync(content: ContentType, option?: AnyKeyValueType): PromiseType;
+    infoAsync(content: any, option?: AnyKeyValueType): PromiseType;
     /**
      *  写警告日志
      * @param content 日志内容
      * @param option 自定义选项
      */
-    warn(content: ContentType, option?: AnyKeyValueType): void;
+    warn(content: any, option?: AnyKeyValueType): void;
     /**
      *  写警告日志（异步）
      * @param content 日志内容
      * @param option 自定义选项
      */
-    warnAsync(content: ContentType, option?: AnyKeyValueType): PromiseType;
+    warnAsync(content: any, option?: AnyKeyValueType): PromiseType;
     /**
      *  写错误日志
      * @param content 日志内容
      * @param option 自定义选项
      */
-    error(content: ContentType, option?: AnyKeyValueType): void;
+    error(content: any, option?: AnyKeyValueType): void;
     /**
      *  写错误日志（异步）
      * @param content 日志内容
      * @param option 自定义选项
      */
-    errorAsync(content: ContentType, option?: AnyKeyValueType): PromiseType;
+    errorAsync(content: any, option?: AnyKeyValueType): PromiseType;
 }
 /**
  * 当前日志工具类
