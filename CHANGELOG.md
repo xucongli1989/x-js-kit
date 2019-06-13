@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/xucongli1989/x-js-kit/compare/v4.2.0...v4.3.0) (2019-06-13)
+
+
+### Features
+
+* **common.image:** add some method about image ([e1fa7e8](https://github.com/xucongli1989/x-js-kit/commit/e1fa7e8))
+* **recorder.log:** add option parameter when write log ([f03fef5](https://github.com/xucongli1989/x-js-kit/commit/f03fef5))
+
+
+
 ## [4.2.0](https://github.com/xucongli1989/x-js-kit/compare/v4.1.0...v4.2.0) (2019-05-13)
 
 
