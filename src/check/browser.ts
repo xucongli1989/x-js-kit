@@ -60,7 +60,9 @@ export function isExtraLarge() {
 
 /**
  * 当前网页是否通过F5刷新、重新加载按钮或location.reload()方法加载进来的
+ * 判断方法：performance.navigation.type == 1
  */
 export function isReload() {
-    return (<Window>globalObject).performance.navigation.type == 1
+    const g = (<Window>globalObject)
+    return g.performance && g.performance.navigation && g.performance.navigation.type == 1
 }

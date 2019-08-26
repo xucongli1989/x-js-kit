@@ -26,6 +26,7 @@ export declare function isLarge(): boolean;
 export declare function isExtraLarge(): boolean;
 /**
  * 当前网页是否通过F5刷新、重新加载按钮或location.reload()方法加载进来的
+ * 判断方法：performance.navigation.type == 1
  */
 export declare function isReload(): boolean;
 //# sourceMappingURL=browser.d.ts.map
