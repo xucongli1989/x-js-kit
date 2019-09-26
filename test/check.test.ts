@@ -72,6 +72,19 @@ test("check.common", () => {
     expect(check.common.isChinaIDCard("320000881214101")).toBeTruthy()
     expect(check.common.isChinaIDCard("320000198812141111")).toBeTruthy()
     expect(check.common.isChinaIDCard("32000019881214123X")).toBeTruthy()
+
+    for (let i = 65; i <= 90; i++) {
+        expect(check.common.isAlphaNumericKeyCode(i)).toBeTruthy()
+    }
+    for (let i = 48; i <= 57; i++) {
+        expect(check.common.isAlphaNumericKeyCode(i)).toBeTruthy()
+    }
+    for (let i = 96; i <= 105; i++) {
+        expect(check.common.isAlphaNumericKeyCode(i)).toBeTruthy()
+    }
+    expect(check.common.isAlphaNumericKeyCode(0)).toBeFalsy()
+    expect(check.common.isAlphaNumericKeyCode(-1)).toBeFalsy()
+    expect(check.common.isAlphaNumericKeyCode(60)).toBeFalsy()
 })
 
 test("check.url", () => {

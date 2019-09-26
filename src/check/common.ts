@@ -30,3 +30,9 @@ export function isCNMobile(val: string) {
 export function isChinaIDCard(val: string) {
     return regexConst.chinaIDCard.test(val)
 }
+/**
+ * 判断键盘按键的keyCode是否为字母和数字
+ */
+export function isAlphaNumericKeyCode(keyCode: number) {
+    return (keyCode >= 65 && keyCode <= 90) || (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105)
+}

@@ -18,4 +18,8 @@ export declare function isCNMobile(val: string): boolean;
  * 判断是否为中国大陆身份证号码
  */
 export declare function isChinaIDCard(val: string): boolean;
+/**
+ * 判断键盘按键的keyCode是否为字母和数字
+ */
+export declare function isAlphaNumericKeyCode(keyCode: number): boolean;
 //# sourceMappingURL=common.d.ts.map
