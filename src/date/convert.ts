@@ -27,7 +27,7 @@ export function parse(dateStr: string): Date | null {
         return null
     }
     let date = null
-    let mts = dateStr.match(/(\/Date\((\d+)\)\/)/)
+    const mts = dateStr.match(/(\/Date\((\d+)\)\/)/)
     if (mts && mts.length >= 3) {
         date = new Date(parseInt(mts[2]))
     }

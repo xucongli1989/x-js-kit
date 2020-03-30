@@ -3,17 +3,7 @@ import { AnyKeyValueType, AnyFunctionType } from "../declaration/common"
 /**
  * tryRun在调用异常时执行的函数
  */
-let defaultTryRunErrorHandler: AnyFunctionType = () => { }
-
-/**
- * 当前环境中的全局对象
- */
-export const globalObject = getGlobalObject()
-
-/**
- * 当前环境中的document对象，若没有，则为null
- */
-export const document = getDocument()
+let defaultTryRunErrorHandler: AnyFunctionType = () => null
 
 /**
  * 是否为服务器环境
@@ -39,12 +29,12 @@ export function getGlobalObject(): Window | NodeJS.Global {
     return global
 }
 
+
+
 /**
- * 获取localStorage对象
+ * 当前环境中的全局对象
  */
-export function getLocalStorage(): Storage {
-    return ((globalObject as any).localStorage || null) as Storage
-}
+export const globalObject = getGlobalObject()
 
 /**
  * 获取document对象
@@ -52,6 +42,22 @@ export function getLocalStorage(): Storage {
 export function getDocument(): Document {
     return ((globalObject as any).document || null) as Document
 }
+
+/**
+ * 当前环境中的document对象，若没有，则为null
+ */
+export const document = getDocument()
+
+
+
+/**
+ * 获取localStorage对象
+ */
+export function getLocalStorage(): Storage {
+    return ((globalObject as any).localStorage || null) as Storage
+}
+
+
 
 /**
  * 创建全局命名空间
@@ -62,7 +68,9 @@ export function createNamespace(name: string): object {
     if (!name) {
         return null as any
     }
-    let obj: any = globalObject, tokens = name.split("."), token = ""
+    let obj: any = globalObject
+    const tokens = name.split(".")
+    let token = ""
     while (tokens.length > 0) {
         token = tokens.shift() as string
         if (typeof obj[token] === "undefined") {
@@ -120,7 +128,9 @@ export function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null {
     try {
         return fn(...args) as T
     } catch (e) {
-        defaultTryRunErrorHandler && defaultTryRunErrorHandler(e)
+        if (defaultTryRunErrorHandler) {
+            defaultTryRunErrorHandler(e)
+        }
         return null
     }
 }

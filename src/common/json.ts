@@ -25,7 +25,7 @@ export function hasValue(json: AnyKeyValueType, keyValue: any) {
         return false
     }
     let r = false
-    for (var k in json) {
+    for (const k in json) {
         if (json[k] === keyValue) {
             r = true
             break
@@ -41,8 +41,9 @@ export function hasValue(json: AnyKeyValueType, keyValue: any) {
  */
 export function toParams(json: AnyKeyValueType) {
     if (!json) return "";
-    let arr = [], temp = "";
-    for (let m in json) {
+    const arr = []
+    let temp = "";
+    for (const m in json) {
         if (isArray(json[m])) {
             temp = json[m].join("&" + m + "=");
         } else {

@@ -95,7 +95,7 @@ declare class LoggerHelper {
 /**
  * 当前日志工具类
  */
-export declare let logger: LoggerHelper;
+export declare const logger: LoggerHelper;
 /**
  * 重新设置默认的日志记录器
  * @param logRecorder 新的日志记录器（默认的日志记录器为window.console）

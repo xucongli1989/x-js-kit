@@ -9,7 +9,7 @@ export default class StopWatch {
     /**
      * 间隔的毫秒数
      */
-    readonly value: number;
+    get value(): number;
     /**
      * 开始计时
      */

@@ -55,13 +55,21 @@ export declare class FieldMessageItem {
     init(ops: ValidationInitOpsType): this;
 }
 /**
+ * 判断FieldMessageModel是否验证通过
+ */
+export declare function isPassed(model: FieldMessageModel): boolean;
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export declare function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null;
+/**
  * 字段信息提示类
  */
 export declare class FieldMessageModel extends BaseClass {
     /**
      * 是否itemList中的所有的字段提示列表均已验证通过
      */
-    readonly isPassed: boolean;
+    get isPassed(): boolean;
     /**
      * 字段提示列表
      */
@@ -75,12 +83,4 @@ export declare class FieldMessageModel extends BaseClass {
         itemList: FieldMessageItem[];
     };
 }
-/**
- * 判断FieldMessageModel是否验证通过
- */
-export declare function isPassed(model: FieldMessageModel): boolean;
-/**
- * 根据id返回FieldMessageModel中对应的FieldMessageItem
- */
-export declare function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null;
 //# sourceMappingURL=fieldMessage.d.ts.map

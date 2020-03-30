@@ -40,7 +40,7 @@ export function size(): { width: number, height: number } {
  * 返回当前浏览器窗口的宽度类型
  */
 export function getWidthType(): BrowserWidthTypeEnum {
-    const width = size().width
+    const { width } = size()
     if (width < 576) {
         return BrowserWidthTypeEnum.ExtraSmall
     }

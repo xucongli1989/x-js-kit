@@ -1,9 +1,10 @@
 /**
  * 在url后面追加查询字符串
- * @param url url地址，如location.href
+ * @param urlStr url地址，如location.href
  * @param queryString 要追加的查询串，如："a=123&b=456"
  */
-export function appendQueryString(url: string, queryString: string) {
+export function appendQueryString(urlStr: string, queryString: string) {
+    let url = urlStr
     if (!url) {
         return ""
     }
@@ -11,7 +12,7 @@ export function appendQueryString(url: string, queryString: string) {
         return url
     }
     let hash = ""
-    var anchorIdx = url.indexOf('#')
+    const anchorIdx = url.indexOf('#')
     if (anchorIdx >= 0) {
         hash = url.substring(anchorIdx)
         url = url.substr(0, anchorIdx)
@@ -22,11 +23,11 @@ export function appendQueryString(url: string, queryString: string) {
 /**
  * 从查询串中获取指定参数
  * @param search 查询串，如：location.search
- * @param name 参数名
+ * @param paramName 参数名
  */
-export function getUrlParameter(search: string, name: string) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(search);
+export function getUrlParameter(search: string, paramName: string) {
+    const name = paramName.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }

@@ -78,6 +78,23 @@ export class FieldMessageItem {
 }
 
 /**
+ * 判断FieldMessageModel是否验证通过
+ */
+export function isPassed(model: FieldMessageModel) {
+    if (!model.itemList.length) {
+        return true
+    }
+    return !model.itemList.find(k => !k.isPassed)
+}
+
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null {
+    return model.itemList.find(k => k.id == id) || null
+}
+
+/**
  * 字段信息提示类
  */
 export class FieldMessageModel extends BaseClass {
@@ -103,21 +120,4 @@ export class FieldMessageModel extends BaseClass {
             itemList: this.itemList
         }
     }
-}
-
-/**
- * 判断FieldMessageModel是否验证通过
- */
-export function isPassed(model: FieldMessageModel) {
-    if (!model.itemList.length) {
-        return true
-    }
-    return !model.itemList.find(k => !k.isPassed)
-}
-
-/**
- * 根据id返回FieldMessageModel中对应的FieldMessageItem
- */
-export function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null {
-    return model.itemList.find(k => k.id == id) || null
 }
