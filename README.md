@@ -41,4 +41,4 @@ import stopWatch from "x-js-kit/lib/timer/stopWatch"
 
 # Change log
 
-https://github.com/xucongli1989/x-js-kit/blob/master/CHANGELOG.md
+[CHANGELOG.md](CHANGELOG.md)
