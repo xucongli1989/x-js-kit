@@ -53,6 +53,19 @@ export function add(key: string, value: ItemContentType) {
     cache.items[key] = value
     localStorage.setItem(globalCacheName, JSON.stringify(cache))
 }
+
+/**
+ * 删除指定缓存
+ */
+export function remove(key: string) {
+    const cache = getGlobalCache()
+    if (!cache) {
+        return
+    }
+    delete cache.items[key]
+    localStorage.setItem(globalCacheName, JSON.stringify(cache))
+}
+
 /**
  * 读取指定缓存
  */
@@ -71,17 +84,7 @@ export function get(key: string): ItemContentType | null {
     }
     return item
 }
-/**
- * 删除指定缓存
- */
-export function remove(key: string) {
-    const cache = getGlobalCache()
-    if (!cache) {
-        return null
-    }
-    delete cache.items[key]
-    localStorage.setItem(globalCacheName, JSON.stringify(cache))
-}
+
 
 (() => {
     if (!getLocalStorage()) {

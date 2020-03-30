@@ -10,9 +10,9 @@ export function toHourStringFromMins(mins: number): string {
     if (mins == 0) {
         return "0分钟"
     }
-    let h = parseInt((mins / 60).toString());
-    let m = parseInt((mins % 60).toString());
-    let s = [];
+    const h = parseInt((mins / 60).toString());
+    const m = parseInt((mins % 60).toString());
+    const s = [];
     if (h > 0) {
         s.push(`${h}小时`);
     }
@@ -26,10 +26,11 @@ export function toHourStringFromMins(mins: number): string {
  * 将Date对象转换为指定的格式字符串
  * 注：月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
  * @param dateValue 日期对象
- * @param fmt 格式（默认值为yyyy-MM-dd），如：yyyy-MM-dd
+ * @param fmtStr 格式（默认值为yyyy-MM-dd），如：yyyy-MM-dd
  * @returns 格式化后的字符串
  */
-export function format(dateValue: Date | number, fmt: string = "yyyy-MM-dd") {
+export function format(dateValue: Date | number, fmtStr: string = "yyyy-MM-dd") {
+    let fmt = fmtStr
     let dt: Date = dateValue as Date
     if (isNumber(dateValue as any)) {
         dt = new Date(dateValue)
@@ -44,12 +45,12 @@ export function format(dateValue: Date | number, fmt: string = "yyyy-MM-dd") {
         "m+": dt.getMinutes(), //分 
         "s+": dt.getSeconds(), //秒 
         "q+": Math.floor((dt.getMonth() + 3) / 3), //季度 
-        "S": dt.getMilliseconds() //毫秒 
+        S: dt.getMilliseconds() //毫秒 
     };
     if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(RegExp.$1, (dt.getFullYear() + "").substr(4 - RegExp.$1.length))
     }
-    for (let k in o) {
+    for (const k in o) {
         if (new RegExp("(" + k + ")").test(fmt)) {
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)))
         }

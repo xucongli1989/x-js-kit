@@ -16,6 +16,12 @@ export declare function getItem(sKey: string): string | null;
  */
 export declare function setItem(sKey: string, sValue: string, vEnd: number | string | Date, sPath?: string, sDomain?: string, bSecure?: boolean): boolean;
 /**
+ * 是否包含某个cookie
+ * @param sKey 键名
+ * @returns 是否包含
+ */
+export declare function hasItem(sKey: string): boolean;
+/**
  * 删除cookie
  * @param sKey 键名
  * @param sPath 路径（默认/）
@@ -23,12 +29,6 @@ export declare function setItem(sKey: string, sValue: string, vEnd: number | str
  * @returns 是否删除成功
  */
 export declare function removeItem(sKey: string, sPath?: string, sDomain?: string): boolean;
-/**
- * 是否包含某个cookie
- * @param sKey 键名
- * @returns 是否包含
- */
-export declare function hasItem(sKey: string): boolean;
 /**
  * 获取当前cookie的全部键名
  * @returns 所有键名

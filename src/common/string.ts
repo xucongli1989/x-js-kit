@@ -12,7 +12,7 @@ export function splitString(str: string, stepCharCount: number): string[] {
     if (strLen <= stepCharCount) {
         return [str]
     }
-    let result: string[] = []
+    const result: string[] = []
     let startIndex = 0
     while (startIndex < strLen) {
         result.push(str.substr(startIndex, stepCharCount))
@@ -140,10 +140,11 @@ export function trimString(str: string, strToRemove: string, isIgnoreCase: boole
 
 /**
  * 从html字符串中移除左右空白占位符
- * @param str 待处理的字符串
+ * @param html 待处理的字符串
  * @returns 处理结果
  */
-export function trimHTML(str: string) {
+export function trimHTML(html: string) {
+    let str = html
     if (!str) {
         return ""
     }
@@ -154,13 +155,15 @@ export function trimHTML(str: string) {
 }
 
 /**
- * 指定源字符串sourceStr中是否包含str字符串
- * @param  sourceStr 源字符串
- * @param  str 要查找的字符串
+ * 指定源字符串source中是否包含search字符串
+ * @param  source 源字符串
+ * @param  search 要查找的字符串
  * @param  isIgnoreCase 是否忽略大小写(默认为false)
  * @returns  结果
  */
-export function contains(sourceStr: string, str: string, isIgnoreCase: boolean = false) {
+export function contains(source: string, search: string, isIgnoreCase: boolean = false) {
+    let sourceStr = source
+    let str = search
     if (!sourceStr) {
         return false
     }
@@ -186,21 +189,20 @@ export function escapeHtml(html: string) {
     if (!html) {
         return ""
     }
-    return String(html).replace(/[&<>"'\/]/g, (s) => {
-        return htmlEntityMap[s]
-    })
+    return String(html).replace(/[&<>"'/]/g, (s) => htmlEntityMap[s])
 }
 
 /**
  * @param   str 要重复的字符串
- * @param   count 重复次数
+ * @param   repeatCount 重复次数
  * @returns  新的字符串
  */
-export function repeat(str: string, count: number) {
+export function repeat(str: string, repeatCount: number) {
+    let count = repeatCount
     if (!str || count <= 0) {
         return ""
     }
-    let s = []
+    const s = []
     while (count--) {
         s.push(str)
     }
@@ -210,7 +212,7 @@ export function repeat(str: string, count: number) {
 /**
  * 字符串批量构建器（无需使用"+"进行字符串的拼接，直接使用此对象的append方法后，再toString即可得到拼好的字符串）
  */
-export class builder<T> {
+export class Builder<T> {
     private _arr: T[] = []
     /**
      * 追加项
@@ -242,3 +244,5 @@ export class builder<T> {
         return this.toString().length
     }
 }
+
+export const builder = Builder

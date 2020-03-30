@@ -73,7 +73,8 @@ export function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | u
     if (!arr || !fn) {
         return []
     }
-    let result: T[] = [], temp: T | null | undefined
+    const result: T[] = []
+    let temp: T | null | undefined
     for (let i = 0; i < arr.length; i++) {
         temp = fn(arr[i], i)
         if (temp == null || typeof (temp) == 'undefined') {

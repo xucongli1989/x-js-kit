@@ -44,10 +44,7 @@ export interface LogRecorderType {
     errorAsync(content: any, option: AnyKeyValueType): PromiseType
 }
 
-/**
- * 当前默认的日志记录器（默认为window.console）
- */
-let defaultLogRecorder: LogRecorderType = new class {
+class DefaultLogRecorderClass {
     info(content: any, option: AnyKeyValueType) {
         console.info(content, option)
     }
@@ -70,6 +67,11 @@ let defaultLogRecorder: LogRecorderType = new class {
         return Promise.resolve()
     }
 }
+
+/**
+ * 当前默认的日志记录器（默认为window.console）
+ */
+let defaultLogRecorder: LogRecorderType = new DefaultLogRecorderClass()
 
 /**
  * 根据日志级别返回对应的日志记录函数
@@ -179,7 +181,7 @@ class LoggerHelper {
 /**
  * 当前日志工具类
  */
-export let logger: LoggerHelper = new LoggerHelper()
+export const logger: LoggerHelper = new LoggerHelper()
 
 /**
  * 重新设置默认的日志记录器

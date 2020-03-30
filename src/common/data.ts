@@ -34,7 +34,7 @@ export function isObject(val: any) {
 * @returns 判断结果
 */
 export function isNullOrEmpty(val: null | string) {
-    return null === val || val === ""
+    return val === null || val === ""
 }
 
 /**

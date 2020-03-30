@@ -28,7 +28,7 @@ export function setItem(sKey: string, sValue: string, vEnd: number | string | Da
     if (!document) {
         return false
     }
-    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
+    if (!sKey || /^(?:expires|max-age|path|domain|secure)$/i.test(sKey)) {
         return false
     }
     let sExpires = ""
@@ -50,6 +50,18 @@ export function setItem(sKey: string, sValue: string, vEnd: number | string | Da
 }
 
 /**
+ * 是否包含某个cookie
+ * @param sKey 键名
+ * @returns 是否包含
+ */
+export function hasItem(sKey: string): boolean {
+    if (!document) {
+        return false
+    }
+    return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[-.+*]/g, "\\$&") + "\\s*\\=")).test(document.cookie)
+}
+
+/**
  * 删除cookie
  * @param sKey 键名
  * @param sPath 路径（默认/）
@@ -67,17 +79,7 @@ export function removeItem(sKey: string, sPath: string = "/", sDomain: string = 
     return true
 }
 
-/**
- * 是否包含某个cookie
- * @param sKey 键名
- * @returns 是否包含
- */
-export function hasItem(sKey: string): boolean {
-    if (!document) {
-        return false
-    }
-    return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[-.+*]/g, "\\$&") + "\\s*\\=")).test(document.cookie)
-}
+
 
 /**
  * 获取当前cookie的全部键名
@@ -87,7 +89,7 @@ export function keys(): string[] {
     if (!document) {
         return []
     }
-    let aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/)
+    const aKeys = document.cookie.replace(/((?:^|\s*;)[^=]+)(?=;|$)|^\s*|\s*(?:=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:=[^;]*)?;\s*/)
     for (let nIdx = 0; nIdx < aKeys.length; nIdx++) {
         aKeys[nIdx] = decodeURIComponent(aKeys[nIdx])
     }

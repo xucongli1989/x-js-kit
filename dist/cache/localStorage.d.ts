@@ -33,11 +33,11 @@ export declare function setGlobalCacheName(name: string): void;
  */
 export declare function add(key: string, value: ItemContentType): void;
 /**
+ * 删除指定缓存
+ */
+export declare function remove(key: string): void;
+/**
  * 读取指定缓存
  */
 export declare function get(key: string): ItemContentType | null;
-/**
- * 删除指定缓存
- */
-export declare function remove(key: string): null | undefined;
 //# sourceMappingURL=localStorage.d.ts.map
