@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.7.0](https://github.com/xucongli1989/x-js-kit/compare/v4.5.0...v4.7.0) (2020-03-31)
+
+
+### Features
+
+* **dom recorder:** add log recorder for DOM ([efb9deb](https://github.com/xucongli1989/x-js-kit/commit/efb9deb95c2208da77e372ba0c1e85bbe516aabc))
+
+
+### Bug Fixes
+
+* **dom recorder:** rename refer property name ([0f302ad](https://github.com/xucongli1989/x-js-kit/commit/0f302ad9d6cb31f957b42090039bc58be7d47016))
+* **symbol:** code compatibility when get Symbol type ([b5d0079](https://github.com/xucongli1989/x-js-kit/commit/b5d0079070a5c922e723b8e6bd413fd0e32bca3a))
+
 ## [4.6.0](https://github.com/xucongli1989/x-js-kit/compare/v4.5.0...v4.6.0) (2020-03-31)
 
 
