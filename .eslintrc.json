@@ -60,7 +60,11 @@
         "@typescript-eslint/member-delimiter-style":"off",
         "@typescript-eslint/no-inferrable-types":"off",
         "@typescript-eslint/consistent-type-assertions":"off",
-        "@typescript-eslint/no-var-requires":"off"
+        "@typescript-eslint/no-var-requires":"off",
+        "@typescript-eslint/no-non-null-assertion":"off",
+        "no-confusing-arrow":"off",
+        "no-self-compare":"off",
+        "global-require":"off"
     },
     "overrides": [
         {

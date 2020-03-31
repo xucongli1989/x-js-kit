@@ -1,7 +1,7 @@
 import "@babel/polyfill"
 import JsKit from "../dist/index"
 import JsKitLib from "../lib/index"
-import stopWatch from "../lib/timer/stopWatch"
+import StopWatch from "../lib/timer/stopWatch"
 
 test("index-引用测试", () => {
     const obj = JsKit.cache.localStorage.getGlobalCache()
@@ -14,7 +14,7 @@ test("index-引用测试(lib目录)", () => {
 })
 
 test("引用部分模块测试", async () => {
-    const sw = new stopWatch()
+    const sw = new StopWatch()
     sw.start()
     await new Promise(res => {
         setTimeout(res, 10)

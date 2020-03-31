@@ -100,7 +100,7 @@ test("common.data", () => {
     expect(common.data.isBoolean("false")).toBeTruthy()
 
     expect(common.data.isFunction(null)).toBeFalsy()
-    expect(common.data.isFunction(() => { })).toBeTruthy()
+    expect(common.data.isFunction(() => null)).toBeTruthy()
 
     expect(common.data.isLower("")).toBeFalsy()
     expect(common.data.isLower("aBc")).toBeFalsy()
@@ -223,10 +223,10 @@ test("common.lib", () => {
     expect(common.lib.deepClone(obj1)).toEqual(obj1)
 
     expect(common.lib.tryRun(null as any)).toBeNull()
-    expect(common.lib.tryRun((a, b, c) => { return a + b + c }, 1, 2, 3)).toBe(6)
+    expect(common.lib.tryRun((a, b, c) => (a + b + c), 1, 2, 3)).toBe(6)
     expect(common.lib.tryRun(() => {
-        const obj = {} as any
-        console.log(obj.a.b)
+        const objTemp = {} as any
+        console.log(objTemp.a.b)
     })).toBeNull()
     expect(common.lib.tryRun(() => { throw new Error("error!") })).toBeNull()
 })
@@ -329,7 +329,7 @@ test("common.string", () => {
     expect(common.string.repeat("abc", 3)).toBe("abcabcabc")
     expect(common.string.repeat("abc", 5)).toBe("abcabcabcabcabc")
 
-    const builder = new common.string.builder<number>()
+    const builder = new common.string.Builder<number>()
     expect(builder.toString()).toBe("")
     expect(builder.length()).toBe(0)
     expect(builder.append(1, 2, 3).toString()).toBe("123")
@@ -341,7 +341,7 @@ test("common.string", () => {
 })
 
 test("common.url", () => {
-    let url = "http://www.abc.com"
+    const url = "http://www.abc.com"
     expect(common.url.appendQueryString(null as any, null as any)).toBe("")
     expect(common.url.appendQueryString(url, null as any)).toBe(url)
     expect(common.url.appendQueryString(url, "a=1&b=2")).toBe(url + "?a=1&b=2")

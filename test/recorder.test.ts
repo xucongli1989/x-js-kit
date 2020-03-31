@@ -1,13 +1,13 @@
 import recorder from "../src/recorder/index"
-import { LevelTypeEnum, LogRecorderType,PromiseType } from "../src/recorder/log"
+import { LevelTypeEnum, LogRecorderType, PromiseType } from "../src/recorder/log"
 import { AnyKeyValueType } from "../src/declaration/common"
 
 class CustomLogRecorder implements LogRecorderType {
     info(str: string, option: AnyKeyValueType = {}) {
         console.info(str + "custom-log", option)
     }
-    infoAsync(str: string, option: AnyKeyValueType = {}):PromiseType {
-        return new Promise((res, rej) => {
+    infoAsync(str: string, option: AnyKeyValueType = {}): PromiseType {
+        return new Promise((res) => {
             setTimeout(() => {
                 console.info(str + "custom-log", option)
                 res()
@@ -17,8 +17,8 @@ class CustomLogRecorder implements LogRecorderType {
     warn(str: string, option: AnyKeyValueType = {}) {
         console.warn(str, option)
     }
-    warnAsync(str: string, option: AnyKeyValueType = {}):PromiseType {
-        return new Promise((res, rej) => {
+    warnAsync(str: string, option: AnyKeyValueType = {}): PromiseType {
+        return new Promise((res) => {
             setTimeout(() => {
                 console.warn(str, option)
                 res()
@@ -28,8 +28,8 @@ class CustomLogRecorder implements LogRecorderType {
     error(str: string, option: AnyKeyValueType = {}) {
         console.error(str, option)
     }
-    errorAsync(str: string, option: AnyKeyValueType = {}):PromiseType {
-        return new Promise((res, rej) => {
+    errorAsync(str: string, option: AnyKeyValueType = {}): PromiseType {
+        return new Promise((res) => {
             setTimeout(() => {
                 console.error(str, option)
                 res()

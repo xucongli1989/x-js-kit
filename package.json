@@ -4,7 +4,7 @@
   "description": "This is my javascript toolkit. ",
   "main": "./dist/index.js",
   "scripts": {
-    "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./src/**/*",
+    "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./{src,test}/**/*",
     "build_ts": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline && tsc --emitDeclarationOnly --declarationDir lib",
     "copy": "cpy --cwd=dist index.d.ts ./ --rename=index.polyfill.d.ts && cpy --cwd=dist index.d.ts.map ./ --rename=index.polyfill.d.ts.map",
     "dev": "npm run check && webpack  --mode=development --progress",

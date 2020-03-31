@@ -6,11 +6,14 @@ test("pattern.strategy", () => {
         idx: 0
     }
     strategy.add(item => {
-        item.context.idx++
+        const tempItem = item
+        tempItem.context.idx++
     }).add(item => {
-        item.context.idx++
+        const tempItem = item
+        tempItem.context.idx++
     }, "item").add(item => {
-        item.context.idx++
+        const tempItem = item
+        tempItem.context.idx++
     }).execute()
     expect(strategy.context.idx).toBe(3)
 })
@@ -26,11 +29,11 @@ test("pattern.singleton", () => {
     app1.index++
     expect(app1.index).toBe(2)
 
-    let app2 = pattern.singleton.getInstance(App)
+    const app2 = pattern.singleton.getInstance(App)
     app2.index++
-    let app3 = pattern.singleton.getInstance(App)
+    const app3 = pattern.singleton.getInstance(App)
     app3.index++
-    let app4 = pattern.singleton.getInstance(App)
+    const app4 = pattern.singleton.getInstance(App)
     app4.index++
 
     expect(app1.index).toBe(5)

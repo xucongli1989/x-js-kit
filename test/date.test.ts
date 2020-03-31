@@ -30,5 +30,4 @@ test("date.convert", () => {
     expect(date.convert.parse("")).toBeNull()
     expect(date.convert.parse("123")).toBeNull()
     expect(date.convert.parse("/Date(1441036800000)/")).toEqual(new Date(1441036800000))
-
 })

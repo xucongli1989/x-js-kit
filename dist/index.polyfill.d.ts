@@ -54,6 +54,7 @@ declare const _default: {
     };
     timer: {
         stopWatch: typeof import("./timer/stopWatch").default;
+        StopWatch: typeof import("./timer/stopWatch").default;
     };
     validation: {
         fieldMessage: typeof import("./validation/fieldMessage");
