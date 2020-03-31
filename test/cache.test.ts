@@ -5,7 +5,7 @@ const cacheKey1 = "myCache1"
 const cacheKey2 = "myCache2"
 
 test("cache.localStorage-获取全局缓存", () => {
-    expect(cache.localStorage.getGlobalCache()).toBeDefined()
+    expect(cache.localStorage.getGlobalCache()).not.toBeNull()
 })
 
 test('cache.localStorage-添加与获取', () => {

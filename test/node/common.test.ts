@@ -14,7 +14,7 @@ test("common.lib-有localStorage", () => {
         localStorage: require("localStorage")
     })
     const kit = require("../../dist/index.polyfill").default
-    expect(kit.common.lib.getLocalStorage()).toBeDefined()
+    expect(kit.common.lib.getLocalStorage()).not.toBeNull()
     expect(kit.common.lib.isBowser()).toBeFalsy()
     expect(kit.common.lib.isServer()).toBeTruthy()
 })

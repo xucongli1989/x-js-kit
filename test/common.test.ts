@@ -190,7 +190,8 @@ test("common.json", () => {
 
 test("common.lib", () => {
     expect(common.lib.getGlobalObject()).toBe(window)
-    expect(common.lib.getLocalStorage()).toBeDefined()
+    expect(common.lib.getLocalStorage()).not.toBeNull()
+    expect(common.lib.getSymbol()).not.toBeNull()
     expect(common.lib.isBowser()).toBeTruthy()
     expect(common.lib.isServer()).toBeFalsy()
     expect(common.lib.createNamespace("")).toBeNull()

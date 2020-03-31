@@ -17,7 +17,7 @@ export declare function getGlobalObject(): Window | NodeJS.Global;
  */
 export declare const globalObject: Window | NodeJS.Global;
 /**
- * 获取document对象
+ * 获取document对象，若没有，则为null
  */
 export declare function getDocument(): Document;
 /**
@@ -25,9 +25,13 @@ export declare function getDocument(): Document;
  */
 export declare const document: Document;
 /**
- * 获取localStorage对象
+ * 获取localStorage对象，若没有，则为null
  */
 export declare function getLocalStorage(): Storage;
+/**
+ * 获取Symbol类型，若没有，则为null
+ */
+export declare function getSymbol(desc?: string): any;
 /**
  * 创建全局命名空间
  * @param name 名称，如"A.B.C"

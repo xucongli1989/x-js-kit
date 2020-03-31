@@ -29,15 +29,13 @@ export function getGlobalObject(): Window | NodeJS.Global {
     return global
 }
 
-
-
 /**
  * 当前环境中的全局对象
  */
 export const globalObject = getGlobalObject()
 
 /**
- * 获取document对象
+ * 获取document对象，若没有，则为null
  */
 export function getDocument(): Document {
     return ((globalObject as any).document || null) as Document
@@ -51,13 +49,19 @@ export const document = getDocument()
 
 
 /**
- * 获取localStorage对象
+ * 获取localStorage对象，若没有，则为null
  */
 export function getLocalStorage(): Storage {
     return ((globalObject as any).localStorage || null) as Storage
 }
 
-
+/**
+ * 获取Symbol类型，若没有，则为null
+ */
+export function getSymbol(desc?: string): any {
+    const g = globalObject as any
+    return g.Symbol ? g.Symbol(desc) : null
+}
 
 /**
  * 创建全局命名空间

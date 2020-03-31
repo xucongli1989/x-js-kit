@@ -5,12 +5,12 @@ import stopWatch from "../lib/timer/stopWatch"
 
 test("index-引用测试", () => {
     const obj = JsKit.cache.localStorage.getGlobalCache()
-    expect(obj).toBeDefined()
+    expect(obj).not.toBeNull()
 })
 
 test("index-引用测试(lib目录)", () => {
     const obj = JsKitLib.cache.localStorage.getGlobalCache()
-    expect(obj).toBeDefined()
+    expect(obj).not.toBeNull()
 })
 
 test("引用部分模块测试", async () => {
