@@ -17,7 +17,7 @@ export declare class DOMDataRecorder {
     /**
      * 来源url地址
      */
-    reffer: string;
+    refer: string;
     /**
      * 数据标识
      */

@@ -1,7 +1,7 @@
 {
   "name": "x-js-kit",
   "version": "4.6.0",
-  "description": "This is my javascript toolkit. ",
+  "description": "This is a common JavaScript tool library, which contains a lot of public methods, it can save you from repeating trivia, and most of its methods support Node.js and browser environment, I hope you will like it!",
   "main": "./dist/index.js",
   "scripts": {
     "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./{src,test}/**/*",

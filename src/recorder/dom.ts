@@ -19,7 +19,7 @@ export class DOMDataRecorder {
     /**
      * 来源url地址
      */
-    reffer: string = ""
+    refer: string = ""
     /**
      * 数据标识
      */
@@ -47,7 +47,7 @@ export class DOMDataRecorder {
         //基本属性
         const win = globalObject as Window
         this.url = win.location.href
-        this.reffer = document.referrer
+        this.refer = document.referrer
         //数据
         const attrKeyName = `${this.attrPrefix}key`
         const attrValueName = `${this.attrPrefix}val`
