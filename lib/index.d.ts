@@ -47,6 +47,7 @@ declare const _default: {
     };
     recorder: {
         log: typeof import("./recorder/log");
+        dom: typeof import("./recorder/dom");
     };
     pattern: {
         strategy: typeof import("./pattern/strategy");
