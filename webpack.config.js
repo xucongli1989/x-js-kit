@@ -30,7 +30,7 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanAfterEveryBuildPatterns: ["dist", "lib"]
+            cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), './{dist,lib}/*')]
         }),
         new HtmlWebpackPlugin({
             template: "./src/index.html",
