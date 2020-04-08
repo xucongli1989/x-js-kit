@@ -122,7 +122,7 @@ test("recorder.dom", () => {
     domRecorder.init()
     expect(domRecorder.value.name).toEqual(["Mark", "Jake"])
     // //包含【jskit-key】与【jskit-txt】（无法测试：jsdom没有实现innerText的功能）
-    // document.body.innerHTML = "<div jskit-key='name' jskit-txt><h1>test1</h1></div><div jskit-key='name' jskit-txt><h1>test2</h1></div>"
+    // document.body.innerHTML = "<div jskit-key='name' jskit-type="txt"><h1>test1</h1></div><div jskit-key='name' jskit-type="txt"><h1>test2</h1></div>"
     // domRecorder = new dom.DOMDataRecorder()
     // domRecorder.init()
     // expect(domRecorder.value.name.length).toBe(2)
@@ -130,30 +130,30 @@ test("recorder.dom", () => {
     // expect(domRecorder.value.name[0]).toEqual("test1")
     // expect(domRecorder.value.name[1]).not.toContain("h1")
     // expect(domRecorder.value.name[1]).toEqual("test2")
-    //包含【jskit-key】与【jskit-html】
-    document.body.innerHTML = "<div jskit-key='name' jskit-html><h1>test1</h1></div><div jskit-key='name' jskit-html><h1>test2</h1></div>"
+    //包含【jskit-key】与【jskit-type=html】
+    document.body.innerHTML = "<div jskit-key='name' jskit-type='html'><h1>test1</h1></div><div jskit-key='name' jskit-type='html'><h1>test2</h1></div>"
     domRecorder = new dom.DOMDataRecorder()
     domRecorder.init()
-    expect(domRecorder.value.name.length).toBe(2)
-    expect(domRecorder.value.name[0]).toEqual("<h1>test1</h1>")
-    expect(domRecorder.value.name[1]).toEqual("<h1>test2</h1>")
+    expect((domRecorder.value.name as string[]).length).toBe(2)
+    expect((domRecorder.value.name as string[])[0]).toEqual("<h1>test1</h1>")
+    expect((domRecorder.value.name as string[])[1]).toEqual("<h1>test2</h1>")
     //只有【jskit-key】
     document.body.innerHTML = "<div jskit-key='name'>test</div>"
     domRecorder = new dom.DOMDataRecorder()
     domRecorder.init()
     expect(domRecorder.value.name).toEqual(["1"])
-    //包含【jskit-key】与【jskit-count】
-    document.body.innerHTML = "<div jskit-key='name' jskit-count><h1>test1</h1></div><div jskit-key='name' jskit-count><h1>test2</h1></div><div jskit-key='name' jskit-count><h1>test3</h1></div>"
+    //包含【jskit-key】与【jskit-type=count】
+    document.body.innerHTML = "<div jskit-key='name' jskit-type='count'><h1>test1</h1></div><div jskit-key='name' jskit-type='count'><h1>test2</h1></div><div jskit-key='name' jskit-type='count'><h1>test3</h1></div>"
     domRecorder = new dom.DOMDataRecorder()
     domRecorder.init()
-    expect(domRecorder.value.name).toEqual(["3"])
-    //多个【jskit-key】与【jskit-val】
-    document.body.innerHTML = "<div jskit-key='name1' jskit-val='Mark'>test1</div><div jskit-key='name2' jskit-val='Jake'>test2</div><div jskit-key='name3' jskit-count><h1>test3</h1></div>"
+    expect(domRecorder.value.name).toEqual(3)
+    //多个【jskit-key】与【jskit-val】与【jskit-type=count】
+    document.body.innerHTML = "<div jskit-key='name1' jskit-val='Mark'>test1</div><div jskit-key='name2' jskit-val='Jake'>test2</div><div jskit-key='name3' jskit-type='count'><h1>test3</h1></div>"
     domRecorder = new dom.DOMDataRecorder()
     domRecorder.init()
     expect(domRecorder.value.name1).toEqual(["Mark"])
     expect(domRecorder.value.name2).toEqual(["Jake"])
-    expect(domRecorder.value.name3).toEqual(["1"])
+    expect(domRecorder.value.name3).toEqual(1)
     //自定义前缀
     document.body.innerHTML = "<div pre-key='name1' pre-val='Mark'>test1</div><div pre-key='name2' pre-val='Jake'>test2</div>"
     domRecorder = new dom.DOMDataRecorder()
