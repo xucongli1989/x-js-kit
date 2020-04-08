@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.8.0](https://github.com/xucongli1989/x-js-kit/compare/v4.7.0...v4.8.0) (2020-04-08)
+
+
+### Features
+
+* **dom recorder:** add jskit-type for dom recorder ([ddf7dbd](https://github.com/xucongli1989/x-js-kit/commit/ddf7dbdbad60a4bd05930b90847095683ad4de7a))
+
 ## [4.7.0](https://github.com/xucongli1989/x-js-kit/compare/v4.5.0...v4.7.0) (2020-03-31)
 
 
