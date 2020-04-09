@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.8.1](https://github.com/xucongli1989/x-js-kit/compare/v4.8.0...v4.8.1) (2020-04-09)
+
+
+### Bug Fixes
+
+* **dom recorder:** convert NodeList to a real Array type ([6171ff7](https://github.com/xucongli1989/x-js-kit/commit/6171ff7d48214af19fa4ba5cf8ad0225579d2b24))
+
 ## [4.8.0](https://github.com/xucongli1989/x-js-kit/compare/v4.7.0...v4.8.0) (2020-04-08)
 
 
