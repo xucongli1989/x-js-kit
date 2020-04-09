@@ -75,7 +75,7 @@ export class DOMDataRecorder {
         const attrKeyName = `${this.attrPrefix}key`
         const attrTypeName = `${this.attrPrefix}type`
         const attrValueName = `${this.attrPrefix}val`
-        const eles = document.querySelectorAll(`[${attrKeyName}]`)
+        const eles = Array.from(document.querySelectorAll(`[${attrKeyName}]`))
         if (!eles || !eles.length) {
             return this
         }
