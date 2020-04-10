@@ -95,7 +95,23 @@ export function getItem(model: FieldMessageModel, id: string): FieldMessageItem 
 }
 
 /**
- * 字段信息提示类
+ * 字段信息提示实体类。把类似“表单验证”的场景通过一个统一的实体类来表现，方便js代码去读取与管理这些状态与信息。
+ * 比如：如果一个输入项校验不通过，会涉及到这些数据的变化：是否验证通过、错误提示消息、是否只显示当前这一个错误消息等、是否需要清空其它错误消息等。
+ * 示例用法：
+ * const model = new FieldMessageModel()
+ * model.itemList = []
+ * const item = new FieldMessageItem()
+ * item.isPassed = false
+ * item.fieldItems = {
+ * name: {
+ *     isShow: false,
+ *     msg: ""
+ * }
+ * 当数据化生变化时，要做的只是更新这个对象中的具体字段状态即可，业务代码中根据这些状态信息统一去显示页面。
+ * 
+*}
+model.itemList.push(item)
+ * 
  */
 export class FieldMessageModel extends BaseClass {
     /**
