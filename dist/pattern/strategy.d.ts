@@ -8,7 +8,9 @@ export declare class StrategyItem {
     handler: (item: StrategyItem) => void;
 }
 /**
- * 策略管理类
+ * 策略管理类，用于一次性执行多次策略方法。
+ * 使用方法：const strategy = new Strategy()
+ * strategy.add(item => {...}).add(item => {...}).add(item => {...}).execute()
  */
 export declare class Strategy {
     /**

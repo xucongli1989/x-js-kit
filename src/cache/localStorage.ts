@@ -1,6 +1,11 @@
 import { getLocalStorage } from "../common/lib"
 
 let globalCacheName = "x-js-kit-localcache"
+/**
+ * 自动清理过期缓存的间隔时间（毫秒），默认为30分钟
+ */
+let autoClearExpiredTimeSpan = 30 * 60 * 1000
+let clearExpiredIntervalId: number
 
 export interface ItemContentType {
     /**
@@ -42,8 +47,10 @@ export function setGlobalCacheName(name: string) {
     globalCacheName = name
     localStorage.setItem(globalCacheName, oldValue);
 }
+
+
 /**
- * 添加数据至缓存
+ * 添加数据至缓存（默认每30分钟自动清理所有过期的缓存）
  */
 export function add(key: string, value: ItemContentType) {
     const cache = getGlobalCache()
@@ -68,8 +75,10 @@ export function remove(key: string) {
 
 /**
  * 读取指定缓存
+ * @param key 缓存key
+ * @param ignoreExpireCheck 是否忽略过期检测，默认为false.（true:即使过期，只要还没被清理，则依然返回。false:如果已过期，则删除此缓存并返回null） 
  */
-export function get(key: string): ItemContentType | null {
+export function get(key: string, ignoreExpireCheck: boolean = false): ItemContentType | null {
     const cache = getGlobalCache()
     if (!cache) {
         return null
@@ -78,12 +87,59 @@ export function get(key: string): ItemContentType | null {
     if (!item) {
         return null
     }
-    if (item.expire && item.expire < new Date().valueOf()) {
+    if (!ignoreExpireCheck && item.expire && item.expire < new Date().valueOf()) {
         remove(key)
         return null
     }
     return item
 }
+
+
+/**
+ * 清理过期缓存
+ */
+export function clearExpired() {
+    const ch = getGlobalCache()
+    if (!ch) return
+    Object.keys(ch.items).forEach(key => {
+        const item = ch.items[key]
+        if (!item || !item.expire) {
+            return
+        }
+        if (item.expire < new Date().valueOf()) {
+            remove(key)
+        }
+    })
+}
+
+/**
+ * 执行自动定期清理
+ */
+function runClearExpiredInterval() {
+    if (clearExpiredIntervalId) {
+        clearInterval(clearExpiredIntervalId)
+    }
+    clearExpiredIntervalId = setInterval(clearExpired, autoClearExpiredTimeSpan) as any
+}
+
+/**
+ * 获取自动清理过期缓存的间隔（毫秒）
+ */
+export function getAutoClearExpiredTimeSpan() {
+    return autoClearExpiredTimeSpan
+}
+
+/**
+ * 设置自动清理过期缓存的间隔（毫秒），并按计划执行清理
+ */
+export function setAutoClearExpiredTimeSpan(timeSpan: number) {
+    if (timeSpan <= 0) {
+        throw new Error("timeSpan must > 0.")
+    }
+    autoClearExpiredTimeSpan = timeSpan
+    runClearExpiredInterval()
+}
+
 
 
 (() => {
@@ -98,16 +154,8 @@ export function get(key: string): ItemContentType | null {
     if (!localStorage.getItem(globalCacheName)) {
         localStorage.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
     }
-    //清理过期缓存
-    const ch = getGlobalCache()
-    if (!ch) return
-    Object.keys(ch.items).forEach(key => {
-        const item = ch.items[key]
-        if (!item || !item.expire) {
-            return
-        }
-        if (item.expire < new Date().valueOf()) {
-            remove(key)
-        }
-    })
+    //立即清理过期缓存
+    clearExpired()
+    //执行定时清理过期缓存
+    runClearExpiredInterval()
 })()

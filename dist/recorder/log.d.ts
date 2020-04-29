@@ -93,7 +93,8 @@ declare class LoggerHelper {
     errorAsync(content: any, option?: AnyKeyValueType): PromiseType;
 }
 /**
- * 当前日志工具类
+ * 当前日志工具类，把类型为【信息、警告、错误】的日志统一起来。
+ * 默认的记录器为全局的console，也可以自定义日志记录器，只需要实现相应的接口即可。
  */
 export declare const logger: LoggerHelper;
 /**

@@ -1,5 +1,5 @@
 /**
- * 定时器
+ * 定时器，提供开始计时与结束计时方法，最终会计算出这两个时间的差。
  */
 export default class StopWatch {
     private _date;
