@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.8.2](https://github.com/xucongli1989/x-js-kit/compare/v4.8.1...v4.8.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* **cache:** add regular clean-up cache ([f67c6c3](https://github.com/xucongli1989/x-js-kit/commit/f67c6c338ed18eb140fd99fdbcc18841bd457d24))
+
 ### [4.8.1](https://github.com/xucongli1989/x-js-kit/compare/v4.8.0...v4.8.1) (2020-04-09)
 
 
