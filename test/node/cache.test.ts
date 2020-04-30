@@ -7,10 +7,12 @@ Object.assign(global, {
     localStorage: require("localStorage")
 })
 
-test("common.lib-localStorage", () => {
+test("cache.localStorage", () => {
     const kit = require("../../dist/index.polyfill").default
-    expect(kit.common.lib.getGlobalObject()).toBe(global)
-    expect(kit.common.lib.getLocalStorage()).not.toBeNull()
-    expect(kit.common.lib.isBowser()).toBeFalsy()
-    expect(kit.common.lib.isServer()).toBeTruthy()
+    kit.cache.localStorage.add("a", {
+        value: 123
+    })
+    expect(kit.cache.localStorage.get("a").value).toBe(123)
+    kit.cache.localStorage.remove("a")
+    expect(kit.cache.localStorage.get("a")).toBeNull()
 })

@@ -144,7 +144,7 @@ export function setAutoClearExpiredTimeSpan(timeSpan: number) {
 
 (() => {
     if (!getLocalStorage()) {
-        return
+        throw new Error("localStorage is not defined. If you are using Node.js ,you need set global.localStorage to an object like original localStorage in browser.")
     }
     //设置默认缓存值
     const defaultGlobalLocalStorage: GlobalCacheType = {

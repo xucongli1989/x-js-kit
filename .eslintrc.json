@@ -1,79 +1,71 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": [
-        "eslint-config-airbnb",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "globals": {},
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "rules": {
-        "linebreak-style": "off",
-        "indent": "off",
-        "max-len": "off",
-        "quotes": "off",
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
-        "eol-last": "off",
-        "semi": "off",
-        "import/extensions": "off",
-        "no-underscore-dangle": "off",
-        "lines-between-class-members": "off",
-        "eqeqeq": "off",
-        "class-methods-use-this": "off",
-        "import/no-unresolved": "off",
-        "default-case": "off",
-        "no-console": "off",
-        "max-classes-per-file": "off",
-        "no-trailing-spaces": "off",
-        "spaced-comment": "off",
-        "arrow-parens": "off",
-        "object-curly-spacing": "off",
-        "prefer-template": "off",
-        "no-plusplus": "off",
-        "no-multiple-empty-lines": "off",
-        "no-multi-spaces": "off",
-        "import/newline-after-import": "off",
-        "one-var-declaration-per-line": "off",
-        "no-bitwise": "off",
-        "no-mixed-operators": "off",
-        "one-var": "off",
-        "no-continue": "off",
-        "import/prefer-default-export": "off",
-        "react/static-property-placement": "off",
-        "no-restricted-globals": "off",
-        "radix": "off",
-        "no-restricted-syntax": "off",
-        "guard-for-in": "off",
-        "@typescript-eslint/no-explicit-any":"off",
-        "@typescript-eslint/explicit-function-return-type":"off",
-        "@typescript-eslint/member-delimiter-style":"off",
-        "@typescript-eslint/no-inferrable-types":"off",
-        "@typescript-eslint/consistent-type-assertions":"off",
-        "@typescript-eslint/no-var-requires":"off",
-        "@typescript-eslint/no-non-null-assertion":"off",
-        "no-confusing-arrow":"off",
-        "no-self-compare":"off",
-        "global-require":"off"
-    },
-    "overrides": [
-        {
-            "files": [
-                "test/**/*"
-            ],
-            "env": {
-                "jest": true
-            }
-        }
-    ]
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint-config-airbnb", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+  "globals": {},
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "indent": "off",
+    "max-len": "off",
+    "quotes": "off",
+    "comma-dangle": ["error", "never"],
+    "eol-last": "off",
+    "semi": "off",
+    "import/extensions": "off",
+    "no-underscore-dangle": "off",
+    "lines-between-class-members": "off",
+    "eqeqeq": "off",
+    "class-methods-use-this": "off",
+    "import/no-unresolved": "off",
+    "default-case": "off",
+    "no-console": "off",
+    "max-classes-per-file": "off",
+    "no-trailing-spaces": "off",
+    "spaced-comment": "off",
+    "arrow-parens": "off",
+    "object-curly-spacing": "off",
+    "prefer-template": "off",
+    "no-plusplus": "off",
+    "no-multiple-empty-lines": "off",
+    "no-multi-spaces": "off",
+    "import/newline-after-import": "off",
+    "one-var-declaration-per-line": "off",
+    "no-bitwise": "off",
+    "no-mixed-operators": "off",
+    "one-var": "off",
+    "no-continue": "off",
+    "import/prefer-default-export": "off",
+    "react/static-property-placement": "off",
+    "no-restricted-globals": "off",
+    "radix": "off",
+    "no-restricted-syntax": "off",
+    "guard-for-in": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-confusing-arrow": "off",
+    "no-self-compare": "off",
+    "global-require": "off"
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }
