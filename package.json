@@ -12,7 +12,7 @@
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server",
     "release": "standard-version && git push && git push --tags && npm publish",
-    "ct": "git-cz -a"
+    "ct": "git add -A && git-cz -a"
   },
   "repository": {
     "type": "git",
