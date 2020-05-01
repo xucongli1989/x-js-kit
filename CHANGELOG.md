@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.8.4](https://github.com/xucongli1989/x-js-kit/compare/v4.8.3...v4.8.4) (2020-05-01)
+
+
+### Bug Fixes
+
+* **localstorage:** remove throw exception when init localstorage module ([a01360d](https://github.com/xucongli1989/x-js-kit/commit/a01360de579ff39c2aadbbc07ec421f443e29e66))
+
 ### [4.8.3](https://github.com/xucongli1989/x-js-kit/compare/v4.8.2...v4.8.3) (2020-04-30)
 
 
