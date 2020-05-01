@@ -6,6 +6,34 @@ let globalCacheName = "x-js-kit-localcache"
  */
 let autoClearExpiredTimeSpan = 30 * 60 * 1000
 let clearExpiredIntervalId: number
+let isInited = false
+
+/**
+ * 获取localStorage对象
+ */
+function getStore(): Storage {
+    const store = getLocalStorage()
+    if (!store || isInited) {
+        return store
+    }
+    //初始化
+    isInited = true
+    //设置默认缓存值
+    if (!store.getItem(globalCacheName)) {
+        const defaultGlobalLocalStorage: GlobalCacheType = {
+            time: new Date().valueOf(),
+            items: {}
+        }
+        store.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
+    }
+    //立即清理过期缓存
+    clearExpired()
+    //执行定时清理过期缓存
+    runClearExpiredInterval()
+    return store
+}
+//立即初始化
+getStore()
 
 export interface ItemContentType {
     /**
@@ -32,7 +60,7 @@ export interface GlobalCacheType {
  * 返回全局缓存对象
  */
 export function getGlobalCache(): (GlobalCacheType | null) {
-    const cacheValue = localStorage.getItem(globalCacheName) as string
+    const cacheValue = getStore().getItem(globalCacheName) as string
     if (!cacheValue) {
         return null;
     }
@@ -42,10 +70,10 @@ export function getGlobalCache(): (GlobalCacheType | null) {
  * 修改localStorage缓存的默认名称
  */
 export function setGlobalCacheName(name: string) {
-    const oldValue = localStorage.getItem(globalCacheName) as string;
-    localStorage.removeItem(globalCacheName)
+    const oldValue = getStore().getItem(globalCacheName) as string;
+    getStore().removeItem(globalCacheName)
     globalCacheName = name
-    localStorage.setItem(globalCacheName, oldValue);
+    getStore().setItem(globalCacheName, oldValue);
 }
 
 
@@ -58,7 +86,7 @@ export function add(key: string, value: ItemContentType) {
         return
     }
     cache.items[key] = value
-    localStorage.setItem(globalCacheName, JSON.stringify(cache))
+    getStore().setItem(globalCacheName, JSON.stringify(cache))
 }
 
 /**
@@ -70,7 +98,7 @@ export function remove(key: string) {
         return
     }
     delete cache.items[key]
-    localStorage.setItem(globalCacheName, JSON.stringify(cache))
+    getStore().setItem(globalCacheName, JSON.stringify(cache))
 }
 
 /**
@@ -139,23 +167,3 @@ export function setAutoClearExpiredTimeSpan(timeSpan: number) {
     autoClearExpiredTimeSpan = timeSpan
     runClearExpiredInterval()
 }
-
-
-
-(() => {
-    if (!getLocalStorage()) {
-        throw new Error("localStorage is not defined. If you are using Node.js ,you need set global.localStorage to an object like original localStorage in browser.")
-    }
-    //设置默认缓存值
-    const defaultGlobalLocalStorage: GlobalCacheType = {
-        time: new Date().valueOf(),
-        items: {}
-    }
-    if (!localStorage.getItem(globalCacheName)) {
-        localStorage.setItem(globalCacheName, JSON.stringify(defaultGlobalLocalStorage))
-    }
-    //立即清理过期缓存
-    clearExpired()
-    //执行定时清理过期缓存
-    runClearExpiredInterval()
-})()

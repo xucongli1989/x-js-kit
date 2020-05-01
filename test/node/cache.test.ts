@@ -3,12 +3,24 @@
  * @jest-environment node
  */
 
-Object.assign(global, {
-    localStorage: require("localStorage")
-})
+
 
 test("cache.localStorage", () => {
     const kit = require("../../dist/index.polyfill").default
+    //默认无localStorage
+    let hasError = false
+    try {
+        kit.cache.localStorage.add("a", {
+            value: 123
+        })
+    } catch (e) {
+        hasError = true
+    }
+    expect(hasError).toBeTruthy()
+    //引入localStorage模块
+    Object.assign(global, {
+        localStorage: require("localStorage")
+    })
     kit.cache.localStorage.add("a", {
         value: 123
     })
