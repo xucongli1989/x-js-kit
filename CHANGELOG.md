@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.9.0](https://github.com/xucongli1989/x-js-kit/compare/v4.8.5...v4.9.0) (2020-05-25)
+
+
+### Features
+
+* **merge:** add mergeObjectAndCombineSameFunc method to merge some object and combine function ([cce853e](https://github.com/xucongli1989/x-js-kit/commit/cce853eed85d33f4abb14e68362b19e1981c7ef8))
+
 ### [4.8.5](https://github.com/xucongli1989/x-js-kit/compare/v4.8.4...v4.8.5) (2020-05-01)
 
 ### [4.8.4](https://github.com/xucongli1989/x-js-kit/compare/v4.8.3...v4.8.4) (2020-05-01)
