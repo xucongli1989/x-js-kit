@@ -1,4 +1,5 @@
 import { AnyKeyValueType, AnyFunctionType } from "../declaration/common"
+import { isFunction } from "./data"
 
 /**
  * tryRun在调用异常时执行的函数
@@ -144,4 +145,55 @@ export function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null {
  */
 export function setTryRunErrorHandler(fn: AnyFunctionType) {
     defaultTryRunErrorHandler = fn
+}
+
+
+/**
+ * 合并多个对象，与 Object.assign 的行为唯一的区别是：把相同的函数合并到一起，并从第一个参数的此函数一直调用到最后一个参数的此函数
+ * @param objs 要合并的对象
+ * @returns 合并后的新对象
+ */
+export function mergeObjectAndCombineSameFunc<T = any>(target: T, ...sources: T[]): T {
+    if (!sources || !sources.length) {
+        return target
+    }
+    const result = sources.reduce((preItem: any, currentItem: any) => {
+        if (!preItem) {
+            return currentItem
+        }
+        if (!currentItem) {
+            return preItem
+        }
+        const pre = { ...preItem }
+        const cur = { ...currentItem }
+        //合并function
+        Object.keys(pre).forEach((key) => {
+            const preValue: any = pre[key]
+            const currentValue: any = cur[key]
+            const isPreValueFunction: boolean = isFunction(preValue)
+            const isCurrentValueFunction: boolean = isFunction(currentValue)
+            if (!isPreValueFunction && !isCurrentValueFunction) {
+                return
+            }
+            if (isPreValueFunction && !isCurrentValueFunction) {
+                //上一项是函数，而下一项不是函数，则以上一项为准
+                cur[key] = preValue
+            } else if (!isPreValueFunction && isCurrentValueFunction) {
+                //上一项不是函数，下一项是函数，不用处理
+            } else {
+                //上一项与下一项的值均为函数，则合并
+                cur[key] = (...args: any[]) => {
+                    preValue(...args)
+                    currentValue(...args)
+                }
+            }
+            //删除上一项的值，便于后面的合并覆盖
+            pre[key] = undefined
+        })
+        return {
+            ...pre,
+            ...cur
+        }
+    }, target || {}) as T
+    return result
 }

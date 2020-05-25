@@ -59,4 +59,10 @@ export declare function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null
  * 重新设置全局异常处理函数
  */
 export declare function setTryRunErrorHandler(fn: AnyFunctionType): void;
+/**
+ * 合并多个对象，与 Object.assign 的行为唯一的区别是：把相同的函数合并到一起，并从第一个参数的此函数一直调用到最后一个参数的此函数
+ * @param objs 要合并的对象
+ * @returns 合并后的新对象
+ */
+export declare function mergeObjectAndCombineSameFunc<T = any>(target: T, ...sources: T[]): T;
 //# sourceMappingURL=lib.d.ts.map

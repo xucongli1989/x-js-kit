@@ -229,6 +229,51 @@ test("common.lib", () => {
         console.log(objTemp.a.b)
     })).toBeNull()
     expect(common.lib.tryRun(() => { throw new Error("error!") })).toBeNull()
+
+    let merge1: any
+    let merge2: any
+    let merge3: any
+    let count = 0
+    //未定义时合并
+    let result = common.lib.mergeObjectAndCombineSameFunc(merge1)
+    expect(result).toEqual(merge1)
+    result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
+    expect(result).toEqual({})
+    merge1 = {}
+    result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
+    expect(result).toEqual({})
+    //只有一个函数时的合并（普通合并）
+    merge1 = { name: "X", age: 12, say: () => { console.log('test') } }
+    merge2 = { school: "MIT", age: 20 }
+    merge3 = { grade: 1, sub: { sub1: "test" } }
+    result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
+    expect(result).toEqual(Object.assign(merge1, merge2, merge3))
+    //有两个不同名时的函数合并
+    merge1 = { name: "X", age: 12, say: () => { console.log('test') } }
+    merge2 = { school: "MIT", age: 20, walk: () => { console.log('test') } }
+    merge3 = { grade: 1 }
+    result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
+    expect(result).toEqual(Object.assign(merge1, merge2, merge3))
+    //有两个同名函数时的合并
+    merge1 = {
+        name: "X",
+        age: 12,
+        say: () => { console.log('test') },
+        same: () => { count += 1 }
+    }
+    merge2 = {
+        school: "MIT",
+        age: 20,
+        walk: () => { console.log('test') },
+        same: () => { count += 2 }
+    }
+    merge3 = { grade: 1, same: 1 }
+    const merge4 = { grade: 1, same: null }
+    const merge5 = { grade: 1, same: "same" }
+    const merge6 = { grade: 1, same: () => { count += 3 } }
+    result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3, merge4, merge5, merge6)
+    result.same()
+    expect(count).toBe(6)
 })
 
 test("common.random", () => {
