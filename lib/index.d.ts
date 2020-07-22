@@ -44,6 +44,7 @@ declare const _default: {
         keyValue: typeof import("./entity/keyValue");
         select: typeof import("./entity/select");
         serialize: typeof import("./entity/serialize");
+        message: typeof import("./entity/message");
     };
     recorder: {
         log: typeof import("./recorder/log");

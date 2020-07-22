@@ -21,6 +21,19 @@ test("entity.keyValue", () => {
     expect(nameModel.extend).toEqual({ other: "123" })
 })
 
+test("entity.message", () => {
+    const model = new entity.message.MessageEntity()
+    expect(model.head).toBeDefined()
+    expect(model.body).toBeDefined()
+    expect(model.head.isAck).toBeTruthy()
+    expect(model.head.isSuccess).toBeTruthy()
+    expect(model.head.isException).toBeFalsy()
+    expect(model.body.data).toBeNull()
+    expect(model.body.extendData).toBeNull()
+    model.body.data = "test"
+    expect(model.body.data).toEqual("test")
+})
+
 test("entity.select", () => {
     let model = new entity.select.SelectItem("优惠券", "123")
     expect(model.extend).toBeUndefined()

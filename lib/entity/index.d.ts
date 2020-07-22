@@ -2,6 +2,7 @@ import * as idCard from "./idCard";
 import * as keyValue from "./keyValue";
 import * as select from "./select";
 import * as serialize from "./serialize";
+import * as message from "./message";
 declare const _default: {
     /**
      * 证件实体
@@ -19,6 +20,10 @@ declare const _default: {
      * 序列化相关
      */
     serialize: typeof serialize;
+    /**
+     * 消息提示实体
+     */
+    message: typeof message;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
