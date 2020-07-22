@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.10.0](https://github.com/xucongli1989/x-js-kit/compare/v4.9.0...v4.10.0) (2020-07-22)
+
+
+### Features
+
+* **entity:** add message entity ([64be6fe](https://github.com/xucongli1989/x-js-kit/commit/64be6fef4084e982d6582143f8a6ad8bc271a95a))
+
 ## [4.9.0](https://github.com/xucongli1989/x-js-kit/compare/v4.8.5...v4.9.0) (2020-05-25)
 
 
