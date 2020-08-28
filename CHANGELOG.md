@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.11.0](https://github.com/xucongli1989/x-js-kit/compare/v4.10.0...v4.11.0) (2020-08-28)
+
+
+### Features
+
+* **enumtool:** add enum tool ([d3846b7](https://github.com/xucongli1989/x-js-kit/commit/d3846b72bab850c0d492cd4edf74d08e8cdef5a7))
+
 ## [4.10.0](https://github.com/xucongli1989/x-js-kit/compare/v4.9.0...v4.10.0) (2020-07-22)
 
 
