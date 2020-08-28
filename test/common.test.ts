@@ -148,6 +148,41 @@ test("common.data", () => {
     expect(common.data.isError(new Error("test"))).toBeTruthy()
 })
 
+test("common.enumTool", () => {
+    enum Test1 {
+        a,
+        b,
+        c,
+    }
+    expect(common.enumTool.convertEnumToList(Test1)).toEqual([
+        { key: "a", value: 0 },
+        { key: "b", value: 1 },
+        { key: "c", value: 2 }
+    ]);
+
+    enum Test2 {
+        a = "aaa",
+        b = "bbb",
+        c = "ccc",
+    }
+    expect(common.enumTool.convertEnumToList(Test2)).toEqual([
+        { key: "a", value: "aaa" },
+        { key: "b", value: "bbb" },
+        { key: "c", value: "ccc" }
+    ]);
+
+    enum Test3 {
+        a = "aaa",
+        b = 7,
+        c = 8,
+    }
+    expect(common.enumTool.convertEnumToList(Test3)).toEqual([
+        { key: "a", value: "aaa" },
+        { key: "b", value: 7 },
+        { key: "c", value: 8 }
+    ]);
+});
+
 test("common.idCard", () => {
     const cnIdCard15 = "320000881213110"
     const cnIdCard18 = "301111198812134588"

@@ -4,6 +4,7 @@ import * as convert from "./convert"
 import * as cookie from "./cookie"
 import * as json from "./json"
 import * as data from "./data"
+import * as enumTool from "./enumTool"
 import * as idCard from "./idCard"
 import * as image from "./image"
 import * as lib from "./lib"
@@ -35,6 +36,10 @@ export default {
      * 数据类型判断
      */
     data,
+    /**
+     * 枚举工具类
+     */
+    enumTool,
     /**
      * 证件相关
      */
