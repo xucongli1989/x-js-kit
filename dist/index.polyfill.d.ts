@@ -14,6 +14,7 @@ declare const _default: {
         cookie: typeof import("./common/cookie");
         json: typeof import("./common/json");
         data: typeof import("./common/data");
+        enumTool: typeof import("./common/enumTool");
         idCard: typeof import("./common/idCard");
         image: typeof import("./common/image");
         lib: typeof import("./common/lib");
