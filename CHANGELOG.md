@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.12.0](https://github.com/xucongli1989/x-js-kit/compare/v4.11.1...v4.12.0) (2020-08-29)
+
+
+### Features
+
+* **json:** add json string to object ([02a0a5d](https://github.com/xucongli1989/x-js-kit/commit/02a0a5d14d88448c19965ae171bd896ef52a9b37))
+
 ### [4.11.1](https://github.com/xucongli1989/x-js-kit/compare/v4.11.0...v4.11.1) (2020-08-28)
 
 
