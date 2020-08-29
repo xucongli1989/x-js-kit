@@ -19,4 +19,9 @@ export declare function hasValue(json: AnyKeyValueType, keyValue: any): boolean;
  * @returns 转换结果
  */
 export declare function toParams(json: AnyKeyValueType): string;
+/**
+ * 将json字符串转换为对象，如果转换失败，则返回null
+ * @param json json字符串
+ */
+export declare function toObject<T>(json: string): T | null;
 //# sourceMappingURL=json.d.ts.map

@@ -220,6 +220,12 @@ test("common.json", () => {
     expect(common.json.hasValue(obj, 10)).toBeTruthy()
 
     expect(common.json.toParams(obj)).toBe("name=abc&age=10&remarkList=1&remarkList=2&remarkList=3")
+
+    expect(common.json.toObject("")).toBeNull()
+    expect(common.json.toObject("a")).toBeNull()
+    const jsonObject = common.json.toObject('{"a":123,"b":456}') as any
+    expect(jsonObject.a).toBe(123)
+    expect(jsonObject.b).toBe(456)
 })
 
 

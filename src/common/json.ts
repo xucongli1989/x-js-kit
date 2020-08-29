@@ -1,5 +1,5 @@
 import { AnyKeyValueType } from "../declaration/common"
-import {isArray} from "./data"
+import { isArray } from "./data"
 
 /**
    * 是否包含名key
@@ -52,4 +52,21 @@ export function toParams(json: AnyKeyValueType) {
         arr.push(m + "=" + temp);
     }
     return arr.join("&");
+}
+
+/**
+ * 将json字符串转换为对象，如果转换失败，则返回null
+ * @param json json字符串
+ */
+export function toObject<T>(json: string): T | null {
+    if (!json) {
+        return null
+    }
+    let result: T | null = null
+    try {
+        result = JSON.parse(json)
+    } catch {
+        //
+    }
+    return result
 }
