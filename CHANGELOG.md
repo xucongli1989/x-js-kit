@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.13.0](https://github.com/xucongli1989/x-js-kit/compare/v4.12.0...v4.13.0) (2020-09-15)
+
+
+### Features
+
+* **url:** update url querystring get or update logic ([df2a084](https://github.com/xucongli1989/x-js-kit/commit/df2a08414f0a3f46578b61181e6e00caf4b72247))
+
 ## [4.12.0](https://github.com/xucongli1989/x-js-kit/compare/v4.11.1...v4.12.0) (2020-08-29)
 
 
