@@ -331,6 +331,14 @@ test("common.random", () => {
     expect(common.random.id()).toBe(3)
 })
 
+test("common.regexp", () => {
+    expect(common.regexp.escapeReg("")).toBe("")
+    expect(common.regexp.escapeReg("?")).toBe("\\?")
+    expect(common.regexp.escapeReg("^")).toBe("\\^")
+    expect(common.regexp.escapeReg("$")).toBe("\\$")
+    expect(common.regexp.escapeReg("*")).toBe("\\*")
+})
+
 test("common.string", () => {
     const str = "1234567890"
     expect(common.string.splitString("", 0)).toEqual([])
@@ -371,6 +379,7 @@ test("common.string", () => {
     expect(common.string.rTrim(" a       ")).toBe(" a")
 
     expect(common.string.lTrimString("", "")).toBe("")
+    expect(common.string.lTrimString("?abc", "?")).toBe("abc")
     expect(common.string.lTrimString("abcdaa", "a")).toBe("bcdaa")
     expect(common.string.lTrimString("aaaaaa", "a")).toBe("")
     expect(common.string.lTrimString(" aaaa ", " ")).toBe("aaaa ")
@@ -379,6 +388,7 @@ test("common.string", () => {
     expect(common.string.lTrimString("abxab", "Ab", true)).toBe("xab")
 
     expect(common.string.rTrimString("", "")).toBe("")
+    expect(common.string.rTrimString("abc?", "?")).toBe("abc")
     expect(common.string.rTrimString("abcdaa", "a")).toBe("abcd")
     expect(common.string.rTrimString("aaaaaa", "a")).toBe("")
     expect(common.string.rTrimString(" aaaa ", " ")).toBe(" aaaa")
@@ -387,6 +397,7 @@ test("common.string", () => {
     expect(common.string.rTrimString("abxab", "Ab", true)).toBe("abx")
 
     expect(common.string.trimString("", "")).toBe("")
+    expect(common.string.trimString("?abc?", "?")).toBe("abc")
     expect(common.string.trimString("abcdaa", "a")).toBe("bcd")
     expect(common.string.trimString("aaaaaa", "a")).toBe("")
     expect(common.string.trimString(" aaaa ", " ")).toBe("aaaa")
@@ -427,11 +438,77 @@ test("common.string", () => {
 })
 
 test("common.url", () => {
+    let splitQueryInfo = common.url.splitUrlByQueryInfo("")
+    expect(splitQueryInfo.hostPart).toBe("")
+    expect(splitQueryInfo.queryPart).toBe("")
+    expect(splitQueryInfo.hashPart).toBe("")
+
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com?a=b&c=d#123")
+    expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
+    expect(splitQueryInfo.queryPart).toBe("a=b&c=d")
+    expect(splitQueryInfo.hashPart).toBe("123")
+
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com#123#aaa#bbb")
+    expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
+    expect(splitQueryInfo.queryPart).toBe("")
+    expect(splitQueryInfo.hashPart).toBe("123#aaa#bbb")
+
+    let mergedUrl = common.url.mergeUrlBySplitQueryInfo({
+        hostPart: "",
+        queryPart: "",
+        hashPart: ""
+    })
+    expect(mergedUrl).toBe("")
+
+    mergedUrl = common.url.mergeUrlBySplitQueryInfo({
+        hostPart: "http://www.abc.com",
+        queryPart: "",
+        hashPart: ""
+    })
+    expect(mergedUrl).toBe("http://www.abc.com")
+
+    mergedUrl = common.url.mergeUrlBySplitQueryInfo({
+        hostPart: "http://www.abc.com",
+        queryPart: "a=b&c=d",
+        hashPart: "123"
+    })
+    expect(mergedUrl).toBe("http://www.abc.com?a=b&c=d#123")
+
+
+    let keyValueArr = common.url.convertQueryStringToKeyValueArray("")
+    expect(keyValueArr).toEqual([])
+    keyValueArr = common.url.convertQueryStringToKeyValueArray("a=b&c=d&c=ddd")
+    expect(keyValueArr).toEqual([{ key: "a", value: "b" }, { key: "c", value: "d" }])
+
+    let queryString = common.url.convertKeyValueArrayToQueryString([])
+    expect(queryString).toBe("")
+    queryString = common.url.convertKeyValueArrayToQueryString([
+        {
+            key: "a",
+            value: "b",
+            extend: undefined
+        },
+        {
+            key: "a",
+            value: "bbbb",
+            extend: undefined
+        },
+        {
+            key: "c",
+            value: "d",
+            extend: undefined
+        }
+    ])
+    expect(queryString).toBe("a=b&c=d")
+
+
     const url = "http://www.abc.com"
     expect(common.url.appendQueryString(null as any, null as any)).toBe("")
     expect(common.url.appendQueryString(url, null as any)).toBe(url)
     expect(common.url.appendQueryString(url, "a=1&b=2")).toBe(url + "?a=1&b=2")
     expect(common.url.appendQueryString(url + "?x=100", "a=1&b=2")).toBe(url + "?x=100&a=1&b=2")
+    expect(common.url.appendQueryString(url + "?a=100", "a=1&b=2")).toBe(url + "?a=1&b=2")
+    expect(common.url.appendQueryString(url + "?a=100", "a=&b=2")).toBe(url + "?a=&b=2")
     expect(common.url.appendQueryString("http://www.abc.com#test", "a=1&b=2")).toBe("http://www.abc.com?a=1&b=2#test")
     expect(common.url.appendQueryString("http://www.abc.com?x=100#test", "a=1&b=2")).toBe("http://www.abc.com?x=100&a=1&b=2#test")
 

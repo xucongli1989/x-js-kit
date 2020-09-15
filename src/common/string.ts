@@ -1,4 +1,5 @@
 import { partNumber, htmlLeftRightBlank } from "../constant/regex"
+import { escapeReg } from "./regexp"
 import { htmlEntityMap } from "../constant/map"
 
 /**
@@ -101,7 +102,7 @@ export function lTrimString(str: string, strToRemove: string, isIgnoreCase: bool
     if (!strToRemove) {
         return str
     }
-    return str.replace(new RegExp(`^(${strToRemove})*`, isIgnoreCase ? "gi" : "g"), "")
+    return str.replace(new RegExp(`^(${escapeReg(strToRemove)})*`, isIgnoreCase ? "gi" : "g"), "")
 }
 
 /**
@@ -118,7 +119,7 @@ export function rTrimString(str: string, strToRemove: string, isIgnoreCase: bool
     if (!strToRemove) {
         return str
     }
-    return str.replace(new RegExp(`(${strToRemove})*$`, isIgnoreCase ? "gi" : "g"), "")
+    return str.replace(new RegExp(`(${escapeReg(strToRemove)})*$`, isIgnoreCase ? "gi" : "g"), "")
 }
 
 /**
@@ -135,7 +136,7 @@ export function trimString(str: string, strToRemove: string, isIgnoreCase: boole
     if (!strToRemove) {
         return str
     }
-    return str.replace(new RegExp(`(^(${strToRemove})*)|((${strToRemove})*$)`, isIgnoreCase ? "gi" : "g"), "")
+    return str.replace(new RegExp(`(^(${escapeReg(strToRemove)})*)|((${escapeReg(strToRemove)})*$)`, isIgnoreCase ? "gi" : "g"), "")
 }
 
 /**

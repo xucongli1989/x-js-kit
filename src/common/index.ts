@@ -10,6 +10,7 @@ import * as image from "./image"
 import * as lib from "./lib"
 import * as random from "./random"
 import * as url from "./url"
+import * as regexp from "./regexp"
 
 export default {
     /**
@@ -59,5 +60,9 @@ export default {
     /**
      * url操作
      */
-    url
+    url,
+    /**
+     * 正则操作
+     */
+    regexp
 }
