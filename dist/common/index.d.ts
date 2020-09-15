@@ -10,6 +10,7 @@ import * as image from "./image";
 import * as lib from "./lib";
 import * as random from "./random";
 import * as url from "./url";
+import * as regexp from "./regexp";
 declare const _default: {
     /**
      * 字符串操作
@@ -59,6 +60,10 @@ declare const _default: {
      * url操作
      */
     url: typeof url;
+    /**
+     * 正则操作
+     */
+    regexp: typeof regexp;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map

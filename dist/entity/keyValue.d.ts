@@ -1,8 +1,8 @@
 /**
  * 键值对实体
  */
-export declare class KeyValue {
-    constructor(key: string, value: any, extend?: any);
+export declare class KeyValue<ValueType = any> {
+    constructor(key: string, value: ValueType, extend?: any);
     /**
      * 键名
      */
@@ -10,7 +10,7 @@ export declare class KeyValue {
     /**
      * value值
      */
-    value: any;
+    value: ValueType;
     /**
      * 扩展属性
      */

@@ -20,6 +20,7 @@ declare const _default: {
         lib: typeof import("./common/lib");
         random: typeof import("./common/random");
         url: typeof import("./common/url");
+        regexp: typeof import("./common/regexp");
     };
     config: {
         common: typeof import("./config/common");
