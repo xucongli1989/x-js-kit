@@ -41,6 +41,12 @@ test("common.array", () => {
     expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : null))).toEqual([2, 4, 6, 8])
     expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : undefined))).toEqual([2, 4, 6, 8])
     expect(common.array.map<number>(arr, (k => k + 10))).toEqual([11, 12, 13, 14, 15, 16, 17, 18, 19])
+
+    expect(common.array.createNumberArray(0, 5)).toEqual([0, 1, 2, 3, 4, 5])
+    expect(common.array.createNumberArray(-5, -3)).toEqual([-5, -4, -3])
+    expect(common.array.createNumberArray(0, 10, 2)).toEqual([0, 2, 4, 6, 8, 10])
+    expect(common.array.createNumberArray(0, 10, 3)).toEqual([0, 3, 6, 9])
+    expect(common.array.createNumberArray(0, 0)).toEqual([0])
 })
 
 test("common.convert", () => {

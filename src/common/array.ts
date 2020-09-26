@@ -84,3 +84,21 @@ export function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | u
     }
     return result
 }
+
+/**
+ * 根据起始值和终点值创建一个数组，如：[1,2,3,4....]
+ * @param startValue 起始值（包含）
+ * @param endValue 终点值（包含）
+ * @param step 步长，默认为 1
+ */
+export function createNumberArray(startValue: number, endValue: number, step?: number) {
+    let stepValue = 1
+    if (step) {
+        stepValue = step
+    }
+    const arr = [] as number[]
+    for (let i = startValue; i <= endValue; i += stepValue) {
+        arr.push(i)
+    }
+    return arr
+}
