@@ -33,4 +33,11 @@ export declare function diff<T>(arr1: T[], arr2: T[]): T[];
  * @param fn 处理函数
  */
 export declare function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | undefined): T[];
+/**
+ * 根据起始值和终点值创建一个数组，如：[1,2,3,4....]
+ * @param startValue 起始值（包含）
+ * @param endValue 终点值（包含）
+ * @param step 步长，默认为 1
+ */
+export declare function createNumberArray(startValue: number, endValue: number, step?: number): number[];
 //# sourceMappingURL=array.d.ts.map
