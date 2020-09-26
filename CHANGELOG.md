@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.14.0](https://github.com/xucongli1989/x-js-kit/compare/v4.13.0...v4.14.0) (2020-09-26)
+
+
+### Features
+
+* **array:** add createNumberArray by start value and end value ([452e834](https://github.com/xucongli1989/x-js-kit/commit/452e834411e8dca45cd9574f050eb563620547db))
+
 ## [4.13.0](https://github.com/xucongli1989/x-js-kit/compare/v4.12.0...v4.13.0) (2020-09-15)
 
 
