@@ -1,6 +1,6 @@
 {
   "name": "x-js-kit",
-  "version": "4.14.0",
+  "version": "4.15.0",
   "description": "This is a common JavaScript tool library, which contains a lot of public methods, it can save you from repeating trivia, and most of its methods support Node.js and browser environment, I hope you will like it!",
   "main": "./dist/index.js",
   "scripts": {

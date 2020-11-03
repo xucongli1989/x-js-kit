@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.15.0](https://github.com/xucongli1989/x-js-kit/compare/v4.14.0...v4.15.0) (2020-11-03)
+
+
+### Features
+
+* **string:** add string format method ([34a3058](https://github.com/xucongli1989/x-js-kit/commit/34a3058704f471745b73b0fbad507cd5e28d059b))
+
 ## [4.14.0](https://github.com/xucongli1989/x-js-kit/compare/v4.13.0...v4.14.0) (2020-09-26)
 
 
