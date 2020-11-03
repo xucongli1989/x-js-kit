@@ -441,6 +441,20 @@ test("common.string", () => {
     expect(builder.toString()).toBe("100200300")
     builder.clear()
     expect(builder.length() == 0 && builder.toString() == "").toBeTruthy()
+
+    expect(common.string.format("")).toBe("")
+    expect(common.string.format(null as any)).toBeNull()
+    expect(common.string.format("今天是星期一", "一", "二")).toBe("今天是星期一")
+    expect(common.string.format("今天是星期{0}")).toBe("今天是星期{0}")
+    expect(common.string.format("今天是星期{0}", "二")).toBe("今天是星期二")
+    expect(common.string.format("今天是星期{0}", "二", "三", "四")).toBe("今天是星期二")
+    expect(common.string.format("今天是星期{2}", "二", "三", "四")).toBe("今天是星期四")
+    expect(common.string.format("今天是星期{0}{1}{2}{3}", "二", "三", "四")).toBe("今天是星期二三四{3}")
+    expect(common.string.format("今天是星期{3}{2}{1}{0}", "二", "三", "四")).toBe("今天是星期{3}四三二")
+    expect(common.string.format("今天是星期{0}，已经成交了{1}单", "二", 30)).toBe("今天是星期二，已经成交了30单")
+    expect(common.string.format("今天是星期{0}，已经成交了{1}单", "二", 30, 40, 50)).toBe("今天是星期二，已经成交了30单")
+    expect(common.string.format("今天是星期{0}，已经成交了{1}单，我们的目标是{2}单", "二", 30, 40)).toBe("今天是星期二，已经成交了30单，我们的目标是40单")
+    expect(common.string.format("今天是星期{0}，已经成交了{1}单，我们的目标是{2}单", "二", 30, 40, 50, 60)).toBe("今天是星期二，已经成交了30单，我们的目标是40单")
 })
 
 test("common.url", () => {
