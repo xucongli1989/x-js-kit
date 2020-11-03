@@ -107,4 +107,10 @@ export declare class Builder<T> {
     length(): number;
 }
 export declare const builder: typeof Builder;
+/**
+ * 使用模板格式化字符串
+ * @param str 模板，如："今天是星期{0}，已成交{1}单！"
+ * @param args 模板中的参数
+ */
+export declare function format(str: string, ...args: any[]): string;
 //# sourceMappingURL=string.d.ts.map
