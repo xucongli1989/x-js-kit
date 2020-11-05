@@ -10,7 +10,7 @@ export declare enum LevelTypeEnum {
 /**
  * 异步日志返回类型
  */
-export declare type PromiseType = Promise<void> | Promise<{}>;
+export declare type PromiseType = Promise<void> | Promise<unknown>;
 /**
  * 日志记录器接口
  */

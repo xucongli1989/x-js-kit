@@ -13,7 +13,9 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
         libraryTarget: "umd",
-        globalObject: "this"
+        globalObject: "this",
+        chunkLoading: false,
+        wasmLoading: false
     },
     resolve: {
         extensions: ['.ts', '.js']

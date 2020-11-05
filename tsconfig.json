@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "moduleResolution": "node",
-    "module": "esnext",
+    "module": "ESNext",
     "allowJs": false,
     "strict": true,
     "esModuleInterop": true,
@@ -11,10 +11,6 @@
     "declarationMap": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

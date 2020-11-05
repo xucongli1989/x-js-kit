@@ -69,7 +69,7 @@ export function getSymbol(desc?: string): any {
  * @param name 名称，如"A.B.C"
  * @returns 全局对象，如：window.A.B.C
  */
-export function createNamespace(name: string): object {
+export function createNamespace(name: string): any {
     if (!name) {
         return null as any
     }

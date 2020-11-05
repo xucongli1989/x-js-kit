@@ -56,9 +56,12 @@
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "no-shadow": "off",
     "no-confusing-arrow": "off",
     "no-self-compare": "off",
-    "global-require": "off"
+    "global-require": "off",
+    "no-use-before-define": "off"
   },
   "overrides": [
     {

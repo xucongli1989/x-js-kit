@@ -37,7 +37,7 @@ export declare function getSymbol(desc?: string): any;
  * @param name 名称，如"A.B.C"
  * @returns 全局对象，如：window.A.B.C
  */
-export declare function createNamespace(name: string): object;
+export declare function createNamespace(name: string): any;
 /**
  * 获取指定对象的指定属性
  * @param obj 对象
