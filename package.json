@@ -11,7 +11,7 @@
     "dist": "npm run check && webpack  --mode=production --progress && npm run build_ts && npm run copy && npm run test",
     "test": "jest --coverage --logHeapUsage",
     "start": "webpack-dev-server",
-    "release": "standard-version && git push && git push --tags && npm publish",
+    "release": "standard-version && git push && git push --tags",
     "ct": "git add -A && git-cz -a"
   },
   "repository": {
