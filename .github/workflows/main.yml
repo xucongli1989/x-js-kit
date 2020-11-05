@@ -26,4 +26,4 @@ jobs:
       - run: npm install
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: 7e3d8f7f-c637-4d2a-a7b5-d97efdf17353
+          token: ${{ secrets.NPM_TOKEN }}
