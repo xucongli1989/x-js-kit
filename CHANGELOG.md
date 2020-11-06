@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.16.1](https://github.com/xucongli1989/x-js-kit/compare/v4.16.0...v4.16.1) (2020-11-06)
+
+
+### Bug Fixes
+
+* use x-code-inspect to check code ([c246146](https://github.com/xucongli1989/x-js-kit/commit/c246146bb658ff9a4db91ca4c04e88463eacf109))
+
 ## [4.16.0](https://github.com/xucongli1989/x-js-kit/compare/v4.14.0...v4.16.0) (2020-11-05)
 
 
