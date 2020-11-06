@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.16.2](https://github.com/xucongli1989/x-js-kit/compare/v4.16.1...v4.16.2) (2020-11-06)
+
+
+### Bug Fixes
+
+* remove eslint config and upgrade code checker ([220d67c](https://github.com/xucongli1989/x-js-kit/commit/220d67c39e359d4382265b83929386971e4fcbd8))
+
 ### [4.16.1](https://github.com/xucongli1989/x-js-kit/compare/v4.16.0...v4.16.1) (2020-11-06)
 
 
