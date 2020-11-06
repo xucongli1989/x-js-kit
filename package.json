@@ -4,7 +4,7 @@
   "description": "This is a common JavaScript tool library, which contains a lot of public methods, it can save you from repeating trivia, and most of its methods support Node.js and browser environment, I hope you will like it!",
   "main": "./dist/index.js",
   "scripts": {
-    "check": "echo Checking the version number of the dependent package... && x-package-version-strict-check && echo Checking code quality... && eslint ./{src,test}/**/*",
+    "check": "x-code-inspect",
     "build_ts": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline && tsc --emitDeclarationOnly --declarationDir lib",
     "copy": "cpy --cwd=dist index.d.ts ./ --rename=index.polyfill.d.ts && cpy --cwd=dist index.d.ts.map ./ --rename=index.polyfill.d.ts.map",
     "dev": "npm run check && webpack  --mode=development --progress",
@@ -72,6 +72,7 @@
     "webpack": "5.4.0",
     "webpack-cli": "4.2.0",
     "webpack-dev-server": "3.11.0",
+    "x-code-inspect": "1.0.3",
     "x-package-version-strict-check": "1.7.0"
   },
   "dependencies": {

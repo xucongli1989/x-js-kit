@@ -1,4 +1,5 @@
-coverage/*
-dist/*
-lib/*
-*.html
+**/node_modules/**
+**/dist/**
+**/build/**
+**/.ares/**
+lib/**
