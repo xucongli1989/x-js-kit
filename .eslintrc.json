@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "env": {
     "amd": true,
     "browser": true,
@@ -9,6 +9,7 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jsdoc/recommended"
   ],
@@ -25,7 +26,8 @@
   },
   "plugins": [
     "react",
-    "jsdoc"
+    "jsdoc",
+    "@typescript-eslint"
   ],
   "rules": {
     "no-misleading-character-class": 0,
@@ -90,6 +92,11 @@
     "no-new-symbol": 2,
     "no-this-before-super": 2,
     "require-yield": 2,
+    "no-shadow": "off",
+    "no-confusing-arrow": "off",
+    "no-self-compare": "off",
+    "global-require": "off",
+    "no-use-before-define": "off",
     "react/jsx-key": 2,
     "react/jsx-no-comment-textnodes": 2,
     "react/jsx-no-duplicate-props": 2,
@@ -134,7 +141,16 @@
     "jsdoc/require-returns-check": 0,
     "jsdoc/require-returns-description": 0,
     "jsdoc/require-returns-type": 0,
-    "jsdoc/valid-types": 0
+    "jsdoc/valid-types": 0,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {
     "react": {

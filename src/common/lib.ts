@@ -23,6 +23,7 @@ export function isBowser() {
 /**
  * 获取全局对象
  */
+// eslint-disable-next-line no-undef
 export function getGlobalObject(): Window | NodeJS.Global {
     if (isBowser()) {
         return window
