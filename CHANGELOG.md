@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.17.0](https://github.com/xucongli1989/x-js-kit/compare/v4.16.2...v4.17.0) (2020-11-13)
+
+
+### Features
+
+* **data:** add isIn method ([8ab5d56](https://github.com/xucongli1989/x-js-kit/commit/8ab5d56e6e03bce56b5008feb25437f1590eda2f))
+
+
+### Bug Fixes
+
+* add  genericity type define ([56f615d](https://github.com/xucongli1989/x-js-kit/commit/56f615ddc7badca1c18ad2d9c20516784694a9f4))
+
 ### [4.16.2](https://github.com/xucongli1989/x-js-kit/compare/v4.16.1...v4.16.2) (2020-11-06)
 
 
