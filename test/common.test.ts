@@ -93,6 +93,8 @@ test("common.cookie", async () => {
 })
 
 test("common.data", () => {
+    expect(common.data.isNull("")).toBeFalsy()
+    expect(common.data.isNull(null)).toBeTruthy()
     expect(common.data.isArray(null)).toBeFalsy()
     expect(common.data.isArray(1)).toBeFalsy()
     expect(common.data.isArray("1")).toBeFalsy()
@@ -152,6 +154,20 @@ test("common.data", () => {
     expect(common.data.isDate(new Date())).toBeTruthy()
 
     expect(common.data.isError(new Error("test"))).toBeTruthy()
+
+    expect(common.data.isIn(1)).toBeFalsy()
+    expect(common.data.isIn(1, 1, 2, 3)).toBeTruthy()
+    expect(common.data.isIn(1, 2, 3, 4)).toBeFalsy()
+    expect(common.data.isIn(null, undefined, "")).toBeFalsy()
+    expect(common.data.isIn(null, null, 1, 2, 3)).toBeTruthy()
+    expect(common.data.isIn(undefined, undefined, 1, 2, 3)).toBeTruthy()
+    expect(common.data.isIn(undefined)).toBeFalsy()
+    expect(common.data.isIn("")).toBeFalsy()
+    expect(common.data.isIn("", "")).toBeTruthy()
+    expect(common.data.isIn("a", "A", "b")).toBeFalsy()
+    expect(common.data.isIn("a", "a", "b")).toBeTruthy()
+    expect(common.data.isInIgnoreCase("a")).toBeFalsy()
+    expect(common.data.isInIgnoreCase("aaa", "AAA", "b")).toBeTruthy()
 })
 
 test("common.enumTool", () => {

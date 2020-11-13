@@ -1,6 +1,13 @@
 import { trim } from "./string"
 
 /**
+ * 判断obj是否为null
+ */
+export function isNull(obj: any) {
+    return obj === null
+}
+
+/**
  * 判断obj是否为数组
  */
 export function isArray(obj: any) {
@@ -119,4 +126,32 @@ export function isDate(val: any) {
  */
 export function isError(val: any) {
     return val && val instanceof Error
+}
+
+/**
+ * 判断value值在后面的参数中是否存在
+ * @param value 要判断的值
+ * @param args 参数列表
+ */
+export function isIn<T>(value: T, ...args: T[]): boolean {
+    if (!args || !args.length) {
+        return false
+    }
+    return args.includes(value)
+}
+
+
+/**
+ * 判断字符串value值在后面的参数中是否存在（忽略大小写）
+ * @param value 要判断的值
+ * @param args 参数列表
+ */
+export function isInIgnoreCase(value: string, ...args: string[]): boolean {
+    if (!args || !args.length) {
+        return false
+    }
+    if (!isString(value)) {
+        return args.includes(value)
+    }
+    return !!args.find(k => (k || "").toUpperCase() === value.toUpperCase())
 }

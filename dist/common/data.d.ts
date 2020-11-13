@@ -1,4 +1,8 @@
 /**
+ * 判断obj是否为null
+ */
+export declare function isNull(obj: any): boolean;
+/**
  * 判断obj是否为数组
  */
 export declare function isArray(obj: any): boolean;
@@ -74,4 +78,16 @@ export declare function isDate(val: any): boolean;
  * @returns 判断结果
  */
 export declare function isError(val: any): boolean;
+/**
+ * 判断value值在后面的参数中是否存在
+ * @param value 要判断的值
+ * @param args 参数列表
+ */
+export declare function isIn<T>(value: T, ...args: T[]): boolean;
+/**
+ * 判断字符串value值在后面的参数中是否存在（忽略大小写）
+ * @param value 要判断的值
+ * @param args 参数列表
+ */
+export declare function isInIgnoreCase(value: string, ...args: string[]): boolean;
 //# sourceMappingURL=data.d.ts.map
