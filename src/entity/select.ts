@@ -1,8 +1,8 @@
 /**
  * 下拉框实体
  */
-export class SelectItem {
-    constructor(text: string, value: any, isSelected: boolean = false, extend?: any) {
+export class SelectItem<ValueType, ExtendType> {
+    constructor(text: string, value: ValueType, isSelected: boolean = false, extend?: ExtendType) {
         this.text = text
         this.value = value
         this.isSelected = isSelected
@@ -19,9 +19,9 @@ export class SelectItem {
     /**
      * value值
      */
-    value: any
+    value: ValueType
     /**
      * 扩展属性
      */
-    extend: any
+    extend?: ExtendType
 }

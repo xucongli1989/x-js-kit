@@ -1,6 +1,6 @@
 import { BaseClass } from "../entity/serialize"
 
-export interface ValidationInitOpsType {
+export interface ValidationInitOpsType<ExtendType> {
     /**
      * 是否显示所有提示语
      */
@@ -8,7 +8,7 @@ export interface ValidationInitOpsType {
     /**
      * 上一次的字段提示对象（主要用于初始化时合并对象）
      */
-    oldItem?: FieldMessageItem
+    oldItem?: FieldMessageItem<ExtendType>
     /**
      * 需要显示提示语的字段
      */
@@ -33,7 +33,7 @@ export interface FieldItemType {
 /**
  * 每一项的具体提示类
  */
-export class FieldMessageItem {
+export class FieldMessageItem<ExtendType> {
     /**
      * 唯一id标识
      */
@@ -49,11 +49,11 @@ export class FieldMessageItem {
     /**
      * 扩展字段
      */
-    extend: any
+    extend: ExtendType = null as any
     /**
      * 初始化，重新设置fieldItems中的属性
      */
-    init(ops: ValidationInitOpsType) {
+    init(ops: ValidationInitOpsType<ExtendType>) {
         if (!ops) {
             return this;
         }
@@ -80,7 +80,7 @@ export class FieldMessageItem {
 /**
  * 判断FieldMessageModel是否验证通过
  */
-export function isPassed(model: FieldMessageModel) {
+export function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>) {
     if (!model.itemList.length) {
         return true
     }
@@ -90,7 +90,7 @@ export function isPassed(model: FieldMessageModel) {
 /**
  * 根据id返回FieldMessageModel中对应的FieldMessageItem
  */
-export function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null {
+export function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null {
     return model.itemList.find(k => k.id == id) || null
 }
 
@@ -113,7 +113,7 @@ export function getItem(model: FieldMessageModel, id: string): FieldMessageItem 
 model.itemList.push(item)
  * 
  */
-export class FieldMessageModel extends BaseClass {
+export class FieldMessageModel<ExtendType> extends BaseClass {
     /**
      * 是否itemList中的所有的字段提示列表均已验证通过
      */
@@ -123,11 +123,11 @@ export class FieldMessageModel extends BaseClass {
     /**
      * 字段提示列表
      */
-    itemList: FieldMessageItem[] = []
+    itemList: FieldMessageItem<ExtendType>[] = []
     /**
      * 根据id返回指定的字段提示项
      */
-    getItem(id: string): FieldMessageItem | null {
+    getItem(id: string): FieldMessageItem<ExtendType> | null {
         return getItem(this, id)
     }
     toJSON() {

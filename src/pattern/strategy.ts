@@ -1,15 +1,15 @@
 /**
  * 策略项
  */
-export class StrategyItem {
-    constructor(name: string, context: any, handler: (item: StrategyItem) => void) {
+export class StrategyItem<ContextType> {
+    constructor(name: string, context: ContextType, handler: (item: StrategyItem<ContextType>) => void) {
         this.name = name
         this.context = context
         this.handler = handler
     }
     name: string = ""
-    context: any
-    handler: (item: StrategyItem) => void
+    context: ContextType
+    handler: (item: StrategyItem<ContextType>) => void
 }
 
 /**
@@ -17,19 +17,19 @@ export class StrategyItem {
  * 使用方法：const strategy = new Strategy()
  * strategy.add(item => {...}).add(item => {...}).add(item => {...}).execute()
  */
-export class Strategy {
+export class Strategy<ContextType> {
     /**
      * 策略列表
      */
-    private _strategyList: StrategyItem[] = []
+    private _strategyList: StrategyItem<ContextType>[] = []
     /**
      * 上下文，用于多个策略之间的数据共享
      */
-    context: any
+    context: ContextType = null as any
     /**
      * 添加一个策略项 
      */
-    add(handler: (item: StrategyItem) => void, name: string = "") {
+    add(handler: (item: StrategyItem<ContextType>) => void, name: string = "") {
         this._strategyList.push(new StrategyItem(name, this.context, handler))
         return this
     }

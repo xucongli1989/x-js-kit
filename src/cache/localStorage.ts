@@ -11,7 +11,7 @@ let isInited = false
 /**
  * 获取localStorage对象
  */
-function getStore(): Storage {
+function getStore<ValueType>(): Storage {
     const store = getLocalStorage()
     if (!store || isInited) {
         return store
@@ -20,7 +20,7 @@ function getStore(): Storage {
     isInited = true
     //设置默认缓存值
     if (!store.getItem(globalCacheName)) {
-        const defaultGlobalLocalStorage: GlobalCacheType = {
+        const defaultGlobalLocalStorage: GlobalCacheType<ValueType> = {
             time: new Date().valueOf(),
             items: {}
         }
@@ -35,17 +35,17 @@ function getStore(): Storage {
 //立即初始化
 getStore()
 
-export interface ItemContentType {
+export interface ItemContentType<ValueType> {
     /**
      * 具体的缓存值
      */
-    value: any
+    value: ValueType
     /**
      * 过期时间，若不指定，则无过期时间（此时间为：从1970年1月1日0时0分0秒（UTC，即协调世界时）到该日期的毫秒数。如：new Date().valueOf()）
      */
     expire?: number
 }
-export interface GlobalCacheType {
+export interface GlobalCacheType<ValueType> {
     /**
      * 时间
      */
@@ -53,18 +53,18 @@ export interface GlobalCacheType {
     /**
      * 所有缓存项
      */
-    items: { [key: string]: ItemContentType }
+    items: { [key: string]: ItemContentType<ValueType> }
 }
 
 /**
  * 返回全局缓存对象
  */
-export function getGlobalCache(): (GlobalCacheType | null) {
+export function getGlobalCache<ValueType>(): (GlobalCacheType<ValueType> | null) {
     const cacheValue = getStore().getItem(globalCacheName) as string
     if (!cacheValue) {
         return null;
     }
-    return JSON.parse(cacheValue) as GlobalCacheType
+    return JSON.parse(cacheValue) as GlobalCacheType<ValueType>
 }
 /**
  * 修改localStorage缓存的默认名称
@@ -80,7 +80,7 @@ export function setGlobalCacheName(name: string) {
 /**
  * 添加数据至缓存（默认每30分钟自动清理所有过期的缓存）
  */
-export function add(key: string, value: ItemContentType) {
+export function add<ValueType>(key: string, value: ItemContentType<ValueType>) {
     const cache = getGlobalCache()
     if (!cache) {
         return
@@ -106,12 +106,12 @@ export function remove(key: string) {
  * @param key 缓存key
  * @param ignoreExpireCheck 是否忽略过期检测，默认为false.（true:即使过期，只要还没被清理，则依然返回。false:如果已过期，则删除此缓存并返回null） 
  */
-export function get(key: string, ignoreExpireCheck: boolean = false): ItemContentType | null {
+export function get<ValueType>(key: string, ignoreExpireCheck: boolean = false): ItemContentType<ValueType> | null {
     const cache = getGlobalCache()
     if (!cache) {
         return null
     }
-    const item = cache.items[key]
+    const item = cache.items[key] as ItemContentType<ValueType>
     if (!item) {
         return null
     }

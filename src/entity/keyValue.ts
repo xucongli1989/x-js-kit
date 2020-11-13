@@ -1,8 +1,8 @@
 /**
  * 键值对实体
  */
-export class KeyValue<ValueType = any> {
-    constructor(key: string, value: ValueType, extend?: any) {
+export class KeyValue<ValueType, ExtendType> {
+    constructor(key: string, value: ValueType, extend?: ExtendType) {
         this.key = key
         this.value = value
         this.extend = extend
@@ -18,14 +18,14 @@ export class KeyValue<ValueType = any> {
     /**
      * 扩展属性
      */
-    extend: any
+    extend?: ExtendType
 }
 
 /**
  * 键名值对实体
  */
-export class KeyNameValue {
-    constructor(key: string, name: string, value: any, extend?: any) {
+export class KeyNameValue<ValueType, ExtendType> {
+    constructor(key: string, name: string, value: ValueType, extend?: ExtendType) {
         this.key = key
         this.name = name
         this.value = value
@@ -42,9 +42,9 @@ export class KeyNameValue {
     /**
      * value值
      */
-    value: any
+    value: ValueType
     /**
      * 扩展属性
      */
-    extend: any
+    extend?: ExtendType
 }

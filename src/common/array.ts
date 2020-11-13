@@ -69,12 +69,12 @@ export function diff<T>(arr1: T[], arr2: T[]): T[] {
  * @param arr 需要遍历的数组
  * @param fn 处理函数
  */
-export function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | undefined): T[] {
+export function map<TargetType, SourceType>(arr: SourceType[], fn: (item: SourceType, idx?: number) => TargetType | null | undefined): TargetType[] {
     if (!arr || !fn) {
         return []
     }
-    const result: T[] = []
-    let temp: T | null | undefined
+    const result: TargetType[] = []
+    let temp: TargetType | null | undefined
     for (let i = 0; i < arr.length; i++) {
         temp = fn(arr[i], i)
         if (temp == null || typeof (temp) == 'undefined') {
