@@ -1,8 +1,8 @@
 /**
  * 下拉框实体
  */
-export declare class SelectItem {
-    constructor(text: string, value: any, isSelected?: boolean, extend?: any);
+export declare class SelectItem<ValueType, ExtendType> {
+    constructor(text: string, value: ValueType, isSelected?: boolean, extend?: ExtendType);
     /**
      * 文本名
      */
@@ -14,10 +14,10 @@ export declare class SelectItem {
     /**
      * value值
      */
-    value: any;
+    value: ValueType;
     /**
      * 扩展属性
      */
-    extend: any;
+    extend?: ExtendType;
 }
 //# sourceMappingURL=select.d.ts.map

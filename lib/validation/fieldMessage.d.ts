@@ -1,5 +1,5 @@
 import { BaseClass } from "../entity/serialize";
-export interface ValidationInitOpsType {
+export interface ValidationInitOpsType<ExtendType> {
     /**
      * 是否显示所有提示语
      */
@@ -7,7 +7,7 @@ export interface ValidationInitOpsType {
     /**
      * 上一次的字段提示对象（主要用于初始化时合并对象）
      */
-    oldItem?: FieldMessageItem;
+    oldItem?: FieldMessageItem<ExtendType>;
     /**
      * 需要显示提示语的字段
      */
@@ -30,7 +30,7 @@ export interface FieldItemType {
 /**
  * 每一项的具体提示类
  */
-export declare class FieldMessageItem {
+export declare class FieldMessageItem<ExtendType = any> {
     /**
      * 唯一id标识
      */
@@ -48,20 +48,20 @@ export declare class FieldMessageItem {
     /**
      * 扩展字段
      */
-    extend: any;
+    extend: ExtendType;
     /**
      * 初始化，重新设置fieldItems中的属性
      */
-    init(ops: ValidationInitOpsType): this;
+    init(ops: ValidationInitOpsType<ExtendType>): this;
 }
 /**
  * 判断FieldMessageModel是否验证通过
  */
-export declare function isPassed(model: FieldMessageModel): boolean;
+export declare function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>): boolean;
 /**
  * 根据id返回FieldMessageModel中对应的FieldMessageItem
  */
-export declare function getItem(model: FieldMessageModel, id: string): FieldMessageItem | null;
+export declare function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null;
 /**
  * 字段信息提示实体类。把类似“表单验证”的场景通过一个统一的实体类来表现，方便js代码去读取与管理这些状态与信息。
  * 比如：如果一个输入项校验不通过，会涉及到这些数据的变化：是否验证通过、错误提示消息、是否只显示当前这一个错误消息等、是否需要清空其它错误消息等。
@@ -81,7 +81,7 @@ export declare function getItem(model: FieldMessageModel, id: string): FieldMess
 model.itemList.push(item)
  *
  */
-export declare class FieldMessageModel extends BaseClass {
+export declare class FieldMessageModel<ExtendType = any> extends BaseClass {
     /**
      * 是否itemList中的所有的字段提示列表均已验证通过
      */
@@ -89,14 +89,14 @@ export declare class FieldMessageModel extends BaseClass {
     /**
      * 字段提示列表
      */
-    itemList: FieldMessageItem[];
+    itemList: FieldMessageItem<ExtendType>[];
     /**
      * 根据id返回指定的字段提示项
      */
-    getItem(id: string): FieldMessageItem | null;
+    getItem(id: string): FieldMessageItem<ExtendType> | null;
     toJSON(): {
         isPassed: boolean;
-        itemList: FieldMessageItem[];
+        itemList: FieldMessageItem<ExtendType>[];
     };
 }
 //# sourceMappingURL=fieldMessage.d.ts.map

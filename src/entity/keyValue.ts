@@ -1,7 +1,7 @@
 /**
  * 键值对实体
  */
-export class KeyValue<ValueType, ExtendType> {
+export class KeyValue<ValueType = any, ExtendType = any> {
     constructor(key: string, value: ValueType, extend?: ExtendType) {
         this.key = key
         this.value = value
@@ -24,7 +24,7 @@ export class KeyValue<ValueType, ExtendType> {
 /**
  * 键名值对实体
  */
-export class KeyNameValue<ValueType, ExtendType> {
+export class KeyNameValue<ValueType = any, ExtendType = any> {
     constructor(key: string, name: string, value: ValueType, extend?: ExtendType) {
         this.key = key
         this.name = name

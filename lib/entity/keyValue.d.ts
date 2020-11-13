@@ -1,8 +1,8 @@
 /**
  * 键值对实体
  */
-export declare class KeyValue<ValueType = any> {
-    constructor(key: string, value: ValueType, extend?: any);
+export declare class KeyValue<ValueType = any, ExtendType = any> {
+    constructor(key: string, value: ValueType, extend?: ExtendType);
     /**
      * 键名
      */
@@ -14,13 +14,13 @@ export declare class KeyValue<ValueType = any> {
     /**
      * 扩展属性
      */
-    extend: any;
+    extend?: ExtendType;
 }
 /**
  * 键名值对实体
  */
-export declare class KeyNameValue {
-    constructor(key: string, name: string, value: any, extend?: any);
+export declare class KeyNameValue<ValueType = any, ExtendType = any> {
+    constructor(key: string, name: string, value: ValueType, extend?: ExtendType);
     /**
      * 键名
      */
@@ -32,10 +32,10 @@ export declare class KeyNameValue {
     /**
      * value值
      */
-    value: any;
+    value: ValueType;
     /**
      * 扩展属性
      */
-    extend: any;
+    extend?: ExtendType;
 }
 //# sourceMappingURL=keyValue.d.ts.map

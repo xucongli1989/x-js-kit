@@ -33,7 +33,7 @@ export interface FieldItemType {
 /**
  * 每一项的具体提示类
  */
-export class FieldMessageItem<ExtendType> {
+export class FieldMessageItem<ExtendType = any> {
     /**
      * 唯一id标识
      */
@@ -49,7 +49,7 @@ export class FieldMessageItem<ExtendType> {
     /**
      * 扩展字段
      */
-    extend: ExtendType = null as any
+    extend: ExtendType = undefined as any
     /**
      * 初始化，重新设置fieldItems中的属性
      */
@@ -113,7 +113,7 @@ export function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: st
 model.itemList.push(item)
  * 
  */
-export class FieldMessageModel<ExtendType> extends BaseClass {
+export class FieldMessageModel<ExtendType = any> extends BaseClass {
     /**
      * 是否itemList中的所有的字段提示列表均已验证通过
      */

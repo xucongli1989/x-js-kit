@@ -32,7 +32,7 @@ export declare function diff<T>(arr1: T[], arr2: T[]): T[];
  * @param arr 需要遍历的数组
  * @param fn 处理函数
  */
-export declare function map<T>(arr: any[], fn: (item: any, idx?: number) => T | null | undefined): T[];
+export declare function map<TargetType, SourceType>(arr: SourceType[], fn: (item: SourceType, idx?: number) => TargetType | null | undefined): TargetType[];
 /**
  * 根据起始值和终点值创建一个数组，如：[1,2,3,4....]
  * @param startValue 起始值（包含）
