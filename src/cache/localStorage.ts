@@ -8,7 +8,7 @@ let autoClearExpiredTimeSpan = 30 * 60 * 1000
 let clearExpiredIntervalId: number
 let isInited = false
 
-export interface ItemContentType<ValueType> {
+export interface ItemContentType<ValueType = any> {
     /**
      * 具体的缓存值
      */
@@ -18,7 +18,7 @@ export interface ItemContentType<ValueType> {
      */
     expire?: number
 }
-export interface GlobalCacheType<ValueType> {
+export interface GlobalCacheType<ValueType = any> {
     /**
      * 时间
      */

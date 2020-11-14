@@ -5,16 +5,20 @@ test("pattern.strategy", () => {
     strategy.context = {
         idx: 0
     }
-    strategy.add(item => {
-        const tempItem = item
-        tempItem.context.idx++
-    }).add(item => {
-        const tempItem = item
-        tempItem.context.idx++
-    }, "item").add(item => {
-        const tempItem = item
-        tempItem.context.idx++
-    }).execute()
+    strategy
+        .add((item) => {
+            const tempItem = item
+            tempItem.context.idx++
+        })
+        .add((item) => {
+            const tempItem = item
+            tempItem.context.idx++
+        }, "item")
+        .add((item) => {
+            const tempItem = item
+            tempItem.context.idx++
+        })
+        .execute()
     expect(strategy.context.idx).toBe(3)
 })
 

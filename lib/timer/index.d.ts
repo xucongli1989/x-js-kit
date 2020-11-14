@@ -1,7 +1,7 @@
 import stopWatch from "./stopWatch";
 declare const _default: {
     /**
-     * 计时器（不建议使用）
+     * 计时器（请使用大写字母开头的）
      */
     stopWatch: typeof stopWatch;
     /**

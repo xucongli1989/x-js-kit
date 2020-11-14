@@ -12,6 +12,7 @@
     "eslint-config-airbnb",
     "eslint-config-airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:eslint-plugin-import/errors"
   ],
   "globals": {

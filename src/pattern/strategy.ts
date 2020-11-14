@@ -17,7 +17,7 @@ export class StrategyItem<ContextType> {
  * 使用方法：const strategy = new Strategy()
  * strategy.add(item => {...}).add(item => {...}).add(item => {...}).execute()
  */
-export class Strategy<ContextType> {
+export class Strategy<ContextType = any> {
     /**
      * 策略列表
      */
@@ -27,7 +27,7 @@ export class Strategy<ContextType> {
      */
     context: ContextType = null as any
     /**
-     * 添加一个策略项 
+     * 添加一个策略项
      */
     add(handler: (item: StrategyItem<ContextType>) => void, name: string = "") {
         this._strategyList.push(new StrategyItem(name, this.context, handler))
@@ -37,7 +37,7 @@ export class Strategy<ContextType> {
      * 执行策略列表
      */
     execute() {
-        this._strategyList.forEach(item => {
+        this._strategyList.forEach((item) => {
             item.handler(item)
         })
     }

@@ -1,4 +1,4 @@
-export interface ItemContentType<ValueType> {
+export interface ItemContentType<ValueType = any> {
     /**
      * 具体的缓存值
      */
@@ -8,7 +8,7 @@ export interface ItemContentType<ValueType> {
      */
     expire?: number;
 }
-export interface GlobalCacheType<ValueType> {
+export interface GlobalCacheType<ValueType = any> {
     /**
      * 时间
      */
@@ -23,7 +23,7 @@ export interface GlobalCacheType<ValueType> {
 /**
  * 返回全局缓存对象
  */
-export declare function getGlobalCache<ValueType>(): (GlobalCacheType<ValueType> | null);
+export declare function getGlobalCache<ValueType>(): GlobalCacheType<ValueType> | null;
 /**
  * 修改localStorage缓存的默认名称
  */

@@ -12,7 +12,7 @@ export declare class StrategyItem<ContextType> {
  * 使用方法：const strategy = new Strategy()
  * strategy.add(item => {...}).add(item => {...}).add(item => {...}).execute()
  */
-export declare class Strategy<ContextType> {
+export declare class Strategy<ContextType = any> {
     /**
      * 策略列表
      */

@@ -55,14 +55,6 @@ export declare class FieldMessageItem<ExtendType = any> {
     init(ops: ValidationInitOpsType<ExtendType>): this;
 }
 /**
- * 判断FieldMessageModel是否验证通过
- */
-export declare function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>): boolean;
-/**
- * 根据id返回FieldMessageModel中对应的FieldMessageItem
- */
-export declare function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null;
-/**
  * 字段信息提示实体类。把类似“表单验证”的场景通过一个统一的实体类来表现，方便js代码去读取与管理这些状态与信息。
  * 比如：如果一个输入项校验不通过，会涉及到这些数据的变化：是否验证通过、错误提示消息、是否只显示当前这一个错误消息等、是否需要清空其它错误消息等。
  * 示例用法：
@@ -99,4 +91,12 @@ export declare class FieldMessageModel<ExtendType = any> extends BaseClass {
         itemList: FieldMessageItem<ExtendType>[];
     };
 }
+/**
+ * 判断FieldMessageModel是否验证通过
+ */
+export declare function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>): boolean;
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export declare function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null;
 //# sourceMappingURL=fieldMessage.d.ts.map
