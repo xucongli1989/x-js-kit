@@ -23,7 +23,7 @@ export interface FieldItemType {
     /**
      * 提示语
      */
-    msg: string,
+    msg: string
     /**
      * 是否显示
      */
@@ -55,43 +55,26 @@ export class FieldMessageItem<ExtendType = any> {
      */
     init(ops: ValidationInitOpsType<ExtendType>) {
         if (!ops) {
-            return this;
+            return this
         }
-        Object.keys(this.fieldItems).forEach(k => {
+        Object.keys(this.fieldItems).forEach((k) => {
             //如果isShowAll有值，则将所有字段的isShow设置为该值
-            if (ops && typeof (ops.isShowAll) == 'boolean') {
-                this.fieldItems[k].isShow = ops.isShowAll;
-                return;
+            if (ops && typeof ops.isShowAll == "boolean") {
+                this.fieldItems[k].isShow = ops.isShowAll
+                return
             }
             //如果原有的验证对象中的字段：【needShowFields包含该字段时，则isShow设置为true】，【unNeedShowFields包含该字段时，则isShow设置为false】
             let oldShowValue = !!(ops.oldItem && ops.oldItem.fieldItems[k].isShow)
             if ((ops.needShowFields || []).includes(k)) {
-                oldShowValue = true;
+                oldShowValue = true
             }
             if ((ops.unNeedShowFields || []).includes(k)) {
-                oldShowValue = false;
+                oldShowValue = false
             }
-            this.fieldItems[k].isShow = oldShowValue;
-        });
-        return this;
+            this.fieldItems[k].isShow = oldShowValue
+        })
+        return this
     }
-}
-
-/**
- * 判断FieldMessageModel是否验证通过
- */
-export function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>) {
-    if (!model.itemList.length) {
-        return true
-    }
-    return !model.itemList.find(k => !k.isPassed)
-}
-
-/**
- * 根据id返回FieldMessageModel中对应的FieldMessageItem
- */
-export function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null {
-    return model.itemList.find(k => k.id == id) || null
 }
 
 /**
@@ -136,4 +119,21 @@ export class FieldMessageModel<ExtendType = any> extends BaseClass {
             itemList: this.itemList
         }
     }
+}
+
+/**
+ * 判断FieldMessageModel是否验证通过
+ */
+export function isPassed<ExtendType>(model: FieldMessageModel<ExtendType>) {
+    if (!model.itemList.length) {
+        return true
+    }
+    return !model.itemList.find((k) => !k.isPassed)
+}
+
+/**
+ * 根据id返回FieldMessageModel中对应的FieldMessageItem
+ */
+export function getItem<ExtendType>(model: FieldMessageModel<ExtendType>, id: string): FieldMessageItem<ExtendType> | null {
+    return model.itemList.find((k) => k.id == id) || null
 }

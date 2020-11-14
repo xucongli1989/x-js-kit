@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as format from "./format"
 import * as convert from "./convert"
 

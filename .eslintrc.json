@@ -96,6 +96,17 @@
       }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": false,
+        "enums": true,
+        "variables": true,
+        "typedefs": false,
+        "ignoreTypeReferences": true
+      }
+    ],
     "no-confusing-arrow": "off",
     "no-self-compare": "off",
     "global-require": "off",
@@ -105,7 +116,8 @@
     "no-alert": "off",
     "no-loop-func": "off",
     "operator-linebreak": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "no-use-before-define": "off"
   },
   "overrides": [
     {

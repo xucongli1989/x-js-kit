@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as strategy from "./strategy"
 import * as singleton from "./singleton"
 

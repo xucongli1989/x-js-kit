@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as fieldMessage from "./fieldMessage"
 export default {
     /**

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import cache from "./cache/index"
 import check from "./check/index"
 import common from "./common/index"

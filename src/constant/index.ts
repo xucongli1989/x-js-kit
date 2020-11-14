@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as regexConst from "./regex"
 import * as map from "./map"
 

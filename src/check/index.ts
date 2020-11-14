@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as common from "./common"
 import * as url from "./url"
 import * as browser from "./browser"

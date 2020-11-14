@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as idCard from "./idCard"
 import * as keyValue from "./keyValue"
 import * as select from "./select"

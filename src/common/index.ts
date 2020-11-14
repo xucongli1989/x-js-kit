@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import * as string from "./string"
 import * as array from "./array"
 import * as convert from "./convert"
