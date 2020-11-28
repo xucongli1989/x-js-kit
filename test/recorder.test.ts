@@ -10,7 +10,7 @@ class CustomLogRecorder implements LogRecorderType {
         return new Promise((res) => {
             setTimeout(() => {
                 console.info(str + "custom-log", option)
-                res()
+                res(null)
             }, 1000)
         }) as PromiseType
     }
@@ -21,7 +21,7 @@ class CustomLogRecorder implements LogRecorderType {
         return new Promise((res) => {
             setTimeout(() => {
                 console.warn(str, option)
-                res()
+                res(null)
             }, 1000)
         }) as PromiseType
     }
@@ -32,7 +32,7 @@ class CustomLogRecorder implements LogRecorderType {
         return new Promise((res) => {
             setTimeout(() => {
                 console.error(str, option)
-                res()
+                res(null)
             }, 1000)
         }) as PromiseType
     }
@@ -143,7 +143,8 @@ test("recorder.dom", () => {
     domRecorder.init()
     expect(domRecorder.value.name).toEqual(["1"])
     //包含【jskit-key】与【jskit-type=count】
-    document.body.innerHTML = "<div jskit-key='name' jskit-type='count'><h1>test1</h1></div><div jskit-key='name' jskit-type='count'><h1>test2</h1></div><div jskit-key='name' jskit-type='count'><h1>test3</h1></div>"
+    document.body.innerHTML =
+        "<div jskit-key='name' jskit-type='count'><h1>test1</h1></div><div jskit-key='name' jskit-type='count'><h1>test2</h1></div><div jskit-key='name' jskit-type='count'><h1>test3</h1></div>"
     domRecorder = new dom.DOMDataRecorder()
     domRecorder.init()
     expect(domRecorder.value.name).toEqual(3)

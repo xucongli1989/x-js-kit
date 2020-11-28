@@ -17,7 +17,7 @@ export declare function isNumber(val: number | string): boolean;
  * @param  val 要判断的值
  * @returns  判断结果
  */
-export declare function isObject(val: any): boolean;
+export declare function isObject(val: any): any;
 /**
 * 判断指定值为null或为空字符串
 * @param  val 要判断的值
@@ -35,7 +35,7 @@ export declare function isNullOrWhiteSpace(val: null | string): boolean;
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export declare function isFunction(val: any): boolean;
+export declare function isFunction(val: any): any;
 /**
  * 判断指定值是否为String
  * @param  val 要判断的值
@@ -71,13 +71,13 @@ export declare function isLower(val: string): boolean | "";
  * @param val 要判断的值
  * @returns 判断结果
  */
-export declare function isDate(val: any): boolean;
+export declare function isDate(val: any): any;
 /**
  * 指定值是否为Error对象
  * @param val 要判断的值
  * @returns 判断结果
  */
-export declare function isError(val: any): boolean;
+export declare function isError(val: any): any;
 /**
  * 判断value值在后面的参数中是否存在
  * @param value 要判断的值

@@ -4,16 +4,16 @@ test("timer.stopWatch", async () => {
     let stopWatch = new timer.StopWatch()
     expect(stopWatch.value).toBe(0)
     //正常情况
-    await new Promise(res => {
+    await new Promise((res) => {
         stopWatch.start()
         setTimeout(() => {
             stopWatch.stop()
-            res()
+            res(null)
         }, 2000)
     })
     const val = stopWatch.value
     expect(val - 2000).toBeLessThan(100)
-    await new Promise(res => {
+    await new Promise((res) => {
         setTimeout(res, 500)
     })
     expect(stopWatch.value).toBe(val)
