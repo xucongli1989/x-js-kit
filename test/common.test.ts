@@ -7,8 +7,14 @@ test("common.array", () => {
     expect(common.array.splitArray([], 0)).toEqual([])
     expect(common.array.splitArray([], -1)).toEqual([])
     expect(common.array.splitArray(arr, 1)).toEqual([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12]])
-    expect(common.array.splitArray(arr, 6)).toEqual([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12]])
-    expect(common.array.splitArray(arr, 10)).toEqual([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12]])
+    expect(common.array.splitArray(arr, 6)).toEqual([
+        [1, 2, 3, 4, 5, 6],
+        [7, 8, 9, 10, 11, 12]
+    ])
+    expect(common.array.splitArray(arr, 10)).toEqual([
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [11, 12]
+    ])
     expect(common.array.splitArray(arr, 12)).toEqual([arr])
     expect(common.array.splitArray(arr, 13)).toEqual([arr])
 
@@ -32,15 +38,17 @@ test("common.array", () => {
     expect(common.array.diff([1, 2, 3, 4, 5], [1, 2, 3])).toEqual([4, 5])
     expect(common.array.diff([1, 2, 3, 4, 5], [1, 2, 3, 9, 9, 9])).toEqual([4, 5, 9])
 
-
-
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    expect(arr.map(k => k % 2 == 0 ? k : null)).toEqual([null, 2, null, 4, null, 6, null, 8, null])
-    expect(common.array.map<number>([], (k => k))).toEqual([])
-    expect(common.array.map<number>(arr, ((k, i) => i))).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8])
-    expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : null))).toEqual([2, 4, 6, 8])
-    expect(common.array.map<number>(arr, (k => k % 2 == 0 ? k : undefined))).toEqual([2, 4, 6, 8])
-    expect(common.array.map<number>(arr, (k => k + 10))).toEqual([11, 12, 13, 14, 15, 16, 17, 18, 19])
+    expect(arr.map((k) => (k % 2 == 0 ? k : null))).toEqual([null, 2, null, 4, null, 6, null, 8, null])
+    expect(common.array.map<number>([], (k) => k)).toEqual([])
+    expect(common.array.map<number>(arr, (k, i) => i)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8])
+    expect(
+        common.array.map<number>(arr, (k) => (k % 2 == 0 ? k : null))
+    ).toEqual([2, 4, 6, 8])
+    expect(
+        common.array.map<number>(arr, (k) => (k % 2 == 0 ? k : undefined))
+    ).toEqual([2, 4, 6, 8])
+    expect(common.array.map<number>(arr, (k) => k + 10)).toEqual([11, 12, 13, 14, 15, 16, 17, 18, 19])
 
     expect(common.array.createNumberArray(0, 5)).toEqual([0, 1, 2, 3, 4, 5])
     expect(common.array.createNumberArray(-5, -3)).toEqual([-5, -4, -3])
@@ -50,7 +58,9 @@ test("common.array", () => {
 })
 
 test("common.convert", () => {
-    const num = "123.123", str = "abc", numAndStr = "abc123abc"
+    const num = "123.123",
+        str = "abc",
+        numAndStr = "abc123abc"
     expect(common.convert.toInt("")).toBe(0)
     expect(common.convert.toInt(num)).toBe(123)
     expect(common.convert.toInt(str)).toBe(0)
@@ -74,10 +84,10 @@ test("common.convert", () => {
 })
 
 test("common.cookie", async () => {
-    Object.defineProperty(document, 'cookie', {
+    Object.defineProperty(document, "cookie", {
         writable: true,
-        value: 'a=1; b=2; c=3'
-    });
+        value: "a=1; b=2; c=3"
+    })
     expect(common.cookie.getItem("a")).toBe("1")
     expect(common.cookie.getItem("z")).toBeNull()
     expect(common.cookie.hasItem("a")).toBeTruthy()
@@ -174,36 +184,36 @@ test("common.enumTool", () => {
     enum Test1 {
         a,
         b,
-        c,
+        c
     }
     expect(common.enumTool.convertEnumToList(Test1)).toEqual([
         { key: "a", value: 0 },
         { key: "b", value: 1 },
         { key: "c", value: 2 }
-    ]);
+    ])
 
     enum Test2 {
         a = "aaa",
         b = "bbb",
-        c = "ccc",
+        c = "ccc"
     }
     expect(common.enumTool.convertEnumToList(Test2)).toEqual([
         { key: "a", value: "aaa" },
         { key: "b", value: "bbb" },
         { key: "c", value: "ccc" }
-    ]);
+    ])
 
     enum Test3 {
         a = "aaa",
         b = 7,
-        c = 8,
+        c = 8
     }
     expect(common.enumTool.convertEnumToList(Test3)).toEqual([
         { key: "a", value: "aaa" },
         { key: "b", value: 7 },
         { key: "c", value: 8 }
-    ]);
-});
+    ])
+})
 
 test("common.idCard", () => {
     const cnIdCard15 = "320000881213110"
@@ -250,7 +260,6 @@ test("common.json", () => {
     expect(jsonObject.b).toBe(456)
 })
 
-
 test("common.lib", () => {
     expect(common.lib.getGlobalObject()).toBe(window)
     expect(common.lib.getLocalStorage()).not.toBeNull()
@@ -286,12 +295,18 @@ test("common.lib", () => {
     expect(common.lib.deepClone(obj1)).toEqual(obj1)
 
     expect(common.lib.tryRun(null as any)).toBeNull()
-    expect(common.lib.tryRun((a, b, c) => (a + b + c), 1, 2, 3)).toBe(6)
-    expect(common.lib.tryRun(() => {
-        const objTemp = {} as any
-        console.log(objTemp.a.b)
-    })).toBeNull()
-    expect(common.lib.tryRun(() => { throw new Error("error!") })).toBeNull()
+    expect(common.lib.tryRun((a, b, c) => a + b + c, 1, 2, 3)).toBe(6)
+    expect(
+        common.lib.tryRun(() => {
+            const objTemp = {} as any
+            console.log(objTemp.a.b)
+        })
+    ).toBeNull()
+    expect(
+        common.lib.tryRun(() => {
+            throw new Error("error!")
+        })
+    ).toBeNull()
 
     let merge1: any
     let merge2: any
@@ -306,14 +321,32 @@ test("common.lib", () => {
     result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
     expect(result).toEqual({})
     //只有一个函数时的合并（普通合并）
-    merge1 = { name: "X", age: 12, say: () => { console.log('test') } }
+    merge1 = {
+        name: "X",
+        age: 12,
+        say: () => {
+            console.log("test")
+        }
+    }
     merge2 = { school: "MIT", age: 20 }
     merge3 = { grade: 1, sub: { sub1: "test" } }
     result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
     expect(result).toEqual(Object.assign(merge1, merge2, merge3))
     //有两个不同名时的函数合并
-    merge1 = { name: "X", age: 12, say: () => { console.log('test') } }
-    merge2 = { school: "MIT", age: 20, walk: () => { console.log('test') } }
+    merge1 = {
+        name: "X",
+        age: 12,
+        say: () => {
+            console.log("test")
+        }
+    }
+    merge2 = {
+        school: "MIT",
+        age: 20,
+        walk: () => {
+            console.log("test")
+        }
+    }
     merge3 = { grade: 1 }
     result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3)
     expect(result).toEqual(Object.assign(merge1, merge2, merge3))
@@ -321,19 +354,32 @@ test("common.lib", () => {
     merge1 = {
         name: "X",
         age: 12,
-        say: () => { console.log('test') },
-        same: () => { count += 1 }
+        say: () => {
+            console.log("test")
+        },
+        same: () => {
+            count += 1
+        }
     }
     merge2 = {
         school: "MIT",
         age: 20,
-        walk: () => { console.log('test') },
-        same: () => { count += 2 }
+        walk: () => {
+            console.log("test")
+        },
+        same: () => {
+            count += 2
+        }
     }
     merge3 = { grade: 1, same: 1 }
     const merge4 = { grade: 1, same: null }
     const merge5 = { grade: 1, same: "same" }
-    const merge6 = { grade: 1, same: () => { count += 3 } }
+    const merge6 = {
+        grade: 1,
+        same: () => {
+            count += 3
+        }
+    }
     result = common.lib.mergeObjectAndCombineSameFunc(merge1, merge2, merge3, merge4, merge5, merge6)
     result.same()
     expect(count).toBe(6)
@@ -385,7 +431,7 @@ test("common.string", () => {
     expect(common.string.getNumber("")).toBeNull()
     expect(common.string.getNumber("abc")).toBeNull()
     expect(common.string.getNumber("123abc")).toBe(123)
-    expect(common.string.getNumber("123.00abc")).toBe(123.00)
+    expect(common.string.getNumber("123.00abc")).toBe(123.0)
     expect(common.string.getNumber("aaa123.456abc")).toBe(123.456)
 
     expect(common.string.trim("")).toBe("")
@@ -471,6 +517,11 @@ test("common.string", () => {
     expect(common.string.format("今天是星期{0}，已经成交了{1}单", "二", 30, 40, 50)).toBe("今天是星期二，已经成交了30单")
     expect(common.string.format("今天是星期{0}，已经成交了{1}单，我们的目标是{2}单", "二", 30, 40)).toBe("今天是星期二，已经成交了30单，我们的目标是40单")
     expect(common.string.format("今天是星期{0}，已经成交了{1}单，我们的目标是{2}单", "二", 30, 40, 50, 60)).toBe("今天是星期二，已经成交了30单，我们的目标是40单")
+
+    expect(common.string.removeBlankLines(null as any)).toBe("")
+    expect(common.string.removeBlankLines("  \n ")).toBe(" ")
+    expect(common.string.removeBlankLines("  \n \n")).toBe("")
+    expect(common.string.removeBlankLines("a\n    \nb\n \n \nc")).toBe("a\nb\nc")
 })
 
 test("common.url", () => {
@@ -510,11 +561,13 @@ test("common.url", () => {
     })
     expect(mergedUrl).toBe("http://www.abc.com?a=b&c=d#123")
 
-
     let keyValueArr = common.url.convertQueryStringToKeyValueArray("")
     expect(keyValueArr).toEqual([])
     keyValueArr = common.url.convertQueryStringToKeyValueArray("a=b&c=d&c=ddd")
-    expect(keyValueArr).toEqual([{ key: "a", value: "b" }, { key: "c", value: "d" }])
+    expect(keyValueArr).toEqual([
+        { key: "a", value: "b" },
+        { key: "c", value: "d" }
+    ])
 
     let queryString = common.url.convertKeyValueArrayToQueryString([])
     expect(queryString).toBe("")
@@ -536,7 +589,6 @@ test("common.url", () => {
         }
     ])
     expect(queryString).toBe("a=b&c=d")
-
 
     const url = "http://www.abc.com"
     expect(common.url.appendQueryString(null as any, null as any)).toBe("")

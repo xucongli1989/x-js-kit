@@ -70,10 +70,10 @@ export declare function trimHTML(html: string): string;
  */
 export declare function contains(source: string, search: string, isIgnoreCase?: boolean): boolean;
 /**
-* 将html标签转换为实体形式
-* @param  html 需要被替换的html
-* @returns  转换后的值
-*/
+ * 将html标签转换为实体形式
+ * @param  html 需要被替换的html
+ * @returns  转换后的值
+ */
 export declare function escapeHtml(html: string): string;
 /**
  * @param   str 要重复的字符串
@@ -113,4 +113,8 @@ export declare const builder: typeof Builder;
  * @param args 模板中的参数
  */
 export declare function format(str: string, ...args: any[]): string;
+/**
+ * 删除空白行（空白行是指：此行为空白且末尾为 \r 或 \n）
+ */
+export declare function removeBlankLines(str: string): string;
 //# sourceMappingURL=string.d.ts.map

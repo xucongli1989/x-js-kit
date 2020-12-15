@@ -182,10 +182,10 @@ export function contains(source: string, search: string, isIgnoreCase: boolean =
 }
 
 /**
-* 将html标签转换为实体形式
-* @param  html 需要被替换的html
-* @returns  转换后的值
-*/
+ * 将html标签转换为实体形式
+ * @param  html 需要被替换的html
+ * @returns  转换后的值
+ */
 export function escapeHtml(html: string) {
     if (!html) {
         return ""
@@ -207,7 +207,7 @@ export function repeat(str: string, repeatCount: number) {
     while (count--) {
         s.push(str)
     }
-    return s.join('')
+    return s.join("")
 }
 
 /**
@@ -218,7 +218,7 @@ export class Builder<T> {
     /**
      * 追加项
      * @param items 待追加的项
-     * @returns this 
+     * @returns this
      */
     append(...items: T[]) {
         this._arr.push(...items)
@@ -262,4 +262,14 @@ export function format(str: string, ...args: any[]) {
         result = result.replace(new RegExp("\\{" + token + "\\}", "gi"), args[token])
     }
     return result
+}
+
+/**
+ * 删除空白行（空白行是指：此行为空白且末尾为 \r 或 \n）
+ */
+export function removeBlankLines(str: string): string {
+    if (!str) {
+        return ""
+    }
+    return str.replace(/^\s*[\r\n]/gm, "")
 }
