@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.18.1](https://github.com/xucongli1989/x-js-kit/compare/v4.18.0...v4.18.1) (2021-01-11)
+
+
+### Bug Fixes
+
+* **common.data:** update check any object is empty ([be02674](https://github.com/xucongli1989/x-js-kit/commit/be0267413206c5e0edf3849eb1cb0b538f61c82a))
+
 ## [4.18.0](https://github.com/xucongli1989/x-js-kit/compare/v4.17.2...v4.18.0) (2020-12-15)
 
 
