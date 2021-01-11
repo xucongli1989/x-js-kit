@@ -128,10 +128,12 @@ test("common.data", () => {
     expect(common.data.isNullOrEmpty("123")).toBeFalsy()
     expect(common.data.isNullOrEmpty(null)).toBeTruthy()
     expect(common.data.isNullOrEmpty("")).toBeTruthy()
+    expect(common.data.isNullOrEmpty(undefined)).toBeTruthy()
 
     expect(common.data.isNullOrWhiteSpace("123")).toBeFalsy()
     expect(common.data.isNullOrWhiteSpace(null)).toBeTruthy()
     expect(common.data.isNullOrWhiteSpace("")).toBeTruthy()
+    expect(common.data.isNullOrWhiteSpace(undefined)).toBeTruthy()
     expect(common.data.isNullOrWhiteSpace("            ")).toBeTruthy()
 
     expect(common.data.isNumber("")).toBeFalsy()
