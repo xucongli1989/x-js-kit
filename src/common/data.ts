@@ -18,12 +18,12 @@ export function isArray(obj: any) {
 }
 
 /**
-  * 判断val是否为数字
-  * @param val 要判断的值
-  * @returns  判断结果
-  */
-export function isNumber(val: number | string) {
-    return (typeof (val) === 'number' || typeof (val) === 'string') && val !== '' && !isNaN(val as any)
+ * 判断val是否为数字
+ * @param val 要判断的值
+ * @returns  判断结果
+ */
+export function isNumber(val: any) {
+    return (typeof val === "number" || typeof val === "string") && val !== "" && !isNaN(val as any)
 }
 
 /**
@@ -32,28 +32,25 @@ export function isNumber(val: number | string) {
  * @returns  判断结果
  */
 export function isObject(val: any) {
-    return val && typeof val === 'object'
+    return !!(val && typeof val === "object")
 }
 
 /**
-* 判断指定值为null或为空字符串
-* @param  val 要判断的值
-* @returns 判断结果
-*/
-export function isNullOrEmpty(val: null | string) {
-    return val === null || val === ""
-}
-
-/**
- * 判断指定值为null，或为空字符串，或为空白字符串
+ * 判断指定值为null或undefined或""
  * @param  val 要判断的值
  * @returns 判断结果
  */
-export function isNullOrWhiteSpace(val: null | string) {
-    if (val === null) {
-        return true
-    }
-    return isNullOrEmpty(trim(val))
+export function isNullOrEmpty(val: any) {
+    return isUndefined(val) || isNull(val) || val === ""
+}
+
+/**
+ * 判断指定值为null或undefined或""或空白字符串
+ * @param  val 要判断的值
+ * @returns 判断结果
+ */
+export function isNullOrWhiteSpace(val: any) {
+    return isUndefined(val) || isNull(val) || trim(val) === ""
 }
 
 /**
@@ -62,7 +59,7 @@ export function isNullOrWhiteSpace(val: null | string) {
  * @returns 判断结果
  */
 export function isFunction(val: any) {
-    return val && Object.prototype.toString.call(val) == '[object Function]'
+    return !!(val && Object.prototype.toString.call(val) == "[object Function]")
 }
 
 /**
@@ -71,7 +68,7 @@ export function isFunction(val: any) {
  * @returns 判断结果
  */
 export function isString(val: any) {
-    return typeof val == 'string' || val instanceof String
+    return typeof val == "string" || val instanceof String
 }
 
 /**
@@ -89,7 +86,7 @@ export function isBoolean(val: string) {
  * @returns 判断结果
  */
 export function isUndefined(val: any) {
-    return val === undefined || typeof (val) === "undefined"
+    return val === undefined || typeof val === "undefined"
 }
 
 /**
@@ -98,7 +95,7 @@ export function isUndefined(val: any) {
  * @returns 判断结果
  */
 export function isUpper(val: string) {
-    return val && val.toUpperCase() === val
+    return !!(val && val.toUpperCase() === val)
 }
 
 /**
@@ -107,7 +104,7 @@ export function isUpper(val: string) {
  * @returns 判断结果
  */
 export function isLower(val: string) {
-    return val && val.toLowerCase() === val
+    return !!(val && val.toLowerCase() === val)
 }
 
 /**
@@ -116,7 +113,7 @@ export function isLower(val: string) {
  * @returns 判断结果
  */
 export function isDate(val: any) {
-    return val && Object.prototype.toString.call(val) === "[object Date]" && !isNaN(val)
+    return !!(val && Object.prototype.toString.call(val) === "[object Date]" && !isNaN(val))
 }
 
 /**
@@ -125,7 +122,7 @@ export function isDate(val: any) {
  * @returns 判断结果
  */
 export function isError(val: any) {
-    return val && val instanceof Error
+    return !!(val && val instanceof Error)
 }
 
 /**
@@ -140,7 +137,6 @@ export function isIn<T>(value: T, ...args: T[]): boolean {
     return args.includes(value)
 }
 
-
 /**
  * 判断字符串value值在后面的参数中是否存在（忽略大小写）
  * @param value 要判断的值
@@ -153,5 +149,5 @@ export function isInIgnoreCase(value: string, ...args: string[]): boolean {
     if (!isString(value)) {
         return args.includes(value)
     }
-    return !!args.find(k => (k || "").toUpperCase() === value.toUpperCase())
+    return !!args.find((k) => (k || "").toUpperCase() === value.toUpperCase())
 }
