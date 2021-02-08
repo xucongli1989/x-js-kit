@@ -12,6 +12,7 @@ import * as lib from "./lib"
 import * as random from "./random"
 import * as url from "./url"
 import * as regexp from "./regexp"
+import * as dom from "./dom"
 
 export default {
     /**
@@ -65,5 +66,9 @@ export default {
     /**
      * 正则操作
      */
-    regexp
+    regexp,
+    /**
+     * dom 操作
+     */
+    dom
 }
