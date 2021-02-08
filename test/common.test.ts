@@ -608,42 +608,57 @@ test("common.url", () => {
 })
 
 test("common.dom", () => {
-    const divContainer = document.createElement("div")
-    const ellipsisElement = document.createElement("p")
-    ellipsisElement.innerText = "..."
     //参数无效
-    const tempResult = common.dom.appendElementToLimitContainer(null as any, null as any, 100, null as any)
-    expect(tempResult).toBeDefined()
-    expect(tempResult.isOverflow).toBeFalsy()
-    //未超出
-    divContainer.innerHTML = ""
-    for (let i = 0; i < 5; i++) {
-        const subElement = document.createElement("p")
-        subElement.innerText = (i + 1).toString()
-        const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 5, ellipsisElement)
-        expect(result.isOverflow).toBeFalsy()
+    const func1 = () => {
+        const tempResult = common.dom.appendElementToLimitContainer(null as any, null as any, 100, null as any)
+        expect(tempResult).toBeDefined()
+        expect(tempResult.isOverflow).toBeFalsy()
     }
-    expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>")
     //未超出
-    divContainer.innerHTML = ""
-    for (let i = 0; i < 5; i++) {
-        const subElement = document.createElement("p")
-        subElement.innerText = (i + 1).toString()
-        const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 6, ellipsisElement)
-        expect(result.isOverflow).toBeFalsy()
-    }
-    expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>")
-    //超出
-    divContainer.innerHTML = ""
-    for (let i = 0; i < 10; i++) {
-        const subElement = document.createElement("p")
-        subElement.innerText = (i + 1).toString()
-        const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 5, ellipsisElement)
-        if (i <= 4) {
+    const func2 = () => {
+        const divContainer = document.createElement("div")
+        const ellipsisElement = document.createElement("p")
+        ellipsisElement.innerHTML = "..."
+        for (let i = 0; i < 5; i++) {
+            const subElement = document.createElement("p")
+            subElement.innerHTML = (i + 1).toString()
+            const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 5, ellipsisElement)
             expect(result.isOverflow).toBeFalsy()
-        } else {
-            expect(result.isOverflow).toBeTruthy()
         }
+        expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>")
     }
-    expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>...</p><p>9</p><p>10</p>")
+    //未超出
+    const func3 = () => {
+        const divContainer = document.createElement("div")
+        const ellipsisElement = document.createElement("p")
+        ellipsisElement.innerHTML = "..."
+        for (let i = 0; i < 5; i++) {
+            const subElement = document.createElement("p")
+            subElement.innerHTML = (i + 1).toString()
+            const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 6, ellipsisElement)
+            expect(result.isOverflow).toBeFalsy()
+        }
+        expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>")
+    }
+    //超出
+    const func4 = () => {
+        const divContainer = document.createElement("div")
+        const ellipsisElement = document.createElement("p")
+        ellipsisElement.innerHTML = "..."
+        for (let i = 0; i < 10; i++) {
+            const subElement = document.createElement("p")
+            subElement.innerHTML = (i + 1).toString()
+            const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 5, ellipsisElement)
+            if (i <= 4) {
+                expect(result.isOverflow).toBeFalsy()
+            } else {
+                expect(result.isOverflow).toBeTruthy()
+            }
+        }
+        expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>...</p><p>9</p><p>10</p>")
+    }
+    func1()
+    func2()
+    func3()
+    func4()
 })

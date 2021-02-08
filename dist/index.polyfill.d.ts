@@ -21,6 +21,7 @@ declare const _default: {
         random: typeof import("./common/random");
         url: typeof import("./common/url");
         regexp: typeof import("./common/regexp");
+        dom: typeof import("./common/dom");
     };
     config: {
         common: typeof import("./config/common");
