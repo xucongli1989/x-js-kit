@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.19.0](https://github.com/xucongli1989/x-js-kit/compare/v4.18.1...v4.19.0) (2021-02-08)
+
+
+### Features
+
+* add common.dom ([a4f58da](https://github.com/xucongli1989/x-js-kit/commit/a4f58dafdb2d03eeb3a4dbab34c46d9d0caefd0d))
+
+
+### Bug Fixes
+
+* update code style about lint ([773e1be](https://github.com/xucongli1989/x-js-kit/commit/773e1be0269b6e3aa2d0e72b872381ca121d6800))
+
 ### [4.18.1](https://github.com/xucongli1989/x-js-kit/compare/v4.18.0...v4.18.1) (2021-01-11)
 
 
