@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 let _id = 0
 
 /**
@@ -16,11 +17,11 @@ export function create() {
  */
 export function uuid() {
     //https://github.com/simongong/js-stackoverflow-highest-votes/blob/master/questions1-10/how-to-create-a-UUID-in-javascript.md
-    let d = new Date().getTime();
-    const str = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    let d = new Date().getTime()
+    const str = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
         const r = (d + Math.random() * 16) % 16 | 0
         d = Math.floor(d / 16)
-        return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16)
+        return (c == "x" ? r : (r & 0x7) | 0x8).toString(16)
     })
     return str
 }

@@ -2,6 +2,7 @@
 import * as common from "./common"
 import * as url from "./url"
 import * as browser from "./browser"
+
 export default {
     /**
      * 公共的数据校验

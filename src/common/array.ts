@@ -38,8 +38,8 @@ export function unique<T>(arr: T[]): T[] {
  * @param arr2 数组2
  */
 export function union<T>(arr1: T[], arr2: T[]): T[] {
-    const a1 = arr1 || [],
-        a2 = arr2 || []
+    const a1 = arr1 || []
+    const a2 = arr2 || []
     return [...a1, ...a2]
 }
 
@@ -49,8 +49,8 @@ export function union<T>(arr1: T[], arr2: T[]): T[] {
  * @param arr2 数组2
  */
 export function intersect<T>(arr1: T[], arr2: T[]): T[] {
-    const a1 = arr1 || [],
-        a2 = arr2 || []
+    const a1 = arr1 || []
+    const a2 = arr2 || []
     return unique(a1.filter((x) => a2.includes(x)))
 }
 
@@ -60,8 +60,8 @@ export function intersect<T>(arr1: T[], arr2: T[]): T[] {
  * @param arr2 数组2
  */
 export function diff<T>(arr1: T[], arr2: T[]): T[] {
-    const a1 = arr1 || [],
-        a2 = arr2 || []
+    const a1 = arr1 || []
+    const a2 = arr2 || []
     const diff1 = a1.filter((x) => !a2.includes(x))
     const diff2 = a2.filter((x) => !a1.includes(x))
     return unique([...diff1, ...diff2])

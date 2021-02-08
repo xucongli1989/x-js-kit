@@ -10,16 +10,16 @@ export function toHourStringFromMins(mins: number): string {
     if (mins == 0) {
         return "0分钟"
     }
-    const h = parseInt((mins / 60).toString());
-    const m = parseInt((mins % 60).toString());
-    const s = [];
+    const h = parseInt((mins / 60).toString())
+    const m = parseInt((mins % 60).toString())
+    const s = []
     if (h > 0) {
-        s.push(`${h}小时`);
+        s.push(`${h}小时`)
     }
     if (m > 0) {
-        s.push(`${m}分钟`);
+        s.push(`${m}分钟`)
     }
-    return s.join("");
+    return s.join("")
 }
 
 /**
@@ -39,21 +39,21 @@ export function format(dateValue: Date | number, fmtStr: string = "yyyy-MM-dd") 
         return ""
     }
     const o: any = {
-        "M+": dt.getMonth() + 1, //月份 
-        "d+": dt.getDate(), //日 
-        "h+": dt.getHours(), //小时 
-        "m+": dt.getMinutes(), //分 
-        "s+": dt.getSeconds(), //秒 
-        "q+": Math.floor((dt.getMonth() + 3) / 3), //季度 
-        S: dt.getMilliseconds() //毫秒 
-    };
+        "M+": dt.getMonth() + 1, //月份
+        "d+": dt.getDate(), //日
+        "h+": dt.getHours(), //小时
+        "m+": dt.getMinutes(), //分
+        "s+": dt.getSeconds(), //秒
+        "q+": Math.floor((dt.getMonth() + 3) / 3), //季度
+        S: dt.getMilliseconds() //毫秒
+    }
     if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(RegExp.$1, (dt.getFullYear() + "").substr(4 - RegExp.$1.length))
     }
     for (const k in o) {
         if (new RegExp("(" + k + ")").test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)))
+            fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length))
         }
     }
     return fmt
-}  
+}

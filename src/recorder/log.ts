@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { AnyKeyValueType } from "../declaration/common"
 
 /**
@@ -82,13 +83,13 @@ function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (obj: any, opti
         switch (level) {
             case LevelTypeEnum.info:
                 fun = defaultLogRecorder.infoAsync
-                break;
+                break
             case LevelTypeEnum.warn:
                 fun = defaultLogRecorder.warnAsync
-                break;
+                break
             case LevelTypeEnum.error:
                 fun = defaultLogRecorder.errorAsync
-                break;
+                break
         }
         return fun as any
     }
@@ -96,13 +97,13 @@ function getLogRecorder(level: LevelTypeEnum, isAsync: boolean): (obj: any, opti
     switch (level) {
         case LevelTypeEnum.info:
             fun = defaultLogRecorder.info
-            break;
+            break
         case LevelTypeEnum.warn:
             fun = defaultLogRecorder.warn
-            break;
+            break
         case LevelTypeEnum.error:
             fun = defaultLogRecorder.error
-            break;
+            break
     }
     return fun as any
 }

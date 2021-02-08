@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 /**
  * 策略项
  */

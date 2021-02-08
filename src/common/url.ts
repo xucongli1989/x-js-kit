@@ -1,5 +1,5 @@
 import { KeyValue } from "../entity/keyValue"
-import { lTrimString } from "../common/string"
+import { lTrimString } from "./string"
 
 /**
  * url分隔的类型
@@ -32,28 +32,28 @@ export function splitUrlByQueryInfo(url: string): UrlSplitByQueryType {
     if (!url) {
         return result
     }
-    const questionMarkIndex = url.lastIndexOf('?')
-    const wellNumberMarkIndex = url.indexOf('#')
+    const questionMarkIndex = url.lastIndexOf("?")
+    const wellNumberMarkIndex = url.indexOf("#")
 
     //只存在查询串
     if (questionMarkIndex >= 0 && wellNumberMarkIndex < 0) {
         result.hostPart = url.substr(0, questionMarkIndex)
-        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1), '?')
+        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1), "?")
         return result
     }
 
     //只存在hash
     if (questionMarkIndex < 0 && wellNumberMarkIndex >= 0) {
         result.hostPart = url.substr(0, wellNumberMarkIndex)
-        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), '#')
+        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), "#")
         return result
     }
 
     //同时存在查询串和hash
     if (questionMarkIndex >= 0 && wellNumberMarkIndex >= 0) {
         result.hostPart = url.substr(0, questionMarkIndex)
-        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1, wellNumberMarkIndex), '?')
-        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), '#')
+        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1, wellNumberMarkIndex), "?")
+        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), "#")
         return result
     }
 
@@ -78,7 +78,6 @@ export function mergeUrlBySplitQueryInfo(splitInfo: UrlSplitByQueryType) {
     return url
 }
 
-
 /**
  * 将查询串转换为key value数组（注意：若key重复，只处理第一个）
  * @param queryString 查询字符串，如：a=b&c=d
@@ -89,11 +88,11 @@ export function convertQueryStringToKeyValueArray(queryString: string): KeyValue
         return result
     }
     const keys = new Set()
-    queryString.split('&').forEach(item => {
+    queryString.split("&").forEach((item) => {
         if (!item) {
             return
         }
-        const [key, value] = item.split('=')
+        const [key, value] = item.split("=")
         if (!key) {
             return
         }
@@ -116,7 +115,7 @@ export function convertKeyValueArrayToQueryString(arr: KeyValue<string>[]) {
     }
     const keys = new Set()
     const queryString = [] as string[]
-    arr.forEach(item => {
+    arr.forEach((item) => {
         if (keys.has(item.key)) {
             return
         }
@@ -141,9 +140,9 @@ export function appendQueryString(url: string, queryString: string) {
     const splitInfo = splitUrlByQueryInfo(url)
     const urlQueryKeyValue = convertQueryStringToKeyValueArray(splitInfo.queryPart)
     const appendQueryKeyValue = convertQueryStringToKeyValueArray(queryString)
-    appendQueryKeyValue.forEach(item => {
+    appendQueryKeyValue.forEach((item) => {
         //已存在，则修改
-        const queryInfo = urlQueryKeyValue.find(k => k.key == item.key)
+        const queryInfo = urlQueryKeyValue.find((k) => k.key == item.key)
         if (queryInfo) {
             queryInfo.value = item.value
             return
@@ -164,8 +163,8 @@ export function appendQueryString(url: string, queryString: string) {
  * @param paramName 参数名
  */
 export function getUrlParameter(search: string, paramName: string) {
-    const name = paramName.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    const results = regex.exec(search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    const name = paramName.replace(/[[]/, "\\[").replace(/[\]]/, "\\]")
+    const regex = new RegExp("[\\?&]" + name + "=([^&#]*)")
+    const results = regex.exec(search)
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "))
 }

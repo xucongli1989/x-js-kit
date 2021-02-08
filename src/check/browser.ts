@@ -63,6 +63,6 @@ export function isExtraLarge() {
  * 判断方法：performance.navigation.type == 1
  */
 export function isReload() {
-    const g = (<Window>globalObject)
+    const g = <Window>globalObject
     return g.performance && g.performance.navigation && g.performance.navigation.type == 1
 }

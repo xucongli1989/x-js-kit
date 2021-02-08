@@ -91,10 +91,10 @@ export class FieldMessageItem<ExtendType = any> {
  *     msg: ""
  * }
  * 当数据化生变化时，要做的只是更新这个对象中的具体字段状态即可，业务代码中根据这些状态信息统一去显示页面。
- * 
+ *
 *}
 model.itemList.push(item)
- * 
+ *
  */
 export class FieldMessageModel<ExtendType = any> extends BaseClass {
     /**
