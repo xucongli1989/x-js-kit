@@ -62,6 +62,14 @@ export declare function trimString(str: string, strToRemove: string, isIgnoreCas
  */
 export declare function trimHTML(html: string): string;
 /**
+ * 判断两个字符串是否相等（忽略大小写）
+ */
+export declare function equalsIgnoreCase(a: string, b: string): boolean;
+/**
+ * 判断两个字符串是否相等（忽略大小写+去左右空白）
+ */
+export declare function equalsIgnoreCaseAndTrim(a: string, b: string): boolean;
+/**
  * 指定源字符串source中是否包含search字符串
  * @param  source 源字符串
  * @param  search 要查找的字符串

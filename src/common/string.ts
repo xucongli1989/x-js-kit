@@ -156,6 +156,20 @@ export function trimHTML(html: string) {
 }
 
 /**
+ * 判断两个字符串是否相等（忽略大小写）
+ */
+export function equalsIgnoreCase(a: string, b: string) {
+    return (a || "").toUpperCase() == (b || "").toUpperCase()
+}
+
+/**
+ * 判断两个字符串是否相等（忽略大小写+去左右空白）
+ */
+export function equalsIgnoreCaseAndTrim(a: string, b: string) {
+    return equalsIgnoreCase(trim(a), trim(b))
+}
+
+/**
  * 指定源字符串source中是否包含search字符串
  * @param  source 源字符串
  * @param  search 要查找的字符串

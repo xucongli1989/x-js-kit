@@ -483,6 +483,17 @@ test("common.string", () => {
     expect(common.string.trimHTML("<br>   nbsp;<div>abc</div>  <br> ")).toBe("<div>abc</div>")
     expect(common.string.trimHTML("  x <div>abc</div>  <br>  x  ")).toBe("x <div>abc</div>  <br>  x")
 
+    expect(common.string.equalsIgnoreCase("", "")).toBeTruthy()
+    expect(common.string.equalsIgnoreCase("a", "b")).toBeFalsy()
+    expect(common.string.equalsIgnoreCase("abcD", "Abcd")).toBeTruthy()
+    
+    expect(common.string.equalsIgnoreCaseAndTrim("", "")).toBeTruthy()
+    expect(common.string.equalsIgnoreCaseAndTrim(" ", "             ")).toBeTruthy()
+    expect(common.string.equalsIgnoreCaseAndTrim("abc", "    abc   ")).toBeTruthy()
+    expect(common.string.equalsIgnoreCaseAndTrim(" a b", "a b")).toBeTruthy()
+    expect(common.string.equalsIgnoreCaseAndTrim("ab", "Ab")).toBeTruthy()
+    expect(common.string.equalsIgnoreCaseAndTrim("ab", "ac")).toBeFalsy()
+
     expect(common.string.contains("", "")).toBeFalsy()
     expect(common.string.contains("a", "")).toBeTruthy()
     expect(common.string.contains("abcDefGh", "de", true)).toBeTruthy()
