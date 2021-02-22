@@ -9,6 +9,14 @@ export declare function isServer(): boolean;
  */
 export declare function isBowser(): boolean;
 /**
+ * 判断是否为生产环境（process.env.NODE_ENV==production）
+ */
+export declare function isProduction(): boolean;
+/**
+ * 判断是否为开发环境（process.env.NODE_ENV==development）
+ */
+export declare function isDevelopment(): boolean;
+/**
  * 获取全局对象
  */
 export declare function getGlobalObject(): Window | NodeJS.Global;

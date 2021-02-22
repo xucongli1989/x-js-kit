@@ -526,7 +526,7 @@ test("common.string", () => {
     expect(common.string.removeBlankLines("a\n    \nb\n \n \nc")).toBe("a\nb\nc")
 
     expect(common.string.replaceNewlineToBr("")).toBe("")
-    expect(common.string.replaceNewlineToBr("abc\ndef\rg")).toBe("abc<br/>def<br/>g")
+    expect(common.string.replaceNewlineToBr("abc\\n\\ndef\\r\\ng\\r\\n")).toBe("abc<br/><br/>def<br/>g<br/>")
 
     expect(common.string.getChineseWord("")).toBe("")
     expect(common.string.getChineseWord("hello world")).toBe("")

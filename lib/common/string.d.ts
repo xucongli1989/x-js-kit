@@ -117,4 +117,12 @@ export declare function format(str: string, ...args: any[]): string;
  * 删除空白行（空白行是指：此行为空白且末尾为 \r 或 \n）
  */
 export declare function removeBlankLines(str: string): string;
+/**
+ * 将文本中的字符串 "\r\n" 和 "\n" 统一替换成 <br/>
+ */
+export declare function replaceNewlineToBr(str: string): string;
+/**
+ * 获取字符串中的中文字符
+ */
+export declare function getChineseWord(str: string): string;
 //# sourceMappingURL=string.d.ts.map

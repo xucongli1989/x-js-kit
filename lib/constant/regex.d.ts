@@ -38,4 +38,8 @@ export declare const htmlLeftRightBlank: RegExp;
  * 中国大陆身份证（18、15位）
  */
 export declare const chinaIDCard: RegExp;
+/**
+ * 单个中文字符
+ */
+export declare const chineseChar: RegExp;
 //# sourceMappingURL=regex.d.ts.map

@@ -275,7 +275,7 @@ export function removeBlankLines(str: string): string {
 }
 
 /**
- * 将文本中的\n\r字符统一替换成<br\/>
+ * 将文本中的字符串 "\r\n" 和 "\n" 统一替换成 <br/>
  */
 export function replaceNewlineToBr(str: string) {
     if (!str) {
