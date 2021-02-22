@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.20.0](https://github.com/xucongli1989/x-js-kit/compare/v4.19.0...v4.20.0) (2021-02-22)
+
+
+### Features
+
+* add string equals ([8d8daae](https://github.com/xucongli1989/x-js-kit/commit/8d8daae000fa80740e9d21cee4698387e329c885))
+* update some methods ([c07cefb](https://github.com/xucongli1989/x-js-kit/commit/c07cefbf52c2a2c6c9c2be902e9a6fc4cfaf9731))
+
 ## [4.19.0](https://github.com/xucongli1989/x-js-kit/compare/v4.18.1...v4.19.0) (2021-02-08)
 
 
