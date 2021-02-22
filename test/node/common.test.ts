@@ -3,6 +3,8 @@
  * @jest-environment node
  */
 
+import * as lib from "../../src/common/lib"
+
 Object.assign(global, {
     localStorage: require("localStorage")
 })
@@ -13,4 +15,17 @@ test("common.lib-localStorage", () => {
     expect(kit.common.lib.getLocalStorage()).not.toBeNull()
     expect(kit.common.lib.isBowser()).toBeFalsy()
     expect(kit.common.lib.isServer()).toBeTruthy()
+})
+
+test("common.lib", () => { 
+    expect(lib.isDevelopment()).toBeFalsy()
+    expect(lib.isProduction()).toBeFalsy()
+
+    global.process.env.NODE_ENV = "production"
+    expect(lib.isDevelopment()).toBeFalsy()
+    expect(lib.isProduction()).toBeTruthy()
+
+    global.process.env.NODE_ENV = "development"
+    expect(lib.isDevelopment()).toBeTruthy()
+    expect(lib.isProduction()).toBeFalsy()
 })

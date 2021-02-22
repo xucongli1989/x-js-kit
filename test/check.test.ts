@@ -85,6 +85,11 @@ test("check.common", () => {
     expect(check.common.isAlphaNumericKeyCode(0)).toBeFalsy()
     expect(check.common.isAlphaNumericKeyCode(-1)).toBeFalsy()
     expect(check.common.isAlphaNumericKeyCode(60)).toBeFalsy()
+
+    expect(check.common.hasChineseWord("")).toBeFalsy()
+    expect(check.common.hasChineseWord("abc")).toBeFalsy()
+    expect(check.common.hasChineseWord("this is a test file")).toBeFalsy()
+    expect(check.common.hasChineseWord("hello 中文")).toBeTruthy()
 })
 
 test("check.url", () => {

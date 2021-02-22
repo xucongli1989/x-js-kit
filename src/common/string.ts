@@ -1,4 +1,4 @@
-import { partNumber, htmlLeftRightBlank } from "../constant/regex"
+import { partNumber, htmlLeftRightBlank, chineseChar } from "../constant/regex"
 import { escapeReg } from "./regexp"
 import { htmlEntityMap } from "../constant/map"
 
@@ -272,4 +272,28 @@ export function removeBlankLines(str: string): string {
         return ""
     }
     return str.replace(/^\s*[\r\n]/gm, "")
+}
+
+/**
+ * 将文本中的\n\r字符统一替换成<br\/>
+ */
+export function replaceNewlineToBr(str: string) {
+    if (!str) {
+        return ""
+    }
+    return str.replace(/\\r\\n/gi, "<br/>").replace(/\\n/gi, "<br/>")
+}
+
+/**
+ * 获取字符串中的中文字符
+ */
+export function getChineseWord(str: string) {
+    if (!str) {
+        return ""
+    }
+    const match = str.match(new RegExp(chineseChar, "g"))
+    if (!match || !match.length) {
+        return ""
+    }
+    return match.join("")
 }

@@ -524,6 +524,13 @@ test("common.string", () => {
     expect(common.string.removeBlankLines("  \n ")).toBe(" ")
     expect(common.string.removeBlankLines("  \n \n")).toBe("")
     expect(common.string.removeBlankLines("a\n    \nb\n \n \nc")).toBe("a\nb\nc")
+
+    expect(common.string.replaceNewlineToBr("")).toBe("")
+    expect(common.string.replaceNewlineToBr("abc\ndef\rg")).toBe("abc<br/>def<br/>g")
+
+    expect(common.string.getChineseWord("")).toBe("")
+    expect(common.string.getChineseWord("hello world")).toBe("")
+    expect(common.string.getChineseWord("hello 世界, how are you 你好")).toBe("世界你好")
 })
 
 test("common.url", () => {

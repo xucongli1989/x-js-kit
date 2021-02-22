@@ -10,7 +10,7 @@ let defaultTryRunErrorHandler: AnyFunctionType = () => null
  * 是否为服务器环境
  */
 export function isServer() {
-    return typeof (window) === 'undefined'
+    return typeof window === "undefined"
 }
 
 /**
@@ -18,6 +18,34 @@ export function isServer() {
  */
 export function isBowser() {
     return !isServer()
+}
+
+/**
+ * 判断是否为生产环境（process.env.NODE_ENV==production）
+ */
+export function isProduction() {
+    if (!isServer()) {
+        return false
+    }
+    const g = getGlobalObject() as NodeJS.Global
+    if (!g.process.env) {
+        return false
+    }
+    return (g.process.env.NODE_ENV || "").toLowerCase() == "production"
+}
+
+/**
+ * 判断是否为开发环境（process.env.NODE_ENV==development）
+ */
+export function isDevelopment() {
+    if (!isServer()) {
+        return false
+    }
+    const g = getGlobalObject() as NodeJS.Global
+    if (!g.process.env) {
+        return false
+    }
+    return (g.process.env.NODE_ENV || "").toLowerCase() == "development"
 }
 
 /**
@@ -47,8 +75,6 @@ export function getDocument(): Document {
  * 当前环境中的document对象，若没有，则为null
  */
 export const document = getDocument()
-
-
 
 /**
  * 获取localStorage对象，若没有，则为null
@@ -99,10 +125,10 @@ export function getValue<T>(obj: AnyKeyValueType, path: string): T | null {
     }
     let temp = obj
     try {
-        path.split(".").forEach(keyName => {
+        path.split(".").forEach((keyName) => {
             temp = temp[keyName]
         })
-        if (typeof (temp) == 'undefined') {
+        if (typeof temp == "undefined") {
             return null
         }
         return temp as T
@@ -147,7 +173,6 @@ export function tryRun<T>(fn: AnyFunctionType, ...args: any[]): T | null {
 export function setTryRunErrorHandler(fn: AnyFunctionType) {
     defaultTryRunErrorHandler = fn
 }
-
 
 /**
  * 合并多个对象，与 Object.assign 的行为唯一的区别是：把相同的函数合并到一起，并从第一个参数的此函数一直调用到最后一个参数的此函数

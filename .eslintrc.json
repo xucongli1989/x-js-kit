@@ -18,8 +18,7 @@
     "__webpack_public_path__": true
   },
   "parserOptions": {
-    "project": "./tsconfig.json",
-    "tsconfigRootDir": "G:\\XCode\\other\\x-js-kit",
+    "project": "tsconfig.json",
     "sourceType": "module",
     "ecmaFeatures": {
       "modules": true,
@@ -45,10 +44,12 @@
     "react/jsx-indent": "off",
     "react/jsx-indent-props": "off",
     "react/jsx-no-target-blank": "off",
+    "react-hooks/exhaustive-deps": "off",
     "no-continue": "off",
     "guard-for-in": "off",
     "no-bitwise": "off",
     "max-classes-per-file": "off",
+    "no-param-reassign": "off",
     "no-restricted-globals": "off",
     "no-underscore-dangle": "off",
     "arrow-body-style": "off",
