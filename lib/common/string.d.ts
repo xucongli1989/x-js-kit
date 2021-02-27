@@ -133,4 +133,8 @@ export declare function replaceNewlineToBr(str: string): string;
  * 获取字符串中的中文字符
  */
 export declare function getChineseWord(str: string): string;
+/**
+ * 按分隔符合并字符串
+ */
+export declare function combineStr(separator: string, ...subStrs: string[]): string;
 //# sourceMappingURL=string.d.ts.map

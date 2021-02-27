@@ -311,3 +311,13 @@ export function getChineseWord(str: string) {
     }
     return match.join("")
 }
+
+/**
+ * 按分隔符合并字符串
+ */
+export function combineStr(separator: string, ...subStrs: string[]) {
+    if (!subStrs || !subStrs.length) {
+        return ""
+    }
+    return subStrs.filter((k) => !!k).join(separator)
+}

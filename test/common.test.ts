@@ -542,6 +542,11 @@ test("common.string", () => {
     expect(common.string.getChineseWord("")).toBe("")
     expect(common.string.getChineseWord("hello world")).toBe("")
     expect(common.string.getChineseWord("hello 世界, how are you 你好")).toBe("世界你好")
+
+    expect(common.string.combineStr("")).toBe("")
+    expect(common.string.combineStr(",")).toBe("")
+    expect(common.string.combineStr(",", "a")).toBe("a")
+    expect(common.string.combineStr(",","a","b","c","d")).toBe("a,b,c,d")
 })
 
 test("common.url", () => {
