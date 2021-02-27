@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.20.1](https://github.com/xucongli1989/x-js-kit/compare/v4.20.0...v4.20.1) (2021-02-27)
+
+
+### Bug Fixes
+
+* add combine string ([e4404ce](https://github.com/xucongli1989/x-js-kit/commit/e4404ce4874a706a5a25b9fb00912d214eb8733b))
+
 ## [4.20.0](https://github.com/xucongli1989/x-js-kit/compare/v4.19.0...v4.20.0) (2021-02-22)
 
 
