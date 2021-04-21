@@ -12,6 +12,7 @@ import recorder from "./recorder/index"
 import pattern from "./pattern/index"
 import timer from "./timer/index"
 import validation from "./validation/index"
+import file from "./file/index"
 
 export default {
     cache,
@@ -26,5 +27,6 @@ export default {
     recorder,
     pattern,
     timer,
-    validation
+    validation,
+    file
 }

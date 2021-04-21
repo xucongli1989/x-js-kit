@@ -64,6 +64,9 @@ declare const _default: {
     validation: {
         fieldMessage: typeof import("./validation/fieldMessage");
     };
+    file: {
+        path: typeof import("./file/path");
+    };
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
