@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.22.0](https://github.com/xucongli1989/x-js-kit/compare/v4.21.1...v4.22.0) (2021-08-23)
+
+
+### Features
+
+* add time counter entity ([b40665d](https://github.com/xucongli1989/x-js-kit/commit/b40665dab5d1c786c0a28a8eac0310850d1c9f69))
+
 ### [4.21.1](https://github.com/xucongli1989/x-js-kit/compare/v4.21.0...v4.21.1) (2021-04-21)
 
 
