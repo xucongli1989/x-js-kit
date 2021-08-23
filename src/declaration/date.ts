@@ -45,3 +45,37 @@ export interface DateTimeEntityType {
      */
     week: WeekValueType
 }
+
+/**
+ * 用于计时类统计的实体类型，如：耗时信息
+ */
+export interface DateTimeCounterEntityType {
+    /**
+     * 年，按 12 个月（360 天）计算
+     */
+    year: number
+    /**
+     * 月，按 30 天计算
+     */
+    month: number
+    /**
+     * 日
+     */
+    day: number
+    /**
+     * 时
+     */
+    hour: number
+    /**
+     * 分
+     */
+    min: number
+    /**
+     * 秒
+     */
+    second: number
+    /**
+     * 毫秒
+     */
+    millisecond: number
+}
