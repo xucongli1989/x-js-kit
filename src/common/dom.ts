@@ -46,10 +46,10 @@ export function appendElementToLimitContainer(
     //超出范围
     if (conEle._x_js_kit_limit_edge_index > 0) {
         if (!conEle._x_js_kit_limit_inserted_ellipsis) {
-            conEle.insertBefore(ellipsisElement, conEle.childNodes[conEle._x_js_kit_limit_edge_index])
+            conEle.insertBefore(ellipsisElement, conEle.childNodes[isInsertToStart ? conEle._x_js_kit_limit_edge_index + 1 : conEle._x_js_kit_limit_edge_index])
             conEle._x_js_kit_limit_inserted_ellipsis = true
         }
-        conEle.removeChild(conEle.childNodes[conEle._x_js_kit_limit_edge_index + 1])
+        conEle.removeChild(conEle.childNodes[isInsertToStart ? conEle._x_js_kit_limit_edge_index : conEle._x_js_kit_limit_edge_index + 1])
         result.isOverflow = true
         return result
     }
