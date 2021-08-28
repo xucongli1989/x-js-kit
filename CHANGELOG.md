@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.23.1](https://github.com/xucongli1989/x-js-kit/compare/v4.23.0...v4.23.1) (2021-08-28)
+
+
+### Bug Fixes
+
+* bug fix for appendElementToLimitContainer ([f54bd85](https://github.com/xucongli1989/x-js-kit/commit/f54bd85a6340c1486c5475843b35f2371fccc0c4))
+
 ## [4.23.0](https://github.com/xucongli1989/x-js-kit/compare/v4.22.0...v4.23.0) (2021-08-28)
 
 
