@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.23.0](https://github.com/xucongli1989/x-js-kit/compare/v4.22.0...v4.23.0) (2021-08-28)
+
+
+### Features
+
+* support insert sub element  to start of container in method appendElementToLimitContainer ([1b03b30](https://github.com/xucongli1989/x-js-kit/commit/1b03b30621f69b0cecb98af330210cb7ae8939e2))
+
 ## [4.22.0](https://github.com/xucongli1989/x-js-kit/compare/v4.21.1...v4.22.0) (2021-08-23)
 
 
