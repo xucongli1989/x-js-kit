@@ -486,7 +486,7 @@ test("common.string", () => {
     expect(common.string.equalsIgnoreCase("", "")).toBeTruthy()
     expect(common.string.equalsIgnoreCase("a", "b")).toBeFalsy()
     expect(common.string.equalsIgnoreCase("abcD", "Abcd")).toBeTruthy()
-    
+
     expect(common.string.equalsIgnoreCaseAndTrim("", "")).toBeTruthy()
     expect(common.string.equalsIgnoreCaseAndTrim(" ", "             ")).toBeTruthy()
     expect(common.string.equalsIgnoreCaseAndTrim("abc", "    abc   ")).toBeTruthy()
@@ -546,7 +546,7 @@ test("common.string", () => {
     expect(common.string.combineStr("")).toBe("")
     expect(common.string.combineStr(",")).toBe("")
     expect(common.string.combineStr(",", "a")).toBe("a")
-    expect(common.string.combineStr(",","a","b","c","d")).toBe("a,b,c,d")
+    expect(common.string.combineStr(",", "a", "b", "c", "d")).toBe("a,b,c,d")
 })
 
 test("common.url", () => {
@@ -680,8 +680,23 @@ test("common.dom", () => {
         }
         expect(divContainer.innerHTML).toEqual("<p>1</p><p>2</p><p>3</p><p>...</p><p>9</p><p>10</p>")
     }
+    //追加到容器开头
+    const func5 = () => {
+        const divContainer = document.createElement("div")
+        const ellipsisElement = document.createElement("p")
+        ellipsisElement.innerHTML = "..."
+        for (let i = 0; i < 5; i++) {
+            const subElement = document.createElement("p")
+            subElement.innerHTML = (i + 1).toString()
+            const result = common.dom.appendElementToLimitContainer(divContainer, subElement, 6, ellipsisElement, true)
+            expect(result.isOverflow).toBeFalsy()
+        }
+        expect(divContainer.innerHTML).toEqual("<p>5</p><p>4</p><p>3</p><p>2</p><p>1</p>")
+    }
+
     func1()
     func2()
     func3()
     func4()
+    func5()
 })
