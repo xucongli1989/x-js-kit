@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.24.0](https://github.com/xucongli1989/x-js-kit/compare/v4.23.1...v4.24.0) (2021-10-05)
+
+
+### Features
+
+* add array is null or empty ([eee3c9d](https://github.com/xucongli1989/x-js-kit/commit/eee3c9d34a25e0619638d97f58eea8b755528918))
+
 ### [4.23.1](https://github.com/xucongli1989/x-js-kit/compare/v4.23.0...v4.23.1) (2021-08-28)
 
 
