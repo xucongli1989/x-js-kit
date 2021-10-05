@@ -45,11 +45,23 @@ export declare function createNumberArray(startValue: number, endValue: number, 
  */
 export declare function isNullOrEmpty(arr: any[]): boolean;
 /**
+ * 判断数组不为空
+ */
+export declare function isNotNullOrEmpty(arr: any[]): boolean;
+/**
  * 判断参数数组中是否至少有一个数组为空
  */
 export declare function isAnyNullOrEmpty(...arrs: any[][]): boolean;
 /**
+ * 判断参数数组中是否至少有一个数组不为空
+ */
+export declare function isAnyNotNullOrEmpty(...arrs: any[][]): boolean;
+/**
  * 判断参数数组中是否所有的数组都为空
  */
 export declare function isAllNullOrEmpty(...arrs: any[][]): boolean;
+/**
+ * 判断参数数组中是否所有的数组都不为空
+ */
+export declare function isAllNotNullOrEmpty(...arrs: any[][]): boolean;
 //# sourceMappingURL=array.d.ts.map

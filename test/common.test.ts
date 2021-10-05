@@ -71,7 +71,24 @@ test("common.array", () => {
     expect(common.array.isAllNullOrEmpty(null as any,null as any,[])).toBeTruthy()
     expect(common.array.isAllNullOrEmpty([],[],[])).toBeTruthy()
     expect(common.array.isAllNullOrEmpty([1],[2],[])).toBeFalsy()
-    expect(common.array.isAllNullOrEmpty([1],[2],[3])).toBeFalsy()
+    expect(common.array.isAllNullOrEmpty([1], [2], [3])).toBeFalsy()
+    
+    expect(common.array.isNotNullOrEmpty(null as any)).toBeFalsy()
+    expect(common.array.isNotNullOrEmpty([])).toBeFalsy()
+    expect(common.array.isNotNullOrEmpty([1])).toBeTruthy()
+
+    expect(common.array.isAnyNotNullOrEmpty(null as any, null as any, null as any)).toBeFalsy()
+    expect(common.array.isAnyNotNullOrEmpty(null as any,null as any,[])).toBeFalsy()
+    expect(common.array.isAnyNotNullOrEmpty([],[],[])).toBeFalsy()
+    expect(common.array.isAnyNotNullOrEmpty([1],[2],[])).toBeTruthy()
+    expect(common.array.isAnyNotNullOrEmpty([1], [2], [3])).toBeTruthy()
+    
+    
+    expect(common.array.isAllNotNullOrEmpty(null as any, null as any, null as any)).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty(null as any,null as any,[])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([],[],[])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([1],[2],[])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([1],[2],[3])).toBeTruthy()
 })
 
 test("common.convert", () => {

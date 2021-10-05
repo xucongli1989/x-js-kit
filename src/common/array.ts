@@ -114,6 +114,13 @@ export function isNullOrEmpty(arr: any[]) {
 }
 
 /**
+ * 判断数组不为空
+ */
+export function isNotNullOrEmpty(arr: any[]) {
+    return !isNullOrEmpty(arr)
+}
+
+/**
  * 判断参数数组中是否至少有一个数组为空
  */
 export function isAnyNullOrEmpty(...arrs: any[][]) {
@@ -124,6 +131,16 @@ export function isAnyNullOrEmpty(...arrs: any[][]) {
 }
 
 /**
+ * 判断参数数组中是否至少有一个数组不为空
+ */
+export function isAnyNotNullOrEmpty(...arrs: any[][]) {
+    if (!arrs || arrs.length == 0) {
+        return false
+    }
+    return arrs.some((k) => isNotNullOrEmpty(k))
+}
+
+/**
  * 判断参数数组中是否所有的数组都为空
  */
 export function isAllNullOrEmpty(...arrs: any[][]) {
@@ -131,4 +148,14 @@ export function isAllNullOrEmpty(...arrs: any[][]) {
         return true
     }
     return arrs.every((k) => isNullOrEmpty(k))
+}
+
+/**
+ * 判断参数数组中是否所有的数组都不为空
+ */
+export function isAllNotNullOrEmpty(...arrs: any[][]) {
+    if (!arrs || arrs.length == 0) {
+        return false
+    }
+    return arrs.every((k) => isNotNullOrEmpty(k))
 }
