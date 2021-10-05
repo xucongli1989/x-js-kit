@@ -105,3 +105,30 @@ export function createNumberArray(startValue: number, endValue: number, step?: n
     }
     return arr
 }
+
+/**
+ * 判断数组是否为空
+ */
+export function isNullOrEmpty(arr: any[]) {
+    return !arr || arr.length == 0
+}
+
+/**
+ * 判断参数数组中是否至少有一个数组为空
+ */
+export function isAnyNullOrEmpty(...arrs: any[][]) {
+    if (!arrs || arrs.length == 0) {
+        return true
+    }
+    return arrs.some((k) => isNullOrEmpty(k))
+}
+
+/**
+ * 判断参数数组中是否所有的数组都为空
+ */
+export function isAllNullOrEmpty(...arrs: any[][]) {
+    if (!arrs || arrs.length == 0) {
+        return true
+    }
+    return arrs.every((k) => isNullOrEmpty(k))
+}

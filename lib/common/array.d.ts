@@ -40,4 +40,16 @@ export declare function map<TargetType = any, SourceType = any>(arr: SourceType[
  * @param step 步长，默认为 1
  */
 export declare function createNumberArray(startValue: number, endValue: number, step?: number): number[];
+/**
+ * 判断数组是否为空
+ */
+export declare function isNullOrEmpty(arr: any[]): boolean;
+/**
+ * 判断参数数组中是否至少有一个数组为空
+ */
+export declare function isAnyNullOrEmpty(...arrs: any[][]): boolean;
+/**
+ * 判断参数数组中是否所有的数组都为空
+ */
+export declare function isAllNullOrEmpty(...arrs: any[][]): boolean;
 //# sourceMappingURL=array.d.ts.map
