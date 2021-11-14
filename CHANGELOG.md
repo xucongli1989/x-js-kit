@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.26.0](https://github.com/xucongli1989/x-js-kit/compare/v4.25.0...v4.26.0) (2021-11-14)
+
+
+### Features
+
+* add check a text string is a range ([92ab412](https://github.com/xucongli1989/x-js-kit/commit/92ab4120f207839c93a795c0e98bda8d1050cfa1))
+
 ## [4.25.0](https://github.com/xucongli1989/x-js-kit/compare/v4.24.0...v4.25.0) (2021-10-05)
 
 
