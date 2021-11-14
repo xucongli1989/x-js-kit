@@ -321,3 +321,25 @@ export function combineStr(separator: string, ...subStrs: string[]) {
     }
     return subStrs.filter((k) => !!k).join(separator)
 }
+
+/**
+ * 判断字符串是否表示一个集合中的某一项或某一个范围（注：一个范围用英文冒号分隔，多个范围用英文逗号分隔。自动兼容全半角分隔符和多余的空格），如：
+ * 【1】表示第1项
+ * 【2】表示第2项
+ * 【2:5】表示第2项到第5项
+ * 【-1】表示最后一项
+ * 【-2】表示倒数第2项
+ * 【-5:-2】表示倒数第5项到倒数第2项
+ * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
+ */
+export function isRangeText(str: string) {
+    str = str?.trim().replace(/，/g, ",").replace(/：/g, ":")
+    str = trimString(str, ",")
+    if (!str) {
+        return false
+    }
+    str += ","
+    const singleRegStr = "\\s*-?\\d+\\s*"
+    const reg = new RegExp(`^(((${singleRegStr})|(${singleRegStr}:${singleRegStr})),)+$`)
+    return reg.test(str)
+}
