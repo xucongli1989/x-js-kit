@@ -4,6 +4,7 @@ import * as keyValue from "./keyValue"
 import * as select from "./select"
 import * as serialize from "./serialize"
 import * as message from "./message"
+import * as methodResult from "./method-result"
 
 export default {
     /**
@@ -25,5 +26,9 @@ export default {
     /**
      * 消息提示实体
      */
-    message
+    message,
+    /**
+     * 方法结果实体
+     */
+    methodResult
 }

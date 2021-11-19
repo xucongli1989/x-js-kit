@@ -1,6 +1,8 @@
 import { partNumber, htmlLeftRightBlank, chineseChar } from "../constant/regex"
 import { escapeReg } from "./regexp"
 import { htmlEntityMap } from "../constant/map"
+import { MethodResult } from "../entity/method-result"
+import { toInt } from "./convert"
 
 /**
  * 将字符串按一定字符数拆分成字符串数组
@@ -333,13 +335,38 @@ export function combineStr(separator: string, ...subStrs: string[]) {
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
 export function isRangeText(str: string) {
-    str = str?.trim().replace(/，/g, ",").replace(/：/g, ":")
+    const msg = new MethodResult()
+    str = str?.replace(/，/g, ",").replace(/：/g, ":").replace(/\s/g, "")
     str = trimString(str, ",")
     if (!str) {
-        return false
+        msg.isSuccess = false
+        msg.message = "必须提供一个有效的范围！"
+        return msg
     }
-    str += ","
-    const singleRegStr = "\\s*-?\\d+\\s*"
-    const reg = new RegExp(`^(((${singleRegStr})|(${singleRegStr}:${singleRegStr})),)+$`)
-    return reg.test(str)
+    const itemReg = /^-?\d+$/
+    const items = str.split(",")
+    for (const item of items) {
+        const arr = item.split(":")
+        if (!(arr.length == 1 || arr.length == 2)) {
+            msg.isSuccess = false
+            msg.message = "格式不正确！"
+            break
+        }
+        if (!itemReg.test(arr[0]) || !toInt(arr[0])) {
+            msg.isSuccess = false
+            msg.message = "格式不正确，必须为整数，且不能为 0！"
+            break
+        }
+        if (arr.length == 2 && (!itemReg.test(arr[1]) || !toInt(arr[1]))) {
+            msg.isSuccess = false
+            msg.message = "格式不正确，必须为整数，且不能为 0！"
+            break
+        }
+        if (arr.length == 2 && toInt(arr[0]) > toInt(arr[1])) {
+            msg.isSuccess = false
+            msg.message = "格式不正确，左侧数字必须小于等于右侧数字！"
+            break
+        }
+    }
+    return msg
 }

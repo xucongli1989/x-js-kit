@@ -1,3 +1,4 @@
+import { MethodResult } from "../entity/method-result";
 /**
  * 将字符串按一定字符数拆分成字符串数组
  */
@@ -147,5 +148,5 @@ export declare function combineStr(separator: string, ...subStrs: string[]): str
  * 【-5:-2】表示倒数第5项到倒数第2项
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
-export declare function isRangeText(str: string): boolean;
+export declare function isRangeText(str: string): MethodResult<any, any>;
 //# sourceMappingURL=string.d.ts.map

@@ -48,6 +48,7 @@ declare const _default: {
         select: typeof import("./entity/select");
         serialize: typeof import("./entity/serialize");
         message: typeof import("./entity/message");
+        methodResult: typeof import("./entity/method-result");
     };
     recorder: {
         log: typeof import("./recorder/log");

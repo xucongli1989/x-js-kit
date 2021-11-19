@@ -3,6 +3,7 @@ import * as keyValue from "./keyValue";
 import * as select from "./select";
 import * as serialize from "./serialize";
 import * as message from "./message";
+import * as methodResult from "./method-result";
 declare const _default: {
     /**
      * 证件实体
@@ -24,6 +25,10 @@ declare const _default: {
      * 消息提示实体
      */
     message: typeof message;
+    /**
+     * 方法结果实体
+     */
+    methodResult: typeof methodResult;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
