@@ -362,6 +362,11 @@ export function isRangeText(str: string) {
             msg.message = "格式不正确，必须为整数，且不能为 0！"
             break
         }
+        if (arr.length == 2 && toInt(arr[0]) < 0 && toInt(arr[1]) > 0) {
+            msg.isSuccess = false
+            msg.message = "左侧数字为负数时，右侧数字必须也同时为负数！"
+            break
+        }
         if (arr.length == 2 && toInt(arr[0]) > toInt(arr[1])) {
             msg.isSuccess = false
             msg.message = "格式不正确，左侧数字必须小于等于右侧数字！"
