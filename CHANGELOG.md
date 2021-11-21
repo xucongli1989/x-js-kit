@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.26.3](https://github.com/xucongli1989/x-js-kit/compare/v4.26.2...v4.26.3) (2021-11-21)
+
+
+### Bug Fixes
+
+* fix isRangeText ([45f20fa](https://github.com/xucongli1989/x-js-kit/commit/45f20fa77fc1d2ee71335673ec468c44cf63d499))
+
 ### [4.26.2](https://github.com/xucongli1989/x-js-kit/compare/v4.26.1...v4.26.2) (2021-11-19)
 
 
