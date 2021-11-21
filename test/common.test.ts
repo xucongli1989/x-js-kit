@@ -590,6 +590,7 @@ test("common.string", () => {
     expect(common.string.isRangeText("2").isSuccess).toBeTruthy()
     expect(common.string.isRangeText("2:5").isSuccess).toBeTruthy()
     expect(common.string.isRangeText("5:4").isSuccess).toBeFalsy()
+    expect(common.string.isRangeText("5:-4").isSuccess).toBeTruthy()
     expect(common.string.isRangeText("-1").isSuccess).toBeTruthy()
     expect(common.string.isRangeText("-2").isSuccess).toBeTruthy()
     expect(common.string.isRangeText("-5:-2").isSuccess).toBeTruthy()
