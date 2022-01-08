@@ -602,6 +602,9 @@ test("common.string", () => {
     expect(common.string.isRangeText("1::5").isSuccess).toBeFalsy()
     expect(common.string.isRangeText("1,,2").isSuccess).toBeFalsy()
     expect(common.string.isRangeText("1，2，3：4,9").isSuccess).toBeTruthy()
+
+    expect(common.string.removeStartLine("")).toBe("")
+    expect(common.string.removeStartLine("__abc__")).toBe("abc__")
 })
 
 test("common.url", () => {

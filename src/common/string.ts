@@ -378,3 +378,10 @@ export function isRangeText(str: string) {
     }
     return msg
 }
+
+/**
+ * 删除字符串前面的下划线
+ */
+export function removeStartLine(str: string) {
+    return lTrimString(str, "_")
+}
