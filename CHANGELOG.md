@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.28.0](https://github.com/xucongli1989/x-js-kit/compare/v4.27.0...v4.28.0) (2022-03-03)
+
+
+### Features
+
+* upgrade regexp escape ([e8754bf](https://github.com/xucongli1989/x-js-kit/commit/e8754bf975003f132d59b6c319b68530949737c3))
+
 ## [4.27.0](https://github.com/xucongli1989/x-js-kit/compare/v4.26.3...v4.27.0) (2022-01-08)
 
 
