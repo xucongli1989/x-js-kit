@@ -1,4 +1,5 @@
 import common from "../src/common/index"
+import { RegExpEngineEnum } from "../src/common/regexp"
 
 test("common.array", () => {
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -441,6 +442,22 @@ test("common.regexp", () => {
     expect(common.regexp.escapeReg("^")).toBe("\\^")
     expect(common.regexp.escapeReg("$")).toBe("\\$")
     expect(common.regexp.escapeReg("*")).toBe("\\*")
+
+    expect(common.regexp.escapeReg("",RegExpEngineEnum.DOTNET)).toBe("")
+    expect(common.regexp.escapeReg("\\",RegExpEngineEnum.DOTNET)).toBe("\\\\")
+    expect(common.regexp.escapeReg("*",RegExpEngineEnum.DOTNET)).toBe("\\*")
+    expect(common.regexp.escapeReg("+",RegExpEngineEnum.DOTNET)).toBe("\\+")
+    expect(common.regexp.escapeReg("?",RegExpEngineEnum.DOTNET)).toBe("\\?")
+    expect(common.regexp.escapeReg("|",RegExpEngineEnum.DOTNET)).toBe("\\|")
+    expect(common.regexp.escapeReg("{",RegExpEngineEnum.DOTNET)).toBe("\\{")
+    expect(common.regexp.escapeReg("[",RegExpEngineEnum.DOTNET)).toBe("\\[")
+    expect(common.regexp.escapeReg("(", RegExpEngineEnum.DOTNET)).toBe("\\(")
+    expect(common.regexp.escapeReg(")",RegExpEngineEnum.DOTNET)).toBe("\\)")
+    expect(common.regexp.escapeReg("^",RegExpEngineEnum.DOTNET)).toBe("\\^")
+    expect(common.regexp.escapeReg("$",RegExpEngineEnum.DOTNET)).toBe("\\$")
+    expect(common.regexp.escapeReg(".",RegExpEngineEnum.DOTNET)).toBe("\\.")
+    expect(common.regexp.escapeReg("#",RegExpEngineEnum.DOTNET)).toBe("\\#")
+    expect(common.regexp.escapeReg(" ",RegExpEngineEnum.DOTNET)).toBe("\\ ")
 })
 
 test("common.string", () => {
