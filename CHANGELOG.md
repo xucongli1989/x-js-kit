@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.29.2](https://github.com/xucongli1989/x-js-kit/compare/v4.29.1...v4.29.2) (2022-03-12)
+
+
+### Bug Fixes
+
+* update convert enum method ([15eefe1](https://github.com/xucongli1989/x-js-kit/commit/15eefe1a98539dd5acdd49b9fba7e99375710dc9))
+
 ### [4.29.1](https://github.com/xucongli1989/x-js-kit/compare/v4.29.0...v4.29.1) (2022-03-12)
 
 
