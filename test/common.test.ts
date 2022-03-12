@@ -62,34 +62,34 @@ test("common.array", () => {
     expect(common.array.isNullOrEmpty([1])).toBeFalsy()
 
     expect(common.array.isAnyNullOrEmpty(null as any, null as any, null as any)).toBeTruthy()
-    expect(common.array.isAnyNullOrEmpty(null as any,null as any,[])).toBeTruthy()
-    expect(common.array.isAnyNullOrEmpty([],[],[])).toBeTruthy()
-    expect(common.array.isAnyNullOrEmpty([1],[2],[])).toBeTruthy()
+    expect(common.array.isAnyNullOrEmpty(null as any, null as any, [])).toBeTruthy()
+    expect(common.array.isAnyNullOrEmpty([], [], [])).toBeTruthy()
+    expect(common.array.isAnyNullOrEmpty([1], [2], [])).toBeTruthy()
     expect(common.array.isAnyNullOrEmpty([1], [2], [3])).toBeFalsy()
-    
-    
+
+
     expect(common.array.isAllNullOrEmpty(null as any, null as any, null as any)).toBeTruthy()
-    expect(common.array.isAllNullOrEmpty(null as any,null as any,[])).toBeTruthy()
-    expect(common.array.isAllNullOrEmpty([],[],[])).toBeTruthy()
-    expect(common.array.isAllNullOrEmpty([1],[2],[])).toBeFalsy()
+    expect(common.array.isAllNullOrEmpty(null as any, null as any, [])).toBeTruthy()
+    expect(common.array.isAllNullOrEmpty([], [], [])).toBeTruthy()
+    expect(common.array.isAllNullOrEmpty([1], [2], [])).toBeFalsy()
     expect(common.array.isAllNullOrEmpty([1], [2], [3])).toBeFalsy()
-    
+
     expect(common.array.isNotNullOrEmpty(null as any)).toBeFalsy()
     expect(common.array.isNotNullOrEmpty([])).toBeFalsy()
     expect(common.array.isNotNullOrEmpty([1])).toBeTruthy()
 
     expect(common.array.isAnyNotNullOrEmpty(null as any, null as any, null as any)).toBeFalsy()
-    expect(common.array.isAnyNotNullOrEmpty(null as any,null as any,[])).toBeFalsy()
-    expect(common.array.isAnyNotNullOrEmpty([],[],[])).toBeFalsy()
-    expect(common.array.isAnyNotNullOrEmpty([1],[2],[])).toBeTruthy()
+    expect(common.array.isAnyNotNullOrEmpty(null as any, null as any, [])).toBeFalsy()
+    expect(common.array.isAnyNotNullOrEmpty([], [], [])).toBeFalsy()
+    expect(common.array.isAnyNotNullOrEmpty([1], [2], [])).toBeTruthy()
     expect(common.array.isAnyNotNullOrEmpty([1], [2], [3])).toBeTruthy()
-    
-    
+
+
     expect(common.array.isAllNotNullOrEmpty(null as any, null as any, null as any)).toBeFalsy()
-    expect(common.array.isAllNotNullOrEmpty(null as any,null as any,[])).toBeFalsy()
-    expect(common.array.isAllNotNullOrEmpty([],[],[])).toBeFalsy()
-    expect(common.array.isAllNotNullOrEmpty([1],[2],[])).toBeFalsy()
-    expect(common.array.isAllNotNullOrEmpty([1],[2],[3])).toBeTruthy()
+    expect(common.array.isAllNotNullOrEmpty(null as any, null as any, [])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([], [], [])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([1], [2], [])).toBeFalsy()
+    expect(common.array.isAllNotNullOrEmpty([1], [2], [3])).toBeTruthy()
 })
 
 test("common.convert", () => {
@@ -191,6 +191,12 @@ test("common.data", () => {
     expect(common.data.isUndefined("123")).toBeFalsy()
     expect(common.data.isUndefined(undefined)).toBeTruthy()
 
+    expect(common.data.isNullOrUndefined(null)).toBeTruthy()
+    expect(common.data.isNullOrUndefined(undefined)).toBeTruthy()
+    expect(common.data.isNullOrUndefined(0)).toBeFalsy()
+    expect(common.data.isNullOrUndefined("")).toBeFalsy()
+    expect(common.data.isNullOrUndefined("123")).toBeFalsy()
+
     expect(common.data.isUpper("")).toBeFalsy()
     expect(common.data.isUpper("aBc")).toBeFalsy()
     expect(common.data.isUpper("ABC")).toBeTruthy()
@@ -250,6 +256,58 @@ test("common.enumTool", () => {
         { key: "b", value: 7 },
         { key: "c", value: 8 }
     ])
+
+
+    enum Test4 {
+        a,
+        b,
+        c
+    }
+    expect(common.enumTool.getDefaultEnum(Test4)).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, "0")).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, 0)).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, "1")).toEqual(Test4.b)
+    expect(common.enumTool.getDefaultEnum(Test4, "100")).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, "a")).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, "b")).toEqual(Test4.a)
+    expect(common.enumTool.getDefaultEnum(Test4, "c")).toEqual(Test4.a)
+    expect(common.enumTool.isValueInEnum(Test4, 0)).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test4, 1)).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test4, 2)).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test4, 3)).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test4, "a")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test4, "b")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test4, "c")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test4, "d")).toBeFalsy()
+
+    enum Test5 {
+        a = "aaa",
+        b = "bbb",
+        c = "ccc"
+    }
+    expect(common.enumTool.getDefaultEnum(Test5)).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, "aaa")).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, "bbb")).toEqual(Test5.b)
+    expect(common.enumTool.getDefaultEnum(Test5, "ccc")).toEqual(Test5.c)
+    expect(common.enumTool.getDefaultEnum(Test5, "ddd")).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, "a")).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, "b")).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, "c")).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, 0)).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, 1)).toEqual(Test5.a)
+    expect(common.enumTool.getDefaultEnum(Test5, 2)).toEqual(Test5.a)
+    expect(common.enumTool.isValueInEnum(Test5, "aaa")).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test5, "bbb")).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test5, "ccc")).toBeTruthy()
+    expect(common.enumTool.isValueInEnum(Test5, "ddd")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, "a")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, "b")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, "c")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, "d")).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, 0)).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, 1)).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, 2)).toBeFalsy()
+    expect(common.enumTool.isValueInEnum(Test5, 3)).toBeFalsy()
 })
 
 test("common.idCard", () => {
@@ -443,21 +501,21 @@ test("common.regexp", () => {
     expect(common.regexp.escapeReg("$")).toBe("\\$")
     expect(common.regexp.escapeReg("*")).toBe("\\*")
 
-    expect(common.regexp.escapeReg("",RegExpEngineEnum.DOTNET)).toBe("")
-    expect(common.regexp.escapeReg("\\",RegExpEngineEnum.DOTNET)).toBe("\\\\")
-    expect(common.regexp.escapeReg("*",RegExpEngineEnum.DOTNET)).toBe("\\*")
-    expect(common.regexp.escapeReg("+",RegExpEngineEnum.DOTNET)).toBe("\\+")
-    expect(common.regexp.escapeReg("?",RegExpEngineEnum.DOTNET)).toBe("\\?")
-    expect(common.regexp.escapeReg("|",RegExpEngineEnum.DOTNET)).toBe("\\|")
-    expect(common.regexp.escapeReg("{",RegExpEngineEnum.DOTNET)).toBe("\\{")
-    expect(common.regexp.escapeReg("[",RegExpEngineEnum.DOTNET)).toBe("\\[")
+    expect(common.regexp.escapeReg("", RegExpEngineEnum.DOTNET)).toBe("")
+    expect(common.regexp.escapeReg("\\", RegExpEngineEnum.DOTNET)).toBe("\\\\")
+    expect(common.regexp.escapeReg("*", RegExpEngineEnum.DOTNET)).toBe("\\*")
+    expect(common.regexp.escapeReg("+", RegExpEngineEnum.DOTNET)).toBe("\\+")
+    expect(common.regexp.escapeReg("?", RegExpEngineEnum.DOTNET)).toBe("\\?")
+    expect(common.regexp.escapeReg("|", RegExpEngineEnum.DOTNET)).toBe("\\|")
+    expect(common.regexp.escapeReg("{", RegExpEngineEnum.DOTNET)).toBe("\\{")
+    expect(common.regexp.escapeReg("[", RegExpEngineEnum.DOTNET)).toBe("\\[")
     expect(common.regexp.escapeReg("(", RegExpEngineEnum.DOTNET)).toBe("\\(")
-    expect(common.regexp.escapeReg(")",RegExpEngineEnum.DOTNET)).toBe("\\)")
-    expect(common.regexp.escapeReg("^",RegExpEngineEnum.DOTNET)).toBe("\\^")
-    expect(common.regexp.escapeReg("$",RegExpEngineEnum.DOTNET)).toBe("\\$")
-    expect(common.regexp.escapeReg(".",RegExpEngineEnum.DOTNET)).toBe("\\.")
-    expect(common.regexp.escapeReg("#",RegExpEngineEnum.DOTNET)).toBe("\\#")
-    expect(common.regexp.escapeReg(" ",RegExpEngineEnum.DOTNET)).toBe("\\ ")
+    expect(common.regexp.escapeReg(")", RegExpEngineEnum.DOTNET)).toBe("\\)")
+    expect(common.regexp.escapeReg("^", RegExpEngineEnum.DOTNET)).toBe("\\^")
+    expect(common.regexp.escapeReg("$", RegExpEngineEnum.DOTNET)).toBe("\\$")
+    expect(common.regexp.escapeReg(".", RegExpEngineEnum.DOTNET)).toBe("\\.")
+    expect(common.regexp.escapeReg("#", RegExpEngineEnum.DOTNET)).toBe("\\#")
+    expect(common.regexp.escapeReg(" ", RegExpEngineEnum.DOTNET)).toBe("\\ ")
 })
 
 test("common.string", () => {

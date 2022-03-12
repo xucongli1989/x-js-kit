@@ -90,6 +90,15 @@ export function isUndefined(val: any) {
 }
 
 /**
+ * 判断指定值是否为 null 或 undefined
+ * @param  val 要判断的值
+ * @returns 判断结果
+ */
+export function isNullOrUndefined(val: any) {
+    return isNull(val) || isUndefined(val)
+}
+
+/**
  * 指定值是否全部为大写
  * @param  val 要判断的值
  * @returns 判断结果
