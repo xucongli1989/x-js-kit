@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.29.0](https://github.com/xucongli1989/x-js-kit/compare/v4.28.0...v4.29.0) (2022-03-12)
+
+
+### Features
+
+* add get enum default value ([56f7e6e](https://github.com/xucongli1989/x-js-kit/commit/56f7e6eb02b13c0bcf177351edaad953ce80b46e))
+
 ## [4.28.0](https://github.com/xucongli1989/x-js-kit/compare/v4.27.0...v4.28.0) (2022-03-03)
 
 
