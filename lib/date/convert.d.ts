@@ -13,4 +13,12 @@ export declare function toCounterEntity(ms: number): DateTimeCounterEntityType;
  * @returns 如果转换成功，则返回Date对象，否则返回null
  */
 export declare function parse(dateStr: string): Date | null;
+/**
+ * 将日期对象转换为：yyyy-MM-dd HH:mm:ss
+ */
+export declare function convertDateTimeToYMDHMS(dt: Date): string;
+/**
+ * 将日期对象转换为：yyyy-MM-dd HH:mm:ss.SSS
+ */
+export declare function convertDateTimeToYMDHMSMS(dt: Date): string;
 //# sourceMappingURL=convert.d.ts.map

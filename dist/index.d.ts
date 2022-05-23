@@ -67,6 +67,7 @@ declare const _default: {
     };
     file: {
         path: typeof import("./file/path");
+        img: typeof import("./file/img");
     };
 };
 export default _default;
