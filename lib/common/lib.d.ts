@@ -1,21 +1,13 @@
 /// <reference types="node" />
 import { AnyKeyValueType, AnyFunctionType } from "../declaration/common";
 /**
- * 是否为服务器环境
+ * 是否为服务器环境（仅仅是判断 window 未定义）
  */
 export declare function isServer(): boolean;
 /**
  * 是否为浏览器环境
  */
 export declare function isBowser(): boolean;
-/**
- * 判断是否为生产环境（process.env.NODE_ENV==production）
- */
-export declare function isProduction(): boolean;
-/**
- * 判断是否为开发环境（process.env.NODE_ENV==development）
- */
-export declare function isDevelopment(): boolean;
 /**
  * 获取全局对象
  */
