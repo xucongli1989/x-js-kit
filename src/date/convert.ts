@@ -1,3 +1,4 @@
+import DateFormat from "date-fns/format"
 import { DateTimeCounterEntityType, DateTimeEntityType, MonthValueType, WeekValueType } from "../declaration/date"
 import { isDate, isString } from "../common/data"
 import { toInt } from "../common/convert"
@@ -100,4 +101,18 @@ export function parse(dateStr: string): Date | null {
         return null
     }
     return date
+}
+
+/**
+ * 将日期对象转换为：yyyy-MM-dd HH:mm:ss
+ */
+export function convertDateTimeToYMDHMS(dt: Date) {
+    return DateFormat(dt, "yyyy-MM-dd HH:mm:ss")
+}
+
+/**
+ * 将日期对象转换为：yyyy-MM-dd HH:mm:ss.SSS
+ */
+export function convertDateTimeToYMDHMSMS(dt: Date) {
+    return DateFormat(dt, "yyyy-MM-dd HH:mm:ss.SSS")
 }
