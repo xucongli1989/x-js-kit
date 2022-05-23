@@ -7,7 +7,7 @@ import { isFunction } from "./data"
 let defaultTryRunErrorHandler: AnyFunctionType = () => null
 
 /**
- * 是否为服务器环境
+ * 是否为服务器环境（仅仅是判断 window 未定义）
  */
 export function isServer() {
     return typeof window === "undefined"
@@ -18,34 +18,6 @@ export function isServer() {
  */
 export function isBowser() {
     return !isServer()
-}
-
-/**
- * 判断是否为生产环境（process.env.NODE_ENV==production）
- */
-export function isProduction() {
-    if (!isServer()) {
-        return false
-    }
-    const g = getGlobalObject() as NodeJS.Global
-    if (!g.process.env) {
-        return false
-    }
-    return (g.process.env.NODE_ENV || "").toLowerCase() == "production"
-}
-
-/**
- * 判断是否为开发环境（process.env.NODE_ENV==development）
- */
-export function isDevelopment() {
-    if (!isServer()) {
-        return false
-    }
-    const g = getGlobalObject() as NodeJS.Global
-    if (!g.process.env) {
-        return false
-    }
-    return (g.process.env.NODE_ENV || "").toLowerCase() == "development"
 }
 
 /**
