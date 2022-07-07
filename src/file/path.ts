@@ -57,3 +57,23 @@ export function getExtWithoutDot(path: string): string {
     }
     return fileName.substr(dotIndex + 1)
 }
+
+/**
+ * 判断一个路径是否为系统回收站的路径
+ */
+export function isSystemRecyclePath(p: string) {
+    if (!p) {
+        return false
+    }
+    return p.toUpperCase().includes("$RECYCLE.BIN")
+}
+
+/**
+ * 判断一个路径是否为 Office 临时文件的路径（文件名以 ~$ 开头）
+ */
+export function isOfficeTempPath(p: string) {
+    if (!p) {
+        return false
+    }
+    return getFileName(p).startsWith("~$")
+}

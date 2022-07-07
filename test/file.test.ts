@@ -42,4 +42,10 @@ test("file.path", () => {
     expect(file.path.getExtWithoutDot("c:\\1\\2\\.abc")).toBe("abc")
     expect(file.path.getExtWithoutDot("c:\\1\\2\\3.txt/a.b.c.d")).toBe("d")
     expect(file.path.getExtWithoutDot("c:\\1\\2\\3.txt/.....")).toBe("")
+
+    expect(file.path.isSystemRecyclePath("c:\\a\\")).toBeFalsy()
+    expect(file.path.isSystemRecyclePath("c:\\$RECYCLE.BIN\\")).toBeTruthy()
+
+    expect(file.path.isOfficeTempPath("c:\\~$a\\")).toBeFalsy()
+    expect(file.path.isOfficeTempPath("c:\\~$a.docx")).toBeTruthy()
 })

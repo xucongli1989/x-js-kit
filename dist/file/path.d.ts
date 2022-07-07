@@ -14,4 +14,12 @@ export declare function getExt(path: string): string;
  * 获取扩展名（不包含点）
  */
 export declare function getExtWithoutDot(path: string): string;
+/**
+ * 判断一个路径是否为系统回收站的路径
+ */
+export declare function isSystemRecyclePath(p: string): boolean;
+/**
+ * 判断一个路径是否为 Office 临时文件的路径（文件名以 ~$ 开头）
+ */
+export declare function isOfficeTempPath(p: string): boolean;
 //# sourceMappingURL=path.d.ts.map
