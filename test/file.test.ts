@@ -48,4 +48,6 @@ test("file.path", () => {
 
     expect(file.path.isOfficeTempPath("c:\\~$a\\")).toBeFalsy()
     expect(file.path.isOfficeTempPath("c:\\~$a.docx")).toBeTruthy()
+
+    expect(file.path.convertPathToFileUrl("c:\\a\\b\\c.docx")).toBe("file://c:/a/b/c.docx")
 })

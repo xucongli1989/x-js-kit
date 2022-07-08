@@ -77,3 +77,13 @@ export function isOfficeTempPath(p: string) {
     }
     return getFileName(p).startsWith("~$")
 }
+
+/**
+ * 将物理绝对路径转换为 file 协议的 url
+ */
+export function convertPathToFileUrl(p: string) {
+    if (!p) {
+        return ""
+    }
+    return `file://${p.replaceAll("\\", "/").trim()}`
+}

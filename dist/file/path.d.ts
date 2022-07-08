@@ -22,4 +22,8 @@ export declare function isSystemRecyclePath(p: string): boolean;
  * 判断一个路径是否为 Office 临时文件的路径（文件名以 ~$ 开头）
  */
 export declare function isOfficeTempPath(p: string): boolean;
+/**
+ * 将物理绝对路径转换为 file 协议的 url
+ */
+export declare function convertPathToFileUrl(p: string): string;
 //# sourceMappingURL=path.d.ts.map
