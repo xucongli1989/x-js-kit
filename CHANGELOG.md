@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.33.0](https://github.com/xucongli1989/x-js-kit/compare/v4.32.0...v4.33.0) (2022-07-09)
+
+
+### Features
+
+* add get path root name ([a65105b](https://github.com/xucongli1989/x-js-kit/commit/a65105bc7ef39cc7365304ccab187ba0f9982eff))
+
 ## [4.32.0](https://github.com/xucongli1989/x-js-kit/compare/v4.31.0...v4.32.0) (2022-07-08)
 
 
