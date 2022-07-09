@@ -26,4 +26,8 @@ export declare function isOfficeTempPath(p: string): boolean;
  * 将物理绝对路径转换为 file 协议的 url
  */
 export declare function convertPathToFileUrl(p: string): string;
+/**
+ * 获取路径中的根名称，如：C:\a\b -> C，\\TEST-PC\a\b  -> TEST-PC
+ */
+export declare function getPathRootName(p: string): string;
 //# sourceMappingURL=path.d.ts.map

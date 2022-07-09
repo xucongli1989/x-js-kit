@@ -50,4 +50,9 @@ test("file.path", () => {
     expect(file.path.isOfficeTempPath("c:\\~$a.docx")).toBeTruthy()
 
     expect(file.path.convertPathToFileUrl("c:\\a\\b\\c.docx")).toBe("file://c:/a/b/c.docx")
+
+    expect(file.path.getPathRootName("c:\\")).toBe("c")
+    expect(file.path.getPathRootName("c:\\a\\b\\c.docx")).toBe("c")
+    expect(file.path.getPathRootName("\\\\TEST-PC\\")).toBe("TEST-PC")
+    expect(file.path.getPathRootName("\\\\TEST-PC\\share\\b\\c.docx")).toBe("TEST-PC")
 })

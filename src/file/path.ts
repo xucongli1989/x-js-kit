@@ -87,3 +87,27 @@ export function convertPathToFileUrl(p: string) {
     }
     return `file://${p.replaceAll("\\", "/").trim()}`
 }
+
+/**
+ * 获取路径中的根名称，如：C:\a\b -> C，\\TEST-PC\a\b  -> TEST-PC
+ */
+export function getPathRootName(p: string) {
+    if (!p) {
+        return ""
+    }
+    let reg = /^.+?:/
+    if (reg.test(p)) {
+        const mts = p.match(reg)
+        if (mts?.length) {
+            return mts[0].replaceAll(":", "")
+        }
+    }
+    reg = /^\\\\.+?\\/
+    if (reg.test(p)) {
+        const mts = p.match(reg)
+        if (mts?.length) {
+            return mts[0].replaceAll("\\", "")
+        }
+    }
+    return ""
+}
