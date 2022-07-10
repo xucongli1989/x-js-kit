@@ -1,3 +1,20 @@
+import { rTrimString } from "../common/string"
+
+/**
+ * 将指定路径转换为标准的路径，标准的路径分隔符为 \，如果是文件夹，则最后也带 \
+ */
+export function getStandardPath(path: string, isFolder: boolean) {
+    if (!path) {
+        return ""
+    }
+    path = path.trim().replaceAll("/", "\\")
+    path = rTrimString(path, "\\")
+    if (isFolder) {
+        return path + "\\"
+    }
+    return path
+}
+
 /**
  * 获取文件名（包含扩展名），如：c:\1\2\3.txt => 3.txt
  */
@@ -5,7 +22,7 @@ export function getFileName(path: string): string {
     if (!path) {
         return ""
     }
-    const str = path.replace(/\//g, "\\")
+    const str = getStandardPath(path, false)
     const splitIndex = str.lastIndexOf("\\")
     if (splitIndex < 0) {
         return path.trim()
@@ -59,55 +76,73 @@ export function getExtWithoutDot(path: string): string {
 }
 
 /**
- * 判断一个路径是否为系统回收站的路径
+ * 判断某个路径是否为本地磁盘根路径，如：c:\  或  \\test-pc\
  */
-export function isSystemRecyclePath(p: string) {
-    if (!p) {
+export function isLocalDiskRootPath(path: string) {
+    if (!path) {
         return false
     }
-    return p.toUpperCase().includes("$RECYCLE.BIN")
+    path = getStandardPath(path, true)
+    return /^[^\\]+:\\$/.test(path) || /^\\\\[^\\]+\\$/.test(path)
+}
+
+/**
+ * 获取路径中的磁盘名称，如：c:\a\b\c\ -> c，\\test-pc\a\b\c\ -> test-pc
+ */
+export function getLocalPathDiskName(path: string) {
+    if (!path) {
+        return ""
+    }
+    path = getStandardPath(path, true)
+    let mt = path.match(/^[^\\]+(?=:)/)
+    if (mt?.length) {
+        return mt[0]
+    }
+    mt = path.match(/^\\\\([^\\]+)(?=\\)/)
+    if (mt?.length) {
+        return mt[1]
+    }
+    return ""
+}
+
+/**
+ * 获取路径所在的文件夹名称，如：c:\  --> c；  c:\a\b\ --> b;  c:\a\b\c.pdf --> b
+ */
+export function getPathFolderName(path: string, isFolderPath: boolean) {
+    if (!path) {
+        return ""
+    }
+    path = getStandardPath(path, isFolderPath)
+    const arr = path.split("\\")
+    return arr[arr.length - 2].replaceAll(":", "")
+}
+
+/**
+ * 判断一个路径是否为系统回收站的路径
+ */
+export function isSystemRecyclePath(path: string) {
+    if (!path) {
+        return false
+    }
+    return path.toUpperCase().includes("$RECYCLE.BIN")
 }
 
 /**
  * 判断一个路径是否为 Office 临时文件的路径（文件名以 ~$ 开头）
  */
-export function isOfficeTempPath(p: string) {
-    if (!p) {
+export function isOfficeTempPath(path: string) {
+    if (!path) {
         return false
     }
-    return getFileName(p).startsWith("~$")
+    return getFileName(path).startsWith("~$")
 }
 
 /**
  * 将物理绝对路径转换为 file 协议的 url
  */
-export function convertPathToFileUrl(p: string) {
-    if (!p) {
+export function convertPathToFileUrl(path: string) {
+    if (!path) {
         return ""
     }
-    return `file://${p.replaceAll("\\", "/").trim()}`
-}
-
-/**
- * 获取路径中的根名称，如：C:\a\b -> C，\\TEST-PC\a\b  -> TEST-PC
- */
-export function getPathRootName(p: string) {
-    if (!p) {
-        return ""
-    }
-    let reg = /^.+?:/
-    if (reg.test(p)) {
-        const mts = p.match(reg)
-        if (mts?.length) {
-            return mts[0].replaceAll(":", "")
-        }
-    }
-    reg = /^\\\\.+?\\/
-    if (reg.test(p)) {
-        const mts = p.match(reg)
-        if (mts?.length) {
-            return mts[0].replaceAll("\\", "")
-        }
-    }
-    return ""
+    return `file://${path.replaceAll("\\", "/").trim()}`
 }
