@@ -22,6 +22,7 @@ declare const _default: {
         url: typeof import("./common/url");
         regexp: typeof import("./common/regexp");
         dom: typeof import("./common/dom");
+        color: typeof import("./common/color");
     };
     config: {
         common: typeof import("./config/common");

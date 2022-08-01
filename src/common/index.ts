@@ -13,6 +13,7 @@ import * as random from "./random"
 import * as url from "./url"
 import * as regexp from "./regexp"
 import * as dom from "./dom"
+import * as color from "./color"
 
 export default {
     /**
@@ -70,5 +71,9 @@ export default {
     /**
      * dom 操作
      */
-    dom
+    dom,
+    /**
+     * 颜色相关
+     */
+    color
 }
