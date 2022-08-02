@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.36.0](https://github.com/xucongli1989/x-js-kit/compare/v4.35.0...v4.36.0) (2022-08-02)
+
+
+### Features
+
+* update color helper ([b8bdcd0](https://github.com/xucongli1989/x-js-kit/commit/b8bdcd009fb412b4cb0a03943b431ccd32d94dd8))
+
 ## [4.35.0](https://github.com/xucongli1989/x-js-kit/compare/v4.34.0...v4.35.0) (2022-08-01)
 
 
