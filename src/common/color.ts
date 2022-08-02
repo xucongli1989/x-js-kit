@@ -1,14 +1,35 @@
-import { isNullOrUndefined } from "./data"
+import { toInt } from "./convert"
+import { isNumber } from "./data"
 import { splitString } from "./string"
 
 /**
  * 颜色实体
  */
 export interface RGBAColorType {
+    /**
+     * 0-255
+     */
     r: number
+    /**
+     * 0-255
+     */
     g: number
+    /**
+     * 0-255
+     */
     b: number
-    a: number
+    /**
+     * 0-255
+     */
+    a?: number
+    /**
+     * a 的 0~1 小数形式
+     */
+    a01?: number
+    /**
+     * a 的 0~100 百分比形式
+     */
+    a100?: number
 }
 
 /**
@@ -27,6 +48,8 @@ export function hexToEntity(hex: string) {
         result.g = parseInt(arr[1], 16)
         result.b = parseInt(arr[2], 16)
         result.a = 255
+        result.a01 = 1
+        result.a100 = 100
         return result
     }
     if (arr.length == 4) {
@@ -35,6 +58,8 @@ export function hexToEntity(hex: string) {
         result.g = parseInt(arr[1], 16)
         result.b = parseInt(arr[2], 16)
         result.a = parseInt(arr[3], 16)
+        result.a01 = result.a / 255.0
+        result.a100 = toInt(result.a01 * 100)
         return result
     }
     return result
@@ -43,7 +68,18 @@ export function hexToEntity(hex: string) {
 /**
  * 将 RGBA 转换为十六进制的颜色字符串（小写，如：#ff001199）
  */
-export function rgbaToHex(r: number, g: number, b: number, a?: number) {
+export function rgbaToHex(rgba: RGBAColorType) {
+    if (!rgba) {
+        return ""
+    }
     const getHex = (v: number) => v.toString(16).padStart(2, "0")
-    return `#${getHex(r)}${getHex(g)}${getHex(b)}${isNullOrUndefined(a) ? "" : getHex(a || 0)}`
+    let aHex = "ff"
+    if (isNumber(rgba.a)) {
+        aHex = getHex(rgba.a as number)
+    } else if (isNumber(rgba.a01)) {
+        aHex = getHex(toInt((rgba.a01 as number) * 255))
+    } else if (isNumber(rgba.a100)) {
+        aHex = getHex(toInt(((rgba.a100 as number) / 100.0) * 255))
+    }
+    return `#${getHex(rgba.r)}${getHex(rgba.g)}${getHex(rgba.b)}${aHex}`
 }
