@@ -385,3 +385,13 @@ export function isRangeText(str: string) {
 export function removeStartLine(str: string) {
     return lTrimString(str, "_")
 }
+
+/**
+ * 删除所有空白字符
+ */
+export function removeWhiteSpace(str: string) {
+    if (!str) {
+        return ""
+    }
+    return str.replaceAll(/\s+/g, "")
+}

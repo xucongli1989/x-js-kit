@@ -679,6 +679,9 @@ test("common.string", () => {
 
     expect(common.string.removeStartLine("")).toBe("")
     expect(common.string.removeStartLine("__abc__")).toBe("abc__")
+
+    expect(common.string.removeWhiteSpace(null as any)).toBe("")
+    expect(common.string.removeWhiteSpace("   1   2   3   ")).toBe("123")
 })
 
 test("common.url", () => {

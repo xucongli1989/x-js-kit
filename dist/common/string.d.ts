@@ -153,4 +153,8 @@ export declare function isRangeText(str: string): MethodResult<any, any>;
  * 删除字符串前面的下划线
  */
 export declare function removeStartLine(str: string): string;
+/**
+ * 删除所有空白字符
+ */
+export declare function removeWhiteSpace(str: string): string;
 //# sourceMappingURL=string.d.ts.map
