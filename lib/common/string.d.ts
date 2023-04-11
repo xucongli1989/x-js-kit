@@ -127,7 +127,7 @@ export declare function format(str: string, ...args: any[]): string;
  */
 export declare function removeBlankLines(str: string): string;
 /**
- * 将文本中的字符串 "\r\n" 和 "\n" 统一替换成 <br/>
+ * 将文本中的字符串形式或换行符形式的 "\r\n" 和 "\n" 统一替换成 <br/>
  */
 export declare function replaceNewlineToBr(str: string): string;
 /**

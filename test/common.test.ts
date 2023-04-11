@@ -646,6 +646,7 @@ test("common.string", () => {
 
     expect(common.string.replaceNewlineToBr("")).toBe("")
     expect(common.string.replaceNewlineToBr("abc\\n\\ndef\\r\\ng\\r\\n")).toBe("abc<br/><br/>def<br/>g<br/>")
+    expect(common.string.replaceNewlineToBr("abc\n\ndef\r\ng\r\n")).toBe("abc<br/><br/>def<br/>g<br/>")
 
     expect(common.string.getChineseWord("")).toBe("")
     expect(common.string.getChineseWord("hello world")).toBe("")
