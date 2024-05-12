@@ -31,6 +31,7 @@ declare const _default: {
     constant: {
         regexConst: typeof import("./constant/regex");
         map: typeof import("./constant/map");
+        enums: typeof import("./constant/enums");
     };
     date: {
         format: typeof import("./date/format");

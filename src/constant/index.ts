@@ -1,6 +1,7 @@
 /* eslint-disable import/no-default-export */
 import * as regexConst from "./regex"
 import * as map from "./map"
+import * as enums from "./enums"
 
 export default {
     /**
@@ -10,5 +11,9 @@ export default {
     /**
      * key/value常量
      */
-    map
+    map,
+    /**
+     * 枚举常量
+     */
+    enums
 }
