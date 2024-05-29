@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.39.0](https://github.com/xucongli1989/x-js-kit/compare/v4.38.0...v4.39.0) (2024-05-29)
+
+
+### Features
+
+* add common enum ([e454747](https://github.com/xucongli1989/x-js-kit/commit/e4547478a7fa3a916a29c758d5c34f44f67c1a8e))
+
 ## [4.38.0](https://github.com/xucongli1989/x-js-kit/compare/v4.37.1...v4.38.0) (2024-05-12)
 
 
