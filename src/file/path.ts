@@ -144,5 +144,5 @@ export function convertPathToFileUrl(path: string) {
     if (!path) {
         return ""
     }
-    return `file://${path.replaceAll("\\", "/").trim()}`
+    return `file://${path.replaceAll("\\", "/").replaceAll("#", "%23").trim()}`
 }
