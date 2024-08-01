@@ -1,12 +1,12 @@
 import { AnyKeyValueType } from "../declaration/common"
-import { isArray } from "./data"
+import { isArray, isNullOrUndefined, isNullOrWhiteSpace, isString } from "./data"
 
 /**
-   * 是否包含名key
-   * @param json json对象
-   * @param keyName key名
-   * @returns 判断结果
-   */
+ * 是否包含名key
+ * @param json json对象
+ * @param keyName key名
+ * @returns 判断结果
+ */
 export function hasKey(json: AnyKeyValueType, keyName: string) {
     if (!json) {
         return false
@@ -40,18 +40,22 @@ export function hasValue(json: AnyKeyValueType, keyValue: any) {
  * @returns 转换结果
  */
 export function toParams(json: AnyKeyValueType) {
-    if (!json) return "";
+    if (!json) return ""
     const arr = []
-    let temp = "";
     for (const m in json) {
-        if (isArray(json[m])) {
-            temp = json[m].join("&" + m + "=");
-        } else {
-            temp = json[m];
+        const value = json[m]
+        if (isNullOrUndefined(value) || (isString(value) && isNullOrWhiteSpace(value))) {
+            continue
         }
-        arr.push(m + "=" + temp);
+        let temp = ""
+        if (isArray(value)) {
+            temp = value.join("&" + m + "=")
+        } else {
+            temp = value
+        }
+        arr.push(m + "=" + temp)
     }
-    return arr.join("&");
+    return arr.join("&")
 }
 
 /**

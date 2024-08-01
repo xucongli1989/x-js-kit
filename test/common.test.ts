@@ -346,6 +346,7 @@ test("common.json", () => {
     expect(common.json.hasValue(obj, 10)).toBeTruthy()
 
     expect(common.json.toParams(obj)).toBe("name=abc&age=10&remarkList=1&remarkList=2&remarkList=3")
+    expect(common.json.toParams({ name: "  ", age: "", remark: 0, type: undefined, class: null, local: "cn" })).toBe("remark=0&local=cn")
 
     expect(common.json.toObject("")).toBeNull()
     expect(common.json.toObject("a")).toBeNull()

@@ -1,10 +1,10 @@
 import { AnyKeyValueType } from "../declaration/common";
 /**
-   * 是否包含名key
-   * @param json json对象
-   * @param keyName key名
-   * @returns 判断结果
-   */
+ * 是否包含名key
+ * @param json json对象
+ * @param keyName key名
+ * @returns 判断结果
+ */
 export declare function hasKey(json: AnyKeyValueType, keyName: string): boolean;
 /**
  * 是否包含值value
