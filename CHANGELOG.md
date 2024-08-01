@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.39.2](https://github.com/xucongli1989/x-js-kit/compare/v4.39.1...v4.39.2) (2024-08-01)
+
+
+### Bug Fixes
+
+* fixed json toParams ([90ef228](https://github.com/xucongli1989/x-js-kit/commit/90ef228d3e183e0fd6617fa3d62a4a776d98ce93))
+
 ### [4.39.1](https://github.com/xucongli1989/x-js-kit/compare/v4.39.0...v4.39.1) (2024-07-01)
 
 
