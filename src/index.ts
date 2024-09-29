@@ -13,6 +13,7 @@ import pattern from "./pattern/index"
 import timer from "./timer/index"
 import validation from "./validation/index"
 import file from "./file/index"
+import * as i18n from "./i18n/index"
 
 export default {
     cache,
@@ -28,5 +29,6 @@ export default {
     pattern,
     timer,
     validation,
-    file
+    file,
+    i18n
 }

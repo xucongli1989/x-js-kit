@@ -1,3 +1,4 @@
+import * as i18n from "./i18n/index";
 declare const _default: {
     cache: {
         localStorage: typeof import("./cache/localStorage");
@@ -71,6 +72,7 @@ declare const _default: {
         path: typeof import("./file/path");
         img: typeof import("./file/img");
     };
+    i18n: typeof i18n;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
