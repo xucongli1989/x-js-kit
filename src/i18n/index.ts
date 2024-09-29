@@ -1,4 +1,4 @@
-import i18n, { InitOptions, Resource, ThirdPartyModule } from "i18next"
+import { i18n, InitOptions, Resource, ThirdPartyModule } from "i18next"
 import { convertEnumToList, isValueInEnum } from "../common/enumTool"
 
 export enum LanguageTypeEnum {
@@ -23,7 +23,7 @@ export function getDefaultLanguage(isChina: boolean) {
 /**
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */
-export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: typeof i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource) {
+export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource) {
     const defaultLang = getDefaultLanguage(isChina)
     const currentLang = lang && isValueInEnum(LanguageTypeEnum, lang) ? lang : defaultLang
 
