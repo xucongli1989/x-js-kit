@@ -27,7 +27,7 @@ export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultIn
         resources: transData
     }
 
-    const ins = defaultInstance.use(initReact)
+    const ins = initReact ? defaultInstance.use(initReact) : defaultInstance
 
     //创建新的 i18n 实例
     if (isCreateNewInstance) {
