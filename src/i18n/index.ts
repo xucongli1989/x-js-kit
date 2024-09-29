@@ -14,13 +14,20 @@ export enum LanguageTypeEnum {
 export const LanguageTypeEnumList = convertEnumToList(LanguageTypeEnum)
 
 /**
+ * 获取默认语言
+ */
+export function getDefaultLanguage(isChina: boolean) {
+    return isChina ? LanguageTypeEnum.简体中文 : LanguageTypeEnum.English
+}
+
+/**
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */
-export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: typeof i18n, initReact: ThirdPartyModule, defaultLanguage: LanguageTypeEnum, transData: Resource) {
+export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: typeof i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource) {
     const initOps: InitOptions = {
-        lng: defaultLanguage,
+        lng: lang,
         supportedLngs: LanguageTypeEnumList.map((k) => k.value),
-        fallbackLng: LanguageTypeEnum.简体中文,
+        fallbackLng: getDefaultLanguage(isChina),
         interpolation: {
             escapeValue: false
         },

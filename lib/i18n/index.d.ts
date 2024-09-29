@@ -11,7 +11,11 @@ export declare enum LanguageTypeEnum {
 }
 export declare const LanguageTypeEnumList: import("../entity/keyValue").KeyValue<any, any>[];
 /**
+ * 获取默认语言
+ */
+export declare function getDefaultLanguage(isChina: boolean): LanguageTypeEnum.简体中文 | LanguageTypeEnum.English;
+/**
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */
-export declare function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: typeof i18n, initReact: ThirdPartyModule, defaultLanguage: LanguageTypeEnum, transData: Resource): import("i18next").i18n | Promise<import("i18next").TFunction<"translation", undefined>>;
+export declare function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: typeof i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource): import("i18next").i18n | Promise<import("i18next").TFunction<"translation", undefined>>;
 //# sourceMappingURL=index.d.ts.map
