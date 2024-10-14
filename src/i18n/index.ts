@@ -21,6 +21,13 @@ export function getDefaultLanguage(isChina: boolean) {
 }
 
 /**
+ * 获取默认的货币符号
+ */
+export function getDefaultCurrencySymbol(isChina: boolean) {
+    return isChina ? "¥" : "$"
+}
+
+/**
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */
 export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource) {
