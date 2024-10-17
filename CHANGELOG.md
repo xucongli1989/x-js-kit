@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.42.0](https://github.com/xucongli1989/x-js-kit/compare/v4.41.0...v4.42.0) (2024-10-17)
+
+
+### Features
+
+* enhance json to object ([aced8f6](https://github.com/xucongli1989/x-js-kit/commit/aced8f6e22e7e7c6dec6615064dc0526e14c662c))
+
 ## [4.41.0](https://github.com/xucongli1989/x-js-kit/compare/v4.40.4...v4.41.0) (2024-10-14)
 
 
