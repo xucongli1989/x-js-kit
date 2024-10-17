@@ -68,6 +68,12 @@ export function toObject<T>(json: string): T | null {
     }
     let result: T | null = null
     try {
+        //去前后空白
+        json = json.trim()
+        //花括号对象去前后空白
+        json = json.replace(/^{\s+/, "{").replace(/\s+}$/, "}")
+        //数组对象去前后空白
+        json = json.replace(/^\[\s+/, "[").replace(/\s+]$/, "]")
         result = JSON.parse(json)
     } catch {
         //

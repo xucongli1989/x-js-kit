@@ -350,9 +350,14 @@ test("common.json", () => {
 
     expect(common.json.toObject("")).toBeNull()
     expect(common.json.toObject("a")).toBeNull()
-    const jsonObject = common.json.toObject('{"a":123,"b":456}') as any
+    let jsonObject = common.json.toObject('{"a":123,"b":456}') as any
     expect(jsonObject.a).toBe(123)
     expect(jsonObject.b).toBe(456)
+    jsonObject = common.json.toObject('\n\n    {"a":123,"b":456}\n\n        \n') as any
+    expect(jsonObject.a).toBe(123)
+    expect(jsonObject.b).toBe(456)
+    const arrayObject = common.json.toObject('\n\n    [1,2,3]\n\n        \n') as any
+    expect(arrayObject).toEqual([1,2,3])
 })
 
 test("common.lib", () => {
