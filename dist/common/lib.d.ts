@@ -29,6 +29,10 @@ export declare const document: Document;
  */
 export declare function getLocalStorage(): Storage;
 /**
+ * 设置localStorage对象，若已存在，则忽略此设置
+ */
+export declare function setLocalStorage(st: Storage): void;
+/**
  * 获取Symbol类型，若没有，则为null
  */
 export declare function getSymbol(desc?: string): any;

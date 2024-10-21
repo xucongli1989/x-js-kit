@@ -56,6 +56,17 @@ export function getLocalStorage(): Storage {
 }
 
 /**
+ * 设置localStorage对象，若已存在，则忽略此设置
+ */
+export function setLocalStorage(st: Storage) {
+    if (getLocalStorage()) {
+        return
+    }
+    const g = globalObject as any
+    g.localStorage = st
+}
+
+/**
  * 获取Symbol类型，若没有，则为null
  */
 export function getSymbol(desc?: string): any {
