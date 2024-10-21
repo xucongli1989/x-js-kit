@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.43.0](https://github.com/xucongli1989/x-js-kit/compare/v4.42.0...v4.43.0) (2024-10-21)
+
+
+### Features
+
+* add setLocalStorage ([c9517bf](https://github.com/xucongli1989/x-js-kit/commit/c9517bff34b8df45e7b98e5659990f03e4c62268))
+
 ## [4.42.0](https://github.com/xucongli1989/x-js-kit/compare/v4.41.0...v4.42.0) (2024-10-17)
 
 
