@@ -1,5 +1,6 @@
 import { i18n, InitOptions, Resource, ThirdPartyModule } from "i18next"
 import { convertEnumToList, isValueInEnum } from "../common/enumTool"
+import { isString } from "../common/data"
 
 export enum LanguageTypeEnum {
     简体中文 = "zh-CN",
@@ -25,6 +26,20 @@ export function getDefaultLanguage(isChina: boolean) {
  */
 export function getDefaultCurrencySymbol(isChina: boolean) {
     return isChina ? "¥" : "$"
+}
+
+/**
+ * 获取指定对象中的某个语言节点中的数据
+ */
+export function getLanguageNodeData<T>(data: string | Record<LanguageTypeEnum, T>, isChina: boolean, lang: LanguageTypeEnum) {
+    if (!data) {
+        return null
+    }
+    //如果是字符串，则直接返回原数据即可
+    if (isString(data)) {
+        return data
+    }
+    return (data as Record<LanguageTypeEnum, T>)[lang] || (data as Record<LanguageTypeEnum, T>)[getDefaultLanguage(isChina)]
 }
 
 /**
