@@ -19,9 +19,10 @@ export declare function getDefaultLanguage(isChina: boolean): LanguageTypeEnum.�
  */
 export declare function getDefaultCurrencySymbol(isChina: boolean): "¥" | "$";
 /**
- * 获取指定对象中的某个语言节点中的数据
+ * 获取指定对象中的某个语言节点中的数据。
+ * 如果 data 是字符串，则直接返回该字符串；如果是 object，则返回 object[当前语言] ；如果 object[当前语言] 没有值，则返回 object[默认语言]
  */
-export declare function getLanguageNodeData<T>(data: string | Record<LanguageTypeEnum, T>, isChina: boolean, lang: LanguageTypeEnum): string | T | Record<LanguageTypeEnum, T> | null;
+export declare function getLanguageNodeData<T>(data: string | Record<LanguageTypeEnum, T>, isChina: boolean, lang: LanguageTypeEnum): string | T | null;
 /**
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */

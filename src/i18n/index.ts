@@ -29,7 +29,8 @@ export function getDefaultCurrencySymbol(isChina: boolean) {
 }
 
 /**
- * 获取指定对象中的某个语言节点中的数据
+ * 获取指定对象中的某个语言节点中的数据。
+ * 如果 data 是字符串，则直接返回该字符串；如果是 object，则返回 object[当前语言] ；如果 object[当前语言] 没有值，则返回 object[默认语言]
  */
 export function getLanguageNodeData<T>(data: string | Record<LanguageTypeEnum, T>, isChina: boolean, lang: LanguageTypeEnum) {
     if (!data) {
@@ -37,7 +38,7 @@ export function getLanguageNodeData<T>(data: string | Record<LanguageTypeEnum, T
     }
     //如果是字符串，则直接返回原数据即可
     if (isString(data)) {
-        return data
+        return data as string
     }
     return (data as Record<LanguageTypeEnum, T>)[lang] || (data as Record<LanguageTypeEnum, T>)[getDefaultLanguage(isChina)]
 }
