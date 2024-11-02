@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.44.2](https://github.com/xucongli1989/x-js-kit/compare/v4.44.1...v4.44.2) (2024-11-02)
+
+
+### Bug Fixes
+
+* upate url split ([8470086](https://github.com/xucongli1989/x-js-kit/commit/847008627091e0e6183a1d7467de7b554708992c))
+
 ### [4.44.1](https://github.com/xucongli1989/x-js-kit/compare/v4.44.0...v4.44.1) (2024-10-24)
 
 
