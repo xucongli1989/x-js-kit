@@ -697,6 +697,16 @@ test("common.url", () => {
     expect(splitQueryInfo.queryPart).toBe("")
     expect(splitQueryInfo.hashPart).toBe("")
 
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com")
+    expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
+    expect(splitQueryInfo.queryPart).toBe("")
+    expect(splitQueryInfo.hashPart).toBe("")
+
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com?#")
+    expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
+    expect(splitQueryInfo.queryPart).toBe("")
+    expect(splitQueryInfo.hashPart).toBe("")
+
     splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com?a=b&c=d#123")
     expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
     expect(splitQueryInfo.queryPart).toBe("a=b&c=d")
@@ -706,6 +716,16 @@ test("common.url", () => {
     expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
     expect(splitQueryInfo.queryPart).toBe("")
     expect(splitQueryInfo.hashPart).toBe("123#aaa#bbb")
+
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://www.abc.com?#123#aaa#bbb?a=x")
+    expect(splitQueryInfo.hostPart).toBe("http://www.abc.com")
+    expect(splitQueryInfo.queryPart).toBe("")
+    expect(splitQueryInfo.hashPart).toBe("123#aaa#bbb?a=x")
+
+    splitQueryInfo = common.url.splitUrlByQueryInfo("http://localhost/user?id=123&v=3#/pay?productId=123456&result=cancel")
+    expect(splitQueryInfo.hostPart).toBe("http://localhost/user")
+    expect(splitQueryInfo.queryPart).toBe("id=123&v=3")
+    expect(splitQueryInfo.hashPart).toBe("/pay?productId=123456&result=cancel")
 
     let mergedUrl = common.url.mergeUrlBySplitQueryInfo({
         hostPart: "",

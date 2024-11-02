@@ -19,7 +19,7 @@ export interface UrlSplitByQueryType {
 /**
  * 将url字符串以查询串分隔后，提取成三个部分（也就是以字符?和字符#中间的字符串为界限分隔）
  * 注意：边界不包含字符?或#
- * @param url url字符串
+ * @param url url字符串，如：http://localhost/user?id=123&v=3#/pay?productId=123456&result=cancel
  */
 export declare function splitUrlByQueryInfo(url: string): UrlSplitByQueryType;
 /**

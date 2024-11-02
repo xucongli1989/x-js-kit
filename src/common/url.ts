@@ -1,5 +1,4 @@
 import { KeyValue } from "../entity/keyValue"
-import { lTrimString } from "./string"
 
 /**
  * url分隔的类型
@@ -22,7 +21,7 @@ export interface UrlSplitByQueryType {
 /**
  * 将url字符串以查询串分隔后，提取成三个部分（也就是以字符?和字符#中间的字符串为界限分隔）
  * 注意：边界不包含字符?或#
- * @param url url字符串
+ * @param url url字符串，如：http://localhost/user?id=123&v=3#/pay?productId=123456&result=cancel
  */
 export function splitUrlByQueryInfo(url: string): UrlSplitByQueryType {
     const result = {} as UrlSplitByQueryType
@@ -32,32 +31,26 @@ export function splitUrlByQueryInfo(url: string): UrlSplitByQueryType {
     if (!url) {
         return result
     }
-    const questionMarkIndex = url.lastIndexOf("?")
-    const wellNumberMarkIndex = url.indexOf("#")
 
-    //只存在查询串
-    if (questionMarkIndex >= 0 && wellNumberMarkIndex < 0) {
-        result.hostPart = url.substr(0, questionMarkIndex)
-        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1), "?")
-        return result
+    //hash 部分
+    const hashFlagIndex = url.indexOf("#")
+    let hashFlagLeftPart = ""
+    if (hashFlagIndex >= 0) {
+        result.hashPart = url.substring(hashFlagIndex + 1)
+        hashFlagLeftPart = url.substring(0, hashFlagIndex)
+    } else {
+        hashFlagLeftPart = url
     }
 
-    //只存在hash
-    if (questionMarkIndex < 0 && wellNumberMarkIndex >= 0) {
-        result.hostPart = url.substr(0, wellNumberMarkIndex)
-        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), "#")
-        return result
+    //非 hash 部分
+    const queryFlagIndex = hashFlagLeftPart.indexOf("?")
+    if (queryFlagIndex >= 0) {
+        result.hostPart = hashFlagLeftPart.substring(0, queryFlagIndex)
+        result.queryPart = hashFlagLeftPart.substring(queryFlagIndex + 1)
+    } else {
+        result.hostPart = hashFlagLeftPart
     }
 
-    //同时存在查询串和hash
-    if (questionMarkIndex >= 0 && wellNumberMarkIndex >= 0) {
-        result.hostPart = url.substr(0, questionMarkIndex)
-        result.queryPart = lTrimString(url.substring(questionMarkIndex + 1, wellNumberMarkIndex), "?")
-        result.hashPart = lTrimString(url.substr(wellNumberMarkIndex + 1), "#")
-        return result
-    }
-
-    result.hostPart = url
     return result
 }
 
