@@ -913,7 +913,7 @@ test("common.color", () => {
 test("common.pager", () => {
     const lst = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
 
-    expect(common.pager.createPagerInfo(0, 2, 0)).toEqual({})
+    expect(common.pager.createPagerInfo(0, 2, 0)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: -1, endIndex: -1, pageSize: 2, recordCount: 0, pageCount: 0 })
     expect(common.pager.createPagerInfo(lst.length, 2, 0)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 1, pageSize: 2, recordCount: 9, pageCount: 5 })
     expect(common.pager.createPagerInfo(lst.length, 2, 1)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 1, pageSize: 2, recordCount: 9, pageCount: 5 })
     expect(common.pager.createPagerInfo(lst.length, 2, 3)).toEqual(<PagerInfoType>{ pageIndex: 3, startIndex: 4, endIndex: 5, pageSize: 2, recordCount: 9, pageCount: 5 })
