@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.45.0](https://github.com/xucongli1989/x-js-kit/compare/v4.44.2...v4.45.0) (2024-12-09)
+
+
+### Features
+
+* add pager ([630a477](https://github.com/xucongli1989/x-js-kit/commit/630a4772195c663bc3e41fb571659e4a25db3d56))
+
 ### [4.44.2](https://github.com/xucongli1989/x-js-kit/compare/v4.44.1...v4.44.2) (2024-11-02)
 
 
