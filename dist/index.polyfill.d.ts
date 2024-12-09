@@ -24,6 +24,7 @@ declare const _default: {
         regexp: typeof import("./common/regexp");
         dom: typeof import("./common/dom");
         color: typeof import("./common/color");
+        pager: typeof import("./common/pager");
     };
     config: {
         common: typeof import("./config/common");

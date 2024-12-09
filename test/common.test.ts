@@ -1,5 +1,6 @@
 import common from "../src/common/index"
 import { RegExpEngineEnum } from "../src/common/regexp"
+import { PagerInfoType } from "../src/entity/pager-info"
 
 test("common.array", () => {
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -357,7 +358,7 @@ test("common.json", () => {
     expect(jsonObject.a).toBe(123)
     expect(jsonObject.b).toBe(456)
     const arrayObject = common.json.toObject('\n\n    [1,2,3]\n\n        \n') as any
-    expect(arrayObject).toEqual([1,2,3])
+    expect(arrayObject).toEqual([1, 2, 3])
 })
 
 test("common.lib", () => {
@@ -906,4 +907,19 @@ test("common.color", () => {
     expect(common.color.rgbaToHex({ r: 12, g: 34, b: 56, a100: 0 })).toBe("#0c223800")
     expect(common.color.rgbaToHex({ r: 12, g: 34, b: 56, a100: 50 })).toBe("#0c22387f")
     expect(common.color.rgbaToHex({ r: 12, g: 34, b: 56, a100: 100 })).toBe("#0c2238ff")
+})
+
+
+test("common.pager", () => {
+    const lst = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+
+    expect(common.pager.createPagerInfo(0, 2, 0)).toEqual({})
+    expect(common.pager.createPagerInfo(lst.length, 2, 0)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 1, pageSize: 2, recordCount: 9, pageCount: 5 })
+    expect(common.pager.createPagerInfo(lst.length, 2, 1)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 1, pageSize: 2, recordCount: 9, pageCount: 5 })
+    expect(common.pager.createPagerInfo(lst.length, 2, 3)).toEqual(<PagerInfoType>{ pageIndex: 3, startIndex: 4, endIndex: 5, pageSize: 2, recordCount: 9, pageCount: 5 })
+    expect(common.pager.createPagerInfo(lst.length, 2, 100)).toEqual(<PagerInfoType>{ pageIndex: 5, startIndex: 8, endIndex: 8, pageSize: 2, recordCount: 9, pageCount: 5 })
+    expect(common.pager.createPagerInfo(lst.length, 10, 1)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 8, pageSize: 10, recordCount: 9, pageCount: 1 })
+    expect(common.pager.createPagerInfo(lst.length, 10, 2)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 8, pageSize: 10, recordCount: 9, pageCount: 1 })
+    expect(common.pager.createPagerInfo(lst.length, 8, 1)).toEqual(<PagerInfoType>{ pageIndex: 1, startIndex: 0, endIndex: 7, pageSize: 8, recordCount: 9, pageCount: 2 })
+    expect(common.pager.createPagerInfo(lst.length, 8, 2)).toEqual(<PagerInfoType>{ pageIndex: 2, startIndex: 8, endIndex: 8, pageSize: 8, recordCount: 9, pageCount: 2 })
 })

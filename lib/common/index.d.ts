@@ -13,6 +13,7 @@ import * as url from "./url";
 import * as regexp from "./regexp";
 import * as dom from "./dom";
 import * as color from "./color";
+import * as pager from "./pager";
 declare const _default: {
     /**
      * 字符串操作
@@ -74,6 +75,10 @@ declare const _default: {
      * 颜色相关
      */
     color: typeof color;
+    /**
+     * 分页相关
+     */
+    pager: typeof pager;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map

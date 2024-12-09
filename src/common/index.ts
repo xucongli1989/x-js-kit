@@ -14,6 +14,7 @@ import * as url from "./url"
 import * as regexp from "./regexp"
 import * as dom from "./dom"
 import * as color from "./color"
+import * as pager from "./pager"
 
 export default {
     /**
@@ -75,5 +76,9 @@ export default {
     /**
      * 颜色相关
      */
-    color
+    color,
+    /**
+     * 分页相关
+     */
+    pager
 }
