@@ -334,7 +334,7 @@ export function combineStr(separator: string, ...subStrs: string[]) {
  * 【-5:-2】表示倒数第5项到倒数第2项
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
-export function isRangeText(str: string) {
+export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
     const msg = new MethodResult()
     str = str?.replace(/，/g, ",").replace(/：/g, ":").replace(/\s/g, "")
     str = trimString(str, ",")
@@ -345,6 +345,13 @@ export function isRangeText(str: string) {
     }
     const itemReg = /^-?\d+$/
     const items = str.split(",")
+
+    if (isOnlySupportOneRange && items.length >= 2) {
+        msg.isSuccess = false
+        msg.message = "格式不正确，只支持单个范围，请删除逗号！"
+        return msg
+    }
+
     for (const item of items) {
         const arr = item.split(":")
         if (!(arr.length == 1 || arr.length == 2)) {

@@ -684,6 +684,9 @@ test("common.string", () => {
     expect(common.string.isRangeText("1::5").isSuccess).toBeFalsy()
     expect(common.string.isRangeText("1,,2").isSuccess).toBeFalsy()
     expect(common.string.isRangeText("1，2，3：4,9").isSuccess).toBeTruthy()
+    expect(common.string.isRangeText("1,2", true).isSuccess).toBeFalsy()
+    expect(common.string.isRangeText("1:6,-1",true).isSuccess).toBeFalsy()
+    expect(common.string.isRangeText("1:6",true).isSuccess).toBeTruthy()
 
     expect(common.string.removeStartLine("")).toBe("")
     expect(common.string.removeStartLine("__abc__")).toBe("abc__")
