@@ -26,4 +26,10 @@ export enum YesOrNoEnum {
     否 = "否"
 }
 
+export enum RangeTextTypeEnum {
+    页面范围 = "页面范围",
+    工作表范围 = "工作表范围",
+    字符范围 = "字符范围"
+}
+
 export const YesOrNoEnumList = convertEnumToList(YesOrNoEnum)

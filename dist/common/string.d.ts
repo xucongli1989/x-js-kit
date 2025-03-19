@@ -1,4 +1,5 @@
 import { MethodResult } from "../entity/method-result";
+import { RangeTextTypeEnum } from "../constant/enums";
 /**
  * 将字符串按一定字符数拆分成字符串数组
  */
@@ -152,7 +153,7 @@ export declare function isRangeText(str: string, isOnlySupportOneRange?: boolean
 /**
  * 获取范围文本的使用说明
  */
-export declare function getHowToUseRangeText(type?: "页面" | "工作表" | "字符"): string;
+export declare function getHowToUseRangeText(type?: RangeTextTypeEnum): string;
 /**
  * 删除字符串前面的下划线
  */

@@ -5,6 +5,7 @@ import { MethodResult } from "../entity/method-result"
 import { toInt } from "./convert"
 import { getXJsKitI18nInstance } from "../i18n"
 import { XJsKitTranslationKeyNameEnum } from "../i18n/data"
+import { RangeTextTypeEnum } from "../constant/enums"
 
 /**
  * 将字符串按一定字符数拆分成字符串数组
@@ -392,18 +393,18 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
 /**
  * 获取范围文本的使用说明
  */
-export function getHowToUseRangeText(type?: "页面" | "工作表" | "字符") {
+export function getHowToUseRangeText(type?: RangeTextTypeEnum) {
     const i18n = getXJsKitI18nInstance()
     let txt = ""
 
     switch (type) {
-        case "页面":
+        case RangeTextTypeEnum.页面范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.页面范围文本提示语)
             break
-        case "工作表":
+        case RangeTextTypeEnum.工作表范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.工作表范围文本提示语)
             break
-        case "字符":
+        case RangeTextTypeEnum.字符范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.字符范围文本提示语)
             break
         default:
