@@ -3,6 +3,8 @@ import { escapeReg } from "./regexp"
 import { htmlEntityMap } from "../constant/map"
 import { MethodResult } from "../entity/method-result"
 import { toInt } from "./convert"
+import { getXJsKitI18nInstance } from "../i18n"
+import { XJsKitTranslationKeyNameEnum } from "../i18n/data"
 
 /**
  * 将字符串按一定字符数拆分成字符串数组
@@ -335,12 +337,13 @@ export function combineStr(separator: string, ...subStrs: string[]) {
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
 export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
+    const i18n = getXJsKitI18nInstance()
     const msg = new MethodResult()
     str = str?.replace(/，/g, ",").replace(/：/g, ":").replace(/\s/g, "")
     str = trimString(str, ",")
     if (!str) {
         msg.isSuccess = false
-        msg.message = "必须提供一个有效的范围！"
+        msg.message = i18n.t(XJsKitTranslationKeyNameEnum.必须提供一个有效的范围)
         return msg
     }
     const itemReg = /^-?\d+$/
@@ -348,7 +351,7 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
 
     if (isOnlySupportOneRange && items.length >= 2) {
         msg.isSuccess = false
-        msg.message = "格式不正确，只支持单个范围，请删除逗号！"
+        msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确只支持单个范围请删除逗号)
         return msg
     }
 
@@ -356,22 +359,22 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
         const arr = item.split(":")
         if (!(arr.length == 1 || arr.length == 2)) {
             msg.isSuccess = false
-            msg.message = "格式不正确！"
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确)
             break
         }
         if (!itemReg.test(arr[0]) || !toInt(arr[0])) {
             msg.isSuccess = false
-            msg.message = "格式不正确，必须为整数，且不能为 0！"
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确必须为整数且不能为0)
             break
         }
         if (arr.length == 2 && (!itemReg.test(arr[1]) || !toInt(arr[1]))) {
             msg.isSuccess = false
-            msg.message = "格式不正确，必须为整数，且不能为 0！"
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确必须为整数且不能为0)
             break
         }
         if (arr.length == 2 && toInt(arr[0]) < 0 && toInt(arr[1]) > 0) {
             msg.isSuccess = false
-            msg.message = "左侧数字为负数时，右侧数字必须也同时为负数！"
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.左侧数字为负数时右侧数字必须也同时为负数)
             break
         }
         if (arr.length == 2 && toInt(arr[0]) > 0 && toInt(arr[1]) < 0) {
@@ -379,7 +382,7 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
         }
         if (arr.length == 2 && toInt(arr[0]) > toInt(arr[1])) {
             msg.isSuccess = false
-            msg.message = "格式不正确，左侧数字必须小于等于右侧数字！"
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确左侧数字必须小于等于右侧数字)
             break
         }
     }

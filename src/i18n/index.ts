@@ -1,6 +1,8 @@
-import { i18n, InitOptions, Resource, ThirdPartyModule } from "i18next"
+import i18next, { i18n, InitOptions, Resource, ThirdPartyModule } from "i18next"
 import { convertEnumToList, isValueInEnum } from "../common/enumTool"
 import { isString } from "../common/data"
+import { getGlobalObject } from "../common/lib"
+import { XJsKitI18nResourcesData } from "./data"
 
 export enum LanguageTypeEnum {
     简体中文 = "zh-CN",
@@ -80,4 +82,16 @@ export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultIn
         }
         console.error(`Init default i18n instance error: ${err}`)
     })
+}
+
+/**
+ * 获取当前组件库的 i18n 实例。这里会将 i18n 实例挂载到全局变量上，供不同组件跨模块访问。为什么要这样做？因为这个组件库中的每一个组件最终是分别 build 成一个独立的包，组件与组件是隔离的，并没有数据共享机制，如果不这样做，那么每个打包后的组件都有自己的 i18n 实例。
+ */
+export function getXJsKitI18nInstance() {
+    const globalObj = getGlobalObject() as any
+    if (globalObj.___xJsKitI18nInstance) {
+        return globalObj.___xJsKitI18nInstance as typeof i18next
+    }
+    globalObj.___xJsKitI18nInstance = createOrInitI18nInstance(true, i18next as any, null as any, true, getDefaultLanguage(true), XJsKitI18nResourcesData)
+    return globalObj.___xJsKitI18nInstance as typeof i18next
 }

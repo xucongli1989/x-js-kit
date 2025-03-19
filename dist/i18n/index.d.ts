@@ -27,4 +27,8 @@ export declare function getLanguageNodeData<T>(data: string | Record<LanguageTyp
  * 创建或初始化 i18n 实例。注意：defaultInstance、initReact 必须作为参数由具体使用的项目传过来，因为每个项目的默认实例不一样
  */
 export declare function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultInstance: i18n, initReact: ThirdPartyModule, isChina: boolean, lang: LanguageTypeEnum, transData: Resource): i18n | Promise<import("i18next").TFunction<"translation", undefined>>;
+/**
+ * 获取当前组件库的 i18n 实例。这里会将 i18n 实例挂载到全局变量上，供不同组件跨模块访问。为什么要这样做？因为这个组件库中的每一个组件最终是分别 build 成一个独立的包，组件与组件是隔离的，并没有数据共享机制，如果不这样做，那么每个打包后的组件都有自己的 i18n 实例。
+ */
+export declare function getXJsKitI18nInstance(): i18n;
 //# sourceMappingURL=index.d.ts.map
