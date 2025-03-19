@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.47.0](https://github.com/xucongli1989/x-js-kit/compare/v4.46.0...v4.47.0) (2025-03-19)
+
+
+### Features
+
+* add i18n ([3b12e33](https://github.com/xucongli1989/x-js-kit/commit/3b12e33bc6ae9ca9b6b0874270eb4afcdbe20465))
+
 ## [4.46.0](https://github.com/xucongli1989/x-js-kit/compare/v4.45.1...v4.46.0) (2025-03-19)
 
 
