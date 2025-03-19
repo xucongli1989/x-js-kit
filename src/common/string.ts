@@ -351,7 +351,7 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
 
     if (isOnlySupportOneRange && items.length >= 2) {
         msg.isSuccess = false
-        msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确只支持单个范围请删除逗号)
+        msg.message = i18n.t(XJsKitTranslationKeyNameEnum.请注意当前功能只支持一个连续的范围请删除范围中的逗号)
         return msg
     }
 
@@ -387,6 +387,31 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
         }
     }
     return msg
+}
+
+/**
+ * 获取范围文本的使用说明
+ */
+export function getHowToUseRangeText(type?: "页面" | "工作表" | "字符") {
+    const i18n = getXJsKitI18nInstance()
+    let txt = ""
+
+    switch (type) {
+        case "页面":
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.页面范围文本提示语)
+            break
+        case "工作表":
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.工作表范围文本提示语)
+            break
+        case "字符":
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.字符范围文本提示语)
+            break
+        default:
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.默认范围文本提示语)
+            break
+    }
+
+    return txt
 }
 
 /**

@@ -150,6 +150,10 @@ export declare function combineStr(separator: string, ...subStrs: string[]): str
  */
 export declare function isRangeText(str: string, isOnlySupportOneRange?: boolean): MethodResult<any, any>;
 /**
+ * 获取范围文本的使用说明
+ */
+export declare function getHowToUseRangeText(type?: "页面" | "工作表" | "字符"): string;
+/**
  * 删除字符串前面的下划线
  */
 export declare function removeStartLine(str: string): string;
