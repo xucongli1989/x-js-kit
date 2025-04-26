@@ -62,26 +62,18 @@ export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultIn
         resources: transData
     }
 
-    const ins = initReact ? defaultInstance.use(initReact) : defaultInstance
+    const instance = isCreateNewInstance ? defaultInstance.createInstance() : defaultInstance
+    const ins = initReact ? instance.use(initReact) : instance
 
-    //创建新的 i18n 实例
-    if (isCreateNewInstance) {
-        return ins.createInstance(initOps, (err) => {
-            //此函数必须有，否则报错
-            if (!err) {
-                return
-            }
-            console.error(`Create new i18n instance error: ${err}`)
-        })
-    }
-
-    //初始化默认实例
-    return ins.init(initOps, (err) => {
+    //初始化实例
+    ins.init(initOps, (err) => {
         if (!err) {
             return
         }
         console.error(`Init default i18n instance error: ${err}`)
     })
+
+    return instance
 }
 
 /**
