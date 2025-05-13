@@ -17,6 +17,20 @@ export enum LanguageTypeEnum {
 export const LanguageTypeEnumList = convertEnumToList(LanguageTypeEnum)
 
 /**
+ * 从语言的字符串代码中获取支持的语言，如：ja-jp -> ja-JP, ja -> ja-JP
+ */
+export function getLanguageFromCode(code: string) {
+    let result = LanguageTypeEnumList.find((k) => k.value.toUpperCase() == code.toUpperCase())?.value
+    if (!result) {
+        result = LanguageTypeEnumList.find((k) => k.value.toUpperCase().split("-")[1] == code.toUpperCase())?.value
+    }
+    if (!result) {
+        result = LanguageTypeEnumList.find((k) => k.value.toUpperCase().split("-")[0] == code.toUpperCase())?.value
+    }
+    return result as LanguageTypeEnum
+}
+
+/**
  * 获取默认语言
  */
 export function getDefaultLanguage(isChina: boolean) {

@@ -4,15 +4,15 @@ import { isNullOrUndefined } from "./data"
 /**
  * 将枚举转换为KeyValue列表
  */
-export function convertEnumToList<T>(em: T): KeyValue[] {
-    const lst = [] as KeyValue[]
+export function convertEnumToList<T>(em: T): KeyValue<string, any>[] {
+    const lst = [] as KeyValue<string, any>[]
     for (const key in em) {
         if (!isNaN(Number(key))) {
             continue
         }
-        const item = {} as KeyValue
+        const item = {} as KeyValue<string, any>
         item.key = key
-        item.value = em[key]
+        item.value = em[key] as any
         lst.push(item)
     }
     return lst

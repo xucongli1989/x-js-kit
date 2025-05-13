@@ -9,7 +9,11 @@ export declare enum LanguageTypeEnum {
     日本語 = "ja-JP",
     한국어 = "ko-KR"
 }
-export declare const LanguageTypeEnumList: import("../entity/keyValue").KeyValue<any, any>[];
+export declare const LanguageTypeEnumList: import("../entity/keyValue").KeyValue<string, any>[];
+/**
+ * 从语言的字符串代码中获取支持的语言，如：ja-jp -> ja-JP, ja -> ja-JP
+ */
+export declare function getLanguageFromCode(code: string): LanguageTypeEnum;
 /**
  * 获取默认语言
  */

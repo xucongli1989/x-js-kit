@@ -2,7 +2,7 @@ import { KeyValue } from "../entity/keyValue";
 /**
  * 将枚举转换为KeyValue列表
  */
-export declare function convertEnumToList<T>(em: T): KeyValue[];
+export declare function convertEnumToList<T>(em: T): KeyValue<string, any>[];
 /**
  *  将字符串或数字转换为枚举，若转换失败则取枚举的第一项或取自定义的默认枚举
  */

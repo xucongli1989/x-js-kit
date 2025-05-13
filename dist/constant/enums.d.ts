@@ -27,5 +27,5 @@ export declare enum RangeTextTypeEnum {
     工作表范围 = "\u5DE5\u4F5C\u8868\u8303\u56F4",
     字符范围 = "\u5B57\u7B26\u8303\u56F4"
 }
-export declare const YesOrNoEnumList: import("../entity/keyValue").KeyValue<any, any>[];
+export declare const YesOrNoEnumList: import("../entity/keyValue").KeyValue<string, any>[];
 //# sourceMappingURL=enums.d.ts.map
