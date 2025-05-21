@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.50.0](https://github.com/xucongli1989/x-js-kit/compare/v4.49.0...v4.50.0) (2025-05-21)
+
+
+### Features
+
+* update range text tip ([6ab1f3e](https://github.com/xucongli1989/x-js-kit/commit/6ab1f3ec43465731a9f1705de85a08993c3d933b))
+
 ## [4.49.0](https://github.com/xucongli1989/x-js-kit/compare/v4.48.2...v4.49.0) (2025-05-13)
 
 
