@@ -149,7 +149,7 @@ export declare function combineStr(separator: string, ...subStrs: string[]): str
  * 【-5:-2】表示倒数第5项到倒数第2项
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
-export declare function isRangeText(str: string, isOnlySupportOneRange?: boolean): MethodResult<any, any>;
+export declare function isRangeText(str: string, isOnlySupportOneRange?: boolean, isAllowZero?: boolean): MethodResult<any, any>;
 /**
  * 获取范围文本的使用说明
  */

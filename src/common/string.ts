@@ -337,7 +337,7 @@ export function combineStr(separator: string, ...subStrs: string[]) {
  * 【-5:-2】表示倒数第5项到倒数第2项
  * 【2,4:7,-5:-2】表示第2项和第4到7项和倒数第5项至倒数第2项
  */
-export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
+export function isRangeText(str: string, isOnlySupportOneRange?: boolean, isAllowZero?: boolean) {
     const i18n = getXJsKitI18nInstance()
     const msg = new MethodResult()
     str = str?.replace(/，/g, ",").replace(/：/g, ":").replace(/\s/g, "")
@@ -363,15 +363,27 @@ export function isRangeText(str: string, isOnlySupportOneRange?: boolean) {
             msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确)
             break
         }
-        if (!itemReg.test(arr[0]) || !toInt(arr[0])) {
+        if (!itemReg.test(arr[0])) {
             msg.isSuccess = false
-            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确必须为整数且不能为0)
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.范围格式不正确必须为整数参考示例)
             break
         }
-        if (arr.length == 2 && (!itemReg.test(arr[1]) || !toInt(arr[1]))) {
+        if (!isAllowZero && !toInt(arr[0])) {
             msg.isSuccess = false
-            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.格式不正确必须为整数且不能为0)
+            msg.message = i18n.t(XJsKitTranslationKeyNameEnum.不能为0)
             break
+        }
+        if (arr.length == 2) {
+            if (!itemReg.test(arr[1])) {
+                msg.isSuccess = false
+                msg.message = i18n.t(XJsKitTranslationKeyNameEnum.范围格式不正确必须为整数参考示例)
+                break
+            }
+            if (!isAllowZero && !toInt(arr[1])) {
+                msg.isSuccess = false
+                msg.message = i18n.t(XJsKitTranslationKeyNameEnum.不能为0)
+                break
+            }
         }
         if (arr.length == 2 && toInt(arr[0]) < 0 && toInt(arr[1]) > 0) {
             msg.isSuccess = false

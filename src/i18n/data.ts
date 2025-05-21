@@ -5,7 +5,6 @@ const defaultNameSpace = "translation"
 export enum XJsKitTranslationKeyNameEnum {
     必须提供一个有效的范围 = "必须提供一个有效的范围",
     格式不正确 = "格式不正确",
-    格式不正确必须为整数且不能为0 = "格式不正确必须为整数且不能为0",
     左侧数字为负数时右侧数字必须也同时为负数 = "左侧数字为负数时右侧数字必须也同时为负数",
     格式不正确左侧数字必须小于等于右侧数字 = "格式不正确左侧数字必须小于等于右侧数字",
     默认范围文本提示语 = "默认范围文本提示语",
@@ -13,7 +12,9 @@ export enum XJsKitTranslationKeyNameEnum {
     工作表范围文本提示语 = "工作表范围文本提示语",
     字符范围文本提示语 = "字符范围文本提示语",
     文本位置范围文本提示语 = "文本位置范围文本提示语",
-    请注意当前功能只支持一个连续的范围请删除范围中的逗号 = "请注意当前功能只支持一个连续的范围请删除范围中的逗号"
+    请注意当前功能只支持一个连续的范围请删除范围中的逗号 = "请注意当前功能只支持一个连续的范围请删除范围中的逗号",
+    范围格式不正确必须为整数参考示例 = "范围格式不正确必须为整数参考示例",
+    不能为0 = "不能为0"
 }
 
 export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof defaultNameSpace, Record<keyof typeof XJsKitTranslationKeyNameEnum, string>>> = {
@@ -21,7 +22,6 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
         translation: {
             必须提供一个有效的范围: "必须提供一个有效的范围！",
             格式不正确: "格式不正确！",
-            格式不正确必须为整数且不能为0: "格式不正确，必须为整数，且不能为 0！",
             左侧数字为负数时右侧数字必须也同时为负数: "左侧数字为负数时，右侧数字必须也同时为负数！",
             格式不正确左侧数字必须小于等于右侧数字: "格式不正确，左侧数字必须小于等于右侧数字！",
             默认范围文本提示语:
@@ -33,15 +33,16 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "格式规范说明：【1】表示第 1 个字符；【2】表示第 2 个字符；【2:5】表示第 2 个字符到第 5 个字符；【-1】表示最后一个字符；【-2】表示倒数第 2 个字符 ；【-5:-2】表示倒数第 5 个字符至倒数第 2 个字符；【2,4:7,-5:-2】表示第 2 个字符和第 4 个字符至第 7 个字符及倒数第 5 个字符至倒数第 2 个字符。",
             文本位置范围文本提示语:
-                "格式规范说明：【0】表示最开始的位置；【1】表示第 1 个字符的右侧位置；【2】表示第 2 个字符的右侧位置；【2:5】表示第 2、3、4、5 个字符的右侧位置；【-1】表示最后一个字符的右侧位置；【-2】表示倒数第 2 个字符的右侧位置 。",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "请注意，当前功能只支持一个连续的范围，请删除范围中的逗号！"
+                "格式规范说明：【0】表示最开始的位置；【1】表示第 1 个字符的右侧位置；【2】表示第 2 个字符的右侧位置；【2:5】表示第 2、3、4、5 个字符的右侧位置；【2:5,9】表示第 2、3、4、5、9 个字符的右侧位置；【-1】表示最后一个字符的右侧位置；【-2】表示倒数第 2 个字符的右侧位置 。",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "请注意，当前功能只支持一个连续的范围，请删除范围中的逗号！",
+            范围格式不正确必须为整数参考示例: "范围格式不正确，必须为整数。参考示例：1,2:5,-7:-3,-2",
+            不能为0: "不能为 0 ！"
         }
     },
     "zh-TW": {
         translation: {
             必须提供一个有效的范围: "必須提供一個有效的範圍！",
             格式不正确: "格式不正確！",
-            格式不正确必须为整数且不能为0: "格式不正確，必須為整數，且不能為 0！",
             左侧数字为负数时右侧数字必须也同时为负数: "左側數字為負數時，右側數字必須也同時為負數！",
             格式不正确左侧数字必须小于等于右侧数字: "格式不正確，左側數字必須小於等於右側數字！",
             默认范围文本提示语:
@@ -53,15 +54,16 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "格式規範說明：【1】表示第 1 個字符；【2】表示第 2 個字符；【2:5】表示第 2 個字符到第 5 個字符；【-1】表示最後一個字符；【-2】表示倒數第 2 個字符 ；【-5:-2】表示倒數第 5 個字符至倒數第 2 個字符；【2,4:7,-5:-2】表示第 2 個字符和第 4 個字符至第 7 個字符及倒數第 5 個字符至倒數第 2 個字符。",
             文本位置范围文本提示语:
-                "格式規範說明：【0】表示最開始的位置；【1】表示第 1 個字符的右側位置；【2】表示第 2 個字符的右側位置；【2:5】表示第 2、3、4、5 個字符的右側位置；【-1】表示最後一個字符的右側位置；【-2】表示倒數第 2 個字符的右側位置 。",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "請注意，目前功能只支援一個連續的範圍，請刪除範圍中的逗號！"
+                "格式規範說明：【0】表示最開始的位置；【1】表示第 1 個字符的右側位置；【2】表示第 2 個字符的右側位置；【2:5】表示第 2、3、4、5 個字符的右側位置；【2:5,9】表示第 2、3、4、5、9 個字符的右側位置；【-1】表示最後一個字符的右側位置；【-2】表示倒數第 2 個字符的右側位置 。",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "請注意，目前功能只支援一個連續的範圍，請刪除範圍中的逗號！",
+            范围格式不正确必须为整数参考示例: "範圍格式不正確，必須為整數。參考示例：1,2:5,-7:-3,-2",
+            不能为0: "不能為 0 ！"
         }
     },
     "en-US": {
         translation: {
             必须提供一个有效的范围: "A valid range must be provided!",
             格式不正确: "Incorrect format!",
-            格式不正确必须为整数且不能为0: "Incorrect format, must be an integer and cannot be 0!",
             左侧数字为负数时右侧数字必须也同时为负数: "When the left number is negative, the right number must also be negative!",
             格式不正确左侧数字必须小于等于右侧数字: "Incorrect format, the left number must be less than or equal to the right number!",
             默认范围文本提示语:
@@ -73,15 +75,16 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "Format specification: [1] represents the 1st character; [2] represents the 2nd character; [2:5] represents the 2nd to the 5th character; [-1] represents the last character; [-2] represents the 2nd to last character; [-5:-2] represents the 5th to last character to the 2nd to last character; [2,4:7,-5:-2] represents the 2nd character and from the 4th to the 7th character and from the 5th to last character to the 2nd to last character.",
             文本位置范围文本提示语:
-                "Format specification: [0] represents the very beginning; [1] represents the position to the right of the first character; [2] represents the position to the right of the second character; [2:5] represents the positions to the right of the 2nd, 3rd, 4th, and 5th characters; [-1] represents the position to the right of the last character; [-2] represents the position to the right of the second-to-last character.",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Please note, the current functionality only supports a continuous range, please remove the commas in the range!"
+                "Format specification: [0] represents the very beginning; [1] represents the position to the right of the first character; [2] represents the position to the right of the second character; [2:5] represents the positions to the right of the 2nd, 3rd, 4th, and 5th characters; [2:5,9] represents the positions to the right of the 2nd, 3rd, 4th, 5th, and 9th characters; [-1] represents the position to the right of the last character; [-2] represents the position to the right of the second-to-last character.",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Please note, the current functionality only supports a continuous range, please remove the commas in the range!",
+            范围格式不正确必须为整数参考示例: "Range format is incorrect, must be an integer. Reference example: 1,2:5,-7:-3,-2",
+            不能为0: "Cannot be 0!"
         }
     },
     "fr-FR": {
         translation: {
             必须提供一个有效的范围: "Une plage valide doit être fournie !",
             格式不正确: "Format incorrect !",
-            格式不正确必须为整数且不能为0: "Format incorrect, doit être un entier et ne peut pas être 0 !",
             左侧数字为负数时右侧数字必须也同时为负数: "Lorsque le nombre à gauche est négatif, le nombre à droite doit également être négatif !",
             格式不正确左侧数字必须小于等于右侧数字: "Format incorrect, le nombre à gauche doit être inférieur ou égal au nombre à droite !",
             默认范围文本提示语:
@@ -93,16 +96,17 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "Description du format : [1] représente le 1er caractère ; [2] représente le 2ème caractère ; [2:5] représente du 2ème au 5ème caractère ; [-1] représente le dernier caractère ; [-2] représente le 2ème à partir de la fin ; [-5:-2] représente du 5ème à partir de la fin au 2ème à partir de la fin ; [2,4:7,-5:-2] représente le 2ème caractère et du 4ème au 7ème caractère et du 5ème à partir de la fin au 2ème à partir de la fin.",
             文本位置范围文本提示语:
-                "Spécification de format : [0] représente le tout début ; [1] représente la position à droite du premier caractère ; [2] représente la position à droite du deuxième caractère ; [2:5] représente les positions à droite des 2e, 3e, 4e et 5e caractères ; [-1] représente la position à droite du dernier caractère ; [-2] représente la position à droite de l'avant-dernier caractère.",
+                "Spécification de format : [0] représente le tout début ; [1] représente la position à droite du premier caractère ; [2] représente la position à droite du deuxième caractère ; [2:5] représente les positions à droite des 2e, 3e, 4e et 5e caractères ; [2:5,9] représente les positions à droite des 2e, 3e, 4e, 5e et 9e caractères ; [-1] représente la position à droite du dernier caractère ; [-2] représente la position à droite de l'avant-dernier caractère.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号:
-                "Veuillez noter que la fonctionnalité actuelle ne prend en charge qu'une plage continue, veuillez supprimer les virgules dans la plage !"
+                "Veuillez noter que la fonctionnalité actuelle ne prend en charge qu'une plage continue, veuillez supprimer les virgules dans la plage !",
+            范围格式不正确必须为整数参考示例: "Le format de plage est incorrect, il doit être un entier. Exemple de référence : 1,2:5,-7:-3,-2",
+            不能为0: "Ne peut pas être 0 !"
         }
     },
     "de-DE": {
         translation: {
             必须提供一个有效的范围: "Ein gültiger Bereich muss angegeben werden!",
             格式不正确: "Falsches Format!",
-            格式不正确必须为整数且不能为0: "Falsches Format, muss eine ganze Zahl sein und darf nicht 0 sein!",
             左侧数字为负数时右侧数字必须也同时为负数: "Wenn die linke Zahl negativ ist, muss die rechte Zahl ebenfalls negativ sein!",
             格式不正确左侧数字必须小于等于右侧数字: "Falsches Format, die linke Zahl muss kleiner oder gleich der rechten Zahl sein!",
             默认范围文本提示语:
@@ -114,16 +118,17 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "Formatbeschreibung: [1] steht für das 1. Zeichen; [2] steht für das 2. Zeichen; [2:5] steht für das 2. bis 5. Zeichen; [-1] steht für das letzte Zeichen; [-2] steht für das vorletzte Zeichen; [-5:-2] steht für das 5. bis 2. Zeichen von hinten; [2,4:7,-5:-2] steht für das 2. Zeichen und das 4. bis 7. Zeichen sowie das 5. bis 2. Zeichen von hinten.",
             文本位置范围文本提示语:
-                "Formatspezifikation: [0] repräsentiert den Anfang; [1] repräsentiert die Position rechts vom ersten Zeichen; [2] repräsentiert die Position rechts vom zweiten Zeichen; [2:5] repräsentiert die Positionen rechts vom 2., 3., 4. und 5. Zeichen; [-1] repräsentiert die Position rechts vom letzten Zeichen; [-2] repräsentiert die Position rechts vom vorletzten Zeichen.",
+                "Formatspezifikation: [0] repräsentiert den Anfang; [1] repräsentiert die Position rechts vom ersten Zeichen; [2] repräsentiert die Position rechts vom zweiten Zeichen; [2:5] repräsentiert die Positionen rechts vom 2., 3., 4. und 5. Zeichen; [2:5,9] repräsentiert die Positionen rechts vom 2., 3., 4., 5. und 9. Zeichen; [-1] repräsentiert die Position rechts vom letzten Zeichen; [-2] repräsentiert die Position rechts vom vorletzten Zeichen.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号:
-                "Bitte beachten Sie, dass die aktuelle Funktionalität nur einen kontinuierlichen Bereich unterstützt, bitte entfernen Sie die Kommas im Bereich!"
+                "Bitte beachten Sie, dass die aktuelle Funktionalität nur einen kontinuierlichen Bereich unterstützt, bitte entfernen Sie die Kommas im Bereich!",
+            范围格式不正确必须为整数参考示例: "Bereichsformat ist falsch, muss eine ganze Zahl sein. Referenzbeispiel: 1,2:5,-7:-3,-2",
+            不能为0: "Darf nicht 0 sein!"
         }
     },
     "es-ES": {
         translation: {
             必须提供一个有效的范围: "¡Debe proporcionarse un rango válido!",
             格式不正确: "¡Formato incorrecto!",
-            格式不正确必须为整数且不能为0: "¡Formato incorrecto, debe ser un número entero y no puede ser 0!",
             左侧数字为负数时右侧数字必须也同时为负数: "Cuando el número de la izquierda es negativo, el número de la derecha también debe ser negativo.",
             格式不正确左侧数字必须小于等于右侧数字: "Formato incorrecto, el número de la izquierda debe ser menor o igual al número de la derecha.",
             默认范围文本提示语:
@@ -135,15 +140,16 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "Especificación de formato: [1] representa el 1er carácter; [2] representa el 2do carácter; [2:5] representa del 2do al 5to carácter; [-1] representa el último carácter; [-2] representa el 2do desde el final; [-5:-2] representa del 5to desde el final al 2do desde el final; [2,4:7,-5:-2] representa el 2do carácter y del 4to al 7mo carácter y del 5to desde el final al 2do desde el final.",
             文本位置范围文本提示语:
-                "Especificación de formato: [0] representa el principio; [1] representa la posición a la derecha del primer carácter; [2] representa la posición a la derecha del segundo carácter; [2:5] representa las posiciones a la derecha del 2º, 3º, 4º y 5º caracteres; [-1] representa la posición a la derecha del último carácter; [-2] representa la posición a la derecha del penúltimo carácter.",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Tenga en cuenta que la funcionalidad actual solo admite un rango continuo, ¡por favor elimine las comas en el rango!"
+                "Especificación de formato: [0] representa el principio; [1] representa la posición a la derecha del primer carácter; [2] representa la posición a la derecha del segundo carácter; [2:5] representa las posiciones a la derecha del 2º, 3º, 4º y 5º caracteres; [2:5,9] representa las posiciones a la derecha del 2º, 3º, 4º, 5º y 9º caracteres; [-1] representa la posición a la derecha del último carácter; [-2] representa la posición a la derecha del penúltimo carácter.",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Tenga en cuenta que la funcionalidad actual solo admite un rango continuo, ¡por favor elimine las comas en el rango!",
+            范围格式不正确必须为整数参考示例: "El formato de rango es incorrecto, debe ser un entero. Ejemplo de referencia: 1,2:5,-7:-3,-2",
+            不能为0: "¡No puede ser 0!"
         }
     },
     "ja-JP": {
         translation: {
             必须提供一个有效的范围: "有効な範囲を提供する必要があります！",
             格式不正确: "形式が正しくありません！",
-            格式不正确必须为整数且不能为0: "形式が正しくありません。整数でなければならず、0であってはなりません！",
             左侧数字为负数时右侧数字必须也同时为负数: "左側の数字が負の場合、右側の数字も負でなければなりません！",
             格式不正确左侧数字必须小于等于右侧数字: "形式が正しくありません。左側の数字は右側の数字以下でなければなりません！",
             默认范围文本提示语:
@@ -155,15 +161,16 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "形式仕様の説明：【1】は第1文字を表します。【2】は第2文字を表します。【2:5】は第2文字から第5文字を表します。【-1】は最後の文字を表します。【-2】は最後から2番目の文字を表します。【-5:-2】は最後から5番目の文字から最後から2番目の文字を表します。【2,4:7,-5:-2】は第2文字と第4文字から第7文字及び最後から5番目の文字から最後から2番目の文字を表します。",
             文本位置范围文本提示语:
-                "フォーマット仕様: 【0】は最初の位置を表します; 【1】は第1文字の右側の位置を表します; 【2】は第2文字の右側の位置を表します; 【2:5】は第2、3、4、5文字の右側の位置を表します; 【-1】は最後の文字の右側の位置を表します; 【-2】は最後から2番目の文字の右側の位置を表します。",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "現在の機能は連続した範囲のみをサポートしているため、範囲内のコンマを削除してください！"
+                "フォーマット仕様: 【0】は最初の位置を表します; 【1】は第1文字の右側の位置を表します; 【2】は第2文字の右側の位置を表します; 【2:5】は第2、3、4、5文字の右側の位置を表します; 【2:5,9】は第2、3、4、5、9文字の右側の位置を表します; 【-1】は最後の文字の右側の位置を表します; 【-2】は最後から2番目の文字の右側の位置を表します。",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "現在の機能は連続した範囲のみをサポートしているため、範囲内のコンマを削除してください！",
+            范围格式不正确必须为整数参考示例: "範囲の形式が正しくなく、整数でなければなりません。参考例：1,2:5,-7:-3,-2",
+            不能为0: "0であってはなりません！"
         }
     },
     "ko-KR": {
         translation: {
             必须提供一个有效的范围: "유효한 범위를 제공해야 합니다!",
             格式不正确: "잘못된 형식입니다!",
-            格式不正确必须为整数且不能为0: "잘못된 형식입니다. 정수여야 하며 0일 수 없습니다!",
             左侧数字为负数时右侧数字必须也同时为负数: "왼쪽 숫자가 음수인 경우 오른쪽 숫자도 음수여야 합니다!",
             格式不正确左侧数字必须小于等于右侧数字: "잘못된 형식입니다. 왼쪽 숫자는 오른쪽 숫자보다 작거나 같아야 합니다!",
             默认范围文本提示语:
@@ -175,8 +182,10 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
             字符范围文本提示语:
                 "형식 사양 설명: [1]은 첫 번째 문자를 나타냅니다. [2]는 두 번째 문자를 나타냅니다. [2:5]는 두 번째 문자에서 다섯 번째 문자를 나타냅니다. [-1]은 마지막 문자를 나타냅니다. [-2]는 뒤에서 두 번째 문자를 나타냅니다. [-5:-2]는 뒤에서 다섯 번째 문자에서 뒤에서 두 번째 문자를 나타냅니다. [2,4:7,-5:-2]는 두 번째 문자 및 네 번째 문자에서 일곱 번째 문자 및 뒤에서 다섯 번째 문자에서 뒤에서 두 번째 문자를 나타냅니다.",
             文本位置范围文本提示语:
-                "형식 사양: 【0】은 가장 처음 위치를 나타냅니다; 【1】은 첫 번째 문자 오른쪽의 위치를 나타냅니다; 【2】은 두 번째 문자 오른쪽의 위치를 나타냅니다; 【2:5】은 2, 3, 4, 5번째 문자 오른쪽의 위치를 나타냅니다; 【-1】은 마지막 문자 오른쪽의 위치를 나타냅니다; 【-2】은 끝에서 두 번째 문자 오른쪽의 위치를 나타냅니다.",
-            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "현재 기능은 연속 범위만 지원하므로 범위 내 쉼표를 제거하세요!"
+                "형식 사양: 【0】은 가장 처음 위치를 나타냅니다; 【1】은 첫 번째 문자 오른쪽의 위치를 나타냅니다; 【2】은 두 번째 문자 오른쪽의 위치를 나타냅니다; 【2:5】은 2, 3, 4, 5번째 문자 오른쪽의 위치를 나타냅니다; 【2:5,9】은 2, 3, 4, 5, 9번째 문자 오른쪽의 위치를 나타냅니다; 【-1】은 마지막 문자 오른쪽의 위치를 나타냅니다; 【-2】은 끝에서 두 번째 문자 오른쪽의 위치를 나타냅니다.",
+            请注意当前功能只支持一个连续的范围请删除范围中的逗号: "현재 기능은 연속 범위만 지원하므로 범위 내 쉼표를 제거하세요!",
+            范围格式不正确必须为整数参考示例: "범위 형식이 잘못되었으며, 정수여야 합니다. 참고 예: 1,2:5,-7:-3,-2",
+            不能为0: "0일 수 없습니다!"
         }
     }
 }
