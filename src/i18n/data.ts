@@ -12,6 +12,7 @@ export enum XJsKitTranslationKeyNameEnum {
     页面范围文本提示语 = "页面范围文本提示语",
     工作表范围文本提示语 = "工作表范围文本提示语",
     字符范围文本提示语 = "字符范围文本提示语",
+    文本位置范围文本提示语 = "文本位置范围文本提示语",
     请注意当前功能只支持一个连续的范围请删除范围中的逗号 = "请注意当前功能只支持一个连续的范围请删除范围中的逗号"
 }
 
@@ -31,6 +32,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "格式规范说明：【1】表示第 1 个工作表；【2】表示第 2 个工作表；【2:5】表示第 2 个工作表到第 5 个工作表；【-1】表示最后一个工作表；【-2】表示倒数第 2 个工作表 ；【-5:-2】表示倒数第 5 个工作表至倒数第 2 个工作表；【2,4:7,-5:-2】表示第 2 个工作表和第 4 个工作表至第 7 个工作表及倒数第 5 个工作表至倒数第 2 个工作表。",
             字符范围文本提示语:
                 "格式规范说明：【1】表示第 1 个字符；【2】表示第 2 个字符；【2:5】表示第 2 个字符到第 5 个字符；【-1】表示最后一个字符；【-2】表示倒数第 2 个字符 ；【-5:-2】表示倒数第 5 个字符至倒数第 2 个字符；【2,4:7,-5:-2】表示第 2 个字符和第 4 个字符至第 7 个字符及倒数第 5 个字符至倒数第 2 个字符。",
+            文本位置范围文本提示语:
+                "格式规范说明：【0】表示最开始的位置；【1】表示第 1 个字符的右侧位置；【2】表示第 2 个字符的右侧位置；【2:5】表示第 2、3、4、5 个字符的右侧位置；【-1】表示最后一个字符的右侧位置；【-2】表示倒数第 2 个字符的右侧位置 。",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "请注意，当前功能只支持一个连续的范围，请删除范围中的逗号！"
         }
     },
@@ -49,6 +52,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "格式規範說明：【1】表示第 1 個工作表；【2】表示第 2 個工作表；【2:5】表示第 2 個工作表到第 5 個工作表；【-1】表示最後一個工作表；【-2】表示倒數第 2 個工作表 ；【-5:-2】表示倒數第 5 個工作表至倒數第 2 個工作表；【2,4:7,-5:-2】表示第 2 個工作表和第 4 個工作表至第 7 個工作表及倒數第 5 個工作表至倒數第 2 個工作表。",
             字符范围文本提示语:
                 "格式規範說明：【1】表示第 1 個字符；【2】表示第 2 個字符；【2:5】表示第 2 個字符到第 5 個字符；【-1】表示最後一個字符；【-2】表示倒數第 2 個字符 ；【-5:-2】表示倒數第 5 個字符至倒數第 2 個字符；【2,4:7,-5:-2】表示第 2 個字符和第 4 個字符至第 7 個字符及倒數第 5 個字符至倒數第 2 個字符。",
+            文本位置范围文本提示语:
+                "格式規範說明：【0】表示最開始的位置；【1】表示第 1 個字符的右側位置；【2】表示第 2 個字符的右側位置；【2:5】表示第 2、3、4、5 個字符的右側位置；【-1】表示最後一個字符的右側位置；【-2】表示倒數第 2 個字符的右側位置 。",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "請注意，目前功能只支援一個連續的範圍，請刪除範圍中的逗號！"
         }
     },
@@ -67,6 +72,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "Format specification: [1] represents the 1st worksheet; [2] represents the 2nd worksheet; [2:5] represents the 2nd to the 5th worksheet; [-1] represents the last worksheet; [-2] represents the 2nd to last worksheet; [-5:-2] represents the 5th to last worksheet to the 2nd to last worksheet; [2,4:7,-5:-2] represents the 2nd worksheet and from the 4th to the 7th worksheet and from the 5th to last worksheet to the 2nd to last worksheet.",
             字符范围文本提示语:
                 "Format specification: [1] represents the 1st character; [2] represents the 2nd character; [2:5] represents the 2nd to the 5th character; [-1] represents the last character; [-2] represents the 2nd to last character; [-5:-2] represents the 5th to last character to the 2nd to last character; [2,4:7,-5:-2] represents the 2nd character and from the 4th to the 7th character and from the 5th to last character to the 2nd to last character.",
+            文本位置范围文本提示语:
+                "Format specification: [0] represents the very beginning; [1] represents the position to the right of the first character; [2] represents the position to the right of the second character; [2:5] represents the positions to the right of the 2nd, 3rd, 4th, and 5th characters; [-1] represents the position to the right of the last character; [-2] represents the position to the right of the second-to-last character.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Please note, the current functionality only supports a continuous range, please remove the commas in the range!"
         }
     },
@@ -85,6 +92,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "Description du format : [1] représente la 1ère feuille de calcul ; [2] représente la 2ème feuille de calcul ; [2:5] représente de la 2ème à la 5ème feuille de calcul ; [-1] représente la dernière feuille de calcul ; [-2] représente la 2ème à partir de la fin ; [-5:-2] représente de la 5ème à partir de la fin à la 2ème à partir de la fin ; [2,4:7,-5:-2] représente la 2ème feuille de calcul et de la 4ème à la 7ème feuille de calcul et de la 5ème à partir de la fin à la 2ème à partir de la fin.",
             字符范围文本提示语:
                 "Description du format : [1] représente le 1er caractère ; [2] représente le 2ème caractère ; [2:5] représente du 2ème au 5ème caractère ; [-1] représente le dernier caractère ; [-2] représente le 2ème à partir de la fin ; [-5:-2] représente du 5ème à partir de la fin au 2ème à partir de la fin ; [2,4:7,-5:-2] représente le 2ème caractère et du 4ème au 7ème caractère et du 5ème à partir de la fin au 2ème à partir de la fin.",
+            文本位置范围文本提示语:
+                "Spécification de format : [0] représente le tout début ; [1] représente la position à droite du premier caractère ; [2] représente la position à droite du deuxième caractère ; [2:5] représente les positions à droite des 2e, 3e, 4e et 5e caractères ; [-1] représente la position à droite du dernier caractère ; [-2] représente la position à droite de l'avant-dernier caractère.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号:
                 "Veuillez noter que la fonctionnalité actuelle ne prend en charge qu'une plage continue, veuillez supprimer les virgules dans la plage !"
         }
@@ -104,6 +113,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "Formatbeschreibung: [1] steht für das 1. Arbeitsblatt; [2] steht für das 2. Arbeitsblatt; [2:5] steht für das 2. bis 5. Arbeitsblatt; [-1] steht für das letzte Arbeitsblatt; [-2] steht für das vorletzte Arbeitsblatt; [-5:-2] steht für das 5. bis 2. Arbeitsblatt von hinten; [2,4:7,-5:-2] steht für das 2. Arbeitsblatt und das 4. bis 7. Arbeitsblatt sowie das 5. bis 2. Arbeitsblatt von hinten.",
             字符范围文本提示语:
                 "Formatbeschreibung: [1] steht für das 1. Zeichen; [2] steht für das 2. Zeichen; [2:5] steht für das 2. bis 5. Zeichen; [-1] steht für das letzte Zeichen; [-2] steht für das vorletzte Zeichen; [-5:-2] steht für das 5. bis 2. Zeichen von hinten; [2,4:7,-5:-2] steht für das 2. Zeichen und das 4. bis 7. Zeichen sowie das 5. bis 2. Zeichen von hinten.",
+            文本位置范围文本提示语:
+                "Formatspezifikation: [0] repräsentiert den Anfang; [1] repräsentiert die Position rechts vom ersten Zeichen; [2] repräsentiert die Position rechts vom zweiten Zeichen; [2:5] repräsentiert die Positionen rechts vom 2., 3., 4. und 5. Zeichen; [-1] repräsentiert die Position rechts vom letzten Zeichen; [-2] repräsentiert die Position rechts vom vorletzten Zeichen.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号:
                 "Bitte beachten Sie, dass die aktuelle Funktionalität nur einen kontinuierlichen Bereich unterstützt, bitte entfernen Sie die Kommas im Bereich!"
         }
@@ -123,6 +134,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "Especificación de formato: [1] representa la 1ra hoja de cálculo; [2] representa la 2da hoja de cálculo; [2:5] representa de la 2da a la 5ta hoja de cálculo; [-1] representa la última hoja de cálculo; [-2] representa la 2da desde el final; [-5:-2] representa de la 5ta desde el final a la 2da desde el final; [2,4:7,-5:-2] representa la 2da hoja de cálculo y de la 4ta a la 7ma hoja de cálculo y de la 5ta desde el final a la 2da desde el final.",
             字符范围文本提示语:
                 "Especificación de formato: [1] representa el 1er carácter; [2] representa el 2do carácter; [2:5] representa del 2do al 5to carácter; [-1] representa el último carácter; [-2] representa el 2do desde el final; [-5:-2] representa del 5to desde el final al 2do desde el final; [2,4:7,-5:-2] representa el 2do carácter y del 4to al 7mo carácter y del 5to desde el final al 2do desde el final.",
+            文本位置范围文本提示语:
+                "Especificación de formato: [0] representa el principio; [1] representa la posición a la derecha del primer carácter; [2] representa la posición a la derecha del segundo carácter; [2:5] representa las posiciones a la derecha del 2º, 3º, 4º y 5º caracteres; [-1] representa la posición a la derecha del último carácter; [-2] representa la posición a la derecha del penúltimo carácter.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "Tenga en cuenta que la funcionalidad actual solo admite un rango continuo, ¡por favor elimine las comas en el rango!"
         }
     },
@@ -141,6 +154,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "形式仕様の説明：【1】は第1ワークシートを表します。【2】は第2ワークシートを表します。【2:5】は第2ワークシートから第5ワークシートを表します。【-1】は最後のワークシートを表します。【-2】は最後から2番目のワークシートを表します。【-5:-2】は最後から5番目のワークシートから最後から2番目のワークシートを表します。【2,4:7,-5:-2】は第2ワークシートと第4ワークシートから第7ワークシート及び最後から5番目のワークシートから最後から2番目のワークシートを表します。",
             字符范围文本提示语:
                 "形式仕様の説明：【1】は第1文字を表します。【2】は第2文字を表します。【2:5】は第2文字から第5文字を表します。【-1】は最後の文字を表します。【-2】は最後から2番目の文字を表します。【-5:-2】は最後から5番目の文字から最後から2番目の文字を表します。【2,4:7,-5:-2】は第2文字と第4文字から第7文字及び最後から5番目の文字から最後から2番目の文字を表します。",
+            文本位置范围文本提示语:
+                "フォーマット仕様: 【0】は最初の位置を表します; 【1】は第1文字の右側の位置を表します; 【2】は第2文字の右側の位置を表します; 【2:5】は第2、3、4、5文字の右側の位置を表します; 【-1】は最後の文字の右側の位置を表します; 【-2】は最後から2番目の文字の右側の位置を表します。",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "現在の機能は連続した範囲のみをサポートしているため、範囲内のコンマを削除してください！"
         }
     },
@@ -159,6 +174,8 @@ export const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof def
                 "형식 사양 설명: [1]은 첫 번째 워크시트를 나타냅니다. [2]는 두 번째 워크시트를 나타냅니다. [2:5]는 두 번째 워크시트에서 다섯 번째 워크시트를 나타냅니다. [-1]은 마지막 워크시트를 나타냅니다. [-2]는 뒤에서 두 번째 워크시트를 나타냅니다. [-5:-2]는 뒤에서 다섯 번째 워크시트에서 뒤에서 두 번째 워크시트를 나타냅니다. [2,4:7,-5:-2]는 두 번째 워크시트 및 네 번째 워크시트에서 일곱 번째 워크시트 및 뒤에서 다섯 번째 워크시트에서 뒤에서 두 번째 워크시트를 나타냅니다.",
             字符范围文本提示语:
                 "형식 사양 설명: [1]은 첫 번째 문자를 나타냅니다. [2]는 두 번째 문자를 나타냅니다. [2:5]는 두 번째 문자에서 다섯 번째 문자를 나타냅니다. [-1]은 마지막 문자를 나타냅니다. [-2]는 뒤에서 두 번째 문자를 나타냅니다. [-5:-2]는 뒤에서 다섯 번째 문자에서 뒤에서 두 번째 문자를 나타냅니다. [2,4:7,-5:-2]는 두 번째 문자 및 네 번째 문자에서 일곱 번째 문자 및 뒤에서 다섯 번째 문자에서 뒤에서 두 번째 문자를 나타냅니다.",
+            文本位置范围文本提示语:
+                "형식 사양: 【0】은 가장 처음 위치를 나타냅니다; 【1】은 첫 번째 문자 오른쪽의 위치를 나타냅니다; 【2】은 두 번째 문자 오른쪽의 위치를 나타냅니다; 【2:5】은 2, 3, 4, 5번째 문자 오른쪽의 위치를 나타냅니다; 【-1】은 마지막 문자 오른쪽의 위치를 나타냅니다; 【-2】은 끝에서 두 번째 문자 오른쪽의 위치를 나타냅니다.",
             请注意当前功能只支持一个连续的范围请删除范围中的逗号: "현재 기능은 연속 범위만 지원하므로 범위 내 쉼표를 제거하세요!"
         }
     }

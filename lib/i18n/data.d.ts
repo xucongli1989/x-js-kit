@@ -10,6 +10,7 @@ export declare enum XJsKitTranslationKeyNameEnum {
     页面范围文本提示语 = "\u9875\u9762\u8303\u56F4\u6587\u672C\u63D0\u793A\u8BED",
     工作表范围文本提示语 = "\u5DE5\u4F5C\u8868\u8303\u56F4\u6587\u672C\u63D0\u793A\u8BED",
     字符范围文本提示语 = "\u5B57\u7B26\u8303\u56F4\u6587\u672C\u63D0\u793A\u8BED",
+    文本位置范围文本提示语 = "\u6587\u672C\u4F4D\u7F6E\u8303\u56F4\u6587\u672C\u63D0\u793A\u8BED",
     请注意当前功能只支持一个连续的范围请删除范围中的逗号 = "\u8BF7\u6CE8\u610F\u5F53\u524D\u529F\u80FD\u53EA\u652F\u6301\u4E00\u4E2A\u8FDE\u7EED\u7684\u8303\u56F4\u8BF7\u5220\u9664\u8303\u56F4\u4E2D\u7684\u9017\u53F7"
 }
 export declare const XJsKitI18nResourcesData: Record<LanguageTypeEnum, Record<typeof defaultNameSpace, Record<keyof typeof XJsKitTranslationKeyNameEnum, string>>>;
