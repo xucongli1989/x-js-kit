@@ -1,17 +1,17 @@
 import { i18n, Resource, ThirdPartyModule } from "i18next";
 export declare enum LanguageTypeEnum {
     简体中文 = "zh-CN",
+    繁體中文 = "zh-TW",
     English = "en-US",
     Français = "fr-FR",
     Deutsch = "de-DE",
     Español = "es-ES",
     日本語 = "ja-JP",
-    한국어 = "ko-KR",
-    繁體中文 = "zh-TW"
+    한국어 = "ko-KR"
 }
 /**
  * 显示语言列表
- * @param isChina true：只返回简体中文，false：返回除简体中文之外的所有语言
+ * @param isChina true：只返回【简体中文、繁体中文】，false：返回除【简体中文、繁体中文】之外的所有语言
  */
 export declare function getLanguageTypeEnumList(isChina?: boolean): import("../entity/keyValue").KeyValue<string, any>[];
 /**
