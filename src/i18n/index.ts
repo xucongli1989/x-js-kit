@@ -6,26 +6,40 @@ import { XJsKitI18nResourcesData } from "./data"
 
 export enum LanguageTypeEnum {
     简体中文 = "zh-CN",
-    繁體中文 = "zh-TW",
     English = "en-US",
     Français = "fr-FR",
     Deutsch = "de-DE",
     Español = "es-ES",
     日本語 = "ja-JP",
-    한국어 = "ko-KR"
+    한국어 = "ko-KR",
+    繁體中文 = "zh-TW"
 }
-export const LanguageTypeEnumList = convertEnumToList(LanguageTypeEnum)
+
+/**
+ * 显示语言列表
+ * @param isChina true：只返回简体中文，false：返回除简体中文之外的所有语言
+ */
+export function getLanguageTypeEnumList(isChina?: boolean) {
+    const lst = convertEnumToList(LanguageTypeEnum)
+    if (isChina === true) {
+        return lst.filter((k) => k.value == LanguageTypeEnum.简体中文)
+    }
+    if (isChina === false) {
+        return lst.filter((k) => k.value != LanguageTypeEnum.简体中文)
+    }
+    return lst
+}
 
 /**
  * 从语言的字符串代码中获取支持的语言，如：ja-jp -> ja-JP, ja -> ja-JP
  */
 export function getLanguageFromCode(code: string) {
-    let result = LanguageTypeEnumList.find((k) => k.value.toUpperCase() == code.toUpperCase())?.value
+    let result = getLanguageTypeEnumList().find((k) => k.value.toUpperCase() == code.toUpperCase())?.value
     if (!result) {
-        result = LanguageTypeEnumList.find((k) => k.value.toUpperCase().split("-")[1] == code.toUpperCase())?.value
+        result = getLanguageTypeEnumList().find((k) => k.value.toUpperCase().split("-")[1] == code.toUpperCase())?.value
     }
     if (!result) {
-        result = LanguageTypeEnumList.find((k) => k.value.toUpperCase().split("-")[0] == code.toUpperCase())?.value
+        result = getLanguageTypeEnumList().find((k) => k.value.toUpperCase().split("-")[0] == code.toUpperCase())?.value
     }
     return result as LanguageTypeEnum
 }
@@ -68,7 +82,7 @@ export function createOrInitI18nInstance(isCreateNewInstance: boolean, defaultIn
 
     const initOps: InitOptions = {
         lng: currentLang,
-        supportedLngs: LanguageTypeEnumList.map((k) => k.value),
+        supportedLngs: getLanguageTypeEnumList().map((k) => k.value),
         fallbackLng: defaultLang,
         interpolation: {
             escapeValue: false
