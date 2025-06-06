@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.54.0](https://github.com/xucongli1989/x-js-kit/compare/v4.53.0...v4.54.0) (2025-06-06)
+
+
+### Features
+
+* add normalizeMathSymbol ([a4a175d](https://github.com/xucongli1989/x-js-kit/commit/a4a175dad0fef3e6f788c7425f80ce49f77a8eb2))
+
 ## [4.53.0](https://github.com/xucongli1989/x-js-kit/compare/v4.52.0...v4.53.0) (2025-05-28)
 
 
