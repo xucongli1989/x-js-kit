@@ -162,4 +162,8 @@ export declare function removeStartLine(str: string): string;
  * 删除所有空白字符
  */
 export declare function removeWhiteSpace(str: string): string;
+/**
+ * 将字符串中的数学表达式 unicode 符号替换为基本的运算符
+ */
+export declare function normalizeMathSymbol(str: string): string;
 //# sourceMappingURL=string.d.ts.map

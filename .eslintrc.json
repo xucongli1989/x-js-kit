@@ -9,6 +9,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "extends": [
+    "eslint-config-airbnb",
     "eslint-config-airbnb-typescript",
     "eslint-config-airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
@@ -45,6 +46,11 @@
     "react/jsx-indent-props": "off",
     "react/jsx-no-target-blank": "off",
     "react-hooks/exhaustive-deps": "off",
+    "react/jsx-key": "error",
+    "react/require-default-props": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-deprecated": "off",
     "no-continue": "off",
     "guard-for-in": "off",
     "no-bitwise": "off",
@@ -72,6 +78,8 @@
     "no-restricted-syntax": "off",
     "radix": "off",
     "operator-linebreak": "off",
+    "newline-per-chained-call": "off",
+    "no-restricted-exports": "off",
     "@typescript-eslint/no-loop-func": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/prefer-regexp-exec": "off",
@@ -112,7 +120,14 @@
         "typedefs": false,
         "ignoreTypeReferences": true
       }
-    ]
+    ],
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/no-unsafe-enum-comparison": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/dot-notation": "off"
   },
   "overrides": [
     {

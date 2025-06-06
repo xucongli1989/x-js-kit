@@ -446,3 +446,13 @@ export function removeWhiteSpace(str: string) {
     }
     return str.replaceAll(/\s+/g, "")
 }
+
+/**
+ * 将字符串中的数学表达式 unicode 符号替换为基本的运算符
+ */
+export function normalizeMathSymbol(str: string) {
+    if (!str) {
+        return ""
+    }
+    return str.replace(/−/g, "-").replace(/[×∗]/g, "*").replace(/[÷∕]/g, "/").replace(/（/g, "(").replace(/）/g, ")").replace(/\s+/g, " ")
+}

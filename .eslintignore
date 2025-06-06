@@ -1,7 +1,10 @@
-**/node_modules/**
-**/dist/**
-**/build/**
-**/.ares/**
-lib/**
 /*
-!/src
+!/src/
+!/*.js
+!/*.ts
+!/*.mjs
+!/*.cjs
+!/package.json
+!/tsconfig.json
+**/.eslintignore
+**/.prettierignore
