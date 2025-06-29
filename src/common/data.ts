@@ -160,3 +160,22 @@ export function isInIgnoreCase(value: string, ...args: string[]): boolean {
     }
     return !!args.find((k) => (k || "").toUpperCase() === value.toUpperCase())
 }
+
+/**
+ * 判断一个字符串是否为 URL
+ */
+export function isURL(value: string) {
+    if (!value) {
+        return false
+    }
+    if (/\s/.test(value)) {
+        return false
+    }
+    try {
+        // eslint-disable-next-line no-new
+        new URL(value)
+        return true
+    } catch {
+        return false
+    }
+}

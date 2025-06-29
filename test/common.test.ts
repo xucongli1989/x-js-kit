@@ -222,6 +222,13 @@ test("common.data", () => {
     expect(common.data.isIn("a", "a", "b")).toBeTruthy()
     expect(common.data.isInIgnoreCase("a")).toBeFalsy()
     expect(common.data.isInIgnoreCase("aaa", "AAA", "b")).toBeTruthy()
+
+    expect(common.data.isURL("")).toBeFalsy()
+    expect(common.data.isURL("abc://www.    test")).toBeFalsy()
+    expect(common.data.isURL("abc://www.test.test\n")).toBeFalsy()
+    expect(common.data.isURL("abc://www.test.test   \t www")).toBeFalsy()
+    expect(common.data.isURL("abc://www.test.test")).toBeTruthy()
+
 })
 
 test("common.enumTool", () => {

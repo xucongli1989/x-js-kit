@@ -96,4 +96,8 @@ export declare function isIn<T>(value: T, ...args: T[]): boolean;
  * @param args 参数列表
  */
 export declare function isInIgnoreCase(value: string, ...args: string[]): boolean;
+/**
+ * 判断一个字符串是否为 URL
+ */
+export declare function isURL(value: string): boolean;
 //# sourceMappingURL=data.d.ts.map
