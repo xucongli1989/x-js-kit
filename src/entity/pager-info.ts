@@ -41,3 +41,17 @@ export interface PagerQueryType {
      */
     pageSize: number
 }
+
+/**
+ * 数据列表类型
+ */
+export interface PageResultInfoType<T> {
+    /**
+     * 数据列表
+     */
+    dataList: T[]
+    /**
+     * 分页信息
+     */
+    pagerInfo: PagerInfoType
+}
