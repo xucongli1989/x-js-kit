@@ -32,3 +32,10 @@ export function createPagerInfo(totalCount: number, pageSize: number, pageIndex:
     }
     return pagerInfo
 }
+
+/**
+ * 获取某一页的起始索引值（从 0 开始）
+ */
+export function getPageStartIndex(pageSize: number, pageIndex: number) {
+    return (pageIndex - 1) * pageSize
+}

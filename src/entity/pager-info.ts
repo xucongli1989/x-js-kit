@@ -27,3 +27,17 @@ export interface PagerInfoType {
      */
     pageCount: number
 }
+
+/**
+ * 分页查询参数类型
+ */
+export interface PagerQueryType {
+    /**
+     * 当前为第几页，从 1 开始
+     */
+    pageIndex: number
+    /**
+     * 每页最多显示几条数据
+     */
+    pageSize: number
+}
