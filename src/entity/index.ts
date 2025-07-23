@@ -5,6 +5,7 @@ import * as select from "./select"
 import * as serialize from "./serialize"
 import * as message from "./message"
 import * as methodResult from "./method-result"
+import * as fileInfo from "./file-info"
 
 export default {
     /**
@@ -30,5 +31,9 @@ export default {
     /**
      * 方法结果实体
      */
-    methodResult
+    methodResult,
+    /**
+     * 文件相关
+     */
+    fileInfo
 }

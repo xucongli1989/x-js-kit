@@ -4,6 +4,7 @@ import * as select from "./select";
 import * as serialize from "./serialize";
 import * as message from "./message";
 import * as methodResult from "./method-result";
+import * as fileInfo from "./file-info";
 declare const _default: {
     /**
      * 证件实体
@@ -29,6 +30,10 @@ declare const _default: {
      * 方法结果实体
      */
     methodResult: typeof methodResult;
+    /**
+     * 文件相关
+     */
+    fileInfo: typeof fileInfo;
 };
 export default _default;
 //# sourceMappingURL=index.d.ts.map
