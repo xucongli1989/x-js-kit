@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.58.0](https://github.com/xucongli1989/x-js-kit/compare/v4.57.0...v4.58.0) (2025-07-23)
+
+
+### Features
+
+* add fileinfo entity ([fc29b10](https://github.com/xucongli1989/x-js-kit/commit/fc29b109c17b10d2612c099ca3565a2fdf14ee54))
+
 ## [4.57.0](https://github.com/xucongli1989/x-js-kit/compare/v4.56.0...v4.57.0) (2025-07-12)
 
 
