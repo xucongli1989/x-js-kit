@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.59.0](https://github.com/xucongli1989/x-js-kit/compare/v4.58.0...v4.59.0) (2025-08-08)
+
+
+### Features
+
+* add objToString ([46687a5](https://github.com/xucongli1989/x-js-kit/commit/46687a53efa196a7907a41d750f979127a50768f))
+
 ## [4.58.0](https://github.com/xucongli1989/x-js-kit/compare/v4.57.0...v4.58.0) (2025-07-23)
 
 
