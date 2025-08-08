@@ -20,8 +20,12 @@ export declare function hasValue(json: AnyKeyValueType, keyValue: any): boolean;
  */
 export declare function toParams(json: AnyKeyValueType): string;
 /**
- * 将json字符串转换为对象，如果转换失败，则返回null
+ * 将json字符串转换为对象。如果转换失败，则返回null；如果已经是对象，则直接返回该对象。
  * @param json json字符串
  */
-export declare function toObject<T>(json: string): T | null;
+export declare function toObject<T>(json: any): T | null;
+/**
+ * 将对象转换为字符串。如果已经是字符串，则直接返回该字符串。
+ */
+export declare function objToString(obj: any): any;
 //# sourceMappingURL=json.d.ts.map

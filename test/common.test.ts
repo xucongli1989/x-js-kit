@@ -366,6 +366,11 @@ test("common.json", () => {
     expect(jsonObject.b).toBe(456)
     const arrayObject = common.json.toObject('\n\n    [1,2,3]\n\n        \n') as any
     expect(arrayObject).toEqual([1, 2, 3])
+    expect(common.json.toObject(obj)).toBe(obj)
+
+    expect(common.json.objToString('test')).toBe('test')
+    expect(common.json.objToString('{"name":"test"}')).toBe('{"name":"test"}')
+    expect(common.json.objToString({name:"test"})).toBe(JSON.stringify({name:"test"}))
 })
 
 test("common.lib", () => {

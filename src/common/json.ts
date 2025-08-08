@@ -1,5 +1,5 @@
 import { AnyKeyValueType } from "../declaration/common"
-import { isArray, isNullOrUndefined, isNullOrWhiteSpace, isString } from "./data"
+import { isArray, isNullOrUndefined, isNullOrWhiteSpace, isObject, isString } from "./data"
 
 /**
  * 是否包含名key
@@ -59,13 +59,19 @@ export function toParams(json: AnyKeyValueType) {
 }
 
 /**
- * 将json字符串转换为对象，如果转换失败，则返回null
+ * 将json字符串转换为对象。如果转换失败，则返回null；如果已经是对象，则直接返回该对象。
  * @param json json字符串
  */
-export function toObject<T>(json: string): T | null {
+export function toObject<T>(json: any): T | null {
+    //如果已经是对象，则直接返回
+    if (isObject(json)) {
+        return json
+    }
+
     if (!json) {
         return null
     }
+
     let result: T | null = null
     try {
         //去前后空白
@@ -79,4 +85,19 @@ export function toObject<T>(json: string): T | null {
         //
     }
     return result
+}
+
+/**
+ * 将对象转换为字符串。如果已经是字符串，则直接返回该字符串。
+ */
+export function objToString(obj: any) {
+    if (isString(obj)) {
+        return obj
+    }
+
+    try {
+        return JSON.stringify(obj)
+    } catch {
+        return ""
+    }
 }
