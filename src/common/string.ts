@@ -422,6 +422,9 @@ export function getHowToUseRangeText(type?: RangeTextTypeEnum) {
         case RangeTextTypeEnum.文本位置范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.文本位置范围文本提示语)
             break
+        case RangeTextTypeEnum.行范围:
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.行范围提示语)
+            break
         default:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.默认范围文本提示语)
             break
