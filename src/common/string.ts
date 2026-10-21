@@ -413,6 +413,9 @@ export function getHowToUseRangeText(type?: RangeTextTypeEnum) {
         case RangeTextTypeEnum.页面范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.页面范围文本提示语)
             break
+        case RangeTextTypeEnum.页面位置范围:
+            txt = i18n.t(XJsKitTranslationKeyNameEnum.页面位置范围提示语)
+            break
         case RangeTextTypeEnum.工作表范围:
             txt = i18n.t(XJsKitTranslationKeyNameEnum.工作表范围文本提示语)
             break

@@ -24,6 +24,7 @@ export declare enum YesOrNoEnum {
 }
 export declare enum RangeTextTypeEnum {
     页面范围 = "\u9875\u9762\u8303\u56F4",
+    页面位置范围 = "\u9875\u9762\u4F4D\u7F6E\u8303\u56F4",
     工作表范围 = "\u5DE5\u4F5C\u8868\u8303\u56F4",
     字符范围 = "\u5B57\u7B26\u8303\u56F4",
     文本位置范围 = "\u6587\u672C\u4F4D\u7F6E\u8303\u56F4",

@@ -28,6 +28,7 @@ export enum YesOrNoEnum {
 
 export enum RangeTextTypeEnum {
     页面范围 = "页面范围",
+    页面位置范围 = "页面位置范围",
     工作表范围 = "工作表范围",
     字符范围 = "字符范围",
     文本位置范围 = "文本位置范围",
